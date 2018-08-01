@@ -1,0 +1,45 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[remote "origin"]
+	url = https://github.com/ReviveCrawl/crawl
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+[remote "crawl"]
+	url = https://github.com/crawl/crawl
+	fetch = +refs/heads/*:refs/remotes/crawl/*
+[branch "stone_soup-0.13"]
+	remote = origin
+	merge = refs/heads/stone_soup-0.13
+[branch "CHANGE_FROM_0.13"]
+	remote = origin
+	merge = refs/heads/CHANGE_FROM_0.13
+[submodule "crawl-ref/source/contrib/fonts"]
+	url = git://github.com/crawl/crawl-fonts.git
+[submodule "crawl-ref/source/contrib/freetype"]
+	url = git://github.com/crawl/crawl-freetype.git
+[submodule "crawl-ref/source/contrib/libpng"]
+	url = git://github.com/crawl/crawl-libpng.git
+[submodule "crawl-ref/source/contrib/lua"]
+	url = git://github.com/crawl/crawl-lua.git
+[submodule "crawl-ref/source/contrib/luajit"]
+	url = git://github.com/crawl/crawl-luajit.git
+[submodule "crawl-ref/source/contrib/pcre"]
+	url = git://github.com/crawl/crawl-pcre.git
+[submodule "crawl-ref/source/contrib/sdl"]
+	url = git://github.com/crawl/crawl-sdl.git
+[submodule "crawl-ref/source/contrib/sdl-android"]
+	url = git://github.com/crawl/sdl-android.git
+	update = none
+[submodule "crawl-ref/source/contrib/sdl-image"]
+	url = git://github.com/crawl/crawl-sdl-image.git
+[submodule "crawl-ref/source/contrib/sqlite"]
+	url = git://github.com/crawl/crawl-sqlite.git
+[submodule "crawl-ref/source/contrib/zlib"]
+	url = git://github.com/crawl/crawl-zlib.git
