@@ -215,7 +215,7 @@ perl.exe "util/gen-cflg.pl" compflag.h "&lt;UNKNOWN&gt;" "&lt;UNKNOWN&gt;"
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\abl-show.cc" />
+    <ClCompile Include="..\..\..\sys\abl-show.cc" />
     <ClCompile Include="..\abyss.cc" />
     <ClCompile Include="..\acquire.cc" />
     <ClCompile Include="..\act-iter.cc" />
@@ -597,7 +597,7 @@ perl.exe "util/gen-cflg.pl" compflag.h "&lt;UNKNOWN&gt;" "&lt;UNKNOWN&gt;"
     <ClCompile Include="..\zotdef.cc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\abl-show.h" />
+    <ClInclude Include="..\..\..\sys\abl-show.h" />
     <ClInclude Include="..\abyss.h" />
     <ClInclude Include="..\acquire.h" />
     <ClInclude Include="..\act-iter.h" />
