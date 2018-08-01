@@ -1,0 +1,1 @@
+x86_64-w64-mingw32-gcc x86_64-w64-mingw32-g++ -O2 -pipe -Wall -Wformat-security -Wmissing-declarations -DWINMM_PLAY_SOUNDS -Wundef -Wno-array-bounds -Wno-parentheses -Wno-unused-parameter -Wwrite-strings -Wshadow -Wuninitialized -I../contrib/install/x86_64-w64-mingw32/include -Iutil -I. -Irltiles -DWIZARD -DASSERTS -DREGEX_PCRE -DCLUA_BINDINGS
