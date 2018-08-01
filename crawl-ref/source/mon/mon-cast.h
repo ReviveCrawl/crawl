@@ -6,7 +6,7 @@
 #ifndef MONCAST_H
 #define MONCAST_H
 
-#include "enum.h"
+#include "../sys/enum.h"
 
 class monster;
 struct bolt;

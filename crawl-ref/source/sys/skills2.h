@@ -9,7 +9,7 @@
 
 const int MAX_SKILL_ORDER = 100;
 
-#include "enum.h"
+#include "../sys/enum.h"
 #include "player.h"
 
 struct skill_state

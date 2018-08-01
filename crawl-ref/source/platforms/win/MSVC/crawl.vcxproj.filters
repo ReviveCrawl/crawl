@@ -1,620 +1,1886 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\abyss.cc" />
-    <ClCompile Include="..\acquire.cc" />
-    <ClCompile Include="..\act-iter.cc" />
-    <ClCompile Include="..\actor-los.cc" />
-    <ClCompile Include="..\actor.cc" />
-    <ClCompile Include="..\AppHdr.cc" />
-    <ClCompile Include="..\areas.cc" />
-    <ClCompile Include="..\arena.cc" />
-    <ClCompile Include="..\artefact.cc" />
-    <ClCompile Include="..\asg.cc" />
-    <ClCompile Include="..\attack.cc" />
-    <ClCompile Include="..\attitude-change.cc" />
-    <ClCompile Include="..\beam.cc" />
-    <ClCompile Include="..\behold.cc" />
-    <ClCompile Include="..\bitary.cc" />
-    <ClCompile Include="..\branch.cc" />
-    <ClCompile Include="..\chardump.cc" />
-    <ClCompile Include="..\cio.cc" />
-    <ClCompile Include="..\cloud.cc" />
-    <ClCompile Include="..\clua.cc" />
-    <ClCompile Include="..\cluautil.cc" />
-    <ClCompile Include="..\colour.cc" />
-    <ClCompile Include="..\command.cc" />
-    <ClCompile Include="..\coord-circle.cc" />
-    <ClCompile Include="..\coord.cc" />
-    <ClCompile Include="..\coordit.cc" />
-    <ClCompile Include="..\crash.cc" />
-    <ClCompile Include="..\ctest.cc" />
-    <ClCompile Include="..\dactions.cc" />
-    <ClCompile Include="..\database.cc" />
-    <ClCompile Include="..\dbg-asrt.cc" />
-    <ClCompile Include="..\dbg-maps.cc" />
-    <ClCompile Include="..\dbg-scan.cc" />
-    <ClCompile Include="..\dbg-util.cc" />
-    <ClCompile Include="..\decks.cc" />
-    <ClCompile Include="..\delay.cc" />
-    <ClCompile Include="..\describe.cc" />
-    <ClCompile Include="..\dgl-message.cc" />
-    <ClCompile Include="..\dgn-delve.cc" />
-    <ClCompile Include="..\dgn-height.cc" />
-    <ClCompile Include="..\dgn-labyrinth.cc" />
-    <ClCompile Include="..\dgn-layouts.cc" />
-    <ClCompile Include="..\dgn-overview.cc" />
-    <ClCompile Include="..\dgn-proclayouts.cc" />
-    <ClCompile Include="..\dgn-shoals.cc" />
-    <ClCompile Include="..\dgn-swamp.cc" />
-    <ClCompile Include="..\dgnevent.cc" />
-    <ClCompile Include="..\directn.cc" />
-    <ClCompile Include="..\dlua.cc" />
-    <ClCompile Include="..\dungeon.cc" />
-    <ClCompile Include="..\effects.cc" />
-    <ClCompile Include="..\errors.cc" />
-    <ClCompile Include="..\evoke.cc" />
-    <ClCompile Include="..\exclude.cc" />
-    <ClCompile Include="..\exercise.cc" />
-    <ClCompile Include="..\fearmonger.cc" />
-    <ClCompile Include="..\feature.cc" />
-    <ClCompile Include="..\fight.cc" />
-    <ClCompile Include="..\files.cc" />
-    <ClCompile Include="..\fineff.cc" />
-    <ClCompile Include="..\fontwrapper-ft.cc" />
-    <ClCompile Include="..\food.cc" />
-    <ClCompile Include="..\format.cc" />
-    <ClCompile Include="..\fprop.cc" />
-    <ClCompile Include="..\geom2d.cc" />
-    <ClCompile Include="..\ghost.cc" />
-    <ClCompile Include="..\glwrapper-ogl.cc" />
-    <ClCompile Include="..\glwrapper.cc" />
-    <ClCompile Include="..\godabil.cc" />
-    <ClCompile Include="..\godcompanions.cc" />
-    <ClCompile Include="..\godconduct.cc" />
-    <ClCompile Include="..\goditem.cc" />
-    <ClCompile Include="..\godmenu.cc" />
-    <ClCompile Include="..\godpassive.cc" />
-    <ClCompile Include="..\godprayer.cc" />
-    <ClCompile Include="..\godwrath.cc" />
-    <ClCompile Include="..\hints.cc" />
-    <ClCompile Include="..\hiscores.cc" />
-    <ClCompile Include="..\initfile.cc" />
-    <ClCompile Include="..\invent.cc" />
-    <ClCompile Include="..\item_use.cc" />
-    <ClCompile Include="..\itemname.cc" />
-    <ClCompile Include="..\itemprop.cc" />
-    <ClCompile Include="..\items.cc" />
-    <ClCompile Include="..\jobs.cc" />
-    <ClCompile Include="..\kills.cc" />
-    <ClCompile Include="..\lang-fake.cc" />
-    <ClCompile Include="..\losglobal.cc" />
-    <ClCompile Include="..\l_colour.cc" />
-    <ClCompile Include="..\l_crawl.cc" />
-    <ClCompile Include="..\l_debug.cc" />
-    <ClCompile Include="..\l_dgn.cc" />
-    <ClCompile Include="..\l_dgnbld.cc" />
-    <ClCompile Include="..\l_dgnevt.cc" />
-    <ClCompile Include="..\l_dgngrd.cc" />
-    <ClCompile Include="..\l_dgnit.cc" />
-    <ClCompile Include="..\l_dgnlvl.cc" />
-    <ClCompile Include="..\l_dgnmon.cc" />
-    <ClCompile Include="..\l_dgntil.cc" />
-    <ClCompile Include="..\l_feat.cc" />
-    <ClCompile Include="..\l_file.cc" />
-    <ClCompile Include="..\l_food.cc" />
-    <ClCompile Include="..\l_global.cc" />
-    <ClCompile Include="..\l_item.cc" />
-    <ClCompile Include="..\l_los.cc" />
-    <ClCompile Include="..\l_mapgrd.cc" />
-    <ClCompile Include="..\l_mapmrk.cc" />
-    <ClCompile Include="..\l_moninf.cc" />
-    <ClCompile Include="..\l_mons.cc" />
-    <ClCompile Include="..\l_option.cc" />
-    <ClCompile Include="..\l_spells.cc" />
-    <ClCompile Include="..\l_subvault.cc" />
-    <ClCompile Include="..\l_travel.cc" />
-    <ClCompile Include="..\l_view.cc" />
-    <ClCompile Include="..\l_you.cc" />
-    <ClCompile Include="..\lev-pand.cc" />
-    <ClCompile Include="..\melee_attack.cc" />
-    <ClCompile Include="..\mon-death.cc" />
-    <ClCompile Include="..\mon-ench.cc" />
-    <ClCompile Include="..\mon-stealth.cc" />
-    <ClCompile Include="..\ng-setup.cc" />
-    <ClCompile Include="..\ng-wanderer.cc" />
-    <ClCompile Include="..\orb.cc" />
-    <ClCompile Include="..\package.cc" />
-    <ClCompile Include="..\perlin.cc" />
-    <ClCompile Include="..\place-info.cc" />
-    <ClCompile Include="..\player-act.cc" />
-    <ClCompile Include="..\player-equip.cc" />
-    <ClCompile Include="..\player-stats.cc" />
-    <ClCompile Include="..\potion.cc" />
-    <ClCompile Include="..\prebuilt\levcomp.lex.cc" />
-    <ClCompile Include="..\prebuilt\levcomp.tab.cc" />
-    <ClCompile Include="..\libgui.cc" />
-    <ClCompile Include="..\libutil.cc" />
-    <ClCompile Include="..\libw32c.cc" />
-    <ClCompile Include="..\los.cc" />
-    <ClCompile Include="..\los_def.cc" />
-    <ClCompile Include="..\losparam.cc" />
-    <ClCompile Include="..\luaterp.cc" />
-    <ClCompile Include="..\macro.cc" />
-    <ClCompile Include="..\main.cc" />
-    <ClCompile Include="..\makeitem.cc" />
-    <ClCompile Include="..\map_knowledge.cc" />
-    <ClCompile Include="..\mapdef.cc" />
-    <ClCompile Include="..\mapmark.cc" />
-    <ClCompile Include="..\maps.cc" />
-    <ClCompile Include="..\menu.cc" />
-    <ClCompile Include="..\message-stream.cc" />
-    <ClCompile Include="..\message.cc" />
-    <ClCompile Include="..\misc.cc" />
-    <ClCompile Include="..\mislead.cc" />
-    <ClCompile Include="..\mon-abil.cc" />
-    <ClCompile Include="..\mon-act.cc" />
-    <ClCompile Include="..\mon-behv.cc" />
-    <ClCompile Include="..\mon-cast.cc" />
-    <ClCompile Include="..\mon-clone.cc" />
-    <ClCompile Include="..\mon-gear.cc" />
-    <ClCompile Include="..\mon-grow.cc" />
-    <ClCompile Include="..\mon-info.cc" />
-    <ClCompile Include="..\mon-iter.cc" />
-    <ClCompile Include="..\mon-movetarget.cc" />
-    <ClCompile Include="..\mon-pathfind.cc" />
-    <ClCompile Include="..\mon-pick.cc" />
-    <ClCompile Include="..\mon-place.cc" />
-    <ClCompile Include="..\mon-project.cc" />
-    <ClCompile Include="..\mon-speak.cc" />
-    <ClCompile Include="..\mon-stuff.cc" />
-    <ClCompile Include="..\mon-transit.cc" />
-    <ClCompile Include="..\mon-util.cc" />
-    <ClCompile Include="..\monster.cc" />
-    <ClCompile Include="..\mutation.cc" />
-    <ClCompile Include="..\newgame.cc" />
-    <ClCompile Include="..\ng-init.cc" />
-    <ClCompile Include="..\ng-input.cc" />
-    <ClCompile Include="..\ng-restr.cc" />
-    <ClCompile Include="..\notes.cc" />
-    <ClCompile Include="..\ouch.cc" />
-    <ClCompile Include="..\output.cc" />
-    <ClCompile Include="..\pattern.cc" />
-    <ClCompile Include="..\place.cc" />
-    <ClCompile Include="..\player.cc" />
-    <ClCompile Include="..\quiver.cc" />
-    <ClCompile Include="..\random-var.cc" />
-    <ClCompile Include="..\random.cc" />
-    <ClCompile Include="..\ray.cc" />
-    <ClCompile Include="..\religion.cc" />
-    <ClCompile Include="..\rltiles\tiledef-feat.cc" />
-    <ClCompile Include="..\rltiles\tiledef-floor.cc" />
-    <ClCompile Include="..\rltiles\tiledef-icons.cc" />
-    <ClCompile Include="..\rltiles\tiledef-wall.cc" />
-    <ClCompile Include="..\rng.cc" />
-    <ClCompile Include="..\shopping.cc" />
-    <ClCompile Include="..\shout.cc" />
-    <ClCompile Include="..\show.cc" />
-    <ClCompile Include="..\showsymb.cc" />
-    <ClCompile Include="..\skills.cc" />
-    <ClCompile Include="..\skills2.cc" />
-    <ClCompile Include="..\skill_menu.cc" />
-    <ClCompile Include="..\species.cc" />
-    <ClCompile Include="..\spl-book.cc" />
-    <ClCompile Include="..\spl-cast.cc" />
-    <ClCompile Include="..\spl-clouds.cc" />
-    <ClCompile Include="..\spl-damage.cc" />
-    <ClCompile Include="..\spl-goditem.cc" />
-    <ClCompile Include="..\spl-miscast.cc" />
-    <ClCompile Include="..\spl-monench.cc" />
-    <ClCompile Include="..\spl-other.cc" />
-    <ClCompile Include="..\spl-selfench.cc" />
-    <ClCompile Include="..\spl-summoning.cc" />
-    <ClCompile Include="..\spl-tornado.cc" />
-    <ClCompile Include="..\spl-transloc.cc" />
-    <ClCompile Include="..\spl-util.cc" />
-    <ClCompile Include="..\spl-wpnench.cc" />
-    <ClCompile Include="..\spl-zap.cc" />
-    <ClCompile Include="..\sprint.cc" />
-    <ClCompile Include="..\sqldbm.cc" />
-    <ClCompile Include="..\stairs.cc" />
-    <ClCompile Include="..\startup.cc" />
-    <ClCompile Include="..\stash.cc" />
-    <ClCompile Include="..\state.cc" />
-    <ClCompile Include="..\status.cc" />
-    <ClCompile Include="..\store.cc" />
-    <ClCompile Include="..\stuff.cc" />
-    <ClCompile Include="..\syscalls.cc" />
-    <ClCompile Include="..\tags.cc" />
-    <ClCompile Include="..\tagstring.cc" />
-    <ClCompile Include="..\target.cc" />
-    <ClCompile Include="..\teleport.cc" />
-    <ClCompile Include="..\terrain.cc" />
-    <ClCompile Include="..\throw.cc" />
-    <ClCompile Include="..\tilebuf.cc" />
-    <ClCompile Include="..\rltiles\tiledef-dngn.cc" />
-    <ClCompile Include="..\rltiles\tiledef-gui.cc" />
-    <ClCompile Include="..\rltiles\tiledef-main.cc" />
-    <ClCompile Include="..\rltiles\tiledef-player.cc" />
-    <ClCompile Include="..\rltiles\tiledef-unrand.cc" />
-    <ClCompile Include="..\tilecell.cc" />
-    <ClCompile Include="..\tiledgnbuf.cc" />
-    <ClCompile Include="..\tiledoll.cc" />
-    <ClCompile Include="..\tilefont.cc" />
-    <ClCompile Include="..\tilemcache.cc" />
-    <ClCompile Include="..\tilepick-p.cc" />
-    <ClCompile Include="..\tilepick.cc" />
-    <ClCompile Include="..\tilereg-abl.cc" />
-    <ClCompile Include="..\tilereg-cmd.cc" />
-    <ClCompile Include="..\tilereg-crt.cc" />
-    <ClCompile Include="..\tilereg-dgn.cc" />
-    <ClCompile Include="..\tilereg-doll.cc" />
-    <ClCompile Include="..\tilereg-grid.cc" />
-    <ClCompile Include="..\tilereg-inv.cc" />
-    <ClCompile Include="..\tilereg-map.cc" />
-    <ClCompile Include="..\tilereg-mem.cc" />
-    <ClCompile Include="..\tilereg-menu.cc" />
-    <ClCompile Include="..\tilereg-mon.cc" />
-    <ClCompile Include="..\tilereg-msg.cc" />
-    <ClCompile Include="..\tilereg-popup.cc" />
-    <ClCompile Include="..\tilereg-skl.cc" />
-    <ClCompile Include="..\tilereg-spl.cc" />
-    <ClCompile Include="..\tilereg-stat.cc" />
-    <ClCompile Include="..\tilereg-tab.cc" />
-    <ClCompile Include="..\tilereg-text.cc" />
-    <ClCompile Include="..\tilereg-title.cc" />
-    <ClCompile Include="..\tilereg.cc" />
-    <ClCompile Include="..\tilesdl.cc" />
-    <ClCompile Include="..\tiletex.cc" />
-    <ClCompile Include="..\tileview.cc" />
-    <ClCompile Include="..\tileweb.cc" />
-    <ClCompile Include="..\transform.cc" />
-    <ClCompile Include="..\traps.cc" />
-    <ClCompile Include="..\travel.cc" />
-    <ClCompile Include="..\tutorial.cc" />
-    <ClCompile Include="..\uncancel.cc" />
-    <ClCompile Include="..\unicode.cc" />
-    <ClCompile Include="..\version.cc" />
-    <ClCompile Include="..\view.cc" />
-    <ClCompile Include="..\viewchar.cc" />
-    <ClCompile Include="..\viewgeom.cc" />
-    <ClCompile Include="..\viewmap.cc" />
-    <ClCompile Include="..\wcwidth.cc" />
-    <ClCompile Include="..\windowmanager-sdl.cc" />
-    <ClCompile Include="..\wiz-dgn.cc" />
-    <ClCompile Include="..\wiz-fsim.cc" />
-    <ClCompile Include="..\wiz-item.cc" />
-    <ClCompile Include="..\wiz-mon.cc" />
-    <ClCompile Include="..\wiz-you.cc" />
-    <ClCompile Include="..\worley.cc" />
-    <ClCompile Include="..\xom.cc" />
-    <ClCompile Include="..\zotdef.cc" />
-    <ClCompile Include="..\dgn-irregular-box.cc" />
-    <ClCompile Include="..\json.cc" />
-    <ClCompile Include="..\mon-chimera.cc" />
-    <ClCompile Include="..\spl-pick.cc" />
-    <ClCompile Include="..\..\..\sys\abl-show.cc" />
+    <ClCompile Include="..\libw32c.cc">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\build\version.cc">
+      <Filter>build</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\coord\coord.cc">
+      <Filter>coord</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\coord\coord-circle.cc">
+      <Filter>coord</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\coord\coordit.cc">
+      <Filter>coord</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dbg\dbg-asrt.cc">
+      <Filter>dbg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dbg\dbg-maps.cc">
+      <Filter>dbg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dbg\dbg-scan.cc">
+      <Filter>dbg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dbg\dbg-util.cc">
+      <Filter>dbg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dgn\dgn-delve.cc">
+      <Filter>dgn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dgn\dgnevent.cc">
+      <Filter>dgn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dgn\dgn-height.cc">
+      <Filter>dgn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dgn\dgn-irregular-box.cc">
+      <Filter>dgn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dgn\dgn-labyrinth.cc">
+      <Filter>dgn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dgn\dgn-layouts.cc">
+      <Filter>dgn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dgn\dgn-overview.cc">
+      <Filter>dgn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dgn\dgn-proclayouts.cc">
+      <Filter>dgn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dgn\dgn-shoals.cc">
+      <Filter>dgn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dgn\dgn-swamp.cc">
+      <Filter>dgn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\gl\glwrapper.cc">
+      <Filter>gl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\gl\glwrapper-ogl.cc">
+      <Filter>gl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\god\godabil.cc">
+      <Filter>god</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\god\godcompanions.cc">
+      <Filter>god</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\god\godconduct.cc">
+      <Filter>god</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\god\goditem.cc">
+      <Filter>god</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\god\godmenu.cc">
+      <Filter>god</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\god\godpassive.cc">
+      <Filter>god</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\god\godprayer.cc">
+      <Filter>god</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\god\godwrath.cc">
+      <Filter>god</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\god\xom.cc">
+      <Filter>god</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\io\chardump.cc">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\io\command.cc">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\io\database.cc">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\io\dgl-message.cc">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\io\errors.cc">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\io\files.cc">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\io\format.cc">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\io\hiscores.cc">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\io\initfile.cc">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\io\json.cc">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\io\message.cc">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\io\message-stream.cc">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\io\output.cc">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\io\package.cc">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\io\sqldbm.cc">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\io\tags.cc">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\io\uncancel.cc">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\io\view.cc">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\io\viewchar.cc">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\io\viewgeom.cc">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\io\viewmap.cc">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\item\artefact.cc">
+      <Filter>item</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\item\decks.cc">
+      <Filter>item</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\item\item_use.cc">
+      <Filter>item</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\item\itemname.cc">
+      <Filter>item</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\item\itemprop.cc">
+      <Filter>item</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\item\items.cc">
+      <Filter>item</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lib\libgui.cc">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lib\libutil.cc">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lib\libunix.cc">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\los\losglobal.cc">
+      <Filter>los</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\los\losparam.cc">
+      <Filter>los</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\los\los.cc">
+      <Filter>los</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\los\los_def.cc">
+      <Filter>los</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\low\fontwrapper-ft.cc">
+      <Filter>low</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\low\pattern.cc">
+      <Filter>low</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\low\unicode.cc">
+      <Filter>low</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\low\wcwidth.cc">
+      <Filter>low</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\low\bitary.cc">
+      <Filter>low</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\low\cio.cc">
+      <Filter>low</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\low\crash.cc">
+      <Filter>low</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\l_dgnlvl.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\l_dgnmon.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\l_dgntil.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\l_feat.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\l_file.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\l_food.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\l_global.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\l_item.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\l_los.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\l_mapgrd.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\l_mapmrk.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\l_moninf.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\l_mons.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\l_option.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\l_spells.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\l_subvault.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\l_travel.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\l_view.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\l_you.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\luaterp.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\clua.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\cluautil.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\ctest.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\dlua.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\l_colour.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\l_crawl.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\l_debug.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\l_dgn.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\l_dgnbld.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\l_dgnevt.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\l_dgngrd.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\lua\l_dgnit.cc">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\map\mapmark.cc">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\map\maps.cc">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\map\perlin.cc">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\map\place.cc">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\map\place-info.cc">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\map\abyss.cc">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\map\dactions.cc">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\map\lev-pand.cc">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\map\map_knowledge.cc">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\map\mapdef.cc">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mode\ng-input.cc">
+      <Filter>mode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mode\ng-restr.cc">
+      <Filter>mode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mode\ng-setup.cc">
+      <Filter>mode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mode\ng-wanderer.cc">
+      <Filter>mode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mode\sprint.cc">
+      <Filter>mode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mode\startup.cc">
+      <Filter>mode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mode\tutorial.cc">
+      <Filter>mode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mode\arena.cc">
+      <Filter>mode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mode\exercise.cc">
+      <Filter>mode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mode\newgame.cc">
+      <Filter>mode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mode\ng-init.cc">
+      <Filter>mode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mon\mon-clone.cc">
+      <Filter>mon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mon\mon-death.cc">
+      <Filter>mon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mon\mon-ench.cc">
+      <Filter>mon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mon\mon-gear.cc">
+      <Filter>mon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mon\mon-grow.cc">
+      <Filter>mon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mon\mon-info.cc">
+      <Filter>mon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mon\mon-iter.cc">
+      <Filter>mon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mon\mon-movetarget.cc">
+      <Filter>mon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mon\mon-pathfind.cc">
+      <Filter>mon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mon\mon-pick.cc">
+      <Filter>mon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mon\mon-place.cc">
+      <Filter>mon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mon\mon-project.cc">
+      <Filter>mon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mon\mon-speak.cc">
+      <Filter>mon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mon\mon-stealth.cc">
+      <Filter>mon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mon\monster.cc">
+      <Filter>mon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mon\mon-stuff.cc">
+      <Filter>mon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mon\mon-transit.cc">
+      <Filter>mon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mon\mon-util.cc">
+      <Filter>mon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mon\worley.cc">
+      <Filter>mon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mon\fearmonger.cc">
+      <Filter>mon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mon\mon-abil.cc">
+      <Filter>mon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mon\mon-act.cc">
+      <Filter>mon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mon\mon-behv.cc">
+      <Filter>mon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mon\mon-cast.cc">
+      <Filter>mon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mon\mon-chimera.cc">
+      <Filter>mon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\player\player-act.cc">
+      <Filter>player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\player\player-equip.cc">
+      <Filter>player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\player\player-stats.cc">
+      <Filter>player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\player\player.cc">
+      <Filter>player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\prebuilt\levcomp.tab.cc">
+      <Filter>prebuilt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\prebuilt\levcomp.lex.cc">
+      <Filter>prebuilt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\random\random-var.cc">
+      <Filter>random</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\random\rng.cc">
+      <Filter>random</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\random\asg.cc">
+      <Filter>random</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\random\random.cc">
+      <Filter>random</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\spl\spl-goditem.cc">
+      <Filter>spl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\spl\spl-miscast.cc">
+      <Filter>spl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\spl\spl-monench.cc">
+      <Filter>spl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\spl\spl-other.cc">
+      <Filter>spl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\spl\spl-pick.cc">
+      <Filter>spl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\spl\spl-selfench.cc">
+      <Filter>spl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\spl\spl-summoning.cc">
+      <Filter>spl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\spl\spl-tornado.cc">
+      <Filter>spl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\spl\spl-transloc.cc">
+      <Filter>spl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\spl\spl-util.cc">
+      <Filter>spl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\spl\spl-wpnench.cc">
+      <Filter>spl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\spl\spl-zap.cc">
+      <Filter>spl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\spl\spl-book.cc">
+      <Filter>spl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\spl\spl-cast.cc">
+      <Filter>spl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\spl\spl-clouds.cc">
+      <Filter>spl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\spl\spl-damage.cc">
+      <Filter>spl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\branch.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\cloud.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\delay.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\dungeon.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\effects.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\evoke.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\exclude.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\feature.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\fight.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\fineff.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\food.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\fprop.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\geom2d.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\ghost.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\hints.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\invent.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\jobs.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\kills.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\lang-fake.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\makeitem.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\melee_attack.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\misc.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\mislead.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\mutation.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\notes.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\orb.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\ouch.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\potion.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\quiver.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\ray.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\religion.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\shopping.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\shout.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\show.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\showsymb.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\skills.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\skills2.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\species.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\stairs.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\stash.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\state.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\status.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\store.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\stuff.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\syscalls.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\target.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\teleport.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\terrain.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\throw.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\transform.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\traps.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\travel.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\zotdef.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\abl-show.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\acquire.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\act-iter.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\actor.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\actor-los.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\areas.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\attack.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\attitude-change.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\beam.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sys\behold.cc">
+      <Filter>sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tilereg-map.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tilereg-mem.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tilereg-menu.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tilereg-mon.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tilereg-msg.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tilereg-popup.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tilereg-skl.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tilereg-spl.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tilereg-stat.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tilereg-tab.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tilereg-text.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tilereg-title.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tilesdl.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tiletex.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tileview.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tileweb.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tileweb-text.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tilebuf.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tilecell.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tiledgnbuf.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tiledoll.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tilefont.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tilemcache.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tilepick.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tilepick-p.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tilereg.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tilereg-abl.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tilereg-cmd.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tilereg-crt.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tilereg-dgn.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tilereg-doll.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tilereg-grid.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tile\tilereg-inv.cc">
+      <Filter>tile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ui\windowmanager-sdl.cc">
+      <Filter>ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ui\colour.cc">
+      <Filter>ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ui\directn.cc">
+      <Filter>ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ui\macro.cc">
+      <Filter>ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ui\menu.cc">
+      <Filter>ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ui\skill_menu.cc">
+      <Filter>ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ui\tagstring.cc">
+      <Filter>ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\wiz\wiz-item.cc">
+      <Filter>wiz</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\wiz\wiz-mon.cc">
+      <Filter>wiz</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\wiz\wiz-you.cc">
+      <Filter>wiz</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\wiz\wiz-dgn.cc">
+      <Filter>wiz</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\wiz\wiz-fsim.cc">
+      <Filter>wiz</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\main.cc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\abyss.h" />
-    <ClInclude Include="..\acquire.h" />
-    <ClInclude Include="..\act-iter.h" />
-    <ClInclude Include="..\actor.h" />
-    <ClInclude Include="..\AppHdr.h" />
-    <ClInclude Include="..\aptitudes.h" />
-    <ClInclude Include="..\areas.h" />
-    <ClInclude Include="..\arena.h" />
-    <ClInclude Include="..\art-data.h" />
-    <ClInclude Include="..\art-enum.h" />
-    <ClInclude Include="..\art-func.h" />
-    <ClInclude Include="..\artefact.h" />
-    <ClInclude Include="..\asg.h" />
-    <ClInclude Include="..\attack.h" />
-    <ClInclude Include="..\attitude-change.h" />
-    <ClInclude Include="..\beam.h" />
-    <ClInclude Include="..\bitary.h" />
-    <ClInclude Include="..\book-data.h" />
-    <ClInclude Include="..\branch-data.h" />
-    <ClInclude Include="..\branch.h" />
-    <ClInclude Include="..\build.h" />
-    <ClInclude Include="..\chardump.h" />
-    <ClInclude Include="..\cio.h" />
-    <ClInclude Include="..\cloud.h" />
-    <ClInclude Include="..\clua.h" />
-    <ClInclude Include="..\cluautil.h" />
-    <ClInclude Include="..\cmd-keys.h" />
-    <ClInclude Include="..\cmd-name.h" />
-    <ClInclude Include="..\colour.h" />
-    <ClInclude Include="..\command.h" />
-    <ClInclude Include="..\compflag.h" />
-    <ClInclude Include="..\coord-circle.h" />
-    <ClInclude Include="..\coord.h" />
-    <ClInclude Include="..\coordit.h" />
-    <ClInclude Include="..\crash.h" />
-    <ClInclude Include="..\ctest.h" />
-    <ClInclude Include="..\dactions.h" />
-    <ClInclude Include="..\database.h" />
-    <ClInclude Include="..\dbg-crsh.h" />
-    <ClInclude Include="..\dbg-maps.h" />
-    <ClInclude Include="..\dbg-scan.h" />
-    <ClInclude Include="..\dbg-util.h" />
-    <ClInclude Include="..\debug.h" />
-    <ClInclude Include="..\decks.h" />
-    <ClInclude Include="..\defines.h" />
-    <ClInclude Include="..\delay.h" />
-    <ClInclude Include="..\describe.h" />
-    <ClInclude Include="..\dgl-message.h" />
-    <ClInclude Include="..\dgn-delve.h" />
-    <ClInclude Include="..\dgn-height.h" />
-    <ClInclude Include="..\dgn-labyrinth.h" />
-    <ClInclude Include="..\dgn-layouts.h" />
-    <ClInclude Include="..\dgn-overview.h" />
-    <ClInclude Include="..\dgn-proclayouts.h" />
-    <ClInclude Include="..\dgn-shoals.h" />
-    <ClInclude Include="..\dgn-swamp.h" />
-    <ClInclude Include="..\dgnevent.h" />
-    <ClInclude Include="..\directn.h" />
-    <ClInclude Include="..\dlua.h" />
-    <ClInclude Include="..\dungeon.h" />
-    <ClInclude Include="..\effects.h" />
-    <ClInclude Include="..\endianness.h" />
-    <ClInclude Include="..\enum.h" />
-    <ClInclude Include="..\env.h" />
-    <ClInclude Include="..\errors.h" />
-    <ClInclude Include="..\evoke.h" />
-    <ClInclude Include="..\exclude.h" />
-    <ClInclude Include="..\exercise.h" />
-    <ClInclude Include="..\externs.h" />
-    <ClInclude Include="..\feature.h" />
-    <ClInclude Include="..\fight.h" />
-    <ClInclude Include="..\files.h" />
-    <ClInclude Include="..\fineff.h" />
-    <ClInclude Include="..\fixary.h" />
-    <ClInclude Include="..\fixedarray.h" />
-    <ClInclude Include="..\fixedvector.h" />
-    <ClInclude Include="..\fixvec.h" />
-    <ClInclude Include="..\flood_find.h" />
-    <ClInclude Include="..\fontwrapper-ft.h" />
-    <ClInclude Include="..\food.h" />
-    <ClInclude Include="..\format.h" />
-    <ClInclude Include="..\fprop.h" />
-    <ClInclude Include="..\geom2d.h" />
-    <ClInclude Include="..\ghost.h" />
-    <ClInclude Include="..\glwrapper-ogl.h" />
-    <ClInclude Include="..\glwrapper.h" />
-    <ClInclude Include="..\godabil.h" />
-    <ClInclude Include="..\godcompanions.h" />
-    <ClInclude Include="..\godconduct.h" />
-    <ClInclude Include="..\goditem.h" />
-    <ClInclude Include="..\godmenu.h" />
-    <ClInclude Include="..\godpassive.h" />
-    <ClInclude Include="..\godprayer.h" />
-    <ClInclude Include="..\godwrath.h" />
-    <ClInclude Include="..\hash.h" />
-    <ClInclude Include="..\hints.h" />
-    <ClInclude Include="..\hiscores.h" />
-    <ClInclude Include="..\initfile.h" />
-    <ClInclude Include="..\invent.h" />
-    <ClInclude Include="..\itemprop-enum.h" />
-    <ClInclude Include="..\item_use.h" />
-    <ClInclude Include="..\itemname.h" />
-    <ClInclude Include="..\itemprop.h" />
-    <ClInclude Include="..\items.h" />
-    <ClInclude Include="..\jobs.h" />
-    <ClInclude Include="..\json.h" />
-    <ClInclude Include="..\kills.h" />
-    <ClInclude Include="..\lang-fake.h" />
-    <ClInclude Include="..\libconsole.h" />
-    <ClInclude Include="..\libunix.h" />
-    <ClInclude Include="..\losglobal.h" />
-    <ClInclude Include="..\l_defs.h" />
-    <ClInclude Include="..\l_libs.h" />
-    <ClInclude Include="..\l_los.h" />
-    <ClInclude Include="..\lev-pand.h" />
-    <ClInclude Include="..\matrix.h" />
-    <ClInclude Include="..\melee_attack.h" />
-    <ClInclude Include="..\mi-enum.h" />
-    <ClInclude Include="..\mon-death.h" />
-    <ClInclude Include="..\mon-ench.h" />
-    <ClInclude Include="..\mon-flags.h" />
-    <ClInclude Include="..\mon-mst.h" />
-    <ClInclude Include="..\mon-pick-data.h" />
-    <ClInclude Include="..\mutation-data.h" />
-    <ClInclude Include="..\newgame_def.h" />
-    <ClInclude Include="..\ng-setup.h" />
-    <ClInclude Include="..\ng-wanderer.h" />
-    <ClInclude Include="..\noise.h" />
-    <ClInclude Include="..\options.h" />
-    <ClInclude Include="..\orb.h" />
-    <ClInclude Include="..\package.h" />
-    <ClInclude Include="..\perlin.h" />
-    <ClInclude Include="..\place-info.h" />
-    <ClInclude Include="..\platform.h" />
-    <ClInclude Include="..\player-equip.h" />
-    <ClInclude Include="..\player-stats.h" />
-    <ClInclude Include="..\potion.h" />
-    <ClInclude Include="..\prebuilt\levcomp.tab.h" />
-    <ClInclude Include="..\libgui.h" />
-    <ClInclude Include="..\libutil.h" />
-    <ClInclude Include="..\libw32c.h" />
-    <ClInclude Include="..\los.h" />
-    <ClInclude Include="..\los_def.h" />
-    <ClInclude Include="..\losparam.h" />
-    <ClInclude Include="..\luaterp.h" />
-    <ClInclude Include="..\macro.h" />
-    <ClInclude Include="..\makeitem.h" />
-    <ClInclude Include="..\map_knowledge.h" />
-    <ClInclude Include="..\mapdef.h" />
-    <ClInclude Include="..\mapmark.h" />
-    <ClInclude Include="..\maps.h" />
-    <ClInclude Include="..\menu.h" />
-    <ClInclude Include="..\message.h" />
-    <ClInclude Include="..\mgen_data.h" />
-    <ClInclude Include="..\mgen_enum.h" />
-    <ClInclude Include="..\misc.h" />
-    <ClInclude Include="..\mislead.h" />
-    <ClInclude Include="..\mon-abil.h" />
-    <ClInclude Include="..\mon-act.h" />
-    <ClInclude Include="..\mon-behv.h" />
-    <ClInclude Include="..\mon-cast.h" />
-    <ClInclude Include="..\mon-clone.h" />
-    <ClInclude Include="..\mon-data.h" />
-    <ClInclude Include="..\mon-enum.h" />
-    <ClInclude Include="..\mon-gear.h" />
-    <ClInclude Include="..\mon-grow.h" />
-    <ClInclude Include="..\mon-info.h" />
-    <ClInclude Include="..\mon-iter.h" />
-    <ClInclude Include="..\mon-movetarget.h" />
-    <ClInclude Include="..\mon-pathfind.h" />
-    <ClInclude Include="..\mon-pick.h" />
-    <ClInclude Include="..\mon-place.h" />
-    <ClInclude Include="..\mon-project.h" />
-    <ClInclude Include="..\mon-speak.h" />
-    <ClInclude Include="..\mon-spll.h" />
-    <ClInclude Include="..\mon-stuff.h" />
-    <ClInclude Include="..\mon-transit.h" />
-    <ClInclude Include="..\mon-util.h" />
-    <ClInclude Include="..\monster.h" />
-    <ClInclude Include="..\mpr.h" />
-    <ClInclude Include="..\msvc.h" />
-    <ClInclude Include="..\mutation.h" />
-    <ClInclude Include="..\newgame.h" />
-    <ClInclude Include="..\ng-init.h" />
-    <ClInclude Include="..\ng-input.h" />
-    <ClInclude Include="..\ng-restr.h" />
-    <ClInclude Include="..\notes.h" />
-    <ClInclude Include="..\ouch.h" />
-    <ClInclude Include="..\output.h" />
-    <ClInclude Include="..\pattern.h" />
-    <ClInclude Include="..\place.h" />
-    <ClInclude Include="..\player.h" />
-    <ClInclude Include="..\process_desc.h" />
-    <ClInclude Include="..\props.h" />
-    <ClInclude Include="..\quiver.h" />
-    <ClInclude Include="..\random-var.h" />
-    <ClInclude Include="..\random-weight.h" />
-    <ClInclude Include="..\random.h" />
-    <ClInclude Include="..\ray.h" />
-    <ClInclude Include="..\religion-enum.h" />
-    <ClInclude Include="..\religion.h" />
-    <ClInclude Include="..\rltiles\tiledef-feat.h" />
-    <ClInclude Include="..\rltiles\tiledef-floor.h" />
-    <ClInclude Include="..\rltiles\tiledef-icons.h" />
-    <ClInclude Include="..\rltiles\tiledef-wall.h" />
-    <ClInclude Include="..\rltiles\tiledef_defines.h" />
-    <ClInclude Include="..\rng.h" />
-    <ClInclude Include="..\SDLMain.h" />
-    <ClInclude Include="..\shopping.h" />
-    <ClInclude Include="..\shout.h" />
-    <ClInclude Include="..\show.h" />
-    <ClInclude Include="..\showsymb.h" />
-    <ClInclude Include="..\skills.h" />
-    <ClInclude Include="..\skills2.h" />
-    <ClInclude Include="..\skill_menu.h" />
-    <ClInclude Include="..\species.h" />
-    <ClInclude Include="..\spl-book.h" />
-    <ClInclude Include="..\spl-cast.h" />
-    <ClInclude Include="..\spl-clouds.h" />
-    <ClInclude Include="..\spl-damage.h" />
-    <ClInclude Include="..\spl-data.h" />
-    <ClInclude Include="..\spl-goditem.h" />
-    <ClInclude Include="..\spl-miscast.h" />
-    <ClInclude Include="..\spl-monench.h" />
-    <ClInclude Include="..\spl-other.h" />
-    <ClInclude Include="..\spl-selfench.h" />
-    <ClInclude Include="..\spl-summoning.h" />
-    <ClInclude Include="..\spl-transloc.h" />
-    <ClInclude Include="..\spl-util.h" />
-    <ClInclude Include="..\spl-wpnench.h" />
-    <ClInclude Include="..\spl-zap.h" />
-    <ClInclude Include="..\sprint.h" />
-    <ClInclude Include="..\sqldbm.h" />
-    <ClInclude Include="..\stairs.h" />
-    <ClInclude Include="..\startup.h" />
-    <ClInclude Include="..\stash.h" />
-    <ClInclude Include="..\state.h" />
-    <ClInclude Include="..\status.h" />
-    <ClInclude Include="..\store.h" />
-    <ClInclude Include="..\stuff.h" />
-    <ClInclude Include="..\syscalls.h" />
-    <ClInclude Include="..\tag-version.h" />
-    <ClInclude Include="..\tags.h" />
-    <ClInclude Include="..\tagstring.h" />
-    <ClInclude Include="..\target.h" />
-    <ClInclude Include="..\teleport.h" />
-    <ClInclude Include="..\terrain.h" />
-    <ClInclude Include="..\threads.h" />
-    <ClInclude Include="..\throw.h" />
-    <ClInclude Include="..\tilebuf.h" />
-    <ClInclude Include="..\rltiles\tiledef-dngn.h" />
-    <ClInclude Include="..\rltiles\tiledef-gui.h" />
-    <ClInclude Include="..\rltiles\tiledef-main.h" />
-    <ClInclude Include="..\rltiles\tiledef-player.h" />
-    <ClInclude Include="..\rltiles\tiledef-unrand.h" />
-    <ClInclude Include="..\tilecell.h" />
-    <ClInclude Include="..\tiledgnbuf.h" />
-    <ClInclude Include="..\tiledoll.h" />
-    <ClInclude Include="..\tilefont.h" />
-    <ClInclude Include="..\tilemcache.h" />
-    <ClInclude Include="..\tilepick-p.h" />
-    <ClInclude Include="..\tilepick.h" />
-    <ClInclude Include="..\tilereg-abl.h" />
-    <ClInclude Include="..\tilereg-cmd.h" />
-    <ClInclude Include="..\tilereg-crt.h" />
-    <ClInclude Include="..\tilereg-dgn.h" />
-    <ClInclude Include="..\tilereg-doll.h" />
-    <ClInclude Include="..\tilereg-grid.h" />
-    <ClInclude Include="..\tilereg-inv.h" />
-    <ClInclude Include="..\tilereg-map.h" />
-    <ClInclude Include="..\tilereg-mem.h" />
-    <ClInclude Include="..\tilereg-menu.h" />
-    <ClInclude Include="..\tilereg-mon.h" />
-    <ClInclude Include="..\tilereg-msg.h" />
-    <ClInclude Include="..\tilereg-popup.h" />
-    <ClInclude Include="..\tilereg-skl.h" />
-    <ClInclude Include="..\tilereg-spl.h" />
-    <ClInclude Include="..\tilereg-stat.h" />
-    <ClInclude Include="..\tilereg-tab.h" />
-    <ClInclude Include="..\tilereg-text.h" />
-    <ClInclude Include="..\tilereg-title.h" />
-    <ClInclude Include="..\tilereg.h" />
-    <ClInclude Include="..\tiles.h" />
-    <ClInclude Include="..\tilesdl.h" />
-    <ClInclude Include="..\tiletex.h" />
-    <ClInclude Include="..\tileview.h" />
-    <ClInclude Include="..\tileweb.h" />
-    <ClInclude Include="..\transform.h" />
-    <ClInclude Include="..\traps.h" />
-    <ClInclude Include="..\trap_def.h" />
-    <ClInclude Include="..\travel.h" />
-    <ClInclude Include="..\travel_defs.h" />
-    <ClInclude Include="..\tutorial.h" />
-    <ClInclude Include="..\uncancel.h" />
-    <ClInclude Include="..\unicode.h" />
-    <ClInclude Include="..\unrand.h" />
-    <ClInclude Include="..\unwind.h" />
-    <ClInclude Include="..\version.h" />
-    <ClInclude Include="..\view.h" />
-    <ClInclude Include="..\viewchar.h" />
-    <ClInclude Include="..\viewgeom.h" />
-    <ClInclude Include="..\viewmap.h" />
-    <ClInclude Include="..\windowmanager-sdl.h" />
-    <ClInclude Include="..\windowmanager.h" />
-    <ClInclude Include="..\winhdr.h" />
-    <ClInclude Include="..\wiz-dgn.h" />
-    <ClInclude Include="..\wiz-fsim.h" />
-    <ClInclude Include="..\wiz-item.h" />
-    <ClInclude Include="..\wiz-mon.h" />
-    <ClInclude Include="..\wiz-you.h" />
-    <ClInclude Include="..\worley.h" />
-    <ClInclude Include="..\xom.h" />
-    <ClInclude Include="..\zap-data.h" />
-    <ClInclude Include="..\zotdef.h" />
-    <ClInclude Include="..\dgn-irregular-box.h" />
-    <ClInclude Include="..\mon-chimera.h" />
-    <ClInclude Include="..\random-pick.h" />
-    <ClInclude Include="..\spl-pick.h" />
-    <ClInclude Include="..\data-index.h" />
-    <ClInclude Include="..\..\..\sys\abl-show.h" />
+    <ClInclude Include="..\libutil.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libw32c.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\build\tag-version.h">
+      <Filter>build</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\build\version.h">
+      <Filter>build</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\coord\coord.h">
+      <Filter>coord</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\coord\coord-circle.h">
+      <Filter>coord</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\coord\coordit.h">
+      <Filter>coord</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dbg\dbg-maps.h">
+      <Filter>dbg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dbg\dbg-scan.h">
+      <Filter>dbg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dbg\dbg-util.h">
+      <Filter>dbg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dbg\debug.h">
+      <Filter>dbg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dgn\dgn-delve.h">
+      <Filter>dgn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dgn\dgnevent.h">
+      <Filter>dgn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dgn\dgn-height.h">
+      <Filter>dgn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dgn\dgn-irregular-box.h">
+      <Filter>dgn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dgn\dgn-labyrinth.h">
+      <Filter>dgn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dgn\dgn-layouts.h">
+      <Filter>dgn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dgn\dgn-overview.h">
+      <Filter>dgn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dgn\dgn-proclayouts.h">
+      <Filter>dgn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dgn\dgn-shoals.h">
+      <Filter>dgn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dgn\dgn-swamp.h">
+      <Filter>dgn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\gl\glwrapper.h">
+      <Filter>gl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\gl\glwrapper-ogl.h">
+      <Filter>gl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\god\godabil.h">
+      <Filter>god</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\god\godcompanions.h">
+      <Filter>god</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\god\godconduct.h">
+      <Filter>god</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\god\goditem.h">
+      <Filter>god</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\god\godmenu.h">
+      <Filter>god</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\god\godpassive.h">
+      <Filter>god</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\god\godprayer.h">
+      <Filter>god</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\god\godwrath.h">
+      <Filter>god</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\god\xom.h">
+      <Filter>god</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\io\chardump.h">
+      <Filter>io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\io\cmd-keys.h">
+      <Filter>io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\io\command.h">
+      <Filter>io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\io\database.h">
+      <Filter>io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\io\dgl-message.h">
+      <Filter>io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\io\errors.h">
+      <Filter>io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\io\files.h">
+      <Filter>io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\io\format.h">
+      <Filter>io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\io\hiscores.h">
+      <Filter>io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\io\initfile.h">
+      <Filter>io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\io\json.h">
+      <Filter>io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\io\message.h">
+      <Filter>io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\io\mpr.h">
+      <Filter>io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\io\output.h">
+      <Filter>io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\io\package.h">
+      <Filter>io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\io\sqldbm.h">
+      <Filter>io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\io\tags.h">
+      <Filter>io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\io\uncancel.h">
+      <Filter>io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\io\view.h">
+      <Filter>io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\io\viewchar.h">
+      <Filter>io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\io\viewgeom.h">
+      <Filter>io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\io\viewmap.h">
+      <Filter>io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\item\art-data.h">
+      <Filter>item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\item\artefact.h">
+      <Filter>item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\item\art-func.h">
+      <Filter>item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\item\book-data.h">
+      <Filter>item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\item\branch-data.h">
+      <Filter>item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\item\decks.h">
+      <Filter>item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\item\item_use.h">
+      <Filter>item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\item\itemname.h">
+      <Filter>item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\item\itemprop.h">
+      <Filter>item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\item\itemprop-enum.h">
+      <Filter>item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\item\items.h">
+      <Filter>item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\lib\libconsole.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\lib\libgui.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\lib\libunix.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\los\losglobal.h">
+      <Filter>los</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\los\losparam.h">
+      <Filter>los</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\los\matrix.h">
+      <Filter>los</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\los\los.h">
+      <Filter>los</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\los\los_def.h">
+      <Filter>los</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\low\fixedarray.h">
+      <Filter>low</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\low\fixedvector.h">
+      <Filter>low</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\low\fontwrapper-ft.h">
+      <Filter>low</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\low\hash.h">
+      <Filter>low</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\low\pattern.h">
+      <Filter>low</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\low\SDLMain.h">
+      <Filter>low</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\low\threads.h">
+      <Filter>low</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\low\unicode.h">
+      <Filter>low</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\low\unwind.h">
+      <Filter>low</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\low\bitary.h">
+      <Filter>low</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\low\cio.h">
+      <Filter>low</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\low\crash.h">
+      <Filter>low</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\low\data-index.h">
+      <Filter>low</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\lua\l_libs.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\lua\luaterp.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\lua\clua.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\lua\cluautil.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\lua\ctest.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\lua\dlua.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\lua\l_defs.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\map\mapdef.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\map\mapmark.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\map\maps.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\map\perlin.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\map\place.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\map\place-info.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\map\abyss.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\map\dactions.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\map\lev-pand.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\map\map_knowledge.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mode\ng-init.h">
+      <Filter>mode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mode\ng-input.h">
+      <Filter>mode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mode\ng-restr.h">
+      <Filter>mode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mode\ng-setup.h">
+      <Filter>mode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mode\ng-wanderer.h">
+      <Filter>mode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mode\sprint.h">
+      <Filter>mode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mode\startup.h">
+      <Filter>mode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mode\tutorial.h">
+      <Filter>mode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mode\arena.h">
+      <Filter>mode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mode\exercise.h">
+      <Filter>mode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mode\newgame.h">
+      <Filter>mode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mode\newgame_def.h">
+      <Filter>mode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mon\mon-chimera.h">
+      <Filter>mon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mon\mon-clone.h">
+      <Filter>mon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mon\mon-data.h">
+      <Filter>mon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mon\mon-death.h">
+      <Filter>mon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mon\mon-ench.h">
+      <Filter>mon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mon\mon-enum.h">
+      <Filter>mon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mon\mon-flags.h">
+      <Filter>mon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mon\mon-gear.h">
+      <Filter>mon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mon\mon-grow.h">
+      <Filter>mon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mon\mon-info.h">
+      <Filter>mon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mon\mon-iter.h">
+      <Filter>mon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mon\mon-movetarget.h">
+      <Filter>mon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mon\mon-pathfind.h">
+      <Filter>mon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mon\mon-pick.h">
+      <Filter>mon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mon\mon-pick-data.h">
+      <Filter>mon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mon\mon-place.h">
+      <Filter>mon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mon\mon-project.h">
+      <Filter>mon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mon\mon-speak.h">
+      <Filter>mon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mon\mon-spll.h">
+      <Filter>mon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mon\monster.h">
+      <Filter>mon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mon\mon-stuff.h">
+      <Filter>mon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mon\mon-transit.h">
+      <Filter>mon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mon\mon-util.h">
+      <Filter>mon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mon\worley.h">
+      <Filter>mon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mon\mon-abil.h">
+      <Filter>mon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mon\mon-act.h">
+      <Filter>mon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mon\mon-behv.h">
+      <Filter>mon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mon\mon-cast.h">
+      <Filter>mon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\endianness.h">
+      <Filter>platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\msvc.h">
+      <Filter>platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\platform.h">
+      <Filter>platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\process_desc.h">
+      <Filter>platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\player\player.h">
+      <Filter>player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\player\player-equip.h">
+      <Filter>player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\player\player-stats.h">
+      <Filter>player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\prebuilt\levcomp.tab.h">
+      <Filter>prebuilt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\random\random-pick.h">
+      <Filter>random</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\random\random-var.h">
+      <Filter>random</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\random\random-weight.h">
+      <Filter>random</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\random\rng.h">
+      <Filter>random</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\random\asg.h">
+      <Filter>random</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\random\random.h">
+      <Filter>random</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\rltiles\tiledef_defines.h">
+      <Filter>rltiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\rltiles\tiledef-unrand.h">
+      <Filter>rltiles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\spl\spl-goditem.h">
+      <Filter>spl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\spl\spl-miscast.h">
+      <Filter>spl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\spl\spl-monench.h">
+      <Filter>spl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\spl\spl-other.h">
+      <Filter>spl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\spl\spl-pick.h">
+      <Filter>spl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\spl\spl-selfench.h">
+      <Filter>spl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\spl\spl-summoning.h">
+      <Filter>spl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\spl\spl-transloc.h">
+      <Filter>spl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\spl\spl-util.h">
+      <Filter>spl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\spl\spl-wpnench.h">
+      <Filter>spl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\spl\spl-zap.h">
+      <Filter>spl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\spl\spl-book.h">
+      <Filter>spl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\spl\spl-cast.h">
+      <Filter>spl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\spl\spl-clouds.h">
+      <Filter>spl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\spl\spl-damage.h">
+      <Filter>spl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\spl\spl-data.h">
+      <Filter>spl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\branch.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\cloud.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\defines.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\delay.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\dungeon.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\effects.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\enum.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\env.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\evoke.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\exclude.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\externs.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\feature.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\fight.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\fineff.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\flood_find.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\food.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\fprop.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\geom2d.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\ghost.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\hints.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\invent.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\jobs.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\kills.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\lang-fake.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\makeitem.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\melee_attack.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\mgen_data.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\mgen_enum.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\misc.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\mislead.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\mutation.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\mutation-data.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\noise.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\notes.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\orb.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\ouch.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\potion.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\props.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\quiver.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\ray.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\religion.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\religion-enum.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\shopping.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\shout.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\show.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\showsymb.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\skills.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\skills2.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\species.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\stairs.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\stash.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\state.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\status.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\store.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\stuff.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\syscalls.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\target.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\teleport.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\terrain.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\throw.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\transform.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\trap_def.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\traps.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\travel.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\travel_defs.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\zap-data.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\zotdef.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\abl-show.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\acquire.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\act-iter.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\actor.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\aptitudes.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\areas.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\attack.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\attitude-change.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sys\beam.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tilereg-map.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tilereg-mem.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tilereg-menu.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tilereg-mon.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tilereg-msg.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tilereg-popup.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tilereg-skl.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tilereg-spl.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tilereg-stat.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tilereg-tab.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tilereg-text.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tilereg-title.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tiles.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tilesdl.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tiletex.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tileview.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tileweb.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tileweb-text.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tilebuf.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tilecell.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tiledgnbuf.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tiledoll.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tilefont.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tilemcache.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tilepick.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tilepick-p.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tilereg.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tilereg-abl.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tilereg-cmd.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tilereg-crt.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tilereg-dgn.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tilereg-doll.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tilereg-grid.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\tile\tilereg-inv.h">
+      <Filter>tile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ui\windowmanager-sdl.h">
+      <Filter>ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ui\colour.h">
+      <Filter>ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ui\directn.h">
+      <Filter>ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ui\macro.h">
+      <Filter>ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ui\menu.h">
+      <Filter>ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ui\options.h">
+      <Filter>ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ui\skill_menu.h">
+      <Filter>ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ui\tagstring.h">
+      <Filter>ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ui\windowmanager.h">
+      <Filter>ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\wiz\wiz-item.h">
+      <Filter>wiz</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\wiz\wiz-mon.h">
+      <Filter>wiz</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\wiz\wiz-you.h">
+      <Filter>wiz</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\wiz\wiz-dgn.h">
+      <Filter>wiz</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\wiz\wiz-fsim.h">
+      <Filter>wiz</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="build">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe2be12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="coord">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe3be13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="dgn">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe4be14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="god">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe5be15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="item">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe6be16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="los">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe7be17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lua">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe8be18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="map">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe9be19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mode">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe10be20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="platforms">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe11be21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="prebuilt">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe12be22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="rsc">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe13be23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="spl">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe14be24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="test">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe15be25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ui">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe16be26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="wiz">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe17be27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="contrib">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe18be28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="dbg">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe19be29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gl">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe20be30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="io">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe21be31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe22be32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="low">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe23be33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="misc">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe24be34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mon">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe25be35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="player">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe26be36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="random">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe27be37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="rltiles">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe28be38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scripts">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe29be39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sys">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe30be40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tile">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe31be41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util">
+      <UniqueIdentifier>{601559b4-fb3d-481f-89d4-6f7dbbe32be42}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\low\SDLMain.m">
+      <Filter>low</Filter>
+    </None>
+    <None Include="..\..\..\misc\grind.sh">
+      <Filter>misc</Filter>
+    </None>
+    <None Include="..\..\..\misc\src-pkg-excludes.lst">
+      <Filter>misc</Filter>
+    </None>
+    <None Include="..\..\..\misc\grep-mon.pl">
+      <Filter>misc</Filter>
+    </None>
+    <None Include="..\..\..\rltiles\tilegen-Info.plist">
+      <Filter>rltiles</Filter>
+    </None>
+    <None Include="..\..\..\scripts\genlevel.lua">
+      <Filter>scripts</Filter>
+    </None>
+    <None Include="..\..\..\scripts\genmap.lua">
+      <Filter>scripts</Filter>
+    </None>
+    <None Include="..\..\..\scripts\place-population.lua">
+      <Filter>scripts</Filter>
+    </None>
+    <None Include="..\..\..\scripts\training_simu.lua">
+      <Filter>scripts</Filter>
+    </None>
+    <None Include="..\..\..\scripts\csim.lua">
+      <Filter>scripts</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\misc\valgrind-suppress.txt">
+      <Filter>misc</Filter>
+    </Text>
   </ItemGroup>
 </Project>

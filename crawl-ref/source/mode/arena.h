@@ -6,7 +6,7 @@
 #ifndef ARENA_H
 #define ARENA_H
 
-#include "enum.h"
+#include "../sys/enum.h"
 
 class level_id;
 class monster;

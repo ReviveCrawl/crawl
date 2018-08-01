@@ -2,9 +2,9 @@
 
 #include "losglobal.h"
 
-#include "coord.h"
-#include "coordit.h"
-#include "libutil.h"
+#include "../coord/coord.h"
+#include "../coord/coordit.h"
+#include "../lib/libutil.h"
 #include "los_def.h"
 
 #define LOS_KNOWN 4

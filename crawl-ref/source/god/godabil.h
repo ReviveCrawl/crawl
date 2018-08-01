@@ -6,7 +6,7 @@
 #ifndef GODABIL_H
 #define GODABIL_H
 
-#include "enum.h"
+#include "../sys/enum.h"
 #include "externs.h"
 
 struct bolt;

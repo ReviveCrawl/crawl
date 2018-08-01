@@ -6,7 +6,7 @@
 #ifndef MONBEHV_H
 #define MONBEHV_H
 
-#include "enum.h"
+#include "../sys/enum.h"
 
 enum mon_event_type
 {

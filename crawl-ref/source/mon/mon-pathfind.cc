@@ -2,7 +2,7 @@
 
 #include "mon-pathfind.h"
 
-#include "coord.h"
+#include "../coord/coord.h"
 #include "directn.h"
 #include "env.h"
 #include "mon-place.h"

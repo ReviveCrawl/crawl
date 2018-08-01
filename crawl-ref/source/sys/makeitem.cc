@@ -7,14 +7,14 @@
 
 #include <algorithm>
 
-#include "enum.h"
+#include "../sys/enum.h"
 #include "externs.h"
 #include "makeitem.h"
 #include "message.h"
 
 #include "artefact.h"
 #include "colour.h"
-#include "coord.h"
+#include "../coord/coord.h"
 #include "decks.h"
 #include "describe.h"
 #include "dungeon.h"
@@ -23,13 +23,13 @@
 #include "itemname.h"
 #include "itemprop.h"
 #include "items.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "misc.h"
 #include "mon-util.h"
 #include "player.h"
 #include "random.h"
 #include "spl-book.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "stuff.h"
 #include "travel.h"
 

@@ -10,7 +10,7 @@
 
 #include "branch.h"
 #include "cluautil.h"
-#include "coord.h"
+#include "../coord/coord.h"
 #include "exclude.h"
 #include "player.h"
 #include "travel.h"

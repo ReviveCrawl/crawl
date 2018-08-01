@@ -24,8 +24,8 @@
 #endif
 #include "cloud.h"
 #include "clua.h"
-#include "coord.h"
-#include "coordit.h"
+#include "../coord/coord.h"
+#include "../coord/coordit.h"
 #include "delay.h"
 #include "directn.h"
 #include "effects.h"
@@ -45,7 +45,7 @@
 #include "itemprop.h"
 #include "items.h"
 #include "kills.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "macro.h"
 #include "map_knowledge.h"
 #include "melee_attack.h"
@@ -77,7 +77,7 @@
 #include "sprint.h"
 #include "stairs.h"
 #include "stash.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "status.h"
 #include "stuff.h"
 #include "terrain.h"
@@ -89,7 +89,7 @@
 #include "traps.h"
 #include "travel.h"
 #include "view.h"
-#include "viewgeom.h"
+#include "../io/viewgeom.h"
 #include "xom.h"
 
 static void _moveto_maybe_repel_stairs()

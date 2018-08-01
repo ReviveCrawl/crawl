@@ -5,8 +5,8 @@
 #include "areas.h"
 #include "cloud.h"
 #include "colour.h"
-#include "coord.h"
-#include "coordit.h"
+#include "../coord/coord.h"
+#include "../coord/coordit.h"
 #include "dungeon.h"
 #include "env.h"
 #include "fprop.h"
@@ -16,7 +16,7 @@
 #include "options.h"
 #include "player.h"
 #include "showsymb.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "stuff.h"
 #include "terrain.h"
 #include "tiledef-dngn.h"
@@ -25,7 +25,7 @@
 #include "tilepick.h"
 #include "traps.h"
 #include "travel.h"
-#include "viewgeom.h"
+#include "../io/viewgeom.h"
 
 void tile_new_level(bool first_time, bool init_unseen)
 {

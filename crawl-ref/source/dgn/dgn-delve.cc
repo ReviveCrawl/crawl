@@ -2,8 +2,8 @@
 #include <deque>
 
 #include "env.h"
-#include "coord.h"
-#include "coordit.h"
+#include "../coord/coord.h"
+#include "../coord/coordit.h"
 #include "directn.h"
 #include "dungeon.h"
 #include "mapdef.h"

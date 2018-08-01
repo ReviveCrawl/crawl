@@ -4,7 +4,7 @@
 
 #include "tilereg-stat.h"
 
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "macro.h"
 
 StatRegion::StatRegion(FontWrapper *font) : TextRegion(font)

@@ -4,13 +4,13 @@
 
 #include "fight.h"
 #include "godwrath.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "monster.h"
 #include "mon-util.h"
 #include "player.h"
 #include "random.h"
 #include "religion.h"
-#include "state.h"
+#include "../sys/state.h"
 
 /////////////////////////////////////////////////////////////////////
 // god_conduct_trigger

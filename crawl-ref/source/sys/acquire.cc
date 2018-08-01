@@ -26,7 +26,7 @@
 #include "itemprop.h"
 #include "items.h"
 #include "item_use.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "makeitem.h"
 #include "message.h"
 #include "misc.h"
@@ -37,7 +37,7 @@
 #include "skills2.h"
 #include "spl-book.h"
 #include "spl-util.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "stuff.h"
 #include "terrain.h"
 

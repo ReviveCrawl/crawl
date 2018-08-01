@@ -12,7 +12,7 @@
 #include <string.h>
 #include <limits.h>
 
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "syscalls.h"
 #include "unicode.h"
 

@@ -6,7 +6,7 @@
 #include "menu.h"
 #include "tilefont.h"
 #include "tilereg-crt.h"
-#include "viewgeom.h"
+#include "../io/viewgeom.h"
 
 CRTRegion::CRTRegion(FontWrapper *font) : TextRegion(font), m_attached_menu(NULL)
 {

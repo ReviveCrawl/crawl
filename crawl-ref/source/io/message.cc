@@ -12,7 +12,7 @@
 #include "delay.h"
 #include "format.h"
 #include "initfile.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "menu.h"
 #include "mon-stuff.h"
 #include "notes.h"
@@ -21,7 +21,7 @@
 #include "religion.h"
 #include "showsymb.h"
 #include "stash.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "areas.h"
 #include "tags.h"
 #include "tagstring.h"
@@ -30,7 +30,7 @@
 #include "unwind.h"
 #include "view.h"
 #include "shout.h"
-#include "viewgeom.h"
+#include "../io/viewgeom.h"
 
 #include <sstream>
 

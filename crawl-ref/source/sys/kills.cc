@@ -15,7 +15,7 @@
 #include "mon-info.h"
 #include "files.h"
 #include "ghost.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "monster.h"
 #include "place.h"
 #include "travel.h"

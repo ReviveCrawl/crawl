@@ -28,11 +28,11 @@
 #include "player.h"
 #include "random.h"
 #include "religion.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "stuff.h"
 #include "terrain.h"
 #include "traps.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "zotdef.h"
 
 // Size of the mons_alloc array (or at least the bit of

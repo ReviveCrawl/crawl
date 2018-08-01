@@ -7,7 +7,7 @@
 #ifndef DECKS_H
 #define DECKS_H
 
-#include "enum.h"
+#include "../sys/enum.h"
 
 #include "externs.h"
 

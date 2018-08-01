@@ -5,7 +5,7 @@
 
 #include "AppHdr.h"
 
-#include "enum.h"
+#include "../sys/enum.h"
 #include "mon-grow.h"
 #include "mon-util.h"
 #include "mon-place.h"

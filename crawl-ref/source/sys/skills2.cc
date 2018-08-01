@@ -21,7 +21,7 @@
 #include "evoke.h"
 #include "externs.h"
 #include "godabil.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "player.h"
 #include "religion.h"
 #include "species.h"

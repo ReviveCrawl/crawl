@@ -28,7 +28,7 @@
 #include "dungeon.h"
 #include "files.h"
 #include "hints.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "macro.h"
 #include "menu.h"
 #include "message.h"
@@ -36,11 +36,11 @@
 #include "options.h"
 #include "output.h"
 #include "player.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "traps.h"
 #include "view.h"
 #include "viewchar.h"
-#include "viewgeom.h"
+#include "../io/viewgeom.h"
 
 #ifdef TOUCH_UI
 #include "tilepick.h"

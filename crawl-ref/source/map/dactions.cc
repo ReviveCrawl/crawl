@@ -7,11 +7,11 @@
 
 #include "dactions.h"
 
-#include "coordit.h"
+#include "../coord/coordit.h"
 #include "decks.h"
 #include "dungeon.h"
 #include "env.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "mon-behv.h"
 #include "mon-iter.h"
 #include "mon-stuff.h"
@@ -19,7 +19,7 @@
 #include "mon-util.h"
 #include "player.h"
 #include "religion.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "travel.h"
 #include "view.h"
 

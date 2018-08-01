@@ -4,7 +4,7 @@
 
 #include "tilereg-msg.h"
 
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "macro.h"
 #include "tilebuf.h"
 #include "tilefont.h"

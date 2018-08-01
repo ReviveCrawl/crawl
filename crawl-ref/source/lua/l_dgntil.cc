@@ -6,11 +6,11 @@
 #include "AppHdr.h"
 
 #include "cluautil.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "l_libs.h"
 
 #include "branch.h"
-#include "coord.h"
+#include "../coord/coord.h"
 #include "mapdef.h"
 
 #include "env.h"

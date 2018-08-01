@@ -21,7 +21,7 @@
 #include "AppHdr.h"
 
 #include "macro.h"
-#include "state.h"
+#include "../sys/state.h"
 
 #include <string>
 #include <sstream>
@@ -36,10 +36,10 @@
 #include "cio.h"
 #include "externs.h"
 #include "files.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "options.h"
 #include "message.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "stuff.h"
 #include "syscalls.h"
 #include "unicode.h"

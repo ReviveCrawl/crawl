@@ -9,7 +9,7 @@
 #include "cio.h"
 #include "directn.h"
 #include "env.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "monster.h"
 #include "stuff.h"
 #include "tiledef-dngn.h"
@@ -18,7 +18,7 @@
 #include "tilereg-dgn.h"
 #include "tilepick.h"
 #include "tileview.h"
-#include "viewgeom.h"
+#include "../io/viewgeom.h"
 
 MonsterRegion::MonsterRegion(const TileRegionInit &init) : GridRegion(init)
 {

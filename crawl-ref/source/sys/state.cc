@@ -20,7 +20,7 @@
 #include "player.h"
 #include "religion.h"
 #include "showsymb.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "hints.h"
 #include "unwind.h"
 

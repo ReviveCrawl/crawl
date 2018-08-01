@@ -6,7 +6,7 @@
 #ifndef CIO_H
 #define CIO_H
 
-#include "enum.h"
+#include "../sys/enum.h"
 
 #include <cctype>
 #include <string>

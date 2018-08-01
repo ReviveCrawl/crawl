@@ -7,7 +7,7 @@
 #ifndef SPL_CAST_H
 #define SPL_CAST_H
 
-#include "enum.h"
+#include "../sys/enum.h"
 
 enum spflag_type
 {

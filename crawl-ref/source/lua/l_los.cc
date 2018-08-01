@@ -8,8 +8,8 @@
 #include "l_libs.h"
 
 #include "cluautil.h"
-#include "coord.h"
-#include "libutil.h"
+#include "../coord/coord.h"
+#include "../lib/libutil.h"
 #include "los.h"
 #include "losglobal.h"
 #include "ray.h"

@@ -49,9 +49,9 @@
 
 #include "areas.h"
 #include "bitary.h"
-#include "coord.h"
+#include "../coord/coord.h"
 #include "coord-circle.h"
-#include "coordit.h"
+#include "../coord/coordit.h"
 #include "externs.h"
 #include "geom2d.h"
 #include "losglobal.h"

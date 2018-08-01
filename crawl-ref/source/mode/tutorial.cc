@@ -13,7 +13,7 @@
 #include "mpr.h"
 #include "player.h"
 #include "skills.h"
-#include "state.h"
+#include "../sys/state.h"
 
 void set_tutorial_hunger(int hunger)
 {

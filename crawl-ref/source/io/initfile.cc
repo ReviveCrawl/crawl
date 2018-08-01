@@ -31,7 +31,7 @@
  #include "tileweb.h"
 #endif
 #include "invent.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "macro.h"
 #include "mapdef.h"
 #include "message.h"
@@ -41,7 +41,7 @@
 #include "species.h"
 #include "spl-util.h"
 #include "stash.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "stuff.h"
 #include "syscalls.h"
 #include "tags.h"

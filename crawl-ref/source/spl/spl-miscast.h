@@ -6,7 +6,7 @@
 #ifndef SPL_MISCAST_H
 #define SPL_MISCAST_H
 
-#include "enum.h"
+#include "../sys/enum.h"
 
 #include "monster.h"
 #include "mpr.h"

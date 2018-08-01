@@ -9,11 +9,11 @@
 #include "cluautil.h"
 #include "l_libs.h"
 
-#include "coord.h"
+#include "../coord/coord.h"
 #include "directn.h"
 #include "dungeon.h"
 #include "env.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "terrain.h"
 
 static int dgn_feature_number(lua_State *ls)

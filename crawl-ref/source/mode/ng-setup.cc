@@ -27,7 +27,7 @@
 #include "skills2.h"
 #include "spl-book.h"
 #include "spl-util.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "stuff.h"
 #include "tilepick.h"
 #include "tutorial.h"

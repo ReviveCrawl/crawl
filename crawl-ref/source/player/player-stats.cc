@@ -8,7 +8,7 @@
 #include "godpassive.h"
 #include "files.h"
 #include "item_use.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "macro.h"
 #include "misc.h"
 #include "mon-util.h"
@@ -17,7 +17,7 @@
 #include "ouch.h"
 #include "player.h"
 #include "religion.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "transform.h"
 #include "hints.h"
 

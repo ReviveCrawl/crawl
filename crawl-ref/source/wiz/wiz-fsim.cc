@@ -11,7 +11,7 @@
 #include <errno.h>
 
 #include "beam.h"
-#include "coordit.h"
+#include "../coord/coordit.h"
 #include "dbg-util.h"
 #include "directn.h"
 #include "env.h"
@@ -19,7 +19,7 @@
 #include "itemprop.h"
 #include "items.h"
 #include "item_use.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "message.h"
 #include "mon-place.h"
 #include "mgen_data.h"
@@ -33,7 +33,7 @@
 #include "skills.h"
 #include "skills2.h"
 #include "species.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "stuff.h"
 #include "throw.h"
 #include "unwind.h"

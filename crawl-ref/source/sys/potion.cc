@@ -20,7 +20,7 @@
 #include "godconduct.h"
 #include "hints.h"
 #include "item_use.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "message.h"
 #include "misc.h"
 #include "mutation.h"

@@ -6,7 +6,7 @@
 #include "process_desc.h"
 
 #include "cio.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "macro.h"
 #include "message.h"
 #include "spl-cast.h"
@@ -16,7 +16,7 @@
 #include "tiledef-icons.h"
 #include "tiledef-main.h"
 #include "tilepick.h"
-#include "viewgeom.h"
+#include "../io/viewgeom.h"
 
 SpellRegion::SpellRegion(const TileRegionInit &init) : GridRegion(init)
 {

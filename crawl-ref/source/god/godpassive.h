@@ -6,7 +6,7 @@
 #ifndef GODPASSIVE_H
 #define GODPASSIVE_H
 
-#include "enum.h"
+#include "../sys/enum.h"
 #include "player.h"
 
 class monster;

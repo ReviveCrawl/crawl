@@ -12,7 +12,7 @@
 #include "dungeon.h"
 #include "env.h"
 #include "initfile.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "maps.h"
 #include "message.h"
 #include "ng-init.h"

@@ -2,7 +2,7 @@
 
 #include "map_knowledge.h"
 
-#include "coordit.h"
+#include "../coord/coordit.h"
 #include "dgn-overview.h"
 #include "dgnevent.h"
 #include "directn.h"

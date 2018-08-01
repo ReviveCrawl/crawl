@@ -6,7 +6,7 @@
 #ifndef PLACE_H
 #define PLACE_H
 
-#include "enum.h"
+#include "../sys/enum.h"
 
 //////////////////////////////////////////////////////////////////////
 // Places and names

@@ -7,7 +7,7 @@
 
 #include <algorithm>
 
-#include "enum.h"
+#include "../sys/enum.h"
 #include "externs.h"
 #include "mon-gear.h"
 
@@ -23,7 +23,7 @@
 #include "mon-util.h"
 #include "random.h"
 #include "spl-book.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "tilepick.h"
 #include "unwind.h"
 

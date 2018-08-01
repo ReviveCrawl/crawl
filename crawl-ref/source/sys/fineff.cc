@@ -5,19 +5,19 @@
 **/
 
 #include "AppHdr.h"
-#include "coord.h"
+#include "../coord/coord.h"
 #include "dactions.h"
 #include "effects.h"
 #include "env.h"
 #include "fineff.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "mgen_data.h"
 #include "misc.h"
 #include "mon-abil.h"
 #include "mon-place.h"
 #include "ouch.h"
 #include "religion.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "transform.h"
 #include "view.h"
 

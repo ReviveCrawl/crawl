@@ -30,7 +30,7 @@
 #include "itemname.h"
 #include "itemprop.h"
 #include "items.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "macro.h"
 #include "message.h"
 #include "player.h"
@@ -39,7 +39,7 @@
 #include "spl-cast.h"
 #include "spl-miscast.h"
 #include "spl-util.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "stuff.h"
 #ifdef USE_TILE
  #include "tilepick.h"

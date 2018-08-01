@@ -7,7 +7,7 @@
 #ifndef SPL_UTIL_H
 #define SPL_UTIL_H
 
-#include "enum.h"
+#include "../sys/enum.h"
 #include "mon-info.h"
 
 enum spschool_flag_type

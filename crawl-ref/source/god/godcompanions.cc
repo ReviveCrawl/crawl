@@ -9,8 +9,8 @@
 
 #include "godcompanions.h"
 
-#include "coord.h"
-#include "coordit.h"
+#include "../coord/coord.h"
+#include "../coord/coordit.h"
 #include "actor.h"
 #include "mon-stuff.h"
 #include "mon-util.h"

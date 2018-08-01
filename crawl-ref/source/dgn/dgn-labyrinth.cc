@@ -7,7 +7,7 @@
 
 #include "dgn-labyrinth.h"
 
-#include "coordit.h"
+#include "../coord/coordit.h"
 #include "dungeon.h"
 #include "items.h"
 #include "mapmark.h"

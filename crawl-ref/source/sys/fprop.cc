@@ -7,9 +7,9 @@
 
 #include "fprop.h"
 
-#include "coord.h"
+#include "../coord/coord.h"
 #include "env.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 
 bool is_sanctuary(const coord_def& p)
 {

@@ -17,11 +17,11 @@
 #include "externs.h"
 #include "tilereg-text.h"
 #include "message.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "terrain.h"
 #include "tiledef-main.h"
 #include "travel.h"
-#include "viewgeom.h"
+#include "../io/viewgeom.h"
 #include "windowmanager.h"
 
 int m_getch()

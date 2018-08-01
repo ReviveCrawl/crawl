@@ -11,10 +11,10 @@
 #include <sstream>
 
 #include "cloud.h"
-#include "coord.h"
-#include "coordit.h"
+#include "../coord/coord.h"
+#include "../coord/coordit.h"
 #include "dgn-overview.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "map_knowledge.h"
 #include "mon-util.h"
 #include "options.h"

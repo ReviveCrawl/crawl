@@ -5,16 +5,16 @@
 
 #include "AppHdr.h"
 
-#include "player.h"
+#include "../player/player.h"
 
-#include "art-enum.h"
-#include "coord.h"
+#include "../item/art-enum.h"
+#include "../coord/coord.h"
 #include "env.h"
 #include "fprop.h"
-#include "mon-util.h"
-#include "monster.h"
-#include "random.h"
-#include "state.h"
+#include "../mon/mon-util.h"
+#include "../mon/monster.h"
+#include "../random/random.h"
+#include "../sys/state.h"
 #include "areas.h"
 
 static bool _mermaid_beholder(const monster* mons)

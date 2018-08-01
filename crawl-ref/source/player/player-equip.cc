@@ -25,7 +25,7 @@
 #include "spl-cast.h"
 #include "spl-miscast.h"
 #include "spl-summoning.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "stuff.h"
 #include "transform.h"
 #include "xom.h"

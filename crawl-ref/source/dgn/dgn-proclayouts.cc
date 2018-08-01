@@ -7,8 +7,8 @@
 #include <cmath>
 
 #include "dgn-proclayouts.h"
-#include "coord.h"
-#include "coordit.h"
+#include "../coord/coord.h"
+#include "../coord/coordit.h"
 #include "files.h"
 #include "hash.h"
 #include "perlin.h"

@@ -20,7 +20,7 @@
 #include "hints.h"
 #include "invent.h"
 #include "itemprop.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "message.h"
 #include "misc.h"
 #include "notes.h"
@@ -30,7 +30,7 @@
 #include "skills2.h"
 #include "spl-cast.h"
 #include "sprint.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "stuff.h"
 
 // MAX_COST_LIMIT is the maximum XP amount it will cost to raise a skill

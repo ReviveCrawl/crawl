@@ -8,7 +8,7 @@
 #include "externs.h"
 
 #include "branch.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "place.h"
 #include "player.h"
 #include "travel.h"

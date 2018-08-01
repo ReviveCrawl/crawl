@@ -9,7 +9,7 @@
 
 #include <set>
 
-#include "enum.h"
+#include "../sys/enum.h"
 #include "player.h"
 
 bool form_can_wield(transformation_type form = you.form);

@@ -28,7 +28,7 @@
 #include "item_use.h"
 #include "itemprop.h"
 #include "items.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "message.h"
 #include "player.h"
 #include "religion.h"
@@ -36,7 +36,7 @@
 #include "showsymb.h"
 #include "stuff.h"
 #include "mon-util.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "throw.h"
 
 #ifdef USE_TILE

@@ -12,7 +12,7 @@
 #include "areas.h"
 #include "art-enum.h"
 #include "artefact.h"
-#include "coordit.h"
+#include "../coord/coordit.h"
 #include "dgnevent.h"
 #include "env.h"
 #include "food.h"
@@ -21,15 +21,15 @@
 #include "itemname.h"
 #include "itemprop.h"
 #include "items.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "misc.h"
 #include "monster.h"
 #include "spl-damage.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "terrain.h"
 #include "transform.h"
 #include "traps.h"
-#include "viewgeom.h"
+#include "../io/viewgeom.h"
 
 int player::mindex() const
 {

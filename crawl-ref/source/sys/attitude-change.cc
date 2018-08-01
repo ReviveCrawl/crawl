@@ -9,13 +9,13 @@
 
 #include <sstream>
 
-#include "coordit.h"
+#include "../coord/coordit.h"
 #include "database.h"
 #include "env.h"
 #include "godcompanions.h"
 #include "goditem.h"
 #include "itemprop.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "message.h"
 #include "mon-behv.h"
 #include "mon-iter.h"
@@ -25,7 +25,7 @@
 #include "player.h"
 #include "random.h"
 #include "religion.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "travel.h"
 #include "transform.h"
 

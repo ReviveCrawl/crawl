@@ -9,7 +9,7 @@
 #include <stddef.h>
 #include <vector>
 #include "menu.h"
-#include "enum.h"
+#include "../sys/enum.h"
 #include "itemname.h"
 
 enum object_selector

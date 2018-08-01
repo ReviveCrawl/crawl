@@ -8,7 +8,7 @@
 #define DIRECT_H
 
 #include "externs.h"
-#include "enum.h"
+#include "../sys/enum.h"
 #include "mon-info.h"
 
 struct describe_info;

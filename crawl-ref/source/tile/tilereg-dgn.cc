@@ -8,14 +8,14 @@
 #include "cio.h"
 #include "cloud.h"
 #include "command.h"
-#include "coord.h"
+#include "../coord/coord.h"
 #include "dgn-height.h"
 #include "env.h"
 #include "invent.h"
 #include "itemprop.h"
 #include "items.h"
 #include "jobs.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "macro.h"
 #include "message.h"
 #include "misc.h"
@@ -34,7 +34,7 @@
 #include "tilepick.h"
 #include "traps.h"
 #include "travel.h"
-#include "viewgeom.h"
+#include "../io/viewgeom.h"
 
 static VColour _flash_colours[MAX_TERM_COLOUR] =
 {

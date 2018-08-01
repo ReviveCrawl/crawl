@@ -7,14 +7,14 @@
 
 #include "abl-show.h"
 #include "cio.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "macro.h"
 #include "message.h"
 #include "stuff.h"
 #include "tiledef-dngn.h"
 #include "tiledef-icons.h"
 #include "tilepick.h"
-#include "viewgeom.h"
+#include "../io/viewgeom.h"
 
 AbilityRegion::AbilityRegion(const TileRegionInit &init) : GridRegion(init)
 {

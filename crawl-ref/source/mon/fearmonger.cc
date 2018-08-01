@@ -7,12 +7,12 @@
 
 #include "player.h"
 
-#include "coord.h"
+#include "../coord/coord.h"
 #include "env.h"
 #include "fprop.h"
 #include "mon-util.h"
 #include "monster.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "areas.h"
 
 // Add a monster to the list of fearmongers.

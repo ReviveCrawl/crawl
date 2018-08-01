@@ -7,7 +7,7 @@
 #ifndef SKILLS_MENU_H
 #define SKILLS_MENU_H
 
-#include "enum.h"
+#include "../sys/enum.h"
 #include "menu.h"
 #include "skills2.h"
 

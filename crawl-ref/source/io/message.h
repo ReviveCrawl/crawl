@@ -10,7 +10,7 @@
 #include <streambuf>
 #include <iostream>
 
-#include "enum.h"
+#include "../sys/enum.h"
 
 // Write the message window contents out.
 void display_message_window();

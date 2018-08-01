@@ -8,11 +8,11 @@
 #include "cluautil.h"
 #include "l_libs.h"
 
-#include "coord.h"
+#include "../coord/coord.h"
 #include "dungeon.h"
 #include "env.h"
 #include "items.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "mapdef.h"
 #include "stash.h"
 

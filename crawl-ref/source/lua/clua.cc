@@ -7,8 +7,8 @@
 #include "l_libs.h"
 
 #include "files.h"
-#include "libutil.h"
-#include "state.h"
+#include "../lib/libutil.h"
+#include "../sys/state.h"
 #include "stuff.h"
 #include "syscalls.h"
 #include "unicode.h"

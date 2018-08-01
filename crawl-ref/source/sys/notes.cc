@@ -15,7 +15,7 @@
 #include "files.h"
 #include "kills.h"
 #include "hiscores.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "message.h"
 #include "mutation.h"
 #include "options.h"
@@ -23,7 +23,7 @@
 #include "religion.h"
 #include "skills2.h"
 #include "spl-util.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "tags.h"
 
 #define NOTES_VERSION_NUMBER 1002

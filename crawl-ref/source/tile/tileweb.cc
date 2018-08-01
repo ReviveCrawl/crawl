@@ -4,13 +4,13 @@
 
 #include "artefact.h"
 #include "branch.h"
-#include "coord.h"
+#include "../coord/coord.h"
 #include "directn.h"
 #include "env.h"
 #include "files.h"
 #include "itemname.h"
 #include "lang-fake.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "map_knowledge.h"
 #include "menu.h"
 #include "message.h"
@@ -19,7 +19,7 @@
 #include "options.h"
 #include "player.h"
 #include "religion.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "stuff.h"
 #include "skills2.h"
 #include "tiledef-dngn.h"
@@ -37,7 +37,7 @@
 #include "unwind.h"
 #include "version.h"
 #include "view.h"
-#include "viewgeom.h"
+#include "../io/viewgeom.h"
 
 #include "json.h"
 

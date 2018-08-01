@@ -10,7 +10,7 @@
 
 #define DEATH_NAME_LENGTH 10
 
-#include "enum.h"
+#include "../sys/enum.h"
 #include "beam.h"
 
 // Keep in sync with names in hiscores.cc.

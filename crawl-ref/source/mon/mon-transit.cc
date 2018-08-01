@@ -10,8 +10,8 @@
 #include "mon-transit.h"
 
 #include "artefact.h"
-#include "coord.h"
-#include "coordit.h"
+#include "../coord/coord.h"
+#include "../coord/coordit.h"
 #include "dactions.h"
 #include "dungeon.h"
 #include "env.h"

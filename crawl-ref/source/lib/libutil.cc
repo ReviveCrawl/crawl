@@ -7,14 +7,14 @@
 
 #include "defines.h"
 #include "itemname.h" // is_vowel()
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "externs.h"
 #include "files.h"
 #include "message.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "unicode.h"
 #include "version.h"
-#include "viewgeom.h"
+#include "../io/viewgeom.h"
 
 #include <sstream>
 #include <stdio.h>

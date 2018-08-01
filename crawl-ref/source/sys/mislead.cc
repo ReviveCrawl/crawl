@@ -6,7 +6,7 @@
 #include "AppHdr.h"
 #include "mislead.h"
 
-#include "enum.h"
+#include "../sys/enum.h"
 #include "env.h"
 #include "hints.h"
 #include "message.h"

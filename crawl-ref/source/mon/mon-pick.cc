@@ -9,10 +9,10 @@
 
 #include "externs.h"
 #include "branch.h"
-#include "coord.h"
+#include "../coord/coord.h"
 #include "env.h"
 #include "errors.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "mon-place.h"
 #include "mon-util.h"
 #include "place.h"

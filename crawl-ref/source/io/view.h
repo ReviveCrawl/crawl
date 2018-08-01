@@ -7,7 +7,7 @@
 #ifndef VIEW_H
 #define VIEW_H
 
-#include "viewgeom.h"
+#include "../io/viewgeom.h"
 
 void init_monsters_seens();
 

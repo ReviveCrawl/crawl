@@ -3,7 +3,7 @@
 
 #ifdef USE_TILE_LOCAL
 
-#include "tiletex.h"
+#include "../tile/tiletex.h"
 
 #include <stdlib.h>
 #include <vector>

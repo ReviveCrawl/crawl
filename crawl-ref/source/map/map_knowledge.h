@@ -1,7 +1,7 @@
 #ifndef MAP_KNOWLEDGE_H
 #define MAP_KNOWLEDGE_H
 
-#include "enum.h"
+#include "../sys/enum.h"
 #include "mon-info.h"
 
 struct cloud_info

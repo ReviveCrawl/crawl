@@ -1,7 +1,7 @@
 #ifndef APTITUDES_H
 #define APTITUDES_H
 
-#include "enum.h"
+#include "../sys/enum.h"
 
 static inline species_skill_aptitude APT(species_type sp,
                                          skill_type sk,

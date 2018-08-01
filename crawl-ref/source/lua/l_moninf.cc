@@ -9,9 +9,9 @@
 #include "l_defs.h"
 
 #include "cluautil.h"
-#include "coord.h"
+#include "../coord/coord.h"
 #include "env.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "mon-info.h"
 #include "player.h"
 #include "transform.h"

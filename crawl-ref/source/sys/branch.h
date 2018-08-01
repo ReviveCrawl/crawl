@@ -6,7 +6,7 @@
 #ifndef BRANCH_H
 #define BRANCH_H
 
-#include "enum.h"
+#include "../sys/enum.h"
 
 enum branch_flag_type
 {

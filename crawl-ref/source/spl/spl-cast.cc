@@ -30,7 +30,7 @@
 #include "hints.h"
 #include "item_use.h"
 #include "items.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "macro.h"
 #include "menu.h"
 #include "misc.h"
@@ -58,7 +58,7 @@
 #include "spl-transloc.h"
 #include "spl-wpnench.h"
 #include "spl-zap.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "stuff.h"
 #include "target.h"
 #ifdef USE_TILE

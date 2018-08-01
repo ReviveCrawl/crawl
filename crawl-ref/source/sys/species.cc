@@ -2,7 +2,7 @@
 
 #include "species.h"
 
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "random.h"
 
 #include "version.h"

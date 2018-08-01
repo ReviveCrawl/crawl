@@ -7,9 +7,9 @@
 #include "AppHdr.h"
 #include "acquire.h"
 #include "decks.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "player.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "uncancel.h"
 #include "unwind.h"
 

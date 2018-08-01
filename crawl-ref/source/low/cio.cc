@@ -8,12 +8,12 @@
 #include "cio.h"
 #include "externs.h"
 #include "options.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "macro.h"
 #include "message.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "unicode.h"
-#include "viewgeom.h"
+#include "../io/viewgeom.h"
 
 #include <queue>
 

@@ -10,7 +10,7 @@
 #include "externs.h"
 
 #include "areas.h"
-#include "coord.h"
+#include "../coord/coord.h"
 #include "env.h"
 #include "message.h"
 #include "mon-stuff.h"

@@ -9,11 +9,11 @@
 
 #include "artefact.h"
 #include "cio.h"
-#include "coord.h"
+#include "../coord/coord.h"
 #include "directn.h"
 #include "dungeon.h"
 #include "env.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "message.h"
 #include "mon-util.h"
 #include "options.h"
@@ -21,7 +21,7 @@
 #include "shopping.h"
 #include "skills2.h"
 #include "spl-util.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "stuff.h"
 
 monster_type debug_prompt_for_monster(void)

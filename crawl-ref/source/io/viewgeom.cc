@@ -1,10 +1,10 @@
 #include "AppHdr.h"
 
-#include "viewgeom.h"
+#include "../io/viewgeom.h"
 
 #include "options.h"
 #include "player.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "stuff.h"
 
 // ----------------------------------------------------------------------

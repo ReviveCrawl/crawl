@@ -6,7 +6,7 @@
 #include "cio.h"
 #include "files.h"
 #include "format.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "options.h"
 #include "stuff.h"
 #include "unicode.h"

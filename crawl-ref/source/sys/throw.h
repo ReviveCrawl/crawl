@@ -8,7 +8,7 @@
 
 #include <string>
 #include "externs.h"
-#include "enum.h"
+#include "../sys/enum.h"
 
 enum fire_type
 {

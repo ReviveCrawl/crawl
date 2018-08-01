@@ -2,8 +2,8 @@
 
 #include "coord-circle.h"
 
-#include "coordit.h"
-#include "libutil.h"
+#include "../coord/coordit.h"
+#include "../lib/libutil.h"
 #include "los.h"
 
 bool rect_def::contains(const coord_def& p) const

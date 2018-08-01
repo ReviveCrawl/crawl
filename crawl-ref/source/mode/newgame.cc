@@ -16,7 +16,7 @@
 #include "itemname.h"
 #include "itemprop.h"
 #include "jobs.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "macro.h"
 #include "makeitem.h"
 #include "maps.h"
@@ -28,7 +28,7 @@
 #include "options.h"
 #include "random.h"
 #include "species.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "stuff.h"
 #include "version.h"
 

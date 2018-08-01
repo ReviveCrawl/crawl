@@ -21,7 +21,7 @@
 #include <inttypes.h>
 
 #include "bitary.h"
-#include "enum.h"
+#include "../sys/enum.h"
 #include "fixedarray.h"
 #include "mpr.h"
 #include "pattern.h"

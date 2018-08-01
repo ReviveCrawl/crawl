@@ -15,7 +15,7 @@
 #include "cio.h"
 #include "files.h"
 #include "glwrapper.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "options.h"
 #include "syscalls.h"
 #include "version.h"

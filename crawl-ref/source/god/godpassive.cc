@@ -6,8 +6,8 @@
 #include "art-enum.h"
 #include "artefact.h"
 #include "branch.h"
-#include "coord.h"
-#include "coordit.h"
+#include "../coord/coord.h"
+#include "../coord/coordit.h"
 #include "defines.h"
 #include "describe.h"
 #include "env.h"
@@ -19,12 +19,12 @@
 #include "items.h"
 #include "itemname.h"
 #include "itemprop.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "mon-stuff.h"
 #include "player.h"
 #include "religion.h"
 #include "skills2.h"
-#include "state.h"
+#include "../sys/state.h"
 
 int chei_stat_boost(int piety)
 {

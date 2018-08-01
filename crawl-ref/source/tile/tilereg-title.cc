@@ -5,7 +5,7 @@
 #include "tilereg-title.h"
 
 #include "files.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "macro.h"
 #include "random.h"
 

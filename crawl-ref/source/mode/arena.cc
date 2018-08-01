@@ -15,7 +15,7 @@
 #include "externs.h"
 #include "items.h"
 #include "itemname.h" // for make_name()
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "los.h"
 #include "macro.h"
 #include "maps.h"
@@ -31,7 +31,7 @@
 #include "options.h"
 #include "spl-miscast.h"
 #include "spl-util.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "stuff.h"
 #include "terrain.h"
 #ifdef USE_TILE
@@ -39,7 +39,7 @@
 #endif
 #include "version.h"
 #include "view.h"
-#include "viewgeom.h"
+#include "../io/viewgeom.h"
 
 #define ARENA_VERBOSE
 

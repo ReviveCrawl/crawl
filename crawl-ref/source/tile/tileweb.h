@@ -10,7 +10,7 @@
 #include "status.h"
 #include "tileweb-text.h"
 #include "tiledoll.h"
-#include "viewgeom.h"
+#include "../io/viewgeom.h"
 #include "map_knowledge.h"
 #include <map>
 #include <bitset>

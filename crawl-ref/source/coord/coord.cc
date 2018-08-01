@@ -1,11 +1,11 @@
 #include "AppHdr.h"
 
-#include "coord.h"
+#include "../coord/coord.h"
 
-#include "libutil.h"
-#include "random.h"
-#include "state.h"
-#include "viewgeom.h"
+#include "../lib/libutil.h"
+#include "../random/random.h"
+#include "../sys/state.h"
+#include "../io/viewgeom.h"
 
 const coord_def INVALID_COORD(-1, -1);
 const coord_def NO_CURSOR(-1, -1);

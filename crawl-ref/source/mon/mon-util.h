@@ -8,7 +8,7 @@
 #define MONUTIL_H
 
 #include "externs.h"
-#include "enum.h"
+#include "../sys/enum.h"
 #include "mon-enum.h"
 #include "player.h"
 #include "mon-mst.h"

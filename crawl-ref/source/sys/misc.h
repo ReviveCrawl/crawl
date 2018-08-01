@@ -6,7 +6,7 @@
 #ifndef MISC_H
 #define MISC_H
 
-#include "coord.h"
+#include "../coord/coord.h"
 #include "directn.h"
 #include "externs.h"
 

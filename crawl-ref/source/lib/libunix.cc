@@ -28,15 +28,15 @@
 
 #include "cio.h"
 #include "crash.h"
-#include "enum.h"
+#include "../sys/enum.h"
 #include "externs.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "options.h"
 #include "files.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "unicode.h"
 #include "view.h"
-#include "viewgeom.h"
+#include "../io/viewgeom.h"
 
 #include <wchar.h>
 #include <locale.h>

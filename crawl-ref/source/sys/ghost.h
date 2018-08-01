@@ -6,7 +6,7 @@
 #ifndef GHOST_H
 #define GHOST_H
 
-#include "enum.h"
+#include "../sys/enum.h"
 #include "itemprop-enum.h"
 #include "mon-enum.h"
 

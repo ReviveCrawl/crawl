@@ -6,14 +6,14 @@
 #include "process_desc.h"
 
 #include "cio.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "options.h"
 #include "skills.h"
 #include "skills2.h"
 #include "stuff.h"
 #include "tiledef-icons.h"
 #include "tilepick.h"
-#include "viewgeom.h"
+#include "../io/viewgeom.h"
 
 #ifdef WIZARD
 #include "wiz-you.h"

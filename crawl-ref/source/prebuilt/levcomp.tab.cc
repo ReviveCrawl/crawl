@@ -74,7 +74,7 @@
 #include <map>
 #include <algorithm>
 #include "l_defs.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "mapdef.h"
 #include "maps.h"
 #include "stuff.h"

@@ -10,7 +10,7 @@
 #include <string>
 #include <cstdio>
 
-#include "enum.h"
+#include "../sys/enum.h"
 #include "itemprop-enum.h"
 #include "unicode.h"
 

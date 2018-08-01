@@ -6,7 +6,7 @@
 #ifndef TRAPS_H
 #define TRAPS_H
 
-#include "enum.h"
+#include "../sys/enum.h"
 #include "externs.h"
 
 struct bolt;

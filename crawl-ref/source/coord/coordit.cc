@@ -5,10 +5,10 @@
 
 #include "AppHdr.h"
 
-#include "coordit.h"
+#include "../coord/coordit.h"
 
 #include "coord-circle.h"
-#include "coord.h"
+#include "../coord/coord.h"
 #include "random.h"
 #include "player.h"
 

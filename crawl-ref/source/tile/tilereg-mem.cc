@@ -6,7 +6,7 @@
 
 #include "cio.h"
 #include "describe.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "macro.h"
 #include "religion.h"
 #include "spl-book.h"

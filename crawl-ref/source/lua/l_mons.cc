@@ -5,7 +5,7 @@
 
 #include "delay.h"
 #include "dlua.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "mon-act.h"
 #include "mon-behv.h"
 #include "mon-util.h"

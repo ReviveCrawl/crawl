@@ -17,9 +17,9 @@
 #include "art-enum.h"
 // #include "artefact.h"
 #include "externs.h"
-#include "enum.h"
+#include "../sys/enum.h"
 #include "fight.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "player.h"
 
 /*

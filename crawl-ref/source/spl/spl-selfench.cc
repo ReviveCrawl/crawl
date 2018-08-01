@@ -13,7 +13,7 @@
 #include "env.h"
 #include "godconduct.h"
 #include "hints.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "message.h"
 #include "misc.h"
 #include "options.h"

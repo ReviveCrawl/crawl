@@ -1,7 +1,7 @@
 #ifndef SPL_DAMAGE_H
 #define SPL_DAMAGE_H
 
-#include "enum.h"
+#include "../sys/enum.h"
 #include "spl-cast.h"
 
 struct bolt;

@@ -4,7 +4,7 @@
 
 #include "tilereg.h"
 #include "tiledgnbuf.h"
-#include "viewgeom.h"
+#include "../io/viewgeom.h"
 #include <vector>
 
 class mcache_entry;

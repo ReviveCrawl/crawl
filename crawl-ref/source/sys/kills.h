@@ -10,7 +10,7 @@
 #include <string>
 #include <map>
 #include <stdio.h>
-#include "enum.h"
+#include "../sys/enum.h"
 
 class monster;
 struct monster_info;

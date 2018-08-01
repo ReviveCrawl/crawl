@@ -7,12 +7,12 @@
 #include "cio.h"
 #include "command.h"
 #include "food.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "misc.h"
 #include "options.h"
 #include "tilesdl.h"
 #include "travel.h"
-#include "viewgeom.h"
+#include "../io/viewgeom.h"
 
 const VColour map_colours[MAX_MAP_COL] =
 {

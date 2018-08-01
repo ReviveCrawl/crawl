@@ -6,7 +6,7 @@
 #ifndef WIZYOU_H
 #define WIZYOU_H
 
-#include "enum.h"
+#include "../sys/enum.h"
 
 void wizard_cast_spec_spell(void);
 void wizard_memorise_spec_spell(void);

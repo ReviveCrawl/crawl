@@ -6,7 +6,7 @@
 #ifndef TERRAIN_H
 #define TERRAIN_H
 
-#include "enum.h"
+#include "../sys/enum.h"
 #include <memory>
 
 class  actor;

@@ -1,7 +1,7 @@
 
 #include "AppHdr.h"
 
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "tileweb-text.h"
 #include "tileweb.h"
 #include "unicode.h"

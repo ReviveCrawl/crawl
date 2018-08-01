@@ -4,7 +4,7 @@
 
 #include "tilereg-grid.h"
 
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "random.h"
 #include "tiledef-icons.h"
 #include "tilefont.h"

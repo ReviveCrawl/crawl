@@ -6,7 +6,7 @@
 #include "env.h"
 #include "evoke.h"
 #include "godabil.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "misc.h"
 #include "mutation.h"
 #include "player.h"

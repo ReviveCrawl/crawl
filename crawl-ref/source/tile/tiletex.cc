@@ -9,7 +9,7 @@
 #include "tiledef-icons.h"
 #include "tiledef-main.h"
 #include "tiledef-player.h"
-#include "tiletex.h"
+#include "../tile/tiletex.h"
 #include "windowmanager.h"
 
 GenericTexture::GenericTexture() :

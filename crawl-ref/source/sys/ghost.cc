@@ -14,7 +14,7 @@
 #include "externs.h"
 #include "itemname.h"
 #include "itemprop.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "mon-iter.h"
 #include "ng-input.h"
 #include "random.h"

@@ -8,7 +8,7 @@
 #include "godmenu.h"
 
 #include "colour.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "religion.h"
 
 GodMenuEntry::GodMenuEntry(god_type god_, bool long_name) :

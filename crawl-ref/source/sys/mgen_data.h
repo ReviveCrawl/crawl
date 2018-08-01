@@ -1,7 +1,7 @@
 #ifndef MGEN_DATA_H
 #define MGEN_DATA_H
 
-#include "coord.h"
+#include "../coord/coord.h"
 #include "mgen_enum.h"
 
 // Hash key for passing a weapon to be given to

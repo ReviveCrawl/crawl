@@ -11,10 +11,10 @@
 
 #include "clua.h"
 #include "cluautil.h"
-#include "coordit.h"
+#include "../coord/coordit.h"
 #include "directn.h"
 #include "dlua.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "l_libs.h"
 #include "stuff.h"
 #include "env.h"

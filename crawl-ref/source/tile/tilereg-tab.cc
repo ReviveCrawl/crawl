@@ -4,8 +4,8 @@
 
 #include "tilereg-tab.h"
 
-#include "libutil.h"
-#include "state.h"
+#include "../lib/libutil.h"
+#include "../sys/state.h"
 #include "tiledef-gui.h"
 #include "cio.h"
 #include "macro.h"

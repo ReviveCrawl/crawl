@@ -8,8 +8,8 @@
 #include "teleport.h"
 
 #include "cloud.h"
-#include "coord.h"
-#include "coordit.h"
+#include "../coord/coord.h"
+#include "../coord/coordit.h"
 #include "delay.h"
 #include "env.h"
 #include "fprop.h"
@@ -21,7 +21,7 @@
 #include "player.h"
 #include "random.h"
 #include "random-weight.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "stuff.h"
 #include "terrain.h"
 

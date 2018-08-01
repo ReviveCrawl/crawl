@@ -11,7 +11,7 @@
 #include "env.h"
 #include "externs.h"
 #include "mon-util.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "terrain.h"
 
 const opacity_default opc_default = opacity_default();

@@ -13,7 +13,7 @@
 #include <algorithm>
 
 #include "cloud.h"
-#include "coordit.h"
+#include "../coord/coordit.h"
 #include "delay.h"
 #include "env.h"
 #include "fineff.h"
@@ -32,7 +32,7 @@
 #include "shopping.h"
 #include "spl-miscast.h"
 #include "spl-summoning.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "stuff.h"
 #include "terrain.h"
 #include "travel.h"

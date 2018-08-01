@@ -6,7 +6,7 @@
 #ifndef DELAY_H
 #define DELAY_H
 
-#include "enum.h"
+#include "../sys/enum.h"
 
 class monster;
 struct ait_hp_loss;

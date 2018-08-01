@@ -9,9 +9,9 @@
 #include "cluautil.h"
 #include "l_libs.h"
 
-#include "coord.h"
+#include "../coord/coord.h"
 #include "env.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "terrain.h"
 
 #define FEATF(name, val) \

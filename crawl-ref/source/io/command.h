@@ -7,7 +7,7 @@
 #ifndef COMMAND_H
 #define COMMAND_H
 
-#include "enum.h"
+#include "../sys/enum.h"
 
 void adjust();
 void list_armour();

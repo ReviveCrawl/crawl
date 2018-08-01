@@ -37,8 +37,8 @@
 #include "chardump.h"
 #include "cloud.h"
 #include "clua.h"
-#include "coord.h"
-#include "coordit.h"
+#include "../coord/coord.h"
+#include "../coord/coordit.h"
 #include "delay.h"
 #include "dactions.h"
 #include "dgn-overview.h"
@@ -55,7 +55,7 @@
 #include "items.h"
 #include "jobs.h"
 #include "kills.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "macro.h"
 #include "mapmark.h"
 #include "message.h"
@@ -77,7 +77,7 @@
 #include "shopping.h"
 #include "spl-summoning.h"
 #include "stash.h"
-#include "state.h"
+#include "../sys/state.h"
 #include "stuff.h"
 #include "syscalls.h"
 #include "tags.h"
@@ -93,7 +93,7 @@
 #include "unwind.h"
 #include "version.h"
 #include "view.h"
-#include "viewgeom.h"
+#include "../io/viewgeom.h"
 
 #ifdef __ANDROID__
 #include <android/log.h>

@@ -9,7 +9,7 @@
 #include "fixedvector.h"
 
 #include "dungeon.h"
-#include "enum.h"
+#include "../sys/enum.h"
 #include "externs.h"
 #include "worley.h"
 

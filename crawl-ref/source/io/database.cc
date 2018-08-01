@@ -18,7 +18,7 @@
 #include "database.h"
 #include "errors.h"
 #include "files.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "options.h"
 #include "random.h"
 #include "stuff.h"

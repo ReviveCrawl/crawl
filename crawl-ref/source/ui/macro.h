@@ -8,7 +8,7 @@
 
 #include <deque>
 
-#include "enum.h"
+#include "../sys/enum.h"
 
 class key_recorder;
 typedef deque<int> keyseq;

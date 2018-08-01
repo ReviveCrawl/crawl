@@ -19,7 +19,7 @@
 #include <memory>
 
 #include "dlua.h"
-#include "enum.h"
+#include "../sys/enum.h"
 #include "externs.h"
 #include "matrix.h"
 #include "fprop.h"

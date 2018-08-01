@@ -7,7 +7,7 @@
 #include "cloud.h"
 #include "dgn-height.h"
 #include "env.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "mon-stuff.h"
 #include "mon-info.h"
 #include "mon-info.h"

@@ -7,11 +7,11 @@
 
 #include "branch.h"
 #include "cluautil.h"
-#include "coord.h"
+#include "../coord/coord.h"
 #include "l_libs.h"
 #include "dungeon.h"
 #include "env.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "mapdef.h"
 #include "mon-place.h"
 #include "mon-stuff.h"

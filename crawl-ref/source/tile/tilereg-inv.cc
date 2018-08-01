@@ -13,7 +13,7 @@
 #include "itemprop.h"
 #include "items.h"
 #include "item_use.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "macro.h"
 #include "message.h"
 #include "misc.h"
@@ -27,7 +27,7 @@
 #include "tiledef-main.h"
 #include "tilepick.h"
 #include "unicode.h"
-#include "viewgeom.h"
+#include "../io/viewgeom.h"
 
 InventoryRegion::InventoryRegion(const TileRegionInit &init) : GridRegion(init)
 {

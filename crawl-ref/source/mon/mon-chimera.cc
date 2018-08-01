@@ -7,7 +7,7 @@
 #include "mon-chimera.h"
 
 #include "externs.h"
-#include "enum.h"
+#include "../sys/enum.h"
 #include "ghost.h"
 #include "mgen_data.h"
 #include "mon-info.h"

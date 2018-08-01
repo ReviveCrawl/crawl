@@ -7,7 +7,7 @@
 #ifndef ABLSHOW_H
 #define ABLSHOW_H
 
-#include "enum.h"
+#include "../sys/enum.h"
 
 #include <string>
 #include <vector>

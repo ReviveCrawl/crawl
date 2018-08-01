@@ -1,7 +1,7 @@
 #ifndef GODITEM_H
 #define GODITEM_H
 
-#include "enum.h"
+#include "../sys/enum.h"
 #include "externs.h"
 
 #include "player.h"

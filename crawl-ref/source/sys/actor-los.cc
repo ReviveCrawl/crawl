@@ -1,12 +1,12 @@
 #include "AppHdr.h"
 
 #include "actor.h"
-#include "coord.h"
+#include "../coord/coord.h"
 #include "losglobal.h"
 #include "player.h"
 #include "monster.h"
-#include "state.h"
-#include "viewgeom.h"
+#include "../sys/state.h"
+#include "../io/viewgeom.h"
 
 bool actor::observable() const
 {

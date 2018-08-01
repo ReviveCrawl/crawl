@@ -9,7 +9,7 @@
 #include "spl-other.h"
 #include "externs.h"
 
-#include "coord.h"
+#include "../coord/coord.h"
 #include "delay.h"
 #include "env.h"
 #include "food.h"
@@ -18,7 +18,7 @@
 #include "itemname.h"
 #include "itemprop.h"
 #include "items.h"
-#include "libutil.h"
+#include "../lib/libutil.h"
 #include "makeitem.h"
 #include "message.h"
 #include "misc.h"
