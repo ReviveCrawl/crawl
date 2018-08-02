@@ -6,7 +6,7 @@
 #ifndef STATE_H
 #define STATE_H
 
-#include "player.h"
+#include "../player/player.h"
 #include <vector>
 
 class monster;
@@ -235,3 +235,5 @@ private:
 };
 
 #endif
+
+

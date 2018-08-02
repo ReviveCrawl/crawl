@@ -1,13 +1,13 @@
 #include <limits.h>
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
-#include "colour.h"
-#include "format.h"
+#include "../ui/colour.h"
+#include "../io/format.h"
 #include "../lib/libutil.h"
-#include "showsymb.h"
-#include "lang-fake.h"
-#include "unicode.h"
+#include "../sys/showsymb.h"
+#include "../sys/lang-fake.h"
+#include "../low/unicode.h"
 #include "viewchar.h"
 
 formatted_string::formatted_string(int init_colour)
@@ -565,3 +565,6 @@ int tagged_string_tag_length(const string& s)
 {
     return s.size() - _tagged_string_printable_length(s);
 }
+
+
+

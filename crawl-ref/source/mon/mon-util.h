@@ -7,10 +7,10 @@
 #ifndef MONUTIL_H
 #define MONUTIL_H
 
-#include "externs.h"
+#include "../sys/externs.h"
 #include "../sys/enum.h"
 #include "mon-enum.h"
-#include "player.h"
+#include "../player/player.h"
 #include "mon-mst.h"
 
 struct bolt;
@@ -473,3 +473,5 @@ bool mons_stores_tracking_data(const monster* mons);
 void reset_all_monsters();
 void debug_mondata();
 #endif
+
+

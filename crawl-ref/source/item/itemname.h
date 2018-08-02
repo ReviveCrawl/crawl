@@ -7,7 +7,7 @@
 #ifndef ITEMNAME_H
 #define ITEMNAME_H
 
-#include "externs.h"
+#include "../sys/externs.h"
 
 #define CORPSE_NAME_KEY      "corpse_name_key"
 #define CORPSE_NAME_TYPE_KEY "corpse_name_type_key"
@@ -139,3 +139,6 @@ string sub_type_string(const item_def &item, bool known = true);
 
 string ego_type_string(const item_def &item);
 #endif
+
+
+

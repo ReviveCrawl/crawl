@@ -7,7 +7,7 @@
 #ifndef SKILLS_H
 #define SKILLS_H
 
-#include "player.h"
+#include "../player/player.h"
 
 typedef set<skill_type> skill_set;
 typedef set<skill_type>::iterator skill_set_iter;
@@ -40,3 +40,5 @@ static inline bool skill_trained(skill_type sk) { return skill_trained((int) sk)
 void redraw_skill(skill_type exsk, skill_type old_best_skill = SK_NONE);
 void set_skill_level(skill_type skill, double amount);
 #endif
+
+

@@ -11,8 +11,8 @@
 #include <cstdio>
 
 #include "../sys/enum.h"
-#include "itemprop-enum.h"
-#include "unicode.h"
+#include "../item/itemprop-enum.h"
+#include "../low/unicode.h"
 
 enum drop_mode_type
 {
@@ -111,3 +111,6 @@ private:
 };
 
 #endif
+
+
+

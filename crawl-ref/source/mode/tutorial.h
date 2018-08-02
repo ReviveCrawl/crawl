@@ -13,3 +13,6 @@ void tutorial_init_hint(const char* hintstr);
 
 void tutorial_death_message();
 #endif
+
+
+

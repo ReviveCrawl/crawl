@@ -3,40 +3,40 @@
  * @brief Monster enchantments.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
-#include "actor.h"
-#include "areas.h"
-#include "cloud.h"
+#include "../sys/actor.h"
+#include "../sys/areas.h"
+#include "../sys/cloud.h"
 #include "../coord/coordit.h"
-#include "delay.h"
-#include "describe.h"
-#include "dgn-shoals.h"
-#include "env.h"
-#include "fight.h"
-#include "fprop.h"
-#include "hints.h"
-#include "itemprop.h"
-#include "items.h"
+#include "../sys/delay.h"
+#include "../io/describe.h"
+#include "../dgn/dgn-shoals.h"
+#include "../sys/env.h"
+#include "../sys/fight.h"
+#include "../sys/fprop.h"
+#include "../sys/hints.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
 #include "../lib/libutil.h"
-#include "mgen_data.h"
-#include "misc.h"
+#include "../sys/mgen_data.h"
+#include "../sys/misc.h"
 #include "mon-abil.h"
 #include "mon-behv.h"
 #include "mon-cast.h"
 #include "mon-death.h"
 #include "mon-iter.h"
 #include "mon-place.h"
-#include "religion.h"
-#include "spl-clouds.h"
-#include "spl-damage.h"
-#include "spl-summoning.h"
+#include "../sys/religion.h"
+#include "../spl/spl-clouds.h"
+#include "../spl/spl-damage.h"
+#include "../spl/spl-summoning.h"
 #include "../sys/state.h"
-#include "stuff.h"
-#include "terrain.h"
-#include "traps.h"
-#include "view.h"
-#include "xom.h"
+#include "../sys/stuff.h"
+#include "../sys/terrain.h"
+#include "../sys/traps.h"
+#include "../io/view.h"
+#include "../god/xom.h"
 
 #ifdef DEBUG_DIAGNOSTICS
 bool monster::has_ench(enchant_type ench) const
@@ -2268,3 +2268,5 @@ void mon_enchant::set_duration(const monster* mons, const mon_enchant *added)
     if (duration > maxduration)
         maxduration = duration;
 }
+
+

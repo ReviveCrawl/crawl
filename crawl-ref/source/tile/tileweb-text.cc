@@ -1,10 +1,10 @@
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "../lib/libutil.h"
 #include "tileweb-text.h"
 #include "tileweb.h"
-#include "unicode.h"
+#include "../low/unicode.h"
 
 WebTextArea::WebTextArea(string name) :
     mx(0),
@@ -194,3 +194,5 @@ void WebTextArea::send(bool force)
 void WebTextArea::on_resize()
 {
 }
+
+

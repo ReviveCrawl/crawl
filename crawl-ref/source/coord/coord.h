@@ -65,3 +65,6 @@ coord_def rotate_adjacent(coord_def vector, int direction) PURE;
 coord_def clamp_in_bounds(const coord_def &p) PURE;
 
 #endif
+
+
+

@@ -1,30 +1,30 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "tileview.h"
 
-#include "areas.h"
-#include "cloud.h"
-#include "colour.h"
+#include "../sys/areas.h"
+#include "../sys/cloud.h"
+#include "../ui/colour.h"
 #include "../coord/coord.h"
 #include "../coord/coordit.h"
-#include "dungeon.h"
-#include "env.h"
-#include "fprop.h"
-#include "items.h"
-#include "kills.h"
-#include "mon-util.h"
-#include "options.h"
-#include "player.h"
-#include "showsymb.h"
+#include "../sys/dungeon.h"
+#include "../sys/env.h"
+#include "../sys/fprop.h"
+#include "../item/items.h"
+#include "../sys/kills.h"
+#include "../mon/mon-util.h"
+#include "../ui/options.h"
+#include "../player/player.h"
+#include "../sys/showsymb.h"
 #include "../sys/state.h"
-#include "stuff.h"
-#include "terrain.h"
+#include "../sys/stuff.h"
+#include "../sys/terrain.h"
 #include "tiledef-dngn.h"
 #include "tiledef-player.h"
 #include "tilemcache.h"
 #include "tilepick.h"
-#include "traps.h"
-#include "travel.h"
+#include "../sys/traps.h"
+#include "../sys/travel.h"
 #include "../io/viewgeom.h"
 
 void tile_new_level(bool first_time, bool init_unseen)
@@ -1392,3 +1392,5 @@ void tile_apply_properties(const coord_def &gc, packed_cell &cell)
     }
 }
 #endif
+
+

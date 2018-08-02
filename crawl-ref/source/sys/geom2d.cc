@@ -3,7 +3,7 @@
  * @brief Plane geometry for shooting rays.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 #include "geom2d.h"
 
 #include <cmath>
@@ -164,3 +164,5 @@ vector degree_to_vector(double d)
 }
 
 }
+
+

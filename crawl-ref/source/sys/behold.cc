@@ -3,7 +3,7 @@
  * @brief player methods dealing with mesmerisation.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "../player/player.h"
 
@@ -275,3 +275,5 @@ bool player::possible_beholder(const monster* mon) const
              && !is_sanctuary(pos())
            || player_equip_unrand_effect(UNRAND_DEMON_AXE)));
 }
+
+

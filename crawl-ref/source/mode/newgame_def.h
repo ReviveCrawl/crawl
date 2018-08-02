@@ -1,7 +1,7 @@
 #ifndef NEWGAME_DEF_H
 #define NEWGAME_DEF_H
 
-#include "itemprop-enum.h"
+#include "../item/itemprop-enum.h"
 
 // Either a character definition, with real species, job, and
 // weapon, book, wand as appropriate.
@@ -34,3 +34,6 @@ struct newgame_def
 };
 
 #endif
+
+
+

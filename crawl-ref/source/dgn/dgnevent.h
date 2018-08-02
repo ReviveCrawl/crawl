@@ -6,8 +6,8 @@
 #ifndef __DGNEVENT_H__
 #define __DGNEVENT_H__
 
-#include "externs.h"
-#include "player.h"
+#include "../sys/externs.h"
+#include "../player/player.h"
 #include <list>
 
 // Keep event names in l_dgnevt.cc in sync.
@@ -136,3 +136,6 @@ private:
 extern dgn_event_dispatcher dungeon_events;
 
 #endif
+
+
+

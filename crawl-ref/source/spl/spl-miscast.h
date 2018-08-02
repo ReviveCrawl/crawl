@@ -8,8 +8,8 @@
 
 #include "../sys/enum.h"
 
-#include "monster.h"
-#include "mpr.h"
+#include "../mon/monster.h"
+#include "../io/mpr.h"
 #include "spl-util.h"
 
 enum nothing_happens_when_type
@@ -140,3 +140,5 @@ private:
 };
 
 #endif
+
+

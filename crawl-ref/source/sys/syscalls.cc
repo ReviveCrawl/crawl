@@ -3,7 +3,7 @@
  * @brief Wrappers for sys/libc calls, mostly for charset purposes.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef TARGET_OS_WINDOWS
 # ifdef TARGET_COMPILER_VC
@@ -21,10 +21,10 @@
 # include <sys/stat.h>
 #endif
 
-#include "files.h"
-#include "random.h"
+#include "../io/files.h"
+#include "../random/random.h"
 #include "syscalls.h"
-#include "unicode.h"
+#include "../low/unicode.h"
 
 bool lock_file(int fd, bool write, bool wait)
 {
@@ -358,3 +358,5 @@ int open_u(const char *pathname, int flags, mode_t mode)
     return open(OUTS(pathname), flags, mode);
 #endif
 }
+
+

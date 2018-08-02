@@ -3,9 +3,9 @@
  * @brief Terrain related functions.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
-#include "externs.h"
+#include "../sys/externs.h"
 #include "terrain.h"
 
 #include <algorithm>
@@ -14,37 +14,37 @@
 #include "areas.h"
 #include "cloud.h"
 #include "../coord/coordit.h"
-#include "dgn-overview.h"
-#include "dgnevent.h"
-#include "directn.h"
+#include "../dgn/dgn-overview.h"
+#include "../dgn/dgnevent.h"
+#include "../ui/directn.h"
 #include "dungeon.h"
-#include "map_knowledge.h"
+#include "../map/map_knowledge.h"
 #include "feature.h"
 #include "fprop.h"
-#include "godabil.h"
-#include "itemprop.h"
-#include "items.h"
+#include "../god/godabil.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
 #include "../lib/libutil.h"
-#include "message.h"
+#include "../io/message.h"
 #include "misc.h"
-#include "mon-place.h"
+#include "../mon/mon-place.h"
 #include "../coord/coord.h"
-#include "mon-util.h"
+#include "../mon/mon-util.h"
 #include "ouch.h"
-#include "player.h"
-#include "random.h"
+#include "../player/player.h"
+#include "../random/random.h"
 #include "religion.h"
 #include "species.h"
-#include "spl-transloc.h"
+#include "../spl/spl-transloc.h"
 #include "env.h"
 #include "../sys/state.h"
-#include "tileview.h"
+#include "../tile/tileview.h"
 #include "travel.h"
 #include "transform.h"
 #include "traps.h"
-#include "view.h"
-#include "viewchar.h"
-#include "mapmark.h"
+#include "../io/view.h"
+#include "../io/viewchar.h"
+#include "../map/mapmark.h"
 
 static bool _revert_terrain_to(coord_def pos, dungeon_feature_type newfeat);
 
@@ -2014,3 +2014,5 @@ bool plant_forbidden_at(const coord_def &p, bool connectivity_only)
 
     return (passable <= 1 && !connectivity_only);
 }
+
+

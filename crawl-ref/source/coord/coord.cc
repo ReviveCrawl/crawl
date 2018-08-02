@@ -1,6 +1,6 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
-#include "../coord/coord.h"
+#include "coord.h"
 
 #include "../lib/libutil.h"
 #include "../random/random.h"
@@ -115,3 +115,6 @@ coord_def clamp_in_bounds(const coord_def &p)
         min(X_BOUND_2 - 1, max(X_BOUND_1 + 1, p.x)),
         min(Y_BOUND_2 - 1, max(Y_BOUND_1 + 1, p.y)));
 }
+
+
+

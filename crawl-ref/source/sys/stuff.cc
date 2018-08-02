@@ -3,7 +3,7 @@
  * @brief Misc stuff.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 #include "stuff.h"
 
 #include <cstdarg>
@@ -19,31 +19,31 @@
 #include <time.h>
 #include <math.h>
 
-#include "abyss.h"
-#include "cio.h"
-#include "colour.h"
-#include "crash.h"
-#include "database.h"
+#include "../map/abyss.h"
+#include "../low/cio.h"
+#include "../ui/colour.h"
+#include "../low/crash.h"
+#include "../io/database.h"
 #include "delay.h"
 #include "dungeon.h"
-#include "files.h"
+#include "../io/files.h"
 #include "hints.h"
 #include "../lib/libutil.h"
-#include "macro.h"
-#include "menu.h"
-#include "message.h"
+#include "../ui/macro.h"
+#include "../ui/menu.h"
+#include "../io/message.h"
 #include "notes.h"
-#include "options.h"
-#include "output.h"
-#include "player.h"
+#include "../ui/options.h"
+#include "../io/output.h"
+#include "../player/player.h"
 #include "../sys/state.h"
 #include "traps.h"
-#include "view.h"
-#include "viewchar.h"
+#include "../io/view.h"
+#include "../io/viewchar.h"
 #include "../io/viewgeom.h"
 
 #ifdef TOUCH_UI
-#include "tilepick.h"
+#include "../tile/tilepick.h"
 #include "tiledef-gui.h"
 #endif
 
@@ -870,3 +870,5 @@ double prompt_for_float(const char* prompt)
     return ret;
 
 }
+
+

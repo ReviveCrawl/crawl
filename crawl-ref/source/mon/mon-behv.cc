@@ -3,23 +3,23 @@
  * @brief Monster behaviour functions.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 #include "mon-behv.h"
 
-#include "externs.h"
+#include "../sys/externs.h"
 
-#include "abl-show.h"
-#include "areas.h"
+#include "../sys/abl-show.h"
+#include "../sys/areas.h"
 #include "../coord/coord.h"
 #include "../coord/coordit.h"
-#include "database.h"
-#include "dungeon.h"
-#include "env.h"
-#include "fprop.h"
-#include "exclude.h"
-#include "itemprop.h"
-#include "losglobal.h"
-#include "macro.h"
+#include "../io/database.h"
+#include "../sys/dungeon.h"
+#include "../sys/env.h"
+#include "../sys/fprop.h"
+#include "../sys/exclude.h"
+#include "../item/itemprop.h"
+#include "../los/losglobal.h"
+#include "../ui/macro.h"
 #include "mon-act.h"
 #include "mon-death.h"
 #include "mon-iter.h"
@@ -27,16 +27,16 @@
 #include "mon-pathfind.h"
 #include "mon-speak.h"
 #include "mon-stuff.h"
-#include "ouch.h"
-#include "random.h"
-#include "religion.h"
-#include "spl-summoning.h"
+#include "../sys/ouch.h"
+#include "../random/random.h"
+#include "../sys/religion.h"
+#include "../spl/spl-summoning.h"
 #include "../sys/state.h"
-#include "terrain.h"
-#include "traps.h"
-#include "hints.h"
-#include "view.h"
-#include "shout.h"
+#include "../sys/terrain.h"
+#include "../sys/traps.h"
+#include "../sys/hints.h"
+#include "../io/view.h"
+#include "../sys/shout.h"
 
 static void _set_nearest_monster_foe(monster* mons);
 
@@ -1626,3 +1626,6 @@ void shake_off_monsters(const actor* target)
         }
     }
 }
+
+
+

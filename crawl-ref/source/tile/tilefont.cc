@@ -1,4 +1,4 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE_LOCAL
 #include "tilefont.h"
@@ -24,3 +24,5 @@ const VColour term_colours[MAX_TERM_COLOUR] =
 };
 
 #endif // USE_TILE_LOCAL
+
+

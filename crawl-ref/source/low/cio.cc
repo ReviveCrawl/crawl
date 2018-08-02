@@ -3,14 +3,14 @@
  * @brief Platform-independent console IO functions.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "cio.h"
-#include "externs.h"
-#include "options.h"
+#include "../sys/externs.h"
+#include "../ui/options.h"
 #include "../lib/libutil.h"
-#include "macro.h"
-#include "message.h"
+#include "../ui/macro.h"
+#include "../io/message.h"
 #include "../sys/state.h"
 #include "unicode.h"
 #include "../io/viewgeom.h"
@@ -679,3 +679,6 @@ void c_input_reset(bool enable_mouse, bool flush)
     if (flush)
         _flush_mouse_events();
 }
+
+
+

@@ -1,16 +1,16 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE_LOCAL
 
 #include "tilereg-abl.h"
-#include "process_desc.h"
+#include "../platforms/process_desc.h"
 
-#include "abl-show.h"
-#include "cio.h"
+#include "../sys/abl-show.h"
+#include "../low/cio.h"
 #include "../lib/libutil.h"
-#include "macro.h"
-#include "message.h"
-#include "stuff.h"
+#include "../ui/macro.h"
+#include "../io/message.h"
+#include "../sys/stuff.h"
 #include "tiledef-dngn.h"
 #include "tiledef-icons.h"
 #include "tilepick.h"
@@ -266,3 +266,5 @@ void AbilityRegion::update()
 }
 
 #endif
+
+

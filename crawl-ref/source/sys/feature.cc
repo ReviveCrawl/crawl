@@ -1,9 +1,9 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "feature.h"
 
-#include "colour.h"
-#include "options.h"
+#include "../ui/colour.h"
+#include "../ui/options.h"
 #include "show.h"
 
 typedef map<show_type, feature_def> feat_map;
@@ -898,3 +898,5 @@ dungeon_feature_type magic_map_base_feat(dungeon_feature_type feat)
         return feat;
     }
 }
+
+

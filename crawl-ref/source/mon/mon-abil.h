@@ -47,3 +47,6 @@ bool apply_grasping_roots(monster* mons);
 void check_grasping_roots(actor* act, bool quiet = false);
 
 #endif
+
+
+

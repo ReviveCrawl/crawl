@@ -1,7 +1,7 @@
 #ifndef THREADS_H
 #define THREADS_H
 
-#include "platform.h"
+#include "../platforms/platform.h"
 #ifndef TARGET_OS_WINDOWS
 
 #include <pthread.h>
@@ -101,3 +101,6 @@ static inline int win32_thread_create_detached(thread_t *th,
 
 #endif
 #endif
+
+
+

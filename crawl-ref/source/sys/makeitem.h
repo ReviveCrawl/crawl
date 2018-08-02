@@ -6,7 +6,7 @@
 #ifndef MAKEITEM_H
 #define MAKEITEM_H
 
-#include "itemprop-enum.h"
+#include "../item/itemprop-enum.h"
 
 enum item_make_species_type
 {
@@ -46,3 +46,5 @@ bool is_high_tier_wand(int type);
 void makeitem_tests();
 #endif
 #endif
+
+

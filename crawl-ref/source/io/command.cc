@@ -3,7 +3,7 @@
  * @brief Misc commands.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "command.h"
 
@@ -12,50 +12,50 @@
 #include <sstream>
 #include <ctype.h>
 
-#include "externs.h"
-#include "options.h"
+#include "../sys/externs.h"
+#include "../ui/options.h"
 
-#include "abl-show.h"
-#include "branch.h"
+#include "../sys/abl-show.h"
+#include "../sys/branch.h"
 #include "chardump.h"
-#include "cio.h"
-#include "colour.h"
+#include "../low/cio.h"
+#include "../ui/colour.h"
 #include "database.h"
-#include "decks.h"
+#include "../item/decks.h"
 #include "describe.h"
-#include "directn.h"
+#include "../ui/directn.h"
 #include "files.h"
-#include "godmenu.h"
-#include "invent.h"
-#include "itemname.h"
-#include "itemprop.h"
-#include "items.h"
+#include "../god/godmenu.h"
+#include "../sys/invent.h"
+#include "../item/itemname.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
 #include "../lib/libutil.h"
-#include "macro.h"
-#include "menu.h"
+#include "../ui/macro.h"
+#include "../ui/menu.h"
 #include "message.h"
-#include "mon-util.h"
-#include "ouch.h"
-#include "player.h"
-#include "religion.h"
-#include "showsymb.h"
-#include "skills2.h"
-#include "species.h"
-#include "spl-book.h"
-#include "spl-cast.h"
-#include "spl-util.h"
+#include "../mon/mon-util.h"
+#include "../sys/ouch.h"
+#include "../player/player.h"
+#include "../sys/religion.h"
+#include "../sys/showsymb.h"
+#include "../sys/skills2.h"
+#include "../sys/species.h"
+#include "../spl/spl-book.h"
+#include "../spl/spl-cast.h"
+#include "../spl/spl-util.h"
 #include "../sys/state.h"
-#include "stuff.h"
-#include "env.h"
-#include "syscalls.h"
-#include "tagstring.h"
-#include "terrain.h"
+#include "../sys/stuff.h"
+#include "../sys/env.h"
+#include "../sys/syscalls.h"
+#include "../ui/tagstring.h"
+#include "../sys/terrain.h"
 #ifdef USE_TILE
-#include "tilepick.h"
+#include "../tile/tilepick.h"
 #endif
-#include "transform.h"
-#include "hints.h"
-#include "version.h"
+#include "../sys/transform.h"
+#include "../sys/hints.h"
+#include "../build/version.h"
 #include "view.h"
 #include "viewchar.h"
 
@@ -2687,3 +2687,6 @@ int list_wizard_commands(bool do_redraw_screen)
     return key;
 }
 #endif
+
+
+

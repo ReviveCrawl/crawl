@@ -3,7 +3,7 @@
  * @brief Functions for using some of the wackier inventory items.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 #include <math.h>
 
 #include "evoke.h"
@@ -12,57 +12,57 @@
 #include <cstdlib>
 #include <string.h>
 
-#include "externs.h"
+#include "../sys/externs.h"
 
 #include "act-iter.h"
 #include "areas.h"
-#include "artefact.h"
+#include "../item/artefact.h"
 #include "cloud.h"
 #include "../coord/coordit.h"
-#include "decks.h"
+#include "../item/decks.h"
 #include "dungeon.h"
 #include "effects.h"
 #include "env.h"
-#include "exercise.h"
+#include "../mode/exercise.h"
 #include "fight.h"
 #include "food.h"
 #include "ghost.h"
 #include "invent.h"
-#include "items.h"
-#include "item_use.h"
-#include "itemprop.h"
+#include "../item/items.h"
+#include "../item/item_use.h"
+#include "../item/itemprop.h"
 #include "../lib/libutil.h"
-#include "losglobal.h"
-#include "mapmark.h"
+#include "../los/losglobal.h"
+#include "../map/mapmark.h"
 #include "melee_attack.h"
-#include "message.h"
-#include "mon-chimera.h"
-#include "mon-iter.h"
-#include "mon-pick.h"
-#include "mon-place.h"
+#include "../io/message.h"
+#include "../mon/mon-chimera.h"
+#include "../mon/mon-iter.h"
+#include "../mon/mon-pick.h"
+#include "../mon/mon-place.h"
 #include "mgen_data.h"
 #include "misc.h"
-#include "player-stats.h"
-#include "godconduct.h"
+#include "../player/player-stats.h"
+#include "../god/godconduct.h"
 #include "shout.h"
 #include "skills.h"
 #include "skills2.h"
-#include "spl-book.h"
-#include "spl-cast.h"
-#include "spl-clouds.h"
-#include "spl-summoning.h"
-#include "spl-util.h"
+#include "../spl/spl-book.h"
+#include "../spl/spl-cast.h"
+#include "../spl/spl-clouds.h"
+#include "../spl/spl-summoning.h"
+#include "../spl/spl-util.h"
 #include "../sys/state.h"
 #include "stuff.h"
 #include "target.h"
 #include "terrain.h"
 #include "traps.h"
-#include "view.h"
-#include "viewchar.h"
-#include "xom.h"
+#include "../io/view.h"
+#include "../io/viewchar.h"
+#include "../god/xom.h"
 
 #ifdef USE_TILE
-#include "tilepick.h"
+#include "../tile/tilepick.h"
 #endif
 
 void shadow_lantern_effect()
@@ -1821,3 +1821,5 @@ bool evoke_item(int slot)
 
     return did_work;
 }
+
+

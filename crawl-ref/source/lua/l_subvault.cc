@@ -3,12 +3,12 @@
  * @brief Subvault routines (library "dgn").
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "cluautil.h"
 #include "l_libs.h"
-#include "mapdef.h"
-#include "mon-ench.h"
+#include "../map/mapdef.h"
+#include "../mon/mon-ench.h"
 
 static int dgn_is_subvault(lua_State *ls)
 {
@@ -55,3 +55,6 @@ const struct luaL_reg dgn_subvault_dlib[] =
 
 { NULL, NULL }
 };
+
+
+

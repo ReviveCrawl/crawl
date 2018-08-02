@@ -70,14 +70,14 @@
 
 
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 #include <map>
 #include <algorithm>
-#include "l_defs.h"
+#include "../lua/l_defs.h"
 #include "../lib/libutil.h"
-#include "mapdef.h"
-#include "maps.h"
-#include "stuff.h"
+#include "../map/mapdef.h"
+#include "../map/maps.h"
+#include "../sys/stuff.h"
 
 #define YYERROR_VERBOSE 1
 #define YYENABLE_NLS 0

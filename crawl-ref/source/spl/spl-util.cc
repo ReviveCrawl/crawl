@@ -3,7 +3,7 @@
  * @brief data handlers for player-available spell list
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "spl-util.h"
 
@@ -15,32 +15,32 @@
 
 #include <algorithm>
 
-#include "externs.h"
+#include "../sys/externs.h"
 
-#include "areas.h"
-#include "beam.h"
+#include "../sys/areas.h"
+#include "../sys/beam.h"
 #include "../coord/coord.h"
 #include "../coord/coordit.h"
-#include "directn.h"
-#include "godabil.h"
-#include "stuff.h"
-#include "env.h"
-#include "items.h"
+#include "../ui/directn.h"
+#include "../god/godabil.h"
+#include "../sys/stuff.h"
+#include "../sys/env.h"
+#include "../item/items.h"
 #include "../lib/libutil.h"
-#include "mon-behv.h"
-#include "mon-util.h"
-#include "notes.h"
-#include "options.h"
-#include "player.h"
-#include "religion.h"
+#include "../mon/mon-behv.h"
+#include "../mon/mon-util.h"
+#include "../sys/notes.h"
+#include "../ui/options.h"
+#include "../player/player.h"
+#include "../sys/religion.h"
 #include "spl-cast.h"
 #include "spl-book.h"
 #include "spl-damage.h"
 #include "spl-zap.h"
-#include "target.h"
-#include "terrain.h"
-#include "item_use.h"
-#include "transform.h"
+#include "../sys/target.h"
+#include "../sys/terrain.h"
+#include "../item/item_use.h"
+#include "../sys/transform.h"
 
 
 struct spell_desc
@@ -1343,3 +1343,5 @@ bool spell_no_hostile_in_range(spell_type spell)
 
     return false;
 }
+
+

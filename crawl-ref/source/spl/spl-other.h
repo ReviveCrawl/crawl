@@ -22,3 +22,5 @@ spret_type cast_stoneskin(int pow, bool fail = false);
 spret_type cast_darkness(int pow, bool fail);
 
 #endif
+
+

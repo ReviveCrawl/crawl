@@ -11,15 +11,15 @@
 #include <algorithm>
 #include <stdio.h>
 #include <time.h>
-#include "externs.h"
-#include "format.h"
+#include "../sys/externs.h"
+#include "../io/format.h"
 
 #ifdef USE_TILE
- #include "tiledoll.h"
+ #include "../tile/tiledoll.h"
 #endif
 
 #ifdef USE_TILE_LOCAL
- #include "tilebuf.h"
+ #include "../tile/tilebuf.h"
 #endif
 
 class formatted_string;
@@ -1184,3 +1184,5 @@ private:
 #endif
 
 #endif
+
+

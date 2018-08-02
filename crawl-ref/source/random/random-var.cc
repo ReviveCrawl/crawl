@@ -1,8 +1,8 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "random-var.h"
 
-#include "random.h"
+#include "../random/random.h"
 
 random_var::random_var(int c)
     : start(c), end(c+1)
@@ -225,3 +225,5 @@ random_var rv::random2(int n)
 {
     return random_var(0, max(n, 1));
 }
+
+

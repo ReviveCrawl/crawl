@@ -3,7 +3,7 @@
  * @brief Random and unrandom artefact functions.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "artefact.h"
 #include "art-enum.h"
@@ -14,27 +14,27 @@
 #include <stdio.h>
 #include <algorithm>
 
-#include "externs.h"
+#include "../sys/externs.h"
 
-#include "areas.h"
-#include "branch.h"
-#include "colour.h"
+#include "../sys/areas.h"
+#include "../sys/branch.h"
+#include "../ui/colour.h"
 #include "../coord/coordit.h"
-#include "database.h"
-#include "describe.h"
+#include "../io/database.h"
+#include "../io/describe.h"
 #include "itemname.h"
 #include "itemprop.h"
 #include "items.h"
 #include "../lib/libutil.h"
-#include "makeitem.h"
-#include "player.h"
-#include "random.h"
-#include "religion.h"
-#include "shout.h"
-#include "species.h"
-#include "spl-book.h"
+#include "../sys/makeitem.h"
+#include "../player/player.h"
+#include "../random/random.h"
+#include "../sys/religion.h"
+#include "../sys/shout.h"
+#include "../sys/species.h"
+#include "../spl/spl-book.h"
 #include "../sys/state.h"
-#include "stuff.h"
+#include "../sys/stuff.h"
 
 static bool _god_fits_artefact(const god_type which_god, const item_def &item,
                                bool name_check_only = false)
@@ -2099,3 +2099,6 @@ void artefact_fixup_props(item_def &item)
     if (props.exists(KNOWN_PROPS_KEY))
         artefact_pad_store_vector(props[KNOWN_PROPS_KEY], false);
 }
+
+
+

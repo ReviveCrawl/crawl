@@ -3,37 +3,37 @@
  * @brief Functions used when starting a new game.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "newgame.h"
 
-#include "cio.h"
-#include "command.h"
-#include "database.h"
-#include "files.h"
-#include "hints.h"
-#include "initfile.h"
-#include "itemname.h"
-#include "itemprop.h"
-#include "jobs.h"
+#include "../low/cio.h"
+#include "../io/command.h"
+#include "../io/database.h"
+#include "../io/files.h"
+#include "../sys/hints.h"
+#include "../io/initfile.h"
+#include "../item/itemname.h"
+#include "../item/itemprop.h"
+#include "../sys/jobs.h"
 #include "../lib/libutil.h"
-#include "macro.h"
-#include "makeitem.h"
-#include "maps.h"
-#include "menu.h"
-#include "monster.h"
+#include "../ui/macro.h"
+#include "../sys/makeitem.h"
+#include "../map/maps.h"
+#include "../ui/menu.h"
+#include "../mon/monster.h"
 #include "newgame_def.h"
 #include "ng-input.h"
 #include "ng-restr.h"
-#include "options.h"
-#include "random.h"
-#include "species.h"
+#include "../ui/options.h"
+#include "../random/random.h"
+#include "../sys/species.h"
 #include "../sys/state.h"
-#include "stuff.h"
-#include "version.h"
+#include "../sys/stuff.h"
+#include "../build/version.h"
 
 #ifdef USE_TILE_LOCAL
-#include "tilereg-crt.h"
+#include "../tile/tilereg-crt.h"
 #endif
 
 static void _choose_gamemode_map(newgame_def* ng, newgame_def* ng_choice,
@@ -2057,3 +2057,6 @@ static void _choose_gamemode_map(newgame_def* ng, newgame_def* ng_choice,
 
     _resolve_gamemode_map(ng, ng_choice, maps);
 }
+
+
+

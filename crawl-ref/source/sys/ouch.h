@@ -88,3 +88,5 @@ bool expose_player_to_element(beam_type flavour, int strength = 0,
 void screen_end_game(string text);
 int timescale_damage(const actor *act, int damage);
 #endif
+
+

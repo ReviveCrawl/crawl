@@ -3,7 +3,7 @@
  * @brief Functions used to print player related info.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "output.h"
 
@@ -11,55 +11,55 @@
 #include <sstream>
 #include <math.h>
 
-#include "externs.h"
-#include "options.h"
-#include "species.h"
+#include "../sys/externs.h"
+#include "../ui/options.h"
+#include "../sys/species.h"
 
-#include "abl-show.h"
-#include "areas.h"
-#include "artefact.h"
-#include "branch.h"
-#include "cio.h"
-#include "colour.h"
+#include "../sys/abl-show.h"
+#include "../sys/areas.h"
+#include "../item/artefact.h"
+#include "../sys/branch.h"
+#include "../low/cio.h"
+#include "../ui/colour.h"
 #include "../coord/coord.h"
 #include "describe.h"
-#include "env.h"
+#include "../sys/env.h"
 #include "files.h"
-#include "format.h"
-#include "godabil.h"
+#include "../io/format.h"
+#include "../god/godabil.h"
 #include "initfile.h"
-#include "itemname.h"
-#include "lang-fake.h"
+#include "../item/itemname.h"
+#include "../sys/lang-fake.h"
 #include "../lib/libutil.h"
-#include "menu.h"
+#include "../ui/menu.h"
 #include "message.h"
-#include "misc.h"
-#include "mon-info.h"
-#include "mon-util.h"
-#include "mutation.h"
-#include "jobs.h"
-#include "ouch.h"
-#include "player.h"
-#include "religion.h"
-#include "skills2.h"
+#include "../sys/misc.h"
+#include "../mon/mon-info.h"
+#include "../mon/mon-util.h"
+#include "../sys/mutation.h"
+#include "../sys/jobs.h"
+#include "../sys/ouch.h"
+#include "../player/player.h"
+#include "../sys/religion.h"
+#include "../sys/skills2.h"
 #include "../sys/state.h"
-#include "status.h"
-#include "stuff.h"
-#include "tagstring.h"
-#include "throw.h"
-#include "transform.h"
-#include "travel.h"
+#include "../sys/status.h"
+#include "../sys/stuff.h"
+#include "../ui/tagstring.h"
+#include "../sys/throw.h"
+#include "../sys/transform.h"
+#include "../sys/travel.h"
 #include "viewchar.h"
 #include "../io/viewgeom.h"
-#include "showsymb.h"
-#include "spl-transloc.h"
+#include "../sys/showsymb.h"
+#include "../spl/spl-transloc.h"
 
 #ifndef USE_TILE_LOCAL
-#include "directn.h"
+#include "../ui/directn.h"
 #endif
 
 #ifdef USE_TILE_LOCAL
-#include "tilesdl.h"
+#include "../tile/tilesdl.h"
 
 /*
  * this glorious piece of code works by:
@@ -2913,3 +2913,6 @@ static string _status_mut_abilities(int sw)
 
     return text;
 }
+
+
+

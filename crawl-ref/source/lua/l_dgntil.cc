@@ -3,19 +3,19 @@
  * @brief Tiles-specific dungeon builder functions.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "cluautil.h"
 #include "../lib/libutil.h"
 #include "l_libs.h"
 
-#include "branch.h"
+#include "../sys/branch.h"
 #include "../coord/coord.h"
-#include "mapdef.h"
+#include "../map/mapdef.h"
 
-#include "env.h"
+#include "../sys/env.h"
 #include "tiledef-dngn.h"
-#include "tileview.h"
+#include "../tile/tileview.h"
 
 
 tileidx_t get_tile_idx(lua_State *ls, int arg)
@@ -208,3 +208,6 @@ const struct luaL_reg dgn_tile_dlib[] =
 
 { NULL, NULL }
 };
+
+
+

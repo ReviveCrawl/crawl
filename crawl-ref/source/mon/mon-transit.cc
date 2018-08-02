@@ -3,25 +3,25 @@
  * @brief Tracks monsters that are in suspended animation between levels.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include <algorithm>
 
 #include "mon-transit.h"
 
-#include "artefact.h"
+#include "../item/artefact.h"
 #include "../coord/coord.h"
 #include "../coord/coordit.h"
-#include "dactions.h"
-#include "dungeon.h"
-#include "env.h"
-#include "godcompanions.h"
-#include "items.h"
+#include "../map/dactions.h"
+#include "../sys/dungeon.h"
+#include "../sys/env.h"
+#include "../god/godcompanions.h"
+#include "../item/items.h"
 #include "mon-place.h"
 #include "mon-util.h"
-#include "random.h"
-#include "religion.h"
-#include "travel.h"
+#include "../random/random.h"
+#include "../sys/religion.h"
+#include "../sys/travel.h"
 
 #define MAX_LOST 100
 
@@ -495,3 +495,5 @@ void untag_followers()
     for (int m = 0; m < MAX_MONSTERS; ++m)
         menv[m].flags &= (~MF_TAKING_STAIRS);
 }
+
+

@@ -19,7 +19,7 @@
 /* Fix annoying precompiled header compile errors caused by unused Objective-C variant. */
 #if !defined(__OBJC__)
 
-#include "platform.h"
+#include "../platform.h"
 #include <stdint.h>
 namespace std {};
 using namespace std;
@@ -148,7 +148,7 @@ static inline double pow(int x, double y) { return std::pow((double)x, y); }
     //
     // #define SOUND_PLAY_COMMAND "/usr/bin/play -v .5 \"%s\" 2>/dev/null &"
 
-    #include "libunix.h"
+    #include "../lib/libunix.h"
 
 #elif defined(TARGET_OS_WINDOWS)
     #if defined(TARGET_COMPILER_MINGW)
@@ -159,7 +159,7 @@ static inline double pow(int x, double y) { return std::pow((double)x, y); }
         #error Webtiles are not supported on Windows.
     #endif
     #ifndef USE_TILE_LOCAL
-        #include "libw32c.h"
+        #include "../lib/libw32c.h"
     #endif
 
     // NT and better are happy with /; I'm not sure how 9x reacts.
@@ -418,23 +418,26 @@ static inline void UNUSED(const volatile T &)
 
 // And now headers we want precompiled
 #ifdef TARGET_COMPILER_VC
-# include "msvc.h"
+# include "../platforms/msvc.h"
 #endif
 
-#include "debug.h"
-#include "externs.h"
+#include "../dbg/debug.h"
+#include "../sys/externs.h"
 
 #ifdef TARGET_COMPILER_VC
-# include "libw32c.h"
+# include "../lib/libw32c.h"
 #endif
 
 #ifdef __cplusplus
 # ifdef USE_TILE
-#  include "libgui.h"
+#  include "../lib/libgui.h"
 # endif
-# include "tiles.h"
+# include "../tile/tiles.h"
 #endif
 
 #endif // !defined __OBJC__
 
 #endif // APPHDR_H
+
+
+

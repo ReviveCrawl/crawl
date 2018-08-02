@@ -3,12 +3,12 @@
  * @brief Translation filters.
  **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 #include "lang-fake.h"
 
 #include "../lib/libutil.h"
-#include "options.h"
-#include "unicode.h"
+#include "../ui/options.h"
+#include "../low/unicode.h"
 
 #define UPPER "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 #define LOWER "abcdefghijklmnopqrstuvwxyz"
@@ -465,3 +465,5 @@ string filtered_lang(string str)
     filter_lang(str);
     return str;
 }
+
+

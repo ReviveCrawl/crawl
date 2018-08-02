@@ -1,28 +1,28 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE_LOCAL
 
 #include "tilereg-cmd.h"
-#include "process_desc.h"
+#include "../platforms/process_desc.h"
 
-#include "abl-show.h"
-#include "cio.h"
-#include "command.h"
-#include "process_desc.h"
+#include "../sys/abl-show.h"
+#include "../low/cio.h"
+#include "../io/command.h"
+#include "../platforms/process_desc.h"
 #include "../sys/enum.h"
-#include "env.h"
+#include "../sys/env.h"
 #include "../lib/libutil.h"
-#include "macro.h"
-#include "misc.h"
-#include "religion.h"
-#include "terrain.h"
+#include "../ui/macro.h"
+#include "../sys/misc.h"
+#include "../sys/religion.h"
+#include "../sys/terrain.h"
 #include "tiledef-dngn.h"
 #include "tiledef-icons.h"
 #include "tilepick.h"
 #include "../io/viewgeom.h"
-#include "spl-cast.h"
-#include "items.h"
-#include "areas.h"
+#include "../spl/spl-cast.h"
+#include "../item/items.h"
+#include "../sys/areas.h"
 
 CommandRegion::CommandRegion(const TileRegionInit &init,
                              const command_type commands[],
@@ -261,3 +261,5 @@ void CommandRegion::update()
 }
 
 #endif
+
+

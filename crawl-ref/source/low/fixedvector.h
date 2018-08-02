@@ -133,3 +133,6 @@ void FixedVector<TYPE, SIZE>::init(const TYPE& def)
 }
 
 #endif    // FIXVEC_H
+
+
+

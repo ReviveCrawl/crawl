@@ -3,17 +3,17 @@
  * @brief Travel and exclusions.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "l_libs.h"
 #include "l_defs.h"
 
-#include "branch.h"
+#include "../sys/branch.h"
 #include "cluautil.h"
 #include "../coord/coord.h"
-#include "exclude.h"
-#include "player.h"
-#include "travel.h"
+#include "../sys/exclude.h"
+#include "../player/player.h"
+#include "../sys/travel.h"
 
 LUAFN(l_set_exclude)
 {
@@ -72,3 +72,6 @@ void cluaopen_travel(lua_State *ls)
 {
     luaL_openlib(ls, "travel", travel_lib, 0);
 }
+
+
+

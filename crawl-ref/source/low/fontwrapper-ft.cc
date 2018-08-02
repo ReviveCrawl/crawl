@@ -1,4 +1,4 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE_LOCAL
 #ifdef USE_FT
@@ -6,17 +6,17 @@
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
-#include "defines.h"
+#include "../sys/defines.h"
 #include "errno.h"
-#include "files.h"
-#include "format.h"
+#include "../io/files.h"
+#include "../io/format.h"
 #include "fontwrapper-ft.h"
-#include "glwrapper.h"
-#include "syscalls.h"
-#include "tilebuf.h"
-#include "tilefont.h"
+#include "../gl/glwrapper.h"
+#include "../sys/syscalls.h"
+#include "../tile/tilebuf.h"
+#include "../tile/tilefont.h"
 #include "unicode.h"
-#include "options.h"
+#include "../ui/options.h"
 
 // maximum number of unique glyphs that can be rendered with this font at once; e.g. 4096, 256, 36
 #define MAX_GLYPHS 256
@@ -821,3 +821,6 @@ const GenericTexture *FTFontWrapper::font_tex() const
 
 #endif // USE_FT
 #endif // USE_TILE_LOCAL
+
+
+

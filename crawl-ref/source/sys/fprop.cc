@@ -3,7 +3,7 @@
  * @brief Functions dealing with env.map_knowledge.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "fprop.h"
 
@@ -79,3 +79,5 @@ char blood_rotation(const coord_def & p)
 {
     return (env.pgrid(p) & FPROP_BLOOD_EAST) >> 16;
 }
+
+

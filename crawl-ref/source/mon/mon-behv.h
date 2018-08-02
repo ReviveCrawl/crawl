@@ -50,3 +50,6 @@ void shake_off_monsters(const actor* target);
 #define PLAYER_POS (crawl_state.game_is_zotdef() ? env.orb_pos : you.pos())
 
 #endif
+
+
+

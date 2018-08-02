@@ -3,27 +3,27 @@
  * @brief Skill menu.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "skill_menu.h"
 
-#include "cio.h"
-#include "command.h"
-#include "describe.h"
-#include "evoke.h"
-#include "fontwrapper-ft.h"
-#include "hints.h"
+#include "../low/cio.h"
+#include "../io/command.h"
+#include "../io/describe.h"
+#include "../sys/evoke.h"
+#include "../low/fontwrapper-ft.h"
+#include "../sys/hints.h"
 #include "../lib/libutil.h"
 #include "options.h"
-#include "player.h"
-#include "religion.h"
-#include "skills.h"
-#include "skills2.h"
+#include "../player/player.h"
+#include "../sys/religion.h"
+#include "../sys/skills.h"
+#include "../sys/skills2.h"
 #include "../sys/state.h"
-#include "stuff.h"
+#include "../sys/stuff.h"
 #ifdef USE_TILE
- #include "tilepick.h"
- #include "tilereg-crt.h"
+ #include "../tile/tilepick.h"
+ #include "../tile/tilereg-crt.h"
 #endif
 
 menu_letter2 SkillMenuEntry::m_letter;
@@ -1540,3 +1540,5 @@ void skill_menu(int flag, int exp)
         }
     }
 }
+
+

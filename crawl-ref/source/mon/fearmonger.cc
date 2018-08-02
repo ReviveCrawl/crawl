@@ -3,17 +3,17 @@
  * @brief player methods dealing with mesmerisation.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
-#include "player.h"
+#include "../player/player.h"
 
 #include "../coord/coord.h"
-#include "env.h"
-#include "fprop.h"
+#include "../sys/env.h"
+#include "../sys/fprop.h"
 #include "mon-util.h"
 #include "monster.h"
 #include "../sys/state.h"
-#include "areas.h"
+#include "../sys/areas.h"
 
 // Add a monster to the list of fearmongers.
 bool player::add_fearmonger(const monster* mon)
@@ -195,3 +195,6 @@ bool player::_possible_fearmonger(const monster* mon) const
          && !mons_is_fleeing(mon)
          && !is_sanctuary(pos()));
 }
+
+
+

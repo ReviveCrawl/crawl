@@ -9,7 +9,7 @@
 
 
 #include <string>
-#include "externs.h"
+#include "../sys/externs.h"
 #include "../sys/enum.h"
 
 bool armour_prompt(const string & mesg, int *index, operation_types oper);
@@ -69,3 +69,6 @@ void tile_item_use_secondary(int idx);
 #endif
 
 #endif
+
+
+

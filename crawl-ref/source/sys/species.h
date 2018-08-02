@@ -39,3 +39,5 @@ int species_exp_modifier(species_type species);
 int species_hp_modifier(species_type species);
 int species_mp_modifier(species_type species);
 #endif
+
+

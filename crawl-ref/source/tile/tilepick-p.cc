@@ -1,22 +1,22 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE
 #include "tilepick-p.h"
 
 #include <stdio.h>
 
-#include "artefact.h"
-#include "describe.h"
-#include "itemname.h"
-#include "itemprop.h"
-#include "mon-stuff.h"
-#include "player.h"
+#include "../item/artefact.h"
+#include "../io/describe.h"
+#include "../item/itemname.h"
+#include "../item/itemprop.h"
+#include "../mon/mon-stuff.h"
+#include "../player/player.h"
 #include "tiledef-player.h"
-#include "tiledef-unrand.h"
+#include "../rltiles/tiledef-unrand.h"
 #include "tiledoll.h"
 #include "tilepick.h"
-#include "transform.h"
-#include "traps.h"
+#include "../sys/transform.h"
+#include "../sys/traps.h"
 
 static tileidx_t _modrng(int mod, tileidx_t first, tileidx_t last)
 {
@@ -1269,3 +1269,5 @@ void tilep_print_parts(char *fbuf, const dolls_data &doll)
 }
 
 #endif
+
+

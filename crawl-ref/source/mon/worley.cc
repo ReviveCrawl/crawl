@@ -29,7 +29,7 @@
    you enhance it, please drop me an email at steve@worley.com.
 */
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include <math.h>
 #include <stdio.h>
@@ -300,3 +300,5 @@ cases.]
         return datum;
     }
 }
+
+

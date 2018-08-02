@@ -9,39 +9,39 @@
 module "crawl"
 */
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "dlua.h"
 #include "cluautil.h"
 #include "l_libs.h"
 
-#include "chardump.h"
-#include "cio.h"
-#include "command.h"
-#include "delay.h"
-#include "directn.h"
-#include "format.h"
-#include "hiscores.h"
-#include "hints.h"
-#include "initfile.h"
-#include "itemname.h"
+#include "../io/chardump.h"
+#include "../low/cio.h"
+#include "../io/command.h"
+#include "../sys/delay.h"
+#include "../ui/directn.h"
+#include "../io/format.h"
+#include "../io/hiscores.h"
+#include "../sys/hints.h"
+#include "../io/initfile.h"
+#include "../item/itemname.h"
 #include "../lib/libutil.h"
-#include "macro.h"
-#include "menu.h"
-#include "message.h"
-#include "notes.h"
-#include "options.h"
-#include "ouch.h"
-#include "output.h"
-#include "perlin.h"
-#include "player.h"
-#include "random.h"
-#include "religion.h"
+#include "../ui/macro.h"
+#include "../ui/menu.h"
+#include "../io/message.h"
+#include "../sys/notes.h"
+#include "../ui/options.h"
+#include "../sys/ouch.h"
+#include "../io/output.h"
+#include "../map/perlin.h"
+#include "../player/player.h"
+#include "../random/random.h"
+#include "../sys/religion.h"
 #include "../sys/state.h"
-#include "stuff.h"
-#include "tutorial.h"
-#include "view.h"
-#include "worley.h"
+#include "../sys/stuff.h"
+#include "../mode/tutorial.h"
+#include "../io/view.h"
+#include "../mon/worley.h"
 
 #ifdef TARGET_OS_WINDOWS
 # include "windows.h"
@@ -1234,3 +1234,6 @@ void dluaopen_crawl(lua_State *ls)
 {
     luaL_openlib(ls, "crawl", crawl_dlib, 0);
 }
+
+
+

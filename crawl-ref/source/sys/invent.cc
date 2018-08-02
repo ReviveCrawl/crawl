@@ -3,7 +3,7 @@
  * @brief Functions for inventory related commands.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "invent.h"
 
@@ -13,29 +13,29 @@
 #include <sstream>
 #include <iomanip>
 
-#include "externs.h"
-#include "options.h"
+#include "../sys/externs.h"
+#include "../ui/options.h"
 
-#include "artefact.h"
-#include "clua.h"
-#include "colour.h"
-#include "command.h"
-#include "decks.h"
-#include "describe.h"
+#include "../item/artefact.h"
+#include "../lua/clua.h"
+#include "../ui/colour.h"
+#include "../io/command.h"
+#include "../item/decks.h"
+#include "../io/describe.h"
 #include "env.h"
 #include "food.h"
-#include "initfile.h"
-#include "item_use.h"
-#include "itemprop.h"
-#include "items.h"
+#include "../io/initfile.h"
+#include "../item/item_use.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
 #include "../lib/libutil.h"
-#include "message.h"
-#include "player.h"
+#include "../io/message.h"
+#include "../player/player.h"
 #include "religion.h"
 #include "shopping.h"
 #include "showsymb.h"
 #include "stuff.h"
-#include "mon-util.h"
+#include "../mon/mon-util.h"
 #include "../sys/state.h"
 #include "throw.h"
 
@@ -43,7 +43,7 @@
  #include "tiledef-icons.h"
  #include "tiledef-main.h"
  #include "tiledef-dngn.h"
- #include "tilepick.h"
+ #include "../tile/tilepick.h"
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -2161,3 +2161,5 @@ bool item_is_evokable(const item_def &item, bool reach, bool known,
         return false;
     }
 }
+
+

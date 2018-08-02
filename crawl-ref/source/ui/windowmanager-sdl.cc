@@ -1,4 +1,4 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE_LOCAL
 #ifdef USE_SDL
@@ -12,13 +12,13 @@
 #endif
 #include <SDL_image.h>
 
-#include "cio.h"
-#include "files.h"
-#include "glwrapper.h"
+#include "../low/cio.h"
+#include "../io/files.h"
+#include "../gl/glwrapper.h"
 #include "../lib/libutil.h"
 #include "options.h"
-#include "syscalls.h"
-#include "version.h"
+#include "../sys/syscalls.h"
+#include "../build/version.h"
 #include "windowmanager.h"
 
 #ifdef __ANDROID__
@@ -936,3 +936,5 @@ void SDLWrapper::glDebug(const char* msg)
 }
 #endif // USE_SDL
 #endif // USE_TILE_LOCAL
+
+

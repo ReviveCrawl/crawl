@@ -11,3 +11,6 @@ string stringize_glyph(ucs_t glyph);
 dungeon_char_type dchar_by_name(const string &name);
 
 #endif
+
+
+

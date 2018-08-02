@@ -3,32 +3,32 @@
  * @brief Implementing the actor interface for player.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "player.h"
 
 #include <math.h>
 
-#include "areas.h"
+#include "../sys/areas.h"
 #include "art-enum.h"
-#include "artefact.h"
+#include "../item/artefact.h"
 #include "../coord/coordit.h"
-#include "dgnevent.h"
-#include "env.h"
-#include "food.h"
-#include "goditem.h"
-#include "hints.h"
-#include "itemname.h"
-#include "itemprop.h"
-#include "items.h"
+#include "../dgn/dgnevent.h"
+#include "../sys/env.h"
+#include "../sys/food.h"
+#include "../god/goditem.h"
+#include "../sys/hints.h"
+#include "../item/itemname.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
 #include "../lib/libutil.h"
-#include "misc.h"
-#include "monster.h"
-#include "spl-damage.h"
+#include "../sys/misc.h"
+#include "../mon/monster.h"
+#include "../spl/spl-damage.h"
 #include "../sys/state.h"
-#include "terrain.h"
-#include "transform.h"
-#include "traps.h"
+#include "../sys/terrain.h"
+#include "../sys/transform.h"
+#include "../sys/traps.h"
 #include "../io/viewgeom.h"
 
 int player::mindex() const
@@ -750,3 +750,5 @@ int player::constriction_damage() const
 {
     return roll_dice(2, div_rand_round(strength(), 5));
 }
+
+

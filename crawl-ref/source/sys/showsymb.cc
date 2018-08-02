@@ -5,24 +5,24 @@
  * This only needs the information within one object of type map_cell.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "showsymb.h"
 
-#include "colour.h"
+#include "../ui/colour.h"
 #include "env.h"
-#include "itemname.h"
+#include "../item/itemname.h"
 #include "../lib/libutil.h"
-#include "map_knowledge.h"
-#include "mon-util.h"
-#include "monster.h"
-#include "options.h"
+#include "../map/map_knowledge.h"
+#include "../mon/mon-util.h"
+#include "../mon/monster.h"
+#include "../ui/options.h"
 #include "show.h"
 #include "stash.h"
 #include "../sys/state.h"
 #include "terrain.h"
 #include "travel.h"
-#include "viewchar.h"
+#include "../io/viewchar.h"
 
 static
 unsigned short _cell_feat_show_colour(const map_cell& cell,
@@ -517,3 +517,5 @@ string glyph_to_tagstr(const cglyph_t& g)
         ch += "<";
     return make_stringf("<%s>%s</%s>", col.c_str(), ch.c_str(), col.c_str());
 }
+
+

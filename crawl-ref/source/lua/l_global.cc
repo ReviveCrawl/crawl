@@ -1,4 +1,4 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "clua.h"
 #include "l_libs.h"
@@ -48,3 +48,6 @@ void cluaopen_globals(lua_State *ls)
     lua_pushcfunction(ls, lua_pmatch);
     lua_setglobal(ls, "pmatch");
 }
+
+
+

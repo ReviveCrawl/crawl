@@ -3,7 +3,7 @@
  * @brief Region system implementations
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE
 
@@ -11,14 +11,14 @@
 
 #include <sys/stat.h>
 
-#include "files.h"
-#include "syscalls.h"
+#include "../io/files.h"
+#include "../sys/syscalls.h"
 #ifdef USE_TILE_LOCAL
  #include "tilebuf.h"
 #endif
 #include "tiledef-player.h"
 #include "tilepick-p.h"
-#include "transform.h"
+#include "../sys/transform.h"
 
 dolls_data::dolls_data()
 {
@@ -563,3 +563,5 @@ void pack_doll_buf(SubmergedTileBuffer& buf, const dolls_data &doll,
 #endif
 
 #endif
+
+

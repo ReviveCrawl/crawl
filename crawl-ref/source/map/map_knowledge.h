@@ -2,7 +2,7 @@
 #define MAP_KNOWLEDGE_H
 
 #include "../sys/enum.h"
-#include "mon-info.h"
+#include "../mon/mon-info.h"
 
 struct cloud_info
 {
@@ -323,3 +323,6 @@ void clear_map(bool clear_items = true, bool clear_mons = true);
 map_feature get_cell_map_feature(const map_cell& cell);
 
 #endif
+
+
+

@@ -4,7 +4,7 @@
  *        manipulation functions that act on character types.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include <locale.h>
 #include <stdio.h>
@@ -13,7 +13,7 @@
 #include <limits.h>
 
 #include "../lib/libutil.h"
-#include "syscalls.h"
+#include "../sys/syscalls.h"
 #include "unicode.h"
 
 // there must be at least 4 bytes free, NOT CHECKED!
@@ -618,3 +618,6 @@ unsigned short charset_cp437[256] =
     0x2261, 0x00b1, 0x2265, 0x2264, 0x2320, 0x2321, 0x00f7, 0x2248,
     0x00b0, 0x2219, 0x00b7, 0x221a, 0x207f, 0x00b2, 0x25a0, 0x00a0,
 };
+
+
+

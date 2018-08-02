@@ -1,6 +1,6 @@
-#include "colour.h"
+#include "../ui/colour.h"
 #include "../sys/enum.h"
-#include "mon-pick.h"
+#include "../mon/mon-pick.h"
 
 const Branch branches[NUM_BRANCHES] =
 {
@@ -296,3 +296,6 @@ const Branch branches[NUM_BRANCHES] =
       '9', false, 0 },
 #endif
 };
+
+
+

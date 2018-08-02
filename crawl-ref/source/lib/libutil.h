@@ -6,7 +6,7 @@
 #ifndef LIBUTIL_H
 #define LIBUTIL_H
 
-#include "enum.h"
+#include "../sys/enum.h"
 #include <cctype>
 #include <string>
 #include <vector>
@@ -255,3 +255,6 @@ private:
 
 void init_signals();
 #endif
+
+
+

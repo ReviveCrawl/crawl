@@ -34,3 +34,6 @@ int list_wizard_commands(bool do_redraw_screen = false);
 void process_command(command_type cmd);
 
 #endif
+
+
+

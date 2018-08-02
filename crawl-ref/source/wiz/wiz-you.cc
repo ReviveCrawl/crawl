@@ -3,36 +3,36 @@
  * @brief Player related debugging functions.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "wiz-you.h"
 
-#include "abyss.h"
+#include "../map/abyss.h"
 
-#include "cio.h"
-#include "dbg-util.h"
-#include "food.h"
-#include "godprayer.h"
-#include "godwrath.h"
+#include "../low/cio.h"
+#include "../dbg/dbg-util.h"
+#include "../sys/food.h"
+#include "../god/godprayer.h"
+#include "../god/godwrath.h"
 #include "../lib/libutil.h"
-#include "message.h"
-#include "mutation.h"
-#include "newgame.h"
-#include "ng-setup.h"
-#include "player.h"
-#include "religion.h"
-#include "skills.h"
-#include "skills2.h"
-#include "spl-book.h"
-#include "spl-cast.h"
-#include "spl-util.h"
+#include "../io/message.h"
+#include "../sys/mutation.h"
+#include "../mode/newgame.h"
+#include "../mode/ng-setup.h"
+#include "../player/player.h"
+#include "../sys/religion.h"
+#include "../sys/skills.h"
+#include "../sys/skills2.h"
+#include "../spl/spl-book.h"
+#include "../spl/spl-cast.h"
+#include "../spl/spl-util.h"
 #include "../sys/state.h"
-#include "stuff.h"
-#include "terrain.h"
-#include "transform.h"
-#include "view.h"
-#include "unicode.h"
-#include "xom.h"
+#include "../sys/stuff.h"
+#include "../sys/terrain.h"
+#include "../sys/transform.h"
+#include "../io/view.h"
+#include "../low/unicode.h"
+#include "../god/xom.h"
 
 #ifdef WIZARD
 void wizard_change_species(void)
@@ -1164,3 +1164,5 @@ void wizard_load_dump_file()
     init_train();
     init_training();
 }
+
+

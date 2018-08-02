@@ -6,8 +6,8 @@
 #ifndef __MAPMARK_H__
 #define __MAPMARK_H__
 
-#include "dgnevent.h"
-#include "clua.h"
+#include "../dgn/dgnevent.h"
+#include "../lua/clua.h"
 #include <map>
 #include <string>
 #include <vector>
@@ -310,3 +310,6 @@ public:
 };
 
 #endif
+
+
+

@@ -9,12 +9,12 @@
 module "colour"
 */
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "l_libs.h"
 
 #include "cluautil.h"
-#include "colour.h"
+#include "../ui/colour.h"
 #include "dlua.h"
 
 typedef int (*lua_element_colour_calculator)(int, const coord_def&, lua_datum);
@@ -106,3 +106,6 @@ void dluaopen_colour(lua_State *ls)
 {
     luaL_openlib(ls, "colour", colour_lib, 0);
 }
+
+
+

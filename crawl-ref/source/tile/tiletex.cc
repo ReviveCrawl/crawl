@@ -1,16 +1,16 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE_LOCAL
 
-#include "files.h"
-#include "glwrapper.h"
+#include "../io/files.h"
+#include "../gl/glwrapper.h"
 #include "tiledef-dngn.h"
 #include "tiledef-gui.h"
 #include "tiledef-icons.h"
 #include "tiledef-main.h"
 #include "tiledef-player.h"
 #include "../tile/tiletex.h"
-#include "windowmanager.h"
+#include "../ui/windowmanager.h"
 
 GenericTexture::GenericTexture() :
     m_handle(0),
@@ -134,3 +134,5 @@ void ImageManager::unload_textures()
 }
 
 #endif
+
+

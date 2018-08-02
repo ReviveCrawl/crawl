@@ -3,27 +3,27 @@
  * @brief Player kill tracking
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "kills.h"
-#include "l_libs.h"
+#include "../lua/l_libs.h"
 
 #include <algorithm>
 
-#include "describe.h"
-#include "mon-stuff.h"
-#include "mon-info.h"
-#include "files.h"
+#include "../io/describe.h"
+#include "../mon/mon-stuff.h"
+#include "../mon/mon-info.h"
+#include "../io/files.h"
 #include "ghost.h"
 #include "../lib/libutil.h"
-#include "monster.h"
-#include "place.h"
+#include "../mon/monster.h"
+#include "../map/place.h"
 #include "travel.h"
-#include "tags.h"
-#include "clua.h"
-#include "options.h"
-#include "unwind.h"
-#include "viewchar.h"
+#include "../io/tags.h"
+#include "../lua/clua.h"
+#include "../ui/options.h"
+#include "../low/unwind.h"
+#include "../io/viewchar.h"
 
 #define KILLS_MAJOR_VERSION 4
 #define KILLS_MINOR_VERSION 1
@@ -1059,3 +1059,5 @@ static void kill_lua_filltable(vector<kill_exp> &v)
     }
 }
 #endif
+
+

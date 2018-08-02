@@ -3,19 +3,19 @@
  * @brief Monster-related functions in lua library "dgn".
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
-#include "branch.h"
+#include "../sys/branch.h"
 #include "cluautil.h"
 #include "../coord/coord.h"
 #include "l_libs.h"
-#include "dungeon.h"
-#include "env.h"
+#include "../sys/dungeon.h"
+#include "../sys/env.h"
 #include "../lib/libutil.h"
-#include "mapdef.h"
-#include "mon-place.h"
-#include "mon-stuff.h"
-#include "mon-util.h"
+#include "../map/mapdef.h"
+#include "../mon/mon-place.h"
+#include "../mon/mon-stuff.h"
+#include "../mon/mon-util.h"
 
 #define MONSLIST_METATABLE "crawldgn.monster_list"
 
@@ -249,3 +249,6 @@ const struct luaL_reg dgn_mons_dlib[] =
 
 { NULL, NULL }
 };
+
+
+

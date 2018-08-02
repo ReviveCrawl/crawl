@@ -4,7 +4,7 @@
 #ifdef USE_TILE_LOCAL
 #ifdef USE_FT
 
-#include "tilefont.h"
+#include "../tile/tilefont.h"
 
 #include <map>
 
@@ -146,3 +146,6 @@ protected:
 #endif // USE_FT
 #endif // USE_TILE_LOCAL
 #endif // include guard
+
+
+

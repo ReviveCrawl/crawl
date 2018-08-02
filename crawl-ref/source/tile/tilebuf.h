@@ -1,7 +1,7 @@
 #ifndef TILEBUF_H
 #define TILEBUF_H
 
-#include "glwrapper.h"
+#include "../gl/glwrapper.h"
 
 #include <string>
 #include <vector>
@@ -119,3 +119,5 @@ public:
 };
 
 #endif
+
+

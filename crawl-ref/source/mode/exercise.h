@@ -37,3 +37,6 @@ void practise(exer_type ex, int param1 = 0);
 skill_type abil_skill(ability_type abil);
 
 #endif
+
+
+

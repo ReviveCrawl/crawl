@@ -1,12 +1,12 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "branch.h"
-#include "externs.h"
-#include "files.h"
-#include "player.h"
+#include "../sys/externs.h"
+#include "../io/files.h"
+#include "../player/player.h"
 #include "traps.h"
 #include "travel.h"
-#include "branch-data.h"
+#include "../item/branch-data.h"
 
 FixedVector<int, NUM_BRANCHES> startdepth, brdepth;
 branch_type root_branch;
@@ -93,3 +93,5 @@ branch_type parent_branch(branch_type branch)
 
     return branches[branch].parent_branch;
 }
+
+

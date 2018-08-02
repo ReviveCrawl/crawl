@@ -1,11 +1,11 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE_LOCAL
 
 #include "tilereg-grid.h"
 
 #include "../lib/libutil.h"
-#include "random.h"
+#include "../random/random.h"
 #include "tiledef-icons.h"
 #include "tilefont.h"
 
@@ -200,3 +200,5 @@ void GridRegion::draw_number(int x, int y, int num, bool outline)
 }
 
 #endif
+
+

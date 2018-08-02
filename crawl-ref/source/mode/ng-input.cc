@@ -1,16 +1,16 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include <wctype.h>
 #include "ng-input.h"
 
-#include "cio.h"
-#include "files.h"
-#include "format.h"
+#include "../low/cio.h"
+#include "../io/files.h"
+#include "../io/format.h"
 #include "../lib/libutil.h"
-#include "options.h"
-#include "stuff.h"
-#include "unicode.h"
-#include "version.h"
+#include "../ui/options.h"
+#include "../sys/stuff.h"
+#include "../low/unicode.h"
+#include "../build/version.h"
 
 extern string init_file_error; // defined in main.cc
 
@@ -171,3 +171,6 @@ bool validate_player_name(const string &name, bool verbose)
 
     return true;
 }
+
+
+

@@ -3,37 +3,37 @@
  * @brief Cloud creating spells.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "spl-clouds.h"
-#include "externs.h"
+#include "../sys/externs.h"
 
 #include <algorithm>
 
-#include "act-iter.h"
-#include "beam.h"
-#include "cloud.h"
+#include "../sys/act-iter.h"
+#include "../sys/beam.h"
+#include "../sys/cloud.h"
 #include "../coord/coord.h"
 #include "../coord/coordit.h"
-#include "env.h"
-#include "fprop.h"
-#include "itemprop.h"
-#include "items.h"
+#include "../sys/env.h"
+#include "../sys/fprop.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
 #include "../lib/libutil.h"
-#include "losglobal.h"
-#include "message.h"
-#include "misc.h"
-#include "mon-behv.h"
-#include "mon-util.h"
-#include "ouch.h"
-#include "player.h"
-#include "skills.h"
+#include "../los/losglobal.h"
+#include "../io/message.h"
+#include "../sys/misc.h"
+#include "../mon/mon-behv.h"
+#include "../mon/mon-util.h"
+#include "../sys/ouch.h"
+#include "../player/player.h"
+#include "../sys/skills.h"
 #include "spl-util.h"
-#include "stuff.h"
-#include "terrain.h"
-#include "transform.h"
-#include "viewchar.h"
-#include "shout.h"
+#include "../sys/stuff.h"
+#include "../sys/terrain.h"
+#include "../sys/transform.h"
+#include "../io/viewchar.h"
+#include "../sys/shout.h"
 
 static void _burn_tree(coord_def pos)
 {
@@ -489,3 +489,5 @@ void apply_control_winds(const monster* mon)
         }
     }
 }
+
+

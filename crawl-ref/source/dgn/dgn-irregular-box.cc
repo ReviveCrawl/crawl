@@ -3,12 +3,12 @@
  * @brief Builds irregular boxes (library "dgn").
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 #include <vector>
 
 #include "../coord/coord.h"
-#include "mapdef.h"
-#include "random.h"
+#include "../map/mapdef.h"
+#include "../random/random.h"
 #include "dgn-irregular-box.h"
 
 
@@ -621,3 +621,6 @@ void make_irregular_box(map_lines& map, int x1, int y1, int x2, int y2,
                 map(x1 + x, y1 + y) = new_glyphs[x][y];
         }
 }
+
+
+

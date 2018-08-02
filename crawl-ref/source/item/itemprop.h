@@ -198,3 +198,6 @@ static inline bool is_weapon(const item_def &item)
            || item.base_type == OBJ_RODS;
 }
 #endif
+
+
+

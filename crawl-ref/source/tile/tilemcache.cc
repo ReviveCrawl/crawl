@@ -1,10 +1,10 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE
 #include "tilemcache.h"
 
-#include "env.h"
-#include "mon-util.h"
+#include "../sys/env.h"
+#include "../mon/mon-util.h"
 #include "tiledef-player.h"
 #include "tilepick.h"
 #include "tilepick-p.h"
@@ -858,3 +858,5 @@ bool mcache_demon::valid(const monster_info& mon)
 }
 
 #endif
+
+

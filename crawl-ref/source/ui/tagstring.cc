@@ -1,4 +1,4 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "tagstring.h"
 
@@ -11,3 +11,5 @@ string colour_string(string in, int col)
     const string cols = colour_to_str(col);
     return ("<" + cols + ">" + in + "</" + cols + ">");
 }
+
+

@@ -3,7 +3,7 @@
  * @brief More skill related functions.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "skills2.h"
 
@@ -16,18 +16,18 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-#include "artefact.h"
-#include "describe.h"
+#include "../item/artefact.h"
+#include "../io/describe.h"
 #include "evoke.h"
-#include "externs.h"
-#include "godabil.h"
+#include "../sys/externs.h"
+#include "../god/godabil.h"
 #include "../lib/libutil.h"
-#include "player.h"
+#include "../player/player.h"
 #include "religion.h"
 #include "species.h"
 #include "skills.h"
-#include "skill_menu.h"
-#include "unwind.h"
+#include "../ui/skill_menu.h"
+#include "../low/unwind.h"
 
 typedef string (*string_fn)();
 typedef map<string, string_fn> skill_op_map;
@@ -924,3 +924,5 @@ void fixup_skills()
     if (you.exp_available >= calc_skill_cost(you.skill_cost_level))
         skill_menu(SKMF_EXPERIENCE);
 }
+
+

@@ -3,52 +3,52 @@
  * @brief Translocation spells.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include <cmath>
 #include <vector>
 #include <algorithm>
 
 #include "spl-transloc.h"
-#include "externs.h"
+#include "../sys/externs.h"
 
-#include "abyss.h"
-#include "areas.h"
-#include "cloud.h"
+#include "../map/abyss.h"
+#include "../sys/areas.h"
+#include "../sys/cloud.h"
 #include "../coord/coord.h"
 #include "../coord/coordit.h"
-#include "delay.h"
-#include "directn.h"
-#include "dungeon.h"
-#include "env.h"
-#include "fprop.h"
-#include "invent.h"
-#include "item_use.h"
-#include "itemprop.h"
-#include "items.h"
+#include "../sys/delay.h"
+#include "../ui/directn.h"
+#include "../sys/dungeon.h"
+#include "../sys/env.h"
+#include "../sys/fprop.h"
+#include "../sys/invent.h"
+#include "../item/item_use.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
 #include "../lib/libutil.h"
-#include "losglobal.h"
-#include "message.h"
-#include "misc.h"
-#include "mon-behv.h"
-#include "mon-iter.h"
-#include "mon-util.h"
-#include "mon-stuff.h"
-#include "orb.h"
-#include "random.h"
-#include "shout.h"
+#include "../los/losglobal.h"
+#include "../io/message.h"
+#include "../sys/misc.h"
+#include "../mon/mon-behv.h"
+#include "../mon/mon-iter.h"
+#include "../mon/mon-util.h"
+#include "../mon/mon-stuff.h"
+#include "../sys/orb.h"
+#include "../random/random.h"
+#include "../sys/shout.h"
 #include "spl-util.h"
-#include "stash.h"
+#include "../sys/stash.h"
 #include "../sys/state.h"
-#include "stuff.h"
-#include "teleport.h"
-#include "terrain.h"
-#include "throw.h"
-#include "transform.h"
-#include "traps.h"
-#include "view.h"
-#include "viewmap.h"
-#include "xom.h"
+#include "../sys/stuff.h"
+#include "../sys/teleport.h"
+#include "../sys/terrain.h"
+#include "../sys/throw.h"
+#include "../sys/transform.h"
+#include "../sys/traps.h"
+#include "../io/view.h"
+#include "../io/viewmap.h"
+#include "../god/xom.h"
 
 static bool _abyss_blocks_teleport(bool cblink)
 {
@@ -1161,3 +1161,5 @@ spret_type cast_golubrias_passage(const coord_def& where, bool fail)
 
     return SPRET_SUCCESS;
 }
+
+

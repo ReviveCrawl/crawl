@@ -13,3 +13,5 @@ void good_god_holy_attitude_change(monster* holy);
 void beogh_convert_orc(monster* orc, bool emergency,
                        bool converted_by_follower = false);
 #endif
+
+

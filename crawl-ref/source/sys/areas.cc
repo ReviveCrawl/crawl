@@ -4,7 +4,7 @@
  *           Silence, sanctuary, halos, ...
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "areas.h"
 
@@ -17,15 +17,15 @@
 #include "env.h"
 #include "fprop.h"
 #include "../lib/libutil.h"
-#include "losglobal.h"
-#include "mon-behv.h"
-#include "mon-iter.h"
-#include "mon-stuff.h"
-#include "mon-util.h"
-#include "monster.h"
-#include "player.h"
+#include "../los/losglobal.h"
+#include "../mon/mon-behv.h"
+#include "../mon/mon-iter.h"
+#include "../mon/mon-stuff.h"
+#include "../mon/mon-util.h"
+#include "../mon/monster.h"
+#include "../player/player.h"
 #include "religion.h"
-#include "godconduct.h"
+#include "../god/godconduct.h"
 #include "stuff.h"
 #include "terrain.h"
 #include "traps.h"
@@ -870,3 +870,5 @@ bool actor::heated() const
 {
     return ::heated(pos());
 }
+
+

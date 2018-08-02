@@ -3,42 +3,43 @@
  * @brief Assertions and crashing.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include <errno.h>
 #include <signal.h>
 
-#include "abyss.h"
-#include "clua.h"
+#include "../map/abyss.h"
+#include "../lua/clua.h"
 #include "../coord/coord.h"
 #include "../coord/coordit.h"
-#include "crash.h"
+#include "../low/crash.h"
 #include "dbg-scan.h"
 #include "dbg-util.h"
-#include "directn.h"
-#include "dlua.h"
-#include "env.h"
-#include "initfile.h"
-#include "itemname.h"
-#include "jobs.h"
+#include "../ui/directn.h"
+#include "../lua/dlua.h"
+#include "../sys/env.h"
+#include "../io/initfile.h"
+#include "../item/itemname.h"
+#include "../sys/jobs.h"
 #include "../lib/libutil.h"
-#include "mapmark.h"
-#include "message.h"
-#include "monster.h"
-#include "mon-util.h"
-#include "mutation.h"
-#include "options.h"
-#include "religion.h"
-#include "skills2.h"
-#include "spl-cast.h"
-#include "spl-util.h"
+#include "../map/mapmark.h"
+#include "../io/message.h"
+#include "../mon/monster.h"
+#include "../mon/mon-util.h"
+#include "../sys/mutation.h"
+#include "../ui/options.h"
+#include "../sys/religion.h"
+#include "../sys/skills2.h"
+#include "../spl/spl-cast.h"
+#include "../spl/spl-util.h"
 #include "../sys/state.h"
-#include "stuff.h"
-#include "travel.h"
-#include "hiscores.h"
-#include "version.h"
-#include "view.h"
-#include "zotdef.h"
+#include "../sys/stuff.h"
+#include "../sys/travel.h"
+#include "../io/hiscores.h"
+#include "../build/version.h"
+#include "../io/view.h"
+#include "../sys/zotdef.h"
+
 
 #if defined(TARGET_OS_WINDOWS) || defined(TARGET_COMPILER_MINGW)
 #define NOCOMM            /* Comm driver APIs and definitions */
@@ -878,3 +879,6 @@ NORETURN void die_noline(const char *format, ...)
 
     _BreakStrToDebugger(mesg, false);
 }
+
+
+

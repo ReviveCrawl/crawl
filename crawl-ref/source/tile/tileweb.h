@@ -6,12 +6,12 @@
 #ifndef TILEWEB_H
 #define TILEWEB_H
 
-#include "externs.h"
-#include "status.h"
+#include "../sys/externs.h"
+#include "../sys/status.h"
 #include "tileweb-text.h"
 #include "tiledoll.h"
 #include "../io/viewgeom.h"
-#include "map_knowledge.h"
+#include "../map/map_knowledge.h"
 #include <map>
 #include <bitset>
 #include <sys/un.h>
@@ -350,3 +350,5 @@ private:
 };
 
 #endif
+
+

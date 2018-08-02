@@ -2,20 +2,20 @@
  * @file
  * @brief Procedurally generated dungeon layouts.
  **/
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include <cmath>
 
 #include "dgn-proclayouts.h"
 #include "../coord/coord.h"
 #include "../coord/coordit.h"
-#include "files.h"
-#include "hash.h"
-#include "perlin.h"
-#include "terrain.h"
-#include "worley.h"
+#include "../io/files.h"
+#include "../low/hash.h"
+#include "../map/perlin.h"
+#include "../sys/terrain.h"
+#include "../mon/worley.h"
 
-#include "mpr.h"
+#include "../io/mpr.h"
 
 static dungeon_feature_type _pick_pseudorandom_wall(uint64_t val)
 {
@@ -612,3 +612,6 @@ worley::noise_datum WorleyDistortFunction::datum(double x, double y, double z) c
     double offy = off_y(x,y,z);
     return wbase.datum(x+offx,y+offy,z);
 }
+
+
+

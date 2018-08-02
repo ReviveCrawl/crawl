@@ -1,10 +1,10 @@
 #ifndef SPL_SUMMONING_H
 #define SPL_SUMMONING_H
 
-#include "beam.h"
+#include "../sys/beam.h"
 #include "../sys/enum.h"
-#include "data-index.h"
-#include "itemprop-enum.h"
+#include "../low/data-index.h"
+#include "../item/itemprop-enum.h"
 #include "spl-cast.h"
 
 //Bitfield for animate dead messages
@@ -133,3 +133,5 @@ protected:
 };
 
 #endif
+
+

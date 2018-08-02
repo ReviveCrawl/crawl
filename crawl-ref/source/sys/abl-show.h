@@ -100,3 +100,5 @@ void gain_god_ability(int i);
 void lose_god_ability(int i);
 
 #endif
+
+

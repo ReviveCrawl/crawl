@@ -9,7 +9,7 @@
 
 #include "../sys/enum.h"
 #include "menu.h"
-#include "skills2.h"
+#include "../sys/skills2.h"
 
 // Skill Menu
 
@@ -189,3 +189,5 @@ private:
     void set_links();
 };
 #endif
+
+

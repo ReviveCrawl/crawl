@@ -10,7 +10,7 @@
  *
  */
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
@@ -22,44 +22,44 @@
 
 #include "hiscores.h"
 
-#include "branch.h"
+#include "../sys/branch.h"
 #include "chardump.h"
 #include "files.h"
-#include "dungeon.h"
+#include "../sys/dungeon.h"
 #include "initfile.h"
-#include "itemname.h"
-#include "itemprop.h"
-#include "items.h"
-#include "kills.h"
+#include "../item/itemname.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
+#include "../sys/kills.h"
 #include "../lib/libutil.h"
 #include "message.h"
-#include "menu.h"
-#include "misc.h"
-#include "mon-util.h"
-#include "jobs.h"
-#include "options.h"
-#include "ouch.h"
-#include "place.h"
-#include "player.h"
-#include "religion.h"
-#include "shopping.h"
-#include "species.h"
+#include "../ui/menu.h"
+#include "../sys/misc.h"
+#include "../mon/mon-util.h"
+#include "../sys/jobs.h"
+#include "../ui/options.h"
+#include "../sys/ouch.h"
+#include "../map/place.h"
+#include "../player/player.h"
+#include "../sys/religion.h"
+#include "../sys/shopping.h"
+#include "../sys/species.h"
 #include "../sys/state.h"
-#include "status.h"
-#include "stuff.h"
-#include "env.h"
+#include "../sys/status.h"
+#include "../sys/stuff.h"
+#include "../sys/env.h"
 #include "tags.h"
-#include "unwind.h"
-#include "version.h"
+#include "../low/unwind.h"
+#include "../build/version.h"
 
 #ifdef USE_TILE
- #include "tilepick.h"
+ #include "../tile/tilepick.h"
 #endif
 #ifdef USE_TILE_LOCAL
- #include "tilereg-crt.h"
+ #include "../tile/tilereg-crt.h"
 #endif
 
-#include "skills2.h"
+#include "../sys/skills2.h"
 #define SCORE_VERSION "0.1"
 
 // enough memory allocated to snarf in the scorefile entries
@@ -2795,3 +2795,6 @@ string xlog_status_line()
     return xl.xlog_line();
 }
 #endif // DGL_WHEREIS
+
+
+

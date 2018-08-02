@@ -31,3 +31,5 @@ spret_type cast_semi_controlled_blink(int pow, bool cheap_cancel,
 spret_type cast_golubrias_passage(const coord_def& where, bool fail);
 
 #endif
+
+

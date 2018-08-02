@@ -25,3 +25,5 @@ int holy_flames(monster* caster, actor* defender);
 
 void apply_control_winds(const monster* mon);
 #endif
+
+

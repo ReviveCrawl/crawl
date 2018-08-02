@@ -1,4 +1,4 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "jobs.h"
 
@@ -114,3 +114,5 @@ bool is_job_valid_choice(job_type job)
 #endif
         ;
 }
+
+

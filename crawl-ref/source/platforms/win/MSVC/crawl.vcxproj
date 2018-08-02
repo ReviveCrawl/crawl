@@ -215,6 +215,7 @@ perl.exe "util/gen-cflg.pl" compflag.h "&lt;UNKNOWN&gt;" "&lt;UNKNOWN&gt;"
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\build\AppHdr.cc" />
     <ClCompile Include="..\..\..\lib\libunix.cc" />
     <ClCompile Include="..\..\..\los\los.cc" />
     <ClCompile Include="..\..\..\los\losglobal.cc" />
@@ -520,6 +521,7 @@ perl.exe "util/gen-cflg.pl" compflag.h "&lt;UNKNOWN&gt;" "&lt;UNKNOWN&gt;"
     <ClCompile Include="..\..\..\god\xom.cc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\build\AppHdr.h" />
     <ClInclude Include="..\..\..\los\los.h" />
     <ClInclude Include="..\..\..\los\losglobal.h" />
     <ClInclude Include="..\..\..\los\losparam.h" />

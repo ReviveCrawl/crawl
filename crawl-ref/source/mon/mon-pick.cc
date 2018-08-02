@@ -3,19 +3,19 @@
  * @brief Functions used to help determine which monsters should appear.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "mon-pick.h"
 
-#include "externs.h"
-#include "branch.h"
+#include "../sys/externs.h"
+#include "../sys/branch.h"
 #include "../coord/coord.h"
-#include "env.h"
-#include "errors.h"
+#include "../sys/env.h"
+#include "../io/errors.h"
 #include "../lib/libutil.h"
 #include "mon-place.h"
 #include "mon-util.h"
-#include "place.h"
+#include "../map/place.h"
 
 #include "mon-pick-data.h"
 
@@ -284,3 +284,5 @@ void debug_monpick()
     }
 }
 #endif
+
+

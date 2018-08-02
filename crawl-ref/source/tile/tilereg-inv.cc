@@ -1,32 +1,32 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE_LOCAL
 
 #include "tilereg-inv.h"
-#include "process_desc.h"
+#include "../platforms/process_desc.h"
 
-#include "cio.h"
-#include "describe.h"
-#include "env.h"
-#include "invent.h"
-#include "itemname.h"
-#include "itemprop.h"
-#include "items.h"
-#include "item_use.h"
+#include "../low/cio.h"
+#include "../io/describe.h"
+#include "../sys/env.h"
+#include "../sys/invent.h"
+#include "../item/itemname.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
+#include "../item/item_use.h"
 #include "../lib/libutil.h"
-#include "macro.h"
-#include "message.h"
-#include "misc.h"
-#include "mon-util.h"
-#include "options.h"
-#include "spl-book.h"
-#include "stuff.h"
+#include "../ui/macro.h"
+#include "../io/message.h"
+#include "../sys/misc.h"
+#include "../mon/mon-util.h"
+#include "../ui/options.h"
+#include "../spl/spl-book.h"
+#include "../sys/stuff.h"
 #include "tiledef-dngn.h"
 #include "tiledef-icons.h"
 #include "tiledef-icons.h"
 #include "tiledef-main.h"
 #include "tilepick.h"
-#include "unicode.h"
+#include "../low/unicode.h"
 #include "../io/viewgeom.h"
 
 InventoryRegion::InventoryRegion(const TileRegionInit &init) : GridRegion(init)
@@ -876,3 +876,5 @@ bool InventoryRegion::_is_next_button(int idx)
     return (idx == mx*my*(m_grid_page+1)-1);
 }
 #endif
+
+

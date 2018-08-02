@@ -3,32 +3,32 @@
  * @brief Item creation routines.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include <algorithm>
 
 #include "../sys/enum.h"
-#include "externs.h"
+#include "../sys/externs.h"
 #include "makeitem.h"
-#include "message.h"
+#include "../io/message.h"
 
-#include "artefact.h"
-#include "colour.h"
+#include "../item/artefact.h"
+#include "../ui/colour.h"
 #include "../coord/coord.h"
-#include "decks.h"
-#include "describe.h"
+#include "../item/decks.h"
+#include "../io/describe.h"
 #include "dungeon.h"
 #include "env.h"
 #include "food.h"
-#include "itemname.h"
-#include "itemprop.h"
-#include "items.h"
+#include "../item/itemname.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
 #include "../lib/libutil.h"
 #include "misc.h"
-#include "mon-util.h"
-#include "player.h"
-#include "random.h"
-#include "spl-book.h"
+#include "../mon/mon-util.h"
+#include "../player/player.h"
+#include "../random/random.h"
+#include "../spl/spl-book.h"
 #include "../sys/state.h"
 #include "stuff.h"
 #include "travel.h"
@@ -3735,3 +3735,5 @@ void makeitem_tests()
     }
 }
 #endif
+
+

@@ -3,7 +3,7 @@
  * database.cc
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -14,17 +14,17 @@
 #include <unistd.h>
 #endif
 
-#include "clua.h"
+#include "../lua/clua.h"
 #include "database.h"
 #include "errors.h"
 #include "files.h"
 #include "../lib/libutil.h"
-#include "options.h"
-#include "random.h"
-#include "stuff.h"
-#include "syscalls.h"
-#include "threads.h"
-#include "unicode.h"
+#include "../ui/options.h"
+#include "../random/random.h"
+#include "../sys/stuff.h"
+#include "../sys/syscalls.h"
+#include "../low/threads.h"
+#include "../low/unicode.h"
 
 // TextDB handles dependency checking the db vs text files, creating the
 // db, loading, and destroying the DB.
@@ -904,3 +904,6 @@ string getHintString(const string &key)
 {
     return unwrap_desc(_query_database(HintsDB, key, true, true));
 }
+
+
+

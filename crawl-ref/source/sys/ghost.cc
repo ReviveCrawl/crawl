@@ -3,26 +3,26 @@
  * @brief Player ghost and random Pandemonium demon handling.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "ghost.h"
 
-#include "artefact.h"
-#include "colour.h"
-#include "database.h"
+#include "../item/artefact.h"
+#include "../ui/colour.h"
+#include "../io/database.h"
 #include "env.h"
-#include "externs.h"
-#include "itemname.h"
-#include "itemprop.h"
+#include "../sys/externs.h"
+#include "../item/itemname.h"
+#include "../item/itemprop.h"
 #include "../lib/libutil.h"
-#include "mon-iter.h"
-#include "ng-input.h"
-#include "random.h"
+#include "../mon/mon-iter.h"
+#include "../mode/ng-input.h"
+#include "../random/random.h"
 #include "skills2.h"
-#include "spl-cast.h"
-#include "mon-util.h"
-#include "mon-transit.h"
-#include "player.h"
+#include "../spl/spl-cast.h"
+#include "../mon/mon-util.h"
+#include "../mon/mon-transit.h"
+#include "../player/player.h"
 #include "religion.h"
 
 #include <vector>
@@ -1043,3 +1043,5 @@ int ghost_level_to_rank(const int xl)
     if (xl < 27) return 6;
     return 7;
 }
+
+

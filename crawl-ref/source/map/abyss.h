@@ -36,3 +36,6 @@ void set_abyss_state(coord_def coord, uint32_t depth);
 void destroy_abyss();
 
 #endif
+
+
+

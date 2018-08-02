@@ -3,16 +3,16 @@
  * @brief Code to clone existing monsters and to create player illusions.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
-#include "arena.h"
-#include "artefact.h"
-#include "directn.h"
-#include "externs.h"
-#include "env.h"
-#include "items.h"
+#include "../mode/arena.h"
+#include "../item/artefact.h"
+#include "../ui/directn.h"
+#include "../sys/externs.h"
+#include "../sys/env.h"
+#include "../item/items.h"
 #include "../lib/libutil.h"
-#include "mgen_data.h"
+#include "../sys/mgen_data.h"
 #include "monster.h"
 #include "mon-behv.h"
 #include "mon-clone.h"
@@ -21,13 +21,13 @@
 #include "mon-place.h"
 #include "mon-stuff.h"
 #include "mon-util.h"
-#include "player.h"
-#include "random.h"
+#include "../player/player.h"
+#include "../random/random.h"
 #include "../sys/state.h"
-#include "terrain.h"
-#include "transform.h"
-#include "unwind.h"
-#include "view.h"
+#include "../sys/terrain.h"
+#include "../sys/transform.h"
+#include "../low/unwind.h"
+#include "../io/view.h"
 
 const string clone_master_key = "mcloneorig";
 const string clone_slave_key  = "mclonedupe";
@@ -346,3 +346,6 @@ monster* clone_mons(const monster* orig, bool quiet, bool* obvious,
 
     return mons;
 }
+
+
+

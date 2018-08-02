@@ -1,7 +1,7 @@
 #ifndef NG_RESTR_H
 #define NG_RESTR_H
 
-#include "itemprop-enum.h"
+#include "../item/itemprop-enum.h"
 
 struct newgame_def;
 
@@ -19,3 +19,6 @@ char_choice_restriction weapon_restriction(weapon_type wpn,
                                            const newgame_def &ng);
 
 #endif
+
+
+

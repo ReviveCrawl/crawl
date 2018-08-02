@@ -3,42 +3,42 @@
  * @brief Stealth, noise, shouting.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "shout.h"
 
 #include "art-enum.h"
-#include "artefact.h"
+#include "../item/artefact.h"
 #include "branch.h"
-#include "cluautil.h"
+#include "../lua/cluautil.h"
 #include "../coord/coord.h"
-#include "database.h"
-#include "dlua.h"
+#include "../io/database.h"
+#include "../lua/dlua.h"
 #include "env.h"
-#include "exercise.h"
+#include "../mode/exercise.h"
 #include "ghost.h"
 #include "jobs.h"
 #include "../lib/libutil.h"
-#include "message.h"
+#include "../io/message.h"
 #include "misc.h"
-#include "mon-behv.h"
-#include "mon-chimera.h"
-#include "mon-iter.h"
-#include "mon-place.h"
-#include "mon-pathfind.h"
-#include "mon-stuff.h"
-#include "mon-util.h"
-#include "monster.h"
+#include "../mon/mon-behv.h"
+#include "../mon/mon-chimera.h"
+#include "../mon/mon-iter.h"
+#include "../mon/mon-place.h"
+#include "../mon/mon-pathfind.h"
+#include "../mon/mon-stuff.h"
+#include "../mon/mon-util.h"
+#include "../mon/monster.h"
 #include "noise.h"
-#include "player.h"
-#include "random.h"
+#include "../player/player.h"
+#include "../random/random.h"
 #include "religion.h"
 #include "skills.h"
 #include "../sys/state.h"
 #include "terrain.h"
 #include "areas.h"
 #include "hints.h"
-#include "view.h"
+#include "../io/view.h"
 
 #include <sstream>
 
@@ -1054,8 +1054,8 @@ coord_def noise_grid::noise_perceived_position(actor *act,
 
 #ifdef DEBUG_NOISE_PROPAGATION
 
-#include "options.h"
-#include "viewchar.h"
+#include "../ui/options.h"
+#include "../io/viewchar.h"
 #include <math.h>
 
 // Return HTML RGB triple given a hue and assuming chroma of 0.86 (220)
@@ -1206,3 +1206,5 @@ static void _actor_apply_noise(actor *act,
             behaviour_event(mons, ME_DISTURB, 0, apparent_source);
     }
 }
+
+

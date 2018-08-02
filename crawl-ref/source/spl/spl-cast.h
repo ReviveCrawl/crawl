@@ -89,3 +89,5 @@ bool spell_is_uncastable(spell_type spell, string &message);
 void spell_skills(spell_type spell, set<skill_type> &skills);
 
 #endif
+
+

@@ -3,7 +3,7 @@
  * @brief Skill exercising functions.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "skills.h"
 
@@ -14,22 +14,22 @@
 
 #include "abl-show.h"
 #include "evoke.h"
-#include "exercise.h"
-#include "externs.h"
-#include "godconduct.h"
+#include "../mode/exercise.h"
+#include "../sys/externs.h"
+#include "../god/godconduct.h"
 #include "hints.h"
 #include "invent.h"
-#include "itemprop.h"
+#include "../item/itemprop.h"
 #include "../lib/libutil.h"
-#include "message.h"
+#include "../io/message.h"
 #include "misc.h"
 #include "notes.h"
-#include "player.h"
-#include "random.h"
-#include "random-weight.h"
+#include "../player/player.h"
+#include "../random/random.h"
+#include "../random/random-weight.h"
 #include "skills2.h"
-#include "spl-cast.h"
-#include "sprint.h"
+#include "../spl/spl-cast.h"
+#include "../mode/sprint.h"
 #include "../sys/state.h"
 #include "stuff.h"
 
@@ -1072,3 +1072,5 @@ void set_skill_level(skill_type skill, double amount)
         check_skill_cost_change();
     }
 }
+
+

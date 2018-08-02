@@ -3,16 +3,16 @@
  * @brief Lua bindings for LOS.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "l_libs.h"
 
 #include "cluautil.h"
 #include "../coord/coord.h"
 #include "../lib/libutil.h"
-#include "los.h"
-#include "losglobal.h"
-#include "ray.h"
+#include "../los/los.h"
+#include "../los/losglobal.h"
+#include "../sys/ray.h"
 
 #define RAY_METATABLE "dgn.ray"
 
@@ -115,3 +115,6 @@ void luaopen_ray(lua_State *ls)
 {
     clua_register_metatable(ls, RAY_METATABLE, ray_dlib, lua_object_gc<ray_def>);
 }
+
+
+

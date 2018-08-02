@@ -3,7 +3,7 @@
  * @brief UNIX-style crash handling functions (also used on Windows).
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_UNIX_SIGNALS
 #include <signal.h>
@@ -62,13 +62,13 @@ template <typename TO, typename FROM> TO nasty_cast(FROM f)
 
 #include "crash.h"
 
-#include "externs.h"
-#include "files.h"
-#include "initfile.h"
-#include "options.h"
+#include "../sys/externs.h"
+#include "../io/files.h"
+#include "../io/initfile.h"
+#include "../ui/options.h"
 #include "../sys/state.h"
-#include "stuff.h"
-#include "syscalls.h"
+#include "../sys/stuff.h"
+#include "../sys/syscalls.h"
 #include "threads.h"
 
 /////////////////////////////////////////////////////////////////////////////
@@ -378,3 +378,6 @@ void watchdog()
     setitimer(ITIMER_VIRTUAL, &t, 0);
 }
 #endif
+
+
+

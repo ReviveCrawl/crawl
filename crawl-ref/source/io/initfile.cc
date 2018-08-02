@@ -3,10 +3,10 @@
  * @brief Simple reading of an init file and system variables
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "initfile.h"
-#include "options.h"
+#include "../ui/options.h"
 
 #include <algorithm>
 #include <stdio.h>
@@ -15,41 +15,41 @@
 #include <ctype.h>
 
 #include "chardump.h"
-#include "clua.h"
-#include "colour.h"
-#include "dlua.h"
-#include "delay.h"
-#include "directn.h"
+#include "../lua/clua.h"
+#include "../ui/colour.h"
+#include "../lua/dlua.h"
+#include "../sys/delay.h"
+#include "../ui/directn.h"
 #include "errors.h"
-#include "kills.h"
+#include "../sys/kills.h"
 #include "files.h"
-#include "defines.h"
+#include "../sys/defines.h"
 #ifdef USE_TILE_LOCAL
- #include "tilereg-map.h"
+ #include "../tile/tilereg-map.h"
 #endif
 #ifdef USE_TILE_WEB
- #include "tileweb.h"
+ #include "../tile/tileweb.h"
 #endif
-#include "invent.h"
+#include "../sys/invent.h"
 #include "../lib/libutil.h"
-#include "macro.h"
-#include "mapdef.h"
+#include "../ui/macro.h"
+#include "../map/mapdef.h"
 #include "message.h"
-#include "mon-util.h"
-#include "jobs.h"
-#include "player.h"
-#include "species.h"
-#include "spl-util.h"
-#include "stash.h"
+#include "../mon/mon-util.h"
+#include "../sys/jobs.h"
+#include "../player/player.h"
+#include "../sys/species.h"
+#include "../spl/spl-util.h"
+#include "../sys/stash.h"
 #include "../sys/state.h"
-#include "stuff.h"
-#include "syscalls.h"
+#include "../sys/stuff.h"
+#include "../sys/syscalls.h"
 #include "tags.h"
-#include "throw.h"
-#include "travel.h"
-#include "items.h"
-#include "unwind.h"
-#include "version.h"
+#include "../sys/throw.h"
+#include "../sys/travel.h"
+#include "../item/items.h"
+#include "../low/unwind.h"
+#include "../build/version.h"
 #include "view.h"
 #include "viewchar.h"
 
@@ -4676,3 +4676,6 @@ void menu_sort_condition::set_comparators(string &s)
         cmp,
         s.empty()? "equipped, basename, qualname, curse, qty" : s);
 }
+
+
+

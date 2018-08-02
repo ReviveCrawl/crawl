@@ -21,3 +21,5 @@ bool check_awaken(monster* mons);
 void apply_noises();
 
 #endif
+
+

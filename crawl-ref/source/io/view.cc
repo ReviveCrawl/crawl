@@ -3,10 +3,10 @@
  * @brief Misc function used to render the dungeon.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "view.h"
-#include "shout.h"
+#include "../sys/shout.h"
 
 #include <string.h>
 #include <cmath>
@@ -14,57 +14,57 @@
 #include <algorithm>
 #include <memory>
 
-#include "externs.h"
+#include "../sys/externs.h"
 
-#include "map_knowledge.h"
+#include "../map/map_knowledge.h"
 #include "viewchar.h"
-#include "showsymb.h"
+#include "../sys/showsymb.h"
 
-#include "attitude-change.h"
-#include "cio.h"
-#include "cloud.h"
-#include "clua.h"
-#include "colour.h"
+#include "../sys/attitude-change.h"
+#include "../low/cio.h"
+#include "../sys/cloud.h"
+#include "../lua/clua.h"
+#include "../ui/colour.h"
 #include "../coord/coord.h"
 #include "../coord/coordit.h"
 #include "database.h"
-#include "delay.h"
-#include "dgn-overview.h"
-#include "directn.h"
-#include "env.h"
-#include "exclude.h"
-#include "feature.h"
+#include "../sys/delay.h"
+#include "../dgn/dgn-overview.h"
+#include "../ui/directn.h"
+#include "../sys/env.h"
+#include "../sys/exclude.h"
+#include "../sys/feature.h"
 #include "files.h"
-#include "fprop.h"
-#include "godconduct.h"
-#include "godpassive.h"
-#include "hints.h"
+#include "../sys/fprop.h"
+#include "../god/godconduct.h"
+#include "../god/godpassive.h"
+#include "../sys/hints.h"
 #include "../lib/libutil.h"
 #include "message.h"
-#include "misc.h"
-#include "mon-behv.h"
-#include "mon-iter.h"
-#include "mon-stuff.h"
-#include "mon-util.h"
-#include "options.h"
-#include "notes.h"
+#include "../sys/misc.h"
+#include "../mon/mon-behv.h"
+#include "../mon/mon-iter.h"
+#include "../mon/mon-stuff.h"
+#include "../mon/mon-util.h"
+#include "../ui/options.h"
+#include "../sys/notes.h"
 #include "output.h"
-#include "player.h"
-#include "random.h"
+#include "../player/player.h"
+#include "../random/random.h"
 #include "../sys/state.h"
-#include "stuff.h"
-#include "target.h"
-#include "terrain.h"
-#include "tilemcache.h"
-#include "traps.h"
-#include "travel.h"
+#include "../sys/stuff.h"
+#include "../sys/target.h"
+#include "../sys/terrain.h"
+#include "../tile/tilemcache.h"
+#include "../sys/traps.h"
+#include "../sys/travel.h"
 #include "viewmap.h"
-#include "xom.h"
+#include "../god/xom.h"
 
 #ifdef USE_TILE
- #include "tilepick.h"
- #include "tilepick-p.h"
- #include "tileview.h"
+ #include "../tile/tilepick.h"
+ #include "../tile/tilepick-p.h"
+ #include "../tile/tileview.h"
 #endif
 
 //#define DEBUG_PANE_BOUNDS
@@ -1176,3 +1176,6 @@ void handle_terminal_resize(bool redraw)
     if (redraw)
         redraw_screen();
 }
+
+
+

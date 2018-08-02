@@ -1,10 +1,10 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "coord-circle.h"
+#include "coordit.h"
 
-#include "../coord/coordit.h"
 #include "../lib/libutil.h"
-#include "los.h"
+#include "../los/los.h"
 
 bool rect_def::contains(const coord_def& p) const
 {
@@ -121,3 +121,6 @@ bool circle_def::contains(const coord_def &p) const
         return false;
     }
 }
+
+
+

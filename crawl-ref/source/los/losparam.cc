@@ -3,16 +3,16 @@
  * @brief Parameters for the LOS algorithm
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "losparam.h"
 
-#include "cloud.h"
-#include "env.h"
-#include "externs.h"
-#include "mon-util.h"
+#include "../sys/cloud.h"
+#include "../sys/env.h"
+#include "../sys/externs.h"
+#include "../mon/mon-util.h"
 #include "../sys/state.h"
-#include "terrain.h"
+#include "../sys/terrain.h"
 
 const opacity_default opc_default = opacity_default();
 const opacity_fullyopaque opc_fullyopaque = opacity_fullyopaque();
@@ -121,3 +121,6 @@ opacity_type opacity_no_actor::operator()(const coord_def& p) const
     else
         return OPC_CLEAR;
 }
+
+
+

@@ -1,9 +1,9 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "clua.h"
 #include "l_libs.h"
 
-#include "options.h"
+#include "../ui/options.h"
 
 ////////////////////////////////////////////////////////////////
 // Option handling
@@ -141,3 +141,6 @@ void cluaopen_options(lua_State *ls)
     lua_setmetatable(ls, -2);
     lua_setglobal(ls, "options");
 }
+
+
+

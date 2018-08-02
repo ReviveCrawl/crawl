@@ -8,7 +8,7 @@
 
 #ifdef USE_TILE
 
-#include "tiledef_defines.h"
+#include "../rltiles/tiledef_defines.h"
 
 struct dolls_data;
 struct item_def;
@@ -38,3 +38,5 @@ void tilep_print_parts(char *fbuf, const dolls_data &doll);
 
 #endif
 #endif
+
+

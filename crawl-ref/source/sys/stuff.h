@@ -8,7 +8,7 @@
 #define STUFF_H
 
 #include <map>
-#include "player.h"
+#include "../player/player.h"
 
 string make_time_string(time_t abs_time, bool terse = false);
 string make_file_time(time_t when);
@@ -68,3 +68,5 @@ int prompt_for_int(const char *prompt, bool nonneg);
 double prompt_for_float(const char* prompt);
 
 #endif
+
+

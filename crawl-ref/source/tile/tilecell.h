@@ -79,3 +79,5 @@ void pack_cell_overlays(const coord_def &gc, packed_cell *cell);
 
 #endif // TILECELL_H
 #endif // USE_TILE
+
+

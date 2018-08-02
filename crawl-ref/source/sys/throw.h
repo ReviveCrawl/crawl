@@ -7,7 +7,7 @@
 #define THROW_H
 
 #include <string>
-#include "externs.h"
+#include "../sys/externs.h"
 #include "../sys/enum.h"
 
 enum fire_type
@@ -48,3 +48,5 @@ int launcher_final_speed(const item_def &launcher,
 void setup_monster_throw_beam(monster* mons, bolt &beam);
 bool mons_throw(monster* mons, bolt &beam, int msl);
 #endif
+
+

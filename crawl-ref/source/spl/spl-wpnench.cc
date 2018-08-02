@@ -3,18 +3,18 @@
  * @brief Weapon enchantment spells.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "spl-wpnench.h"
-#include "externs.h"
+#include "../sys/externs.h"
 
-#include "areas.h"
-#include "artefact.h"
-#include "itemprop.h"
-#include "makeitem.h"
-#include "message.h"
-#include "shout.h"
-#include "skills2.h"
+#include "../sys/areas.h"
+#include "../item/artefact.h"
+#include "../item/itemprop.h"
+#include "../sys/makeitem.h"
+#include "../io/message.h"
+#include "../sys/shout.h"
+#include "../sys/skills2.h"
 
 
 // We need to know what brands equate with what missile brands to know if
@@ -279,3 +279,5 @@ spret_type cast_sure_blade(int power, bool fail)
 
     return SPRET_ABORT;
 }
+
+

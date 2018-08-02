@@ -3,32 +3,32 @@
  * @brief Monster abilities.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 #include "mon-abil.h"
 
-#include "externs.h"
+#include "../sys/externs.h"
 
-#include "act-iter.h"
-#include "arena.h"
-#include "beam.h"
-#include "colour.h"
+#include "../sys/act-iter.h"
+#include "../mode/arena.h"
+#include "../sys/beam.h"
+#include "../ui/colour.h"
 #include "../coord/coordit.h"
-#include "delay.h"
-#include "directn.h"
-#include "dgnevent.h" //XXX
-#include "evoke.h" // wind_blast
-#include "exclude.h" //XXX
+#include "../sys/delay.h"
+#include "../ui/directn.h"
+#include "../dgn/dgnevent.h" //XXX
+#include "../sys/evoke.h" // wind_blast
+#include "../sys/exclude.h" //XXX
 #ifdef USE_TILE
  #include "tiledef-dngn.h"
- #include "tilepick.h"
+ #include "../tile/tilepick.h"
 #endif
-#include "fight.h"
-#include "fprop.h"
-#include "ghost.h"
-#include "itemprop.h"
-#include "losglobal.h"
+#include "../sys/fight.h"
+#include "../sys/fprop.h"
+#include "../sys/ghost.h"
+#include "../item/itemprop.h"
+#include "../los/losglobal.h"
 #include "../lib/libutil.h"
-#include "misc.h"
+#include "../sys/misc.h"
 #include "mon-act.h"
 #include "mon-behv.h"
 #include "mon-cast.h"
@@ -38,29 +38,29 @@
 #include "mon-place.h"
 #include "mon-project.h"
 #include "mon-util.h"
-#include "mutation.h"
-#include "terrain.h"
-#include "mgen_data.h"
-#include "cloud.h"
+#include "../sys/mutation.h"
+#include "../sys/terrain.h"
+#include "../sys/mgen_data.h"
+#include "../sys/cloud.h"
 #include "mon-speak.h"
 #include "mon-stuff.h"
-#include "random.h"
-#include "religion.h"
-#include "spl-miscast.h"
-#include "spl-summoning.h"
-#include "spl-util.h"
+#include "../random/random.h"
+#include "../sys/religion.h"
+#include "../spl/spl-miscast.h"
+#include "../spl/spl-summoning.h"
+#include "../spl/spl-util.h"
 #include "../sys/state.h"
-#include "stuff.h"
-#include "env.h"
-#include "areas.h"
-#include "view.h"
-#include "shout.h"
-#include "viewchar.h"
-#include "ouch.h"
-#include "target.h"
-#include "items.h"
-#include "mapmark.h"
-#include "teleport.h"
+#include "../sys/stuff.h"
+#include "../sys/env.h"
+#include "../sys/areas.h"
+#include "../io/view.h"
+#include "../sys/shout.h"
+#include "../io/viewchar.h"
+#include "../sys/ouch.h"
+#include "../sys/target.h"
+#include "../item/items.h"
+#include "../map/mapmark.h"
+#include "../sys/teleport.h"
 
 #include <algorithm>
 #include <queue>
@@ -5093,3 +5093,6 @@ void waterport_touch(monster* nymph, actor* target)
         }
     }
 }
+
+
+

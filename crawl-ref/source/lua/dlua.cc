@@ -3,14 +3,14 @@
  * @brief Dungeon-builder Lua interface.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include <sstream>
 
 #include "dlua.h"
 #include "l_libs.h"
 #include "../lib/libutil.h"
-#include "tags.h"
+#include "../io/tags.h"
 
 static int dlua_compiled_chunk_writer(lua_State *ls, const void *p,
                                       size_t sz, void *ud)
@@ -311,3 +311,6 @@ void init_dungeon_lua()
 
     _dlua_register_constants(dlua);
 }
+
+
+

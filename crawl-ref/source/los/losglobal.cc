@@ -1,4 +1,4 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "losglobal.h"
 
@@ -122,3 +122,6 @@ bool cell_see_cell(const coord_def& p, const coord_def& q, los_type l)
 
     return (*flags & l);
 }
+
+
+

@@ -69,3 +69,6 @@ void Matrix<Z>::init(const Z &initial)
 }
 
 #endif    // MATRIX_H
+
+
+

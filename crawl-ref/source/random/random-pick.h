@@ -6,7 +6,7 @@
 #ifndef RANDOMPICK_H
 #define RANDOMPICK_H
 
-#include "random.h"
+#include "../random/random.h"
 
 enum distrib_type
 {
@@ -117,3 +117,5 @@ int random_picker<T, max>::rarity_at(const random_pick_entry<T> *pop, int depth)
 }
 
 #endif
+
+

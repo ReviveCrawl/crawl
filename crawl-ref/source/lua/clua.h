@@ -243,3 +243,6 @@ void lua_set_exclusive_item(const item_def *item = NULL);
 string quote_lua_string(const string &s);
 
 #endif
+
+
+

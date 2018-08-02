@@ -3,33 +3,33 @@
  * @brief Various debugging bindings.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "cluautil.h"
 #include "l_libs.h"
 
-#include "beam.h"
-#include "branch.h"
-#include "chardump.h"
+#include "../sys/beam.h"
+#include "../sys/branch.h"
+#include "../io/chardump.h"
 #include "../coord/coordit.h"
-#include "dungeon.h"
-#include "env.h"
-#include "files.h"
-#include "godwrath.h"
+#include "../sys/dungeon.h"
+#include "../sys/env.h"
+#include "../io/files.h"
+#include "../god/godwrath.h"
 #include "../lib/libutil.h"
-#include "los.h"
-#include "message.h"
-#include "mon-act.h"
-#include "mon-iter.h"
-#include "mon-stuff.h"
-#include "mon-util.h"
-#include "place.h"
-#include "religion.h"
-#include "stairs.h"
+#include "../los/los.h"
+#include "../io/message.h"
+#include "../mon/mon-act.h"
+#include "../mon/mon-iter.h"
+#include "../mon/mon-stuff.h"
+#include "../mon/mon-util.h"
+#include "../map/place.h"
+#include "../sys/religion.h"
+#include "../sys/stairs.h"
 #include "../sys/state.h"
-#include "tileview.h"
-#include "view.h"
-#include "wiz-dgn.h"
+#include "../tile/tileview.h"
+#include "../io/view.h"
+#include "../wiz/wiz-dgn.h"
 
 // WARNING: This is a very low-level call.
 //
@@ -387,3 +387,6 @@ const struct luaL_reg debug_dlib[] =
 { "disable", debug_disable },
 { NULL, NULL }
 };
+
+
+

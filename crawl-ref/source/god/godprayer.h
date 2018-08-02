@@ -6,7 +6,7 @@
 #ifndef GODPRAYER_H
 #define GODPRAYER_H
 
-#include "religion-enum.h"
+#include "../sys/religion-enum.h"
 
 string god_prayer_reaction();
 void pray();
@@ -17,3 +17,6 @@ bool check_nemelex_sacrificing_item_type(const item_def& item);
 int zin_tithe(item_def& item, int quant, bool quiet, bool converting = false);
 
 #endif
+
+
+

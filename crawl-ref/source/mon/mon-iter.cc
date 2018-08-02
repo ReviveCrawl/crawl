@@ -1,10 +1,10 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "mon-iter.h"
 
-#include "actor.h"
-#include "coord-circle.h"
-#include "env.h"
+#include "../sys/actor.h"
+#include "../coord/coord-circle.h"
+#include "../sys/env.h"
 #include "monster.h"
 
 monster_iterator::monster_iterator()
@@ -84,3 +84,5 @@ void monster_iterator::advance(bool may_stay)
     while (curr_mid < MAX_MONSTERS && !valid(curr_mid))
         ++curr_mid;
 }
+
+

@@ -1,15 +1,15 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE_LOCAL
 
 #include "tilereg-menu.h"
 
-#include "menu.h"
-#include "options.h"
+#include "../ui/menu.h"
+#include "../ui/options.h"
 #include "tilebuf.h"
 #include "tilefont.h"
 #ifdef TOUCH_UI
-#include "cio.h"
+#include "../low/cio.h"
 #endif
 
 MenuRegion::MenuRegion(ImageManager *im, FontWrapper *entry) :
@@ -417,3 +417,5 @@ void MenuRegion::set_more(const formatted_string &more)
 }
 
 #endif
+
+

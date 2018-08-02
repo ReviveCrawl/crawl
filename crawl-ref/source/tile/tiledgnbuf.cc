@@ -1,9 +1,9 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "tiledgnbuf.h"
 
-#include "env.h"
-#include "player.h"
+#include "../sys/env.h"
+#include "../player/player.h"
 #include "tiledef-dngn.h"
 #include "tiledef-icons.h"
 #include "tiledef-main.h"
@@ -565,3 +565,5 @@ void DungeonCellBuffer::pack_mcache(mcache_entry *entry, int x, int y,
                        dinfo[i].ofs_x, dinfo[i].ofs_y);
     }
 }
+
+

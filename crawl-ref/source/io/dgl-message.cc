@@ -1,18 +1,18 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef DGL_SIMPLE_MESSAGING
 
 #include "dgl-message.h"
 
 #include "files.h"
-#include "format.h"
+#include "../io/format.h"
 #include "initfile.h"
 #include "../lib/libutil.h"
 #include "message.h"
-#include "notes.h"
-#include "options.h"
+#include "../sys/notes.h"
+#include "../ui/options.h"
 #include "output.h"
-#include "syscalls.h"
+#include "../sys/syscalls.h"
 
 #include <errno.h>
 #include <sys/stat.h>
@@ -160,3 +160,6 @@ void check_messages()
 }
 
 #endif
+
+
+

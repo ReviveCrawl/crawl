@@ -3,7 +3,7 @@
  * @brief Functions related to ranged attacks.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "beam.h"
 
@@ -16,52 +16,52 @@
 #include <algorithm>
 #include <cmath>
 
-#include "externs.h"
-#include "options.h"
+#include "../sys/externs.h"
+#include "../ui/options.h"
 
 #include "act-iter.h"
 #include "areas.h"
 #include "attitude-change.h"
 #include "branch.h"
-#include "cio.h"
+#include "../low/cio.h"
 #include "cloud.h"
-#include "colour.h"
+#include "../ui/colour.h"
 #include "../coord/coordit.h"
 #include "delay.h"
 #include "dungeon.h"
-#include "dgnevent.h"
+#include "../dgn/dgnevent.h"
 #include "effects.h"
 #include "env.h"
 #include "../sys/enum.h"
-#include "exercise.h"
-#include "godabil.h"
+#include "../mode/exercise.h"
+#include "../god/godabil.h"
 #include "fprop.h"
 #include "fight.h"
-#include "items.h"
-#include "itemname.h"
-#include "itemprop.h"
+#include "../item/items.h"
+#include "../item/itemname.h"
+#include "../item/itemprop.h"
 #include "../lib/libutil.h"
-#include "los.h"
-#include "losglobal.h"
-#include "message.h"
+#include "../los/los.h"
+#include "../los/losglobal.h"
+#include "../io/message.h"
 #include "mgen_data.h"
 #include "misc.h"
-#include "mon-behv.h"
-#include "mon-death.h"
-#include "mon-iter.h"
-#include "mon-place.h"
-#include "mon-stuff.h"
-#include "mon-util.h"
+#include "../mon/mon-behv.h"
+#include "../mon/mon-death.h"
+#include "../mon/mon-iter.h"
+#include "../mon/mon-place.h"
+#include "../mon/mon-stuff.h"
+#include "../mon/mon-util.h"
 #include "mutation.h"
 #include "ouch.h"
 #include "potion.h"
 #include "religion.h"
-#include "godconduct.h"
+#include "../god/godconduct.h"
 #include "skills.h"
-#include "spl-clouds.h"
-#include "spl-goditem.h"
-#include "spl-monench.h"
-#include "spl-transloc.h"
+#include "../spl/spl-clouds.h"
+#include "../spl/spl-goditem.h"
+#include "../spl/spl-monench.h"
+#include "../spl/spl-transloc.h"
 #include "../sys/state.h"
 #include "stuff.h"
 #include "target.h"
@@ -69,15 +69,15 @@
 #include "terrain.h"
 #include "throw.h"
 #ifdef USE_TILE
- #include "tilepick.h"
+ #include "../tile/tilepick.h"
 #endif
 #include "transform.h"
 #include "traps.h"
-#include "view.h"
+#include "../io/view.h"
 #include "shout.h"
-#include "viewchar.h"
+#include "../io/viewchar.h"
 #include "../io/viewgeom.h"
-#include "xom.h"
+#include "../god/xom.h"
 
 #define BEAM_STOP       1000        // all beams stopped by subtracting this
                                     // from remaining range
@@ -6189,3 +6189,5 @@ void clear_zap_info_on_exit()
         delete zap_data[i].tohit;
     }
 }
+
+

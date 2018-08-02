@@ -3,18 +3,18 @@
  * @brief Grid and dungeon_feature_type-related bindings.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "clua.h"
 #include "cluautil.h"
 #include "l_libs.h"
 
 #include "../coord/coord.h"
-#include "directn.h"
-#include "dungeon.h"
-#include "env.h"
+#include "../ui/directn.h"
+#include "../sys/dungeon.h"
+#include "../sys/env.h"
 #include "../lib/libutil.h"
-#include "terrain.h"
+#include "../sys/terrain.h"
 
 static int dgn_feature_number(lua_State *ls)
 {
@@ -145,3 +145,6 @@ const struct luaL_reg dgn_grid_dlib[] =
 
 { NULL, NULL }
 };
+
+
+

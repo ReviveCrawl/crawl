@@ -1,14 +1,14 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "ng-wanderer.h"
 
-#include "itemname.h"
-#include "itemprop.h"
+#include "../item/itemname.h"
+#include "../item/itemprop.h"
 #include "ng-setup.h"
-#include "player.h"
-#include "random.h"
-#include "skills2.h"
-#include "spl-util.h"
+#include "../player/player.h"
+#include "../random/random.h"
+#include "../sys/skills2.h"
+#include "../spl/spl-util.h"
 
 // Returns true if a "good" weapon is given.
 static bool _give_wanderer_weapon(int & slot, int wpn_skill, int plus)
@@ -910,3 +910,6 @@ void create_wanderer(void)
 
     _wanderer_cover_equip_holes(equip_slot);
 }
+
+
+

@@ -21,7 +21,7 @@
   THE SOFTWARE.
 */
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 #include "json.h"
 
 #include <stdint.h>
@@ -1471,3 +1471,6 @@ bool json_check(const JsonNode *node, char errmsg[256])
 
     #undef problem
 }
+
+
+

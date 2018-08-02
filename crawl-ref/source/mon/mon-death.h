@@ -30,3 +30,5 @@ void shedu_do_resurrection(const monster *mons);
 void shedu_do_actual_resurrection(monster* mons);
 
 #endif
+
+

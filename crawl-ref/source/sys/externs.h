@@ -20,14 +20,14 @@
 #define __STDC_FORMAT_MACROS
 #include <inttypes.h>
 
-#include "bitary.h"
+#include "../low/bitary.h"
 #include "../sys/enum.h"
-#include "fixedarray.h"
-#include "mpr.h"
-#include "pattern.h"
+#include "../low/fixedarray.h"
+#include "../io/mpr.h"
+#include "../low/pattern.h"
 #include "store.h"
 
-#include "tiledef_defines.h"
+#include "../rltiles/tiledef_defines.h"
 
 struct tile_flavour
 {
@@ -751,3 +751,5 @@ struct cglyph_t
 typedef FixedArray<item_type_id_state_type, NUM_OBJECT_CLASSES, MAX_SUBTYPES> id_arr;
 
 #endif // EXTERNS_H
+
+

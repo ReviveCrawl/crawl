@@ -3,7 +3,7 @@
  * @brief Monsters stealth methods.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "monster.h"
 #include "mon-util.h"
@@ -75,3 +75,5 @@ int monster::stealth() const
 
     return _clamp_stealth(actual_stealth);
 }
+
+

@@ -9,3 +9,6 @@ bool is_good_name(const string &name, bool blankOK, bool verbose);
 void enter_player_name(newgame_def* ng);
 
 #endif
+
+
+

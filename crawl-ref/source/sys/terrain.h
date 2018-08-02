@@ -136,3 +136,5 @@ bool revert_terrain_change(coord_def pos, terrain_change_type ctype);
 bool plant_forbidden_at(const coord_def &p, bool connectivity_only = false);
 
 #endif
+
+

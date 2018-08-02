@@ -1,30 +1,30 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "player-stats.h"
 
-#include "artefact.h"
-#include "clua.h"
-#include "delay.h"
-#include "godpassive.h"
-#include "files.h"
-#include "item_use.h"
+#include "../item/artefact.h"
+#include "../lua/clua.h"
+#include "../sys/delay.h"
+#include "../god/godpassive.h"
+#include "../io/files.h"
+#include "../item/item_use.h"
 #include "../lib/libutil.h"
-#include "macro.h"
-#include "misc.h"
-#include "mon-util.h"
-#include "monster.h"
-#include "notes.h"
-#include "ouch.h"
+#include "../ui/macro.h"
+#include "../sys/misc.h"
+#include "../mon/mon-util.h"
+#include "../mon/monster.h"
+#include "../sys/notes.h"
+#include "../sys/ouch.h"
 #include "player.h"
-#include "religion.h"
+#include "../sys/religion.h"
 #include "../sys/state.h"
-#include "transform.h"
-#include "hints.h"
+#include "../sys/transform.h"
+#include "../sys/hints.h"
 
 #ifdef TOUCH_UI
-#include "menu.h"
+#include "../ui/menu.h"
 #include "tiledef-gui.h"
-#include "tilepick.h"
+#include "../tile/tilepick.h"
 #endif
 
 // Don't make this larger than 255 without changing the type of you.stat_zero
@@ -707,3 +707,5 @@ void update_stat_zero()
             continue;
     }
 }
+
+

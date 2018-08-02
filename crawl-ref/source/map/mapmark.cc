@@ -3,24 +3,24 @@
  * @brief Level markers (annotations).
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include <algorithm>
 
 #include "mapmark.h"
 
-#include "clua.h"
-#include "cluautil.h"
+#include "../lua/clua.h"
+#include "../lua/cluautil.h"
 #include "../coord/coordit.h"
-#include "directn.h"
-#include "dlua.h"
+#include "../ui/directn.h"
+#include "../lua/dlua.h"
 #include "../lib/libutil.h"
-#include "l_libs.h"
-#include "stuff.h"
-#include "env.h"
-#include "tags.h"
-#include "terrain.h"
-#include "unwind.h"
+#include "../lua/l_libs.h"
+#include "../sys/stuff.h"
+#include "../sys/env.h"
+#include "../io/tags.h"
+#include "../sys/terrain.h"
+#include "../low/unwind.h"
 
 ////////////////////////////////////////////////////////////////////////
 // Dungeon markers
@@ -1304,3 +1304,6 @@ void remove_markers_and_listeners_at(coord_def p)
     env.markers.remove_markers_at(p);
     dungeon_events.clear_listeners_at(p);
 }
+
+
+

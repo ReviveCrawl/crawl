@@ -3,7 +3,7 @@
  * @brief Notetaking stuff
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include <vector>
 #include <sstream>
@@ -12,19 +12,19 @@
 #include "notes.h"
 
 #include "branch.h"
-#include "files.h"
+#include "../io/files.h"
 #include "kills.h"
-#include "hiscores.h"
+#include "../io/hiscores.h"
 #include "../lib/libutil.h"
-#include "message.h"
+#include "../io/message.h"
 #include "mutation.h"
-#include "options.h"
-#include "place.h"
+#include "../ui/options.h"
+#include "../map/place.h"
 #include "religion.h"
 #include "skills2.h"
-#include "spl-util.h"
+#include "../spl/spl-util.h"
 #include "../sys/state.h"
-#include "tags.h"
+#include "../io/tags.h"
 
 #define NOTES_VERSION_NUMBER 1002
 
@@ -526,3 +526,5 @@ void make_user_note()
     unote.name = buf;
     take_note(unote);
 }
+
+

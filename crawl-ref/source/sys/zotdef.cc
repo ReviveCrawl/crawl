@@ -3,30 +3,30 @@
  * @brief Zot Defence specific functions
 **/
 
-#include "AppHdr.h"
-#include "bitary.h"
+#include "../build/AppHdr.h"
+#include "../low/bitary.h"
 
 #include "branch.h"
-#include "describe.h"
-#include "directn.h"
+#include "../io/describe.h"
+#include "../ui/directn.h"
 #include "dungeon.h" // for Zotdef unique placement
 #include "env.h"
-#include "externs.h"
-#include "files.h"
-#include "godprayer.h"
-#include "items.h"
-#include "itemname.h" // for make_name
-#include "itemprop.h"
+#include "../sys/externs.h"
+#include "../io/files.h"
+#include "../god/godprayer.h"
+#include "../item/items.h"
+#include "../item/itemname.h" // for make_name
+#include "../item/itemprop.h"
 #include "makeitem.h"
-#include "message.h"
+#include "../io/message.h"
 #include "mgen_data.h"
-#include "mon-stuff.h"
-#include "mon-place.h"
-#include "mon-pick.h"
-#include "mon-util.h"
-#include "place.h"
-#include "player.h"
-#include "random.h"
+#include "../mon/mon-stuff.h"
+#include "../mon/mon-place.h"
+#include "../mon/mon-pick.h"
+#include "../mon/mon-util.h"
+#include "../map/place.h"
+#include "../player/player.h"
+#include "../random/random.h"
 #include "religion.h"
 #include "../sys/state.h"
 #include "stuff.h"
@@ -1054,3 +1054,5 @@ void zotdef_bosses_check()
         zotdef_set_wave();
     }
 }
+
+

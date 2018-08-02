@@ -77,3 +77,5 @@ void recharge_elemental_evokers(int exp);
 void slime_wall_damage(actor* act, int delay);
 
 #endif
+
+

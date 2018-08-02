@@ -3,10 +3,10 @@
  * @brief Functions used when picking squares.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "directn.h"
-#include "format.h"
+#include "../io/format.h"
 
 #include <cstdarg>
 #include <sstream>
@@ -15,58 +15,58 @@
 #include <stdio.h>
 #include <algorithm>
 
-#include "externs.h"
+#include "../sys/externs.h"
 #include "options.h"
 
-#include "branch.h"
-#include "cio.h"
-#include "cloud.h"
+#include "../sys/branch.h"
+#include "../low/cio.h"
+#include "../sys/cloud.h"
 #include "colour.h"
-#include "command.h"
+#include "../io/command.h"
 #include "../coord/coord.h"
 #include "../coord/coordit.h"
-#include "dbg-util.h"
-#include "describe.h"
-#include "dungeon.h"
-#include "fprop.h"
-#include "godabil.h"
-#include "invent.h"
-#include "itemname.h"
-#include "itemprop.h"
-#include "items.h"
-#include "l_defs.h"
+#include "../dbg/dbg-util.h"
+#include "../io/describe.h"
+#include "../sys/dungeon.h"
+#include "../sys/fprop.h"
+#include "../god/godabil.h"
+#include "../sys/invent.h"
+#include "../item/itemname.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
+#include "../lua/l_defs.h"
 #include "../lib/libutil.h"
-#include "los.h"
-#include "losglobal.h"
-#include "macro.h"
-#include "mapmark.h"
-#include "message.h"
-#include "misc.h"
-#include "mon-stuff.h"
-#include "mon-info.h"
-#include "output.h"
-#include "shopping.h"
-#include "show.h"
-#include "showsymb.h"
+#include "../los/los.h"
+#include "../los/losglobal.h"
+#include "../ui/macro.h"
+#include "../map/mapmark.h"
+#include "../io/message.h"
+#include "../sys/misc.h"
+#include "../mon/mon-stuff.h"
+#include "../mon/mon-info.h"
+#include "../io/output.h"
+#include "../sys/shopping.h"
+#include "../sys/show.h"
+#include "../sys/showsymb.h"
 #include "../sys/state.h"
-#include "env.h"
-#include "areas.h"
-#include "stash.h"
-#include "stuff.h"
-#include "target.h"
+#include "../sys/env.h"
+#include "../sys/areas.h"
+#include "../sys/stash.h"
+#include "../sys/stuff.h"
+#include "../sys/target.h"
 #ifdef USE_TILE
- #include "tileview.h"
+ #include "../tile/tileview.h"
 #endif
-#include "terrain.h"
-#include "traps.h"
-#include "travel.h"
-#include "hints.h"
-#include "view.h"
-#include "viewchar.h"
+#include "../sys/terrain.h"
+#include "../sys/traps.h"
+#include "../sys/travel.h"
+#include "../sys/hints.h"
+#include "../io/view.h"
+#include "../io/viewchar.h"
 #include "../io/viewgeom.h"
-#include "viewmap.h"
-#include "wiz-mon.h"
-#include "spl-goditem.h"
+#include "../io/viewmap.h"
+#include "../wiz/wiz-mon.h"
+#include "../spl/spl-goditem.h"
 
 enum LOSSelect
 {
@@ -4090,3 +4090,5 @@ vector<string> targetting_behaviour::get_monster_desc(const monster_info& mi)
         _append_container(descs, (*get_desc_func)(mi));
     return descs;
 }
+
+

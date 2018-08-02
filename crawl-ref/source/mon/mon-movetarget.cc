@@ -1,24 +1,24 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "mon-movetarget.h"
 
-#include "branch.h"
+#include "../sys/branch.h"
 #include "../coord/coord.h"
 #include "../coord/coordit.h"
-#include "env.h"
-#include "fprop.h"
-#include "items.h"
-#include "losglobal.h"
+#include "../sys/env.h"
+#include "../sys/fprop.h"
+#include "../item/items.h"
+#include "../los/losglobal.h"
 #include "../lib/libutil.h"
 #include "mon-behv.h"
 #include "mon-iter.h"
 #include "mon-pathfind.h"
 #include "mon-place.h"
 #include "mon-stuff.h"
-#include "random.h"
+#include "../random/random.h"
 #include "../sys/state.h"
-#include "terrain.h"
-#include "traps.h"
+#include "../sys/terrain.h"
+#include "../sys/traps.h"
 
 // If a monster can see but not directly reach the target, and then fails to
 // find a path to get there, mark all surrounding (in a radius of 2) monsters
@@ -1103,3 +1103,5 @@ void set_random_slime_target(monster* mon)
     if (mon->target == mon->pos() || mon->target == you.pos())
         set_random_target(mon);
 }
+
+

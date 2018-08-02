@@ -18,3 +18,5 @@ void pop_asg_state();
 uint32_t get_uint32();
 void seed_asg(uint32_t[], int);
 #endif
+
+

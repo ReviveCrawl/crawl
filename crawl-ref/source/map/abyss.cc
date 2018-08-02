@@ -3,7 +3,7 @@
  * @brief Misc abyss specific functions.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include <cmath>
 #include <cstdlib>
@@ -11,50 +11,50 @@
 #include <queue>
 
 #include "abyss.h"
-#include "areas.h"
-#include "artefact.h"
-#include "branch.h"
-#include "cloud.h"
-#include "colour.h"
+#include "../sys/areas.h"
+#include "../item/artefact.h"
+#include "../sys/branch.h"
+#include "../sys/cloud.h"
+#include "../ui/colour.h"
 #include "../coord/coordit.h"
-#include "dbg-scan.h"
-#include "dgn-proclayouts.h"
-#include "dungeon.h"
-#include "env.h"
-#include "files.h"
-#include "itemprop.h"
-#include "items.h"
-#include "l_defs.h"
+#include "../dbg/dbg-scan.h"
+#include "../dgn/dgn-proclayouts.h"
+#include "../sys/dungeon.h"
+#include "../sys/env.h"
+#include "../io/files.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
+#include "../lua/l_defs.h"
 #include "../lib/libutil.h"
-#include "los.h"
-#include "makeitem.h"
+#include "../los/los.h"
+#include "../sys/makeitem.h"
 #include "mapmark.h"
 #include "maps.h"
-#include "message.h"
-#include "mgen_data.h"
-#include "misc.h"
-#include "mon-abil.h"
-#include "mon-iter.h"
-#include "mon-pathfind.h"
-#include "mon-pick.h"
-#include "mon-place.h"
-#include "mon-transit.h"
-#include "mon-util.h"
-#include "notes.h"
-#include "player.h"
-#include "random.h"
-#include "religion.h"
-#include "shopping.h"
-#include "stash.h"
+#include "../io/message.h"
+#include "../sys/mgen_data.h"
+#include "../sys/misc.h"
+#include "../mon/mon-abil.h"
+#include "../mon/mon-iter.h"
+#include "../mon/mon-pathfind.h"
+#include "../mon/mon-pick.h"
+#include "../mon/mon-place.h"
+#include "../mon/mon-transit.h"
+#include "../mon/mon-util.h"
+#include "../sys/notes.h"
+#include "../player/player.h"
+#include "../random/random.h"
+#include "../sys/religion.h"
+#include "../sys/shopping.h"
+#include "../sys/stash.h"
 #include "../sys/state.h"
-#include "terrain.h"
+#include "../sys/terrain.h"
 #include "tiledef-dngn.h"
-#include "tileview.h"
-#include "traps.h"
-#include "travel.h"
-#include "view.h"
+#include "../tile/tileview.h"
+#include "../sys/traps.h"
+#include "../sys/travel.h"
+#include "../io/view.h"
 #include "../io/viewgeom.h"
-#include "xom.h"
+#include "../god/xom.h"
 
 const coord_def ABYSS_CENTRE(GXM / 2, GYM / 2);
 
@@ -1953,3 +1953,6 @@ bool lugonu_corrupt_level(int power)
 
     return true;
 }
+
+
+

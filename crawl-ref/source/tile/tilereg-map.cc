@@ -1,17 +1,17 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE_LOCAL
 
 #include "tilereg-map.h"
 
-#include "cio.h"
-#include "command.h"
-#include "food.h"
+#include "../low/cio.h"
+#include "../io/command.h"
+#include "../sys/food.h"
 #include "../lib/libutil.h"
-#include "misc.h"
-#include "options.h"
+#include "../sys/misc.h"
+#include "../ui/options.h"
 #include "tilesdl.h"
-#include "travel.h"
+#include "../sys/travel.h"
 #include "../io/viewgeom.h"
 
 const VColour map_colours[MAX_MAP_COL] =
@@ -353,3 +353,5 @@ bool MapRegion::update_tip_text(string& tip)
 }
 
 #endif
+
+

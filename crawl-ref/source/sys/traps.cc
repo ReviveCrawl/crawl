@@ -3,7 +3,7 @@
  * @brief Traps related functions.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "traps.h"
 #include "trap_def.h"
@@ -11,35 +11,35 @@
 #include <algorithm>
 #include <math.h>
 
-#include "artefact.h"
+#include "../item/artefact.h"
 #include "beam.h"
 #include "branch.h"
 #include "cloud.h"
-#include "clua.h"
+#include "../lua/clua.h"
 #include "../coord/coord.h"
 #include "../coord/coordit.h"
 #include "delay.h"
-#include "describe.h"
-#include "directn.h"
+#include "../io/describe.h"
+#include "../ui/directn.h"
 #include "dungeon.h"
-#include "exercise.h"
-#include "map_knowledge.h"
-#include "itemname.h"
-#include "itemprop.h"
-#include "items.h"
+#include "../mode/exercise.h"
+#include "../map/map_knowledge.h"
+#include "../item/itemname.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
 #include "../lib/libutil.h"
 #include "makeitem.h"
-#include "mapmark.h"
-#include "message.h"
+#include "../map/mapmark.h"
+#include "../io/message.h"
 #include "misc.h"
-#include "mon-util.h"
-#include "mon-stuff.h"
-#include "mon-transit.h"
+#include "../mon/mon-util.h"
+#include "../mon/mon-stuff.h"
+#include "../mon/mon-transit.h"
 #include "ouch.h"
-#include "player.h"
+#include "../player/player.h"
 #include "skills.h"
-#include "spl-miscast.h"
-#include "spl-util.h"
+#include "../spl/spl-miscast.h"
+#include "../spl/spl-util.h"
 #include "stash.h"
 #include "../sys/state.h"
 #include "stuff.h"
@@ -49,9 +49,9 @@
 #include "terrain.h"
 #include "transform.h"
 #include "hints.h"
-#include "view.h"
+#include "../io/view.h"
 #include "shout.h"
-#include "xom.h"
+#include "../god/xom.h"
 
 bool trap_def::active() const
 {
@@ -2037,3 +2037,5 @@ bool ensnare(actor *fly)
     check_player_sense(SENSE_WEB_VIBRATION, 100, fly->pos());
     return true;
 }
+
+

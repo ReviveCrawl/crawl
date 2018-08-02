@@ -235,3 +235,5 @@ const uint64_t MF_SEEN_RANGED        = BIT(35); // known to have a ranged attack
 
 const uint64_t MF_POLYMORPHED        = BIT(36); // this monster has been polymorphed.
 #endif
+
+

@@ -3,18 +3,18 @@
  * @brief User-accessible monster info.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "l_libs.h"
 #include "l_defs.h"
 
 #include "cluautil.h"
 #include "../coord/coord.h"
-#include "env.h"
+#include "../sys/env.h"
 #include "../lib/libutil.h"
-#include "mon-info.h"
-#include "player.h"
-#include "transform.h"
+#include "../mon/mon-info.h"
+#include "../player/player.h"
+#include "../sys/transform.h"
 
 #include <algorithm>
 
@@ -294,3 +294,6 @@ void cluaopen_moninf(lua_State *ls)
                             lua_object_gc<monster_info>);
     luaL_openlib(ls, "monster", mon_lib, 0);
 }
+
+
+

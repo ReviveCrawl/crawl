@@ -1,4 +1,4 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE_LOCAL
 
@@ -7,8 +7,8 @@
 #include "../lib/libutil.h"
 #include "../sys/state.h"
 #include "tiledef-gui.h"
-#include "cio.h"
-#include "macro.h"
+#include "../low/cio.h"
+#include "../ui/macro.h"
 
 TabbedRegion::TabbedRegion(const TileRegionInit &init) :
     GridRegion(init),
@@ -441,3 +441,5 @@ void TabbedRegion::set_small_layout(bool use_small_layout, const coord_def &wind
 }
 
 #endif
+
+

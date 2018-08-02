@@ -1,14 +1,14 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "clua.h"
 #include "cluautil.h"
 #include "dlua.h"
 #include "l_libs.h"
 #include "../lib/libutil.h"
-#include "files.h"
+#include "../io/files.h"
 
-#include "tags.h"
-// #include "version.h"
+#include "../io/tags.h"
+// #include "../build/version.h"
 
 ///////////////////////////////////////////////////////////
 // User-accessible file operations
@@ -219,3 +219,6 @@ void dluaopen_file(lua_State *ls)
 {
     luaL_openlib(ls, "file", file_dlib, 0);
 }
+
+
+

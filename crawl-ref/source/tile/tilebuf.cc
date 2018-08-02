@@ -3,7 +3,7 @@
  * @brief Vertex buffer implementaions
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE_LOCAL
 
@@ -318,3 +318,5 @@ void LineBuffer::add_square(float sx, float sy, float ex, float ey,
 }
 
 #endif
+
+

@@ -11,11 +11,11 @@
  * meets the diamond.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include <cmath>
 
-#include "los.h"
+#include "../los/los.h"
 #include "ray.h"
 #include "geom2d.h"
 
@@ -545,3 +545,5 @@ void ray_def::set_degrees(double d)
         nudge_inside();
     r.dir = geom::degree_to_vector(d);
 }
+
+

@@ -2,7 +2,7 @@
 #define TARGET_H
 
 #include "beam.h"
-// #include "mon-info.h"
+// #include "../mon/mon-info.h"
 
 enum aff_type // sign and non-zeroness matters
 {
@@ -189,3 +189,5 @@ private:
 };
 
 #endif
+
+

@@ -6,7 +6,7 @@
 #ifndef RANDART_H
 #define RANDART_H
 
-#include "externs.h"
+#include "../sys/externs.h"
 
 struct bolt;
 
@@ -142,3 +142,6 @@ int get_unrandart_num(const char *name);
 void unrand_reacts();
 
 #endif
+
+
+

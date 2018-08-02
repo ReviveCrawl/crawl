@@ -31,3 +31,6 @@ bool actor_is_illusion_cloneable(actor *target);
 void mons_cast_spectral_orcs(monster* mons);
 void setup_breath_timeout(monster* mons);
 #endif
+
+
+

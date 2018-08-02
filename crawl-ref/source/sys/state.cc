@@ -3,26 +3,26 @@
  * @brief Game state functions.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
-#include "externs.h"
+#include "../sys/externs.h"
 
-#include "dbg-util.h"
+#include "../dbg/dbg-util.h"
 #include "delay.h"
-#include "directn.h"
+#include "../ui/directn.h"
 #include "exclude.h"
-#include "macro.h"
-#include "menu.h"
-#include "message.h"
+#include "../ui/macro.h"
+#include "../ui/menu.h"
+#include "../io/message.h"
 #include "misc.h"
-// #include "mon-util.h"
-#include "monster.h"
-#include "player.h"
+// #include "../mon/mon-util.h"
+#include "../mon/monster.h"
+#include "../player/player.h"
 #include "religion.h"
 #include "showsymb.h"
 #include "../sys/state.h"
 #include "hints.h"
-#include "unwind.h"
+#include "../low/unwind.h"
 
 game_state::game_state()
     : game_crashed(false),
@@ -632,3 +632,5 @@ string game_state::game_type_qualifier() const
         return "-hints";
     return "";
 }
+
+

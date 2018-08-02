@@ -4,17 +4,17 @@
  *            easier changes to the training model.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include <algorithm>
 
 #include "exercise.h"
 
-#include "itemprop.h"
-#include "player.h"
-#include "random.h"
-#include "skills.h"
-#include "spl-util.h"
+#include "../item/itemprop.h"
+#include "../player/player.h"
+#include "../random/random.h"
+#include "../sys/skills.h"
+#include "../spl/spl-util.h"
 
 skill_type abil_skill(ability_type abil)
 {
@@ -450,3 +450,6 @@ void practise(exer_type ex, int param1)
         break;
     }
 }
+
+
+

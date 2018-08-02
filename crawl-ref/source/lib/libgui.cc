@@ -3,7 +3,7 @@
  * @brief Functions that any display port needs to implement.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE_LOCAL
 
@@ -11,18 +11,18 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "cio.h"
-#include "defines.h"
-#include "env.h"
-#include "externs.h"
-#include "tilereg-text.h"
-#include "message.h"
+#include "../low/cio.h"
+#include "../sys/defines.h"
+#include "../sys/env.h"
+#include "../sys/externs.h"
+#include "../tile/tilereg-text.h"
+#include "../io/message.h"
 #include "../sys/state.h"
-#include "terrain.h"
+#include "../sys/terrain.h"
 #include "tiledef-main.h"
-#include "travel.h"
+#include "../sys/travel.h"
 #include "../io/viewgeom.h"
-#include "windowmanager.h"
+#include "../ui/windowmanager.h"
 
 int m_getch()
 {
@@ -209,3 +209,6 @@ void console_shutdown()
     tiles.shutdown();
 }
 #endif // #ifdef USE_TILE_LOCAL
+
+
+

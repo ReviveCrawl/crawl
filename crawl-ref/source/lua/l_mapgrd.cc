@@ -1,10 +1,10 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "cluautil.h"
 #include "l_libs.h"
 
-#include "mapdef.h"
-#include "mon-ench.h"
+#include "../map/mapdef.h"
+#include "../mon/mon-ench.h"
 
 /////////////////////////////////////////////////////////////////////
 // mapgrd and mapgrd_col handling (i.e. map_lines in a metatable)
@@ -106,3 +106,6 @@ void dluaopen_mapgrd(lua_State *ls)
 
     lua_pop(ls, 1);
 }
+
+
+

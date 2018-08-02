@@ -1,10 +1,10 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
-#include "actor.h"
+#include "../sys/actor.h"
 #include "../coord/coord.h"
-#include "losglobal.h"
-#include "player.h"
-#include "monster.h"
+#include "../los/losglobal.h"
+#include "../player/player.h"
+#include "../mon/monster.h"
 #include "../sys/state.h"
 #include "../io/viewgeom.h"
 
@@ -89,3 +89,5 @@ bool player::can_see(const actor* a) const
     else
         return actor::can_see(a);
 }
+
+

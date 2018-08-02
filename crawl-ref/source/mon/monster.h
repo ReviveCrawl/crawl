@@ -1,8 +1,8 @@
 #ifndef MONSTER_H
 #define MONSTER_H
 
-#include "actor.h"
-#include "mon-ench.h"
+#include "../sys/actor.h"
+#include "../mon/mon-ench.h"
 
 const int KRAKEN_TENTACLE_RANGE = 3;
 #define TIDE_CALL_TURN "tide-call-turn"
@@ -528,3 +528,5 @@ private:
 };
 
 #endif
+
+

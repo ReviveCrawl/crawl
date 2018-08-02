@@ -6,7 +6,7 @@
 #ifndef LOS_H
 #define LOS_H
 
-#include "coord-circle.h"
+#include "../coord/coord-circle.h"
 #include "losparam.h"
 
 class circle_def;
@@ -55,3 +55,6 @@ void los_terrain_changed(const coord_def& p);
 void los_changed();
 opacity_type mons_opacity(const monster* mon, los_type how);
 #endif
+
+
+

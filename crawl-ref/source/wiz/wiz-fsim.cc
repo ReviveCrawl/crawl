@@ -3,41 +3,41 @@
  * @brief Fight simualtion wizard functions.
 **/
 
-#include "AppHdr.h"
-#include "bitary.h"
+#include "../build/AppHdr.h"
+#include "../low/bitary.h"
 
 #include "wiz-fsim.h"
 
 #include <errno.h>
 
-#include "beam.h"
+#include "../sys/beam.h"
 #include "../coord/coordit.h"
-#include "dbg-util.h"
-#include "directn.h"
-#include "env.h"
-#include "fight.h"
-#include "itemprop.h"
-#include "items.h"
-#include "item_use.h"
+#include "../dbg/dbg-util.h"
+#include "../ui/directn.h"
+#include "../sys/env.h"
+#include "../sys/fight.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
+#include "../item/item_use.h"
 #include "../lib/libutil.h"
-#include "message.h"
-#include "mon-place.h"
-#include "mgen_data.h"
-#include "monster.h"
-#include "mon-clone.h"
-#include "mon-stuff.h"
-#include "mon-util.h"
-#include "options.h"
-#include "player.h"
-#include "player-equip.h"
-#include "skills.h"
-#include "skills2.h"
-#include "species.h"
+#include "../io/message.h"
+#include "../mon/mon-place.h"
+#include "../sys/mgen_data.h"
+#include "../mon/monster.h"
+#include "../mon/mon-clone.h"
+#include "../mon/mon-stuff.h"
+#include "../mon/mon-util.h"
+#include "../ui/options.h"
+#include "../player/player.h"
+#include "../player/player-equip.h"
+#include "../sys/skills.h"
+#include "../sys/skills2.h"
+#include "../sys/species.h"
 #include "../sys/state.h"
-#include "stuff.h"
-#include "throw.h"
-#include "unwind.h"
-#include "version.h"
+#include "../sys/stuff.h"
+#include "../sys/throw.h"
+#include "../low/unwind.h"
+#include "../build/version.h"
 #include "wiz-you.h"
 
 #ifdef WIZARD
@@ -668,3 +668,5 @@ void wizard_fight_sim(bool double_scale)
 }
 
 #endif
+
+

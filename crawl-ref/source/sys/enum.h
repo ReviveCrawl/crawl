@@ -7,7 +7,7 @@
 #ifndef ENUM_H
 #define ENUM_H
 
-#include "tag-version.h"
+#include "../build/tag-version.h"
 
 enum lang_t
 {
@@ -4085,3 +4085,5 @@ enum wizard_option_type
 #endif
 
 #endif // ENUM_H
+
+

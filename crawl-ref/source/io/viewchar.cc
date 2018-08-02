@@ -1,10 +1,10 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "viewchar.h"
 
-#include "feature.h"
-#include "options.h"
-#include "unicode.h"
+#include "../sys/feature.h"
+#include "../ui/options.h"
+#include "../low/unicode.h"
 
 // For order and meaning of symbols, see dungeon_char_type in enum.h.
 static const ucs_t dchar_table[ NUM_CSET ][ NUM_DCHAR_TYPES ] =
@@ -161,3 +161,6 @@ dungeon_char_type get_feature_dchar(dungeon_feature_type feat)
 {
     return (get_feature_def(feat).dchar);
 }
+
+
+

@@ -7,8 +7,8 @@
 #define MISC_H
 
 #include "../coord/coord.h"
-#include "directn.h"
-#include "externs.h"
+#include "../ui/directn.h"
+#include "../sys/externs.h"
 
 #include <algorithm>
 #include <queue>
@@ -362,3 +362,5 @@ struct counted_monster_list
     string describe(description_level_type desc = DESC_THE);
 };
 #endif
+
+

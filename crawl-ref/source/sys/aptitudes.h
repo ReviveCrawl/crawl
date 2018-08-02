@@ -1415,3 +1415,5 @@ static const species_skill_aptitude species_skill_aptitudes[] =
 };
 
 #endif
+
+

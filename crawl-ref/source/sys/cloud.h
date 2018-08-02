@@ -7,7 +7,7 @@
 #ifndef CLOUD_H
 #define CLOUD_H
 
-#include "externs.h"
+#include "../sys/externs.h"
 
 cloud_type random_smoke_type();
 
@@ -52,3 +52,5 @@ void run_cloud_spreaders(int dur);
 
 void fume();
 #endif
+
+

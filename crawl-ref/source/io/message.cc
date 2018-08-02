@@ -3,43 +3,43 @@
  * @brief Functions used to print messages.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "message.h"
 
-#include "cio.h"
-#include "colour.h"
-#include "delay.h"
-#include "format.h"
+#include "../low/cio.h"
+#include "../ui/colour.h"
+#include "../sys/delay.h"
+#include "../io/format.h"
 #include "initfile.h"
 #include "../lib/libutil.h"
-#include "menu.h"
-#include "mon-stuff.h"
-#include "notes.h"
-#include "options.h"
-#include "player.h"
-#include "religion.h"
-#include "showsymb.h"
-#include "stash.h"
+#include "../ui/menu.h"
+#include "../mon/mon-stuff.h"
+#include "../sys/notes.h"
+#include "../ui/options.h"
+#include "../player/player.h"
+#include "../sys/religion.h"
+#include "../sys/showsymb.h"
+#include "../sys/stash.h"
 #include "../sys/state.h"
-#include "areas.h"
+#include "../sys/areas.h"
 #include "tags.h"
-#include "tagstring.h"
-#include "travel.h"
-#include "hints.h"
-#include "unwind.h"
+#include "../ui/tagstring.h"
+#include "../sys/travel.h"
+#include "../sys/hints.h"
+#include "../low/unwind.h"
 #include "view.h"
-#include "shout.h"
+#include "../sys/shout.h"
 #include "../io/viewgeom.h"
 
 #include <sstream>
 
 #ifdef WIZARD
-#include "luaterp.h"
+#include "../lua/luaterp.h"
 #endif
 
 #ifdef USE_TILE_WEB
-#include "tileweb.h"
+#include "../tile/tileweb.h"
 #endif
 
 static bool _ends_in_punctuation(const string& text)
@@ -1670,3 +1670,6 @@ void formatted_mpr(const formatted_string& fs,
 {
     mpr(fs.to_colour_string(), channel, param);
 }
+
+
+

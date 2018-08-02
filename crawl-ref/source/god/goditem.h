@@ -2,9 +2,9 @@
 #define GODITEM_H
 
 #include "../sys/enum.h"
-#include "externs.h"
+#include "../sys/externs.h"
 
-#include "player.h"
+#include "../player/player.h"
 
 bool is_holy_item(const item_def& item);
 bool is_potentially_unholy_item(const item_def& item);
@@ -31,3 +31,6 @@ bool god_hates_item(const item_def &item);
 bool god_dislikes_spell_type(spell_type spell, god_type god = you.religion);
 bool god_dislikes_spell_discipline(int discipline, god_type god = you.religion);
 #endif
+
+
+

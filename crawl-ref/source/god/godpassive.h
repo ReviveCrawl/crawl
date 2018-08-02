@@ -7,7 +7,7 @@
 #define GODPASSIVE_H
 
 #include "../sys/enum.h"
-#include "player.h"
+#include "../player/player.h"
 
 class monster;
 
@@ -34,3 +34,6 @@ int ash_skill_boost(skill_type sk, int scale);
 map<skill_type, int8_t> ash_get_boosted_skills(eq_type type);
 
 #endif
+
+
+

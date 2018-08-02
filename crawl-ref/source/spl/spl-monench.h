@@ -12,3 +12,5 @@ bool backlight_monsters(coord_def where, int pow, int garbage);
 bool do_slow_monster(monster* mon, const actor *agent, int dur = 0);
 
 #endif
+
+

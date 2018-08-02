@@ -3,7 +3,7 @@
  * @brief Tracking permallies granted by Yred and Beogh.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include <algorithm>
 
@@ -11,13 +11,13 @@
 
 #include "../coord/coord.h"
 #include "../coord/coordit.h"
-#include "actor.h"
-#include "mon-stuff.h"
-#include "mon-util.h"
-#include "religion.h"
-#include "stuff.h"
-#include "spl-other.h"
-#include "branch.h"
+#include "../sys/actor.h"
+#include "../mon/mon-stuff.h"
+#include "../mon/mon-util.h"
+#include "../sys/religion.h"
+#include "../sys/stuff.h"
+#include "../spl/spl-other.h"
+#include "../sys/branch.h"
 
 map<mid_t, companion> companion_list;
 
@@ -223,3 +223,6 @@ void fixup_bad_companions()
     }
 }
 #endif
+
+
+

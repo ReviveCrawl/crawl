@@ -1827,13 +1827,13 @@ char *yytext;
 //
 // Based loosely on NetHack's lev_comp.l
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 #include <algorithm>
 #include <cstring>
 #include <queue>
-#include "mapdef.h"
+#include "../map/mapdef.h"
 #include "levcomp.tab.h"
-#include "stuff.h"
+#include "../sys/stuff.h"
 
 static bool alloced = false;
 
@@ -3778,4 +3778,5 @@ int yywrap()
     flush_free_queue(0);
     return 1;
 }
+
 

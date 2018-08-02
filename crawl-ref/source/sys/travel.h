@@ -639,3 +639,5 @@ void clear_travel_trail();
 int travel_trail_index(const coord_def& gc);
 
 #endif // TRAVEL_H
+
+

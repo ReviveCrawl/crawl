@@ -24,3 +24,5 @@ void shadow_lantern_effect();
 bool disc_of_storms(bool drac_breath = false);
 
 #endif
+
+

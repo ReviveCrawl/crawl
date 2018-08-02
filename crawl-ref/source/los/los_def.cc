@@ -3,12 +3,12 @@
  * @brief LOS wrapper class.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "los_def.h"
 #include "losglobal.h"
 
-#include "coord-circle.h"
+#include "../coord/coord-circle.h"
 
 los_def::los_def()
     : show(0), opc(opc_default.clone()), bds(BDS_DEFAULT)
@@ -117,3 +117,6 @@ los_glob& los_glob::operator=(const los_glob& los)
     bds = los.bds;
     return *this;
 }
+
+
+

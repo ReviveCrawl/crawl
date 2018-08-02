@@ -6,7 +6,7 @@
 #ifndef MONSPEAK_H
 #define MONSPEAK_H
 
-#include "externs.h"
+#include "../sys/externs.h"
 
 void maybe_mons_speaks(monster* mons);
 bool mons_speaks(monster* mons);
@@ -15,3 +15,5 @@ bool mons_speaks_msg(monster* mons, const string &msg,
                      const bool silence = false);
 
 #endif
+
+

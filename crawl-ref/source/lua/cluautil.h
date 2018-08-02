@@ -202,3 +202,6 @@ int clua_pushcxxstring(lua_State *ls, const string &s);
 int clua_pushpoint(lua_State *ls, const coord_def &pos);
 
 #endif
+
+
+

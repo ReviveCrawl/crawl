@@ -1,9 +1,9 @@
 #ifndef OPTIONS_H
 #define OPTIONS_H
 
-#include "feature.h"
-#include "pattern.h"
-#include "newgame_def.h"
+#include "../sys/feature.h"
+#include "../low/pattern.h"
+#include "../mode/newgame_def.h"
 
 enum autosac_type
 {
@@ -527,3 +527,5 @@ object_class_type item_class_by_sym(ucs_t c);
 extern game_options  Options;
 
 #endif
+
+

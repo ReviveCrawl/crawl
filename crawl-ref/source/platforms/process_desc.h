@@ -6,9 +6,9 @@
 #ifndef DESCRIBE_TEMPLATES_H
 #define DESCRIBE_TEMPLATES_H
 
-#include "describe.h"
+#include "../io/describe.h"
 #include "../lib/libutil.h"
-#include "lang-fake.h"
+#include "../sys/lang-fake.h"
 
 template<class T> void process_description(T &proc, const describe_info &inf);
 template<class T> void process_quote(T &proc, const describe_info &inf);
@@ -148,3 +148,5 @@ void process_quote(T &proc, const describe_info &inf)
 }
 
 #endif
+
+

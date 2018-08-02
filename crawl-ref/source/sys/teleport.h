@@ -16,3 +16,5 @@ bool random_near_space(const coord_def& origin, coord_def& target,
                        bool forbid_sanctuary = false);
 
 #endif
+
+

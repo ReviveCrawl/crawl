@@ -7,7 +7,7 @@
 #ifndef SHOPPING_H
 #define SHOPPING_H
 
-#include "externs.h"
+#include "../sys/externs.h"
 
 int artefact_value(const item_def &item);
 
@@ -105,3 +105,5 @@ private:
 extern ShoppingList shopping_list;
 
 #endif
+
+

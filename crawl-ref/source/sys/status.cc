@@ -1,20 +1,20 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "status.h"
 
 #include "areas.h"
 #include "env.h"
 #include "evoke.h"
-#include "godabil.h"
+#include "../god/godabil.h"
 #include "../lib/libutil.h"
 #include "misc.h"
 #include "mutation.h"
-#include "player.h"
-#include "player-stats.h"
+#include "../player/player.h"
+#include "../player/player-stats.h"
 #include "skills2.h"
 #include "terrain.h"
 #include "transform.h"
-#include "spl-transloc.h"
+#include "../spl/spl-transloc.h"
 #include "stuff.h"
 
 // Status defaults for durations that are handled straight-forwardly.
@@ -1087,3 +1087,5 @@ static void _describe_missiles(status_info* inf)
     inf->light_colour = _dur_colour(inf->light_colour, expiring);
     _mark_expiring(inf, expiring);
 }
+
+

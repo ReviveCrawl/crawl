@@ -3,44 +3,44 @@
  * @brief Item related wizard functions.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "wiz-item.h"
 
 #include <errno.h>
 
-#include "acquire.h"
+#include "../sys/acquire.h"
 #include "art-enum.h"
-#include "artefact.h"
+#include "../item/artefact.h"
 #include "../coord/coordit.h"
-#include "message.h"
-#include "cio.h"
-#include "dbg-util.h"
-#include "decks.h"
-#include "describe.h"
-#include "effects.h"
-#include "env.h"
-#include "godpassive.h"
-#include "itemprop.h"
-#include "items.h"
-#include "invent.h"
+#include "../io/message.h"
+#include "../low/cio.h"
+#include "../dbg/dbg-util.h"
+#include "../item/decks.h"
+#include "../io/describe.h"
+#include "../sys/effects.h"
+#include "../sys/env.h"
+#include "../god/godpassive.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
+#include "../sys/invent.h"
 #include "../lib/libutil.h"
-#include "makeitem.h"
-#include "mapdef.h"
-#include "misc.h"
-#include "mon-iter.h"
-#include "mon-stuff.h"
-#include "mon-util.h"
-#include "options.h"
-#include "output.h"
-#include "player-equip.h"
-#include "religion.h"
-#include "skills2.h"
-#include "spl-book.h"
-#include "spl-util.h"
-#include "stash.h"
-#include "stuff.h"
-#include "terrain.h"
+#include "../sys/makeitem.h"
+#include "../map/mapdef.h"
+#include "../sys/misc.h"
+#include "../mon/mon-iter.h"
+#include "../mon/mon-stuff.h"
+#include "../mon/mon-util.h"
+#include "../ui/options.h"
+#include "../io/output.h"
+#include "../player/player-equip.h"
+#include "../sys/religion.h"
+#include "../sys/skills2.h"
+#include "../spl/spl-book.h"
+#include "../spl/spl-util.h"
+#include "../sys/stash.h"
+#include "../sys/stuff.h"
+#include "../sys/terrain.h"
 
 #ifdef WIZARD
 static void _make_all_books()
@@ -1603,3 +1603,5 @@ void wizard_draw_card()
         mpr("Unknown card.");
 }
 #endif
+
+

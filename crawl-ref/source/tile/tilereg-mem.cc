@@ -1,18 +1,18 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE_LOCAL
 
 #include "tilereg-mem.h"
 
-#include "cio.h"
-#include "describe.h"
+#include "../low/cio.h"
+#include "../io/describe.h"
 #include "../lib/libutil.h"
-#include "macro.h"
-#include "religion.h"
-#include "spl-book.h"
-#include "spl-cast.h"
-#include "spl-util.h"
-#include "stuff.h"
+#include "../ui/macro.h"
+#include "../sys/religion.h"
+#include "../spl/spl-book.h"
+#include "../spl/spl-cast.h"
+#include "../spl/spl-util.h"
+#include "../sys/stuff.h"
 #include "tilepick.h"
 
 MemoriseRegion::MemoriseRegion(const TileRegionInit &init) : SpellRegion(init)
@@ -158,3 +158,5 @@ void MemoriseRegion::update()
 
 
 #endif
+
+

@@ -3,7 +3,7 @@
 #ifndef NOISE_H
 #define NOISE_H
 
-#include "externs.h"
+#include "../sys/externs.h"
 
 // [ds] The old noise system was pretty simple: noise level (loudness) ==
 // distance covered. Since the new system considers terrain when propagating
@@ -154,3 +154,5 @@ private:
 };
 
 #endif
+
+

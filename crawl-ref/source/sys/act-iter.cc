@@ -1,11 +1,11 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "act-iter.h"
 
-#include "coord-circle.h"
-#include "mon-iter.h"
-#include "monster.h"
-#include "player.h"
+#include "../coord/coord-circle.h"
+#include "../mon/mon-iter.h"
+#include "../mon/monster.h"
+#include "../player/player.h"
 
 actor_iterator::actor_iterator()
     : restr(R_NONE), did_you(false), mi()
@@ -94,3 +94,5 @@ void actor_iterator::advance(bool may_stay)
     while (*this && !valid(**this))
         raw_advance();
 }
+
+

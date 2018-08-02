@@ -3,7 +3,7 @@
  * @brief Functions used when building new levels.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -15,66 +15,66 @@
 #include <algorithm>
 #include <cmath>
 
-#include "abyss.h"
+#include "../map/abyss.h"
 #include "acquire.h"
-#include "artefact.h"
+#include "../item/artefact.h"
 #include "branch.h"
-#include "chardump.h"
+#include "../io/chardump.h"
 #include "../coord/coordit.h"
 #include "defines.h"
-#include "describe.h"
-#include "dgn-delve.h"
-#include "dgn-height.h"
-#include "dgn-shoals.h"
-#include "dgn-swamp.h"
-#include "dgn-labyrinth.h"
-#include "dgn-layouts.h"
+#include "../io/describe.h"
+#include "../dgn/dgn-delve.h"
+#include "../dgn/dgn-height.h"
+#include "../dgn/dgn-shoals.h"
+#include "../dgn/dgn-swamp.h"
+#include "../dgn/dgn-labyrinth.h"
+#include "../dgn/dgn-layouts.h"
 #include "effects.h"
 #include "env.h"
 #include "../sys/enum.h"
-#include "map_knowledge.h"
+#include "../map/map_knowledge.h"
 #include "flood_find.h"
 #include "fprop.h"
-#include "externs.h"
-#include "dbg-maps.h"
-#include "dbg-scan.h"
-#include "directn.h"
+#include "../sys/externs.h"
+#include "../dbg/dbg-maps.h"
+#include "../dbg/dbg-scan.h"
+#include "../ui/directn.h"
 #include "dungeon.h"
-#include "files.h"
+#include "../io/files.h"
 #include "ghost.h"
-#include "itemname.h"
-#include "itemprop.h"
-#include "items.h"
-#include "l_defs.h"
-#include "lev-pand.h"
+#include "../item/itemname.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
+#include "../lua/l_defs.h"
+#include "../map/lev-pand.h"
 #include "../lib/libutil.h"
 #include "makeitem.h"
-#include "mapdef.h"
-#include "mapmark.h"
-#include "maps.h"
-#include "message.h"
+#include "../map/mapdef.h"
+#include "../map/mapmark.h"
+#include "../map/maps.h"
+#include "../io/message.h"
 #include "misc.h"
-#include "mon-chimera.h"
-#include "mon-util.h"
-#include "mon-pick-data.h"
-#include "mon-place.h"
+#include "../mon/mon-chimera.h"
+#include "../mon/mon-util.h"
+#include "../mon/mon-pick-data.h"
+#include "../mon/mon-place.h"
 #include "mgen_data.h"
-#include "mon-pathfind.h"
+#include "../mon/mon-pathfind.h"
 #include "notes.h"
-#include "place.h"
-#include "player.h"
-#include "random.h"
+#include "../map/place.h"
+#include "../player/player.h"
+#include "../random/random.h"
 #include "religion.h"
-#include "spl-book.h"
-#include "spl-transloc.h"
-#include "spl-util.h"
+#include "../spl/spl-book.h"
+#include "../spl/spl-transloc.h"
+#include "../spl/spl-util.h"
 #include "../sys/state.h"
 #include "stuff.h"
-#include "tags.h"
+#include "../io/tags.h"
 #include "terrain.h"
 #include "tiledef-dngn.h"
-#include "tilepick.h"
-#include "tileview.h"
+#include "../tile/tilepick.h"
+#include "../tile/tileview.h"
 #include "traps.h"
 #include "travel.h"
 #include "zotdef.h"
@@ -85,7 +85,7 @@
 #endif
 
 #ifdef WIZARD
-#include "cio.h" // for cancellable_get_line()
+#include "../low/cio.h" // for cancellable_get_line()
 #endif
 
 // DUNGEON BUILDERS
@@ -7017,3 +7017,5 @@ static void _mark_solid_squares()
             env.pgrid(*ri) |= FPROP_NO_RTELE_INTO;
     }
 }
+
+

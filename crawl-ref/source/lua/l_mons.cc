@@ -1,16 +1,16 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "cluautil.h"
 #include "l_libs.h"
 
-#include "delay.h"
+#include "../sys/delay.h"
 #include "dlua.h"
 #include "../lib/libutil.h"
-#include "mon-act.h"
-#include "mon-behv.h"
-#include "mon-util.h"
-#include "mon-stuff.h"
-#include "monster.h"
+#include "../mon/mon-act.h"
+#include "../mon/mon-behv.h"
+#include "../mon/mon-util.h"
+#include "../mon/mon-stuff.h"
+#include "../mon/monster.h"
 
 #define WRAPPED_MONSTER(ls, name)                                       \
     MonsterWrap *___mw = clua_get_userdata< MonsterWrap >(ls, MONS_METATABLE); \
@@ -641,3 +641,6 @@ void dluaopen_monsters(lua_State *ls)
     lua_settable(ls, -3);
     luaL_register(ls, "mons", mons_lib);
 }
+
+
+

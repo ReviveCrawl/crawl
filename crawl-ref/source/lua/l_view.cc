@@ -3,19 +3,19 @@
  * @brief User interaction with env.show.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "l_libs.h"
 #include "l_defs.h"
 
 #include "cluautil.h"
 #include "../coord/coord.h"
-#include "env.h"
+#include "../sys/env.h"
 #include "../lib/libutil.h"
-#include "player.h"
-#include "terrain.h"
-#include "cloud.h"
-#include "travel.h"
+#include "../player/player.h"
+#include "../sys/terrain.h"
+#include "../sys/cloud.h"
+#include "../sys/travel.h"
 
 
 LUAFN(view_feature_at)
@@ -101,3 +101,6 @@ void cluaopen_view(lua_State *ls)
 {
     luaL_openlib(ls, "view", view_lib, 0);
 }
+
+
+

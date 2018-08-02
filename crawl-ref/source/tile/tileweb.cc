@@ -1,27 +1,27 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE_WEB
 
-#include "artefact.h"
-#include "branch.h"
+#include "../item/artefact.h"
+#include "../sys/branch.h"
 #include "../coord/coord.h"
-#include "directn.h"
-#include "env.h"
-#include "files.h"
-#include "itemname.h"
-#include "lang-fake.h"
+#include "../ui/directn.h"
+#include "../sys/env.h"
+#include "../io/files.h"
+#include "../item/itemname.h"
+#include "../sys/lang-fake.h"
 #include "../lib/libutil.h"
-#include "map_knowledge.h"
-#include "menu.h"
-#include "message.h"
-#include "mon-util.h"
-#include "notes.h"
-#include "options.h"
-#include "player.h"
-#include "religion.h"
+#include "../map/map_knowledge.h"
+#include "../ui/menu.h"
+#include "../io/message.h"
+#include "../mon/mon-util.h"
+#include "../sys/notes.h"
+#include "../ui/options.h"
+#include "../player/player.h"
+#include "../sys/religion.h"
 #include "../sys/state.h"
-#include "stuff.h"
-#include "skills2.h"
+#include "../sys/stuff.h"
+#include "../sys/skills2.h"
 #include "tiledef-dngn.h"
 #include "tiledef-gui.h"
 #include "tiledef-main.h"
@@ -32,14 +32,14 @@
 #include "tilepick-p.h"
 #include "tileweb.h"
 #include "tileview.h"
-#include "travel.h"
-#include "unicode.h"
-#include "unwind.h"
-#include "version.h"
-#include "view.h"
+#include "../sys/travel.h"
+#include "../low/unicode.h"
+#include "../low/unwind.h"
+#include "../build/version.h"
+#include "../io/view.h"
 #include "../io/viewgeom.h"
 
-#include "json.h"
+#include "../io/json.h"
 
 #include <sys/time.h>
 #include <sys/types.h>
@@ -1935,3 +1935,5 @@ bool is_tiles()
     return tiles.is_controlled_from_web();
 }
 #endif
+
+

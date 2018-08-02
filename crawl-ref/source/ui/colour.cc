@@ -1,20 +1,20 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "colour.h"
 
-#include "areas.h"
-#include "branch.h"
-#include "cloud.h"
-#include "dgn-height.h"
-#include "env.h"
+#include "../sys/areas.h"
+#include "../sys/branch.h"
+#include "../sys/cloud.h"
+#include "../dgn/dgn-height.h"
+#include "../sys/env.h"
 #include "../lib/libutil.h"
-#include "mon-stuff.h"
-#include "mon-info.h"
-#include "mon-info.h"
-#include "mon-util.h"
+#include "../mon/mon-stuff.h"
+#include "../mon/mon-info.h"
+#include "../mon/mon-info.h"
+#include "../mon/mon-util.h"
 #include "options.h"
-#include "player.h"
-#include "random.h"
+#include "../player/player.h"
+#include "../random/random.h"
 
 #include <utility>
 #include <math.h>
@@ -858,3 +858,5 @@ unsigned real_colour(unsigned raw_colour, const coord_def& loc)
 
     return raw_colour;
 }
+
+

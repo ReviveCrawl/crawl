@@ -3,20 +3,20 @@
  * @brief The dungeon builder for Lab.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "dgn-labyrinth.h"
 
 #include "../coord/coordit.h"
-#include "dungeon.h"
-#include "items.h"
-#include "mapmark.h"
-#include "maps.h"
-#include "mgen_data.h"
-#include "misc.h"
-#include "mon-pathfind.h"
-#include "mon-place.h"
-#include "terrain.h"
+#include "../sys/dungeon.h"
+#include "../item/items.h"
+#include "../map/mapmark.h"
+#include "../map/maps.h"
+#include "../sys/mgen_data.h"
+#include "../sys/misc.h"
+#include "../mon/mon-pathfind.h"
+#include "../mon/mon-place.h"
+#include "../sys/terrain.h"
 
 typedef list<coord_def> coord_list;
 
@@ -555,3 +555,6 @@ void dgn_build_labyrinth_level()
 
     link_items();
 }
+
+
+

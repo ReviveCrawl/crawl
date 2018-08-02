@@ -3,9 +3,9 @@
  * @brief A hints mode as an introduction on how to play Dungeon Crawl.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
-#include "cio.h"
+#include "../low/cio.h"
 
 #include <cstring>
 #include <sstream>
@@ -13,51 +13,51 @@
 #include "hints.h"
 
 #include "abl-show.h"
-#include "artefact.h"
+#include "../item/artefact.h"
 #include "cloud.h"
-#include "colour.h"
+#include "../ui/colour.h"
 #include "../coord/coordit.h"
-#include "command.h"
-#include "database.h"
-#include "decks.h"
-#include "describe.h"
-#include "files.h"
+#include "../io/command.h"
+#include "../io/database.h"
+#include "../item/decks.h"
+#include "../io/describe.h"
+#include "../io/files.h"
 #include "food.h"
-#include "format.h"
+#include "../io/format.h"
 #include "fprop.h"
 #include "invent.h"
-#include "itemname.h"
-#include "itemprop.h"
-#include "items.h"
+#include "../item/itemname.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
 #include "../lib/libutil.h"
-#include "macro.h"
-#include "menu.h"
-#include "message.h"
+#include "../ui/macro.h"
+#include "../ui/menu.h"
+#include "../io/message.h"
 #include "misc.h"
-#include "mon-behv.h"
-#include "mon-pick.h"
-#include "mon-util.h"
+#include "../mon/mon-behv.h"
+#include "../mon/mon-pick.h"
+#include "../mon/mon-util.h"
 #include "mutation.h"
-#include "options.h"
+#include "../ui/options.h"
 #include "ouch.h"
 #include "jobs.h"
-#include "player.h"
-#include "random.h"
+#include "../player/player.h"
+#include "../random/random.h"
 #include "religion.h"
 #include "shopping.h"
 #include "showsymb.h"
 #include "skills2.h"
 #include "species.h"
-#include "spl-book.h"
+#include "../spl/spl-book.h"
 #include "../sys/state.h"
 #include "stuff.h"
 #include "env.h"
-#include "tags.h"
+#include "../io/tags.h"
 #include "terrain.h"
 #include "travel.h"
-#include "viewchar.h"
+#include "../io/viewchar.h"
 #include "../io/viewgeom.h"
-#include "viewmap.h"
+#include "../io/viewmap.h"
 
 static species_type _get_hints_species(unsigned int type);
 static job_type     _get_hints_job(unsigned int type);
@@ -4548,3 +4548,5 @@ void tutorial_msg(const char *key, bool end)
 
     stop_running();
 }
+
+

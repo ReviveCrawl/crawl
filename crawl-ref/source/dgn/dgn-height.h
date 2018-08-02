@@ -1,8 +1,8 @@
 #ifndef DGN_HEIGHT_H
 #define DGN_HEIGHT_H
 
-#include "env.h"
-#include "fixedarray.h"
+#include "../sys/env.h"
+#include "../low/fixedarray.h"
 #include <vector>
 
 // Sets height to the given height, iff the env.heightmap is already initialized
@@ -99,3 +99,6 @@ private:
 };
 
 #endif
+
+
+

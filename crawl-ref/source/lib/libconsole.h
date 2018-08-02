@@ -1,7 +1,7 @@
 #ifndef LIBCONSOLE_H
 #define LIBCONSOLE_H
 
-#include "defines.h"
+#include "../sys/defines.h"
 
 void console_startup();
 void console_shutdown();
@@ -46,3 +46,6 @@ coord_def cgetpos(GotoRegion region = GOTO_CRT);
 void cgotoxy(int x, int y, GotoRegion region = GOTO_CRT);
 GotoRegion get_cursor_region();
 #endif
+
+
+

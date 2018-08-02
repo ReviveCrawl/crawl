@@ -3,26 +3,26 @@
  * @brief Miscellaneous debugging functions.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "dbg-util.h"
 
-#include "artefact.h"
-#include "cio.h"
+#include "../item/artefact.h"
+#include "../low/cio.h"
 #include "../coord/coord.h"
-#include "directn.h"
-#include "dungeon.h"
-#include "env.h"
+#include "../ui/directn.h"
+#include "../sys/dungeon.h"
+#include "../sys/env.h"
 #include "../lib/libutil.h"
-#include "message.h"
-#include "mon-util.h"
-#include "options.h"
-#include "religion.h"
-#include "shopping.h"
-#include "skills2.h"
-#include "spl-util.h"
+#include "../io/message.h"
+#include "../mon/mon-util.h"
+#include "../ui/options.h"
+#include "../sys/religion.h"
+#include "../sys/shopping.h"
+#include "../sys/skills2.h"
+#include "../spl/spl-util.h"
 #include "../sys/state.h"
-#include "stuff.h"
+#include "../sys/stuff.h"
 
 monster_type debug_prompt_for_monster(void)
 {
@@ -477,3 +477,6 @@ void wizard_toggle_dprf()
     }
 }
 #endif
+
+
+

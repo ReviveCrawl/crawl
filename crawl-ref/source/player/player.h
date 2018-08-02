@@ -7,19 +7,19 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "actor.h"
-#include "beam.h"
-#include "bitary.h"
-#include "quiver.h"
-#include "place-info.h"
-#include "religion-enum.h"
-#include "species.h"
+#include "../sys/actor.h"
+#include "../sys/beam.h"
+#include "../low/bitary.h"
+#include "../sys/quiver.h"
+#include "../map/place-info.h"
+#include "../sys/religion-enum.h"
+#include "../sys/species.h"
 
 #include <list>
 #include <vector>
 
 #ifdef USE_TILE
-#include "tiledoll.h"
+#include "../tile/tiledoll.h"
 #endif
 
 class targetter;
@@ -1014,3 +1014,5 @@ bool need_expiration_warning(coord_def p = you.pos());
 
 void count_action(caction_type type, int subtype = 0);
 #endif
+
+

@@ -3,7 +3,7 @@
  * @brief Records location of stairs etc
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "dgn-overview.h"
 
@@ -12,27 +12,27 @@
 #include <stdio.h>
 #include <algorithm>
 
-#include "externs.h"
+#include "../sys/externs.h"
 
-#include "branch.h"
-#include "colour.h"
+#include "../sys/branch.h"
+#include "../ui/colour.h"
 #include "../coord/coord.h"
-#include "describe.h"
-#include "directn.h"
-#include "env.h"
-#include "feature.h"
-#include "files.h"
+#include "../io/describe.h"
+#include "../ui/directn.h"
+#include "../sys/env.h"
+#include "../sys/feature.h"
+#include "../io/files.h"
 #include "../lib/libutil.h"
-#include "menu.h"
-#include "message.h"
-#include "religion.h"
-#include "shopping.h"
-#include "stairs.h"
+#include "../ui/menu.h"
+#include "../io/message.h"
+#include "../sys/religion.h"
+#include "../sys/shopping.h"
+#include "../sys/stairs.h"
 #include "../sys/state.h"
-#include "stuff.h"
-#include "tagstring.h"
-#include "terrain.h"
-#include "travel.h"
+#include "../sys/stuff.h"
+#include "../ui/tagstring.h"
+#include "../sys/terrain.h"
+#include "../sys/travel.h"
 
 typedef map<branch_type, set<level_id> > stair_map_type;
 typedef map<level_pos, shop_type> shop_map_type;
@@ -961,3 +961,6 @@ void unmarshallUniqueAnnotations(reader& inf)
         auto_unique_annotations.insert(make_pair(name, level));
     }
 }
+
+
+

@@ -77,3 +77,5 @@ string hunger_cost_string(const int hunger);
 
 maybe_bool drop_spoiled_chunks(int weight_needed, bool whole_slot = false);
 #endif
+
+

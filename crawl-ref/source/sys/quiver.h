@@ -6,7 +6,7 @@
 #ifndef QUIVER_H
 #define QUIVER_H
 
-#include "externs.h" /* item_def */
+#include "../sys/externs.h" /* item_def */
 #include <vector>
 
 class reader;
@@ -82,3 +82,5 @@ void quiver_item(int slot);
 void choose_item_for_quiver(void);
 
 #endif
+
+

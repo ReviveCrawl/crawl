@@ -1,10 +1,10 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "cluautil.h"
 #include "l_libs.h"
 
-#include "env.h"
-#include "mapmark.h"
+#include "../sys/env.h"
+#include "../map/mapmark.h"
 
 static int mapmarker_pos(lua_State *ls)
 {
@@ -41,3 +41,6 @@ void luaopen_mapmarker(lua_State *ls)
 {
     luaopen_setmeta(ls, "mapmarker", mapmarker_dlib, MAPMARK_METATABLE);
 }
+
+
+

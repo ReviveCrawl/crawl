@@ -3,16 +3,16 @@
  * @brief Boolean feat-related functions lua library "feat".
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "clua.h"
 #include "cluautil.h"
 #include "l_libs.h"
 
 #include "../coord/coord.h"
-#include "env.h"
+#include "../sys/env.h"
 #include "../lib/libutil.h"
-#include "terrain.h"
+#include "../sys/terrain.h"
 
 #define FEATF(name, val) \
     static int name(lua_State *ls) \
@@ -85,3 +85,6 @@ const struct luaL_reg feat_dlib[] =
 
 { NULL, NULL }
 };
+
+
+

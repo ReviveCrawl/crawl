@@ -3,7 +3,7 @@
  * @brief Functions for windows console mode support.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #if defined(TARGET_OS_WINDOWS) && !defined(USE_TILE_LOCAL)
 
@@ -59,15 +59,15 @@
 
 #include <string.h>
 #include <stdio.h>
-#include "cio.h"
-#include "defines.h"
+#include "../low/cio.h"
+#include "../sys/defines.h"
 #include "libutil.h"
-#include "options.h"
-#include "state.h"
-#include "unicode.h"
-#include "version.h"
-#include "view.h"
-#include "viewgeom.h"
+#include "../ui/options.h"
+#include "../sys/state.h"
+#include "../low/unicode.h"
+#include "../build/version.h"
+#include "../io/view.h"
+#include "../io/viewgeom.h"
 
 wchar_t oldTitle[80];
 
@@ -895,3 +895,6 @@ int num_to_lines(int num)
 }
 
 #endif /* #if defined(TARGET_OS_WINDOWS) && !defined(USE_TILE_LOCAL) */
+
+
+

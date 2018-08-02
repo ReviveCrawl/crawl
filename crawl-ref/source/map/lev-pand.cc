@@ -3,20 +3,20 @@
  * @brief Functions used in Pandemonium.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include <algorithm>
 
 #include "lev-pand.h"
 
-#include "externs.h"
-#include "colour.h"
-#include "dungeon.h"
-#include "env.h"
-#include "mon-place.h"
-#include "mgen_data.h"
-#include "mon-pick.h"
-#include "random.h"
+#include "../sys/externs.h"
+#include "../ui/colour.h"
+#include "../sys/dungeon.h"
+#include "../sys/env.h"
+#include "../mon/mon-place.h"
+#include "../sys/mgen_data.h"
+#include "../mon/mon-pick.h"
+#include "../random/random.h"
 
 static colour_t _pan_floor_colour()
 {
@@ -131,3 +131,6 @@ void pandemonium_mons(void)
 
     mons_place(mg);
 }
+
+
+

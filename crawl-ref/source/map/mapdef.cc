@@ -3,7 +3,7 @@
  * @brief Support code for Crawl des files.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include <iostream>
 #include <cstdarg>
@@ -13,40 +13,40 @@
 #include <algorithm>
 
 #include "abyss.h"
-#include "artefact.h"
-#include "branch.h"
-#include "colour.h"
+#include "../item/artefact.h"
+#include "../sys/branch.h"
+#include "../ui/colour.h"
 #include "../coord/coord.h"
 #include "../coord/coordit.h"
-#include "cluautil.h"
-#include "decks.h"
-#include "describe.h"
-#include "directn.h"
-#include "dungeon.h"
-#include "dgn-height.h"
-#include "exclude.h"
-#include "files.h"
-#include "ghost.h"
-#include "initfile.h"
-#include "invent.h"
-#include "l_defs.h"
+#include "../lua/cluautil.h"
+#include "../item/decks.h"
+#include "../io/describe.h"
+#include "../ui/directn.h"
+#include "../sys/dungeon.h"
+#include "../dgn/dgn-height.h"
+#include "../sys/exclude.h"
+#include "../io/files.h"
+#include "../sys/ghost.h"
+#include "../io/initfile.h"
+#include "../sys/invent.h"
+#include "../lua/l_defs.h"
 #include "../lib/libutil.h"
 #include "mapdef.h"
 #include "mapmark.h"
 #include "maps.h"
-#include "misc.h"
-#include "mon-cast.h"
-#include "mon-place.h"
-#include "mon-util.h"
+#include "../sys/misc.h"
+#include "../mon/mon-cast.h"
+#include "../mon/mon-place.h"
+#include "../mon/mon-util.h"
 #include "place.h"
-#include "random.h"
-#include "random-weight.h"
-#include "religion.h"
-#include "spl-util.h"
-#include "spl-book.h"
-#include "stuff.h"
-#include "env.h"
-#include "tags.h"
+#include "../random/random.h"
+#include "../random/random-weight.h"
+#include "../sys/religion.h"
+#include "../spl/spl-util.h"
+#include "../spl/spl-book.h"
+#include "../sys/stuff.h"
+#include "../sys/env.h"
+#include "../io/tags.h"
 #include "tiledef-dngn.h"
 #include "tiledef-player.h"
 
@@ -6026,3 +6026,6 @@ feature_spec feature_slot::get_feat(int def_glyph)
     }
     return chosen_feat;
 }
+
+
+

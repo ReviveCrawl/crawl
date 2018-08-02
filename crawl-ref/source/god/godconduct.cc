@@ -1,15 +1,15 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "godconduct.h"
 
-#include "fight.h"
+#include "../sys/fight.h"
 #include "godwrath.h"
 #include "../lib/libutil.h"
-#include "monster.h"
-#include "mon-util.h"
-#include "player.h"
-#include "random.h"
-#include "religion.h"
+#include "../mon/monster.h"
+#include "../mon/mon-util.h"
+#include "../player/player.h"
+#include "../random/random.h"
+#include "../sys/religion.h"
 #include "../sys/state.h"
 
 /////////////////////////////////////////////////////////////////////
@@ -1143,3 +1143,6 @@ void disable_attack_conducts(god_conduct_trigger conduct[3])
     for (int i = 0; i < 3; ++i)
         conduct[i].enabled = false;
 }
+
+
+

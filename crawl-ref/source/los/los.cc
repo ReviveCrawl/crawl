@@ -40,26 +40,26 @@
  * between two given cells.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
-#include "los.h"
+#include "../los/los.h"
 
 #include <cmath>
 #include <algorithm>
 
-#include "areas.h"
-#include "bitary.h"
+#include "../sys/areas.h"
+#include "../low/bitary.h"
 #include "../coord/coord.h"
-#include "coord-circle.h"
+#include "../coord/coord-circle.h"
 #include "../coord/coordit.h"
-#include "externs.h"
-#include "geom2d.h"
+#include "../sys/externs.h"
+#include "../sys/geom2d.h"
 #include "losglobal.h"
 #include "losparam.h"
-#include "player.h"
-#include "ray.h"
-#include "env.h"
-#include "terrain.h"
+#include "../player/player.h"
+#include "../sys/ray.h"
+#include "../sys/env.h"
+#include "../sys/terrain.h"
 
 // This determines which cells are considered out of range during
 // precalculations (only positive quadrant used).
@@ -965,3 +965,6 @@ void los_changed()
     invalidate_los();
     _handle_los_change();
 }
+
+
+

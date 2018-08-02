@@ -3,7 +3,7 @@
  * @brief Acquirement and Trog/Oka/Sif gifts.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "acquire.h"
 
@@ -16,27 +16,27 @@
 #include <cmath>
 
 #include "art-enum.h"
-#include "artefact.h"
-#include "decks.h"
+#include "../item/artefact.h"
+#include "../item/decks.h"
 #include "dungeon.h"
-#include "externs.h"
+#include "../sys/externs.h"
 #include "food.h"
-#include "goditem.h"
-#include "itemname.h"
-#include "itemprop.h"
-#include "items.h"
-#include "item_use.h"
+#include "../god/goditem.h"
+#include "../item/itemname.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
+#include "../item/item_use.h"
 #include "../lib/libutil.h"
 #include "makeitem.h"
-#include "message.h"
+#include "../io/message.h"
 #include "misc.h"
-#include "player.h"
-#include "random.h"
-#include "random-weight.h"
+#include "../player/player.h"
+#include "../random/random.h"
+#include "../random/random-weight.h"
 #include "religion.h"
 #include "skills2.h"
-#include "spl-book.h"
-#include "spl-util.h"
+#include "../spl/spl-book.h"
+#include "../spl/spl-util.h"
 #include "../sys/state.h"
 #include "stuff.h"
 #include "terrain.h"
@@ -1695,3 +1695,5 @@ bool acquirement(object_class_type class_wanted, int agent,
 
     return true;
 }
+
+

@@ -8,8 +8,8 @@
 #define RELIGION_H
 
 #include "../sys/enum.h"
-#include "externs.h"
-#include "player.h"
+#include "../sys/externs.h"
+#include "../player/player.h"
 
 #include "religion-enum.h"
 
@@ -123,3 +123,5 @@ vector<god_type> nontemple_god_list();
 extern const char* god_gain_power_messages[NUM_GODS][MAX_GOD_ABILITIES];
 string adjust_abil_message(const char *pmsg, bool allow_upgrades = true);
 #endif
+
+

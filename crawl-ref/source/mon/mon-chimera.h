@@ -6,7 +6,7 @@
 #ifndef MONCHIMERA_H
 #define MONCHIMERA_H
 
-#include "debug.h"
+#include "../dbg/debug.h"
 
 #define NUM_CHIMERA_HEADS 3
 
@@ -28,3 +28,6 @@ string chimera_part_names(monster_info mi);
 bool chimera_is_batty(const monster* mon);
 
 #endif
+
+
+

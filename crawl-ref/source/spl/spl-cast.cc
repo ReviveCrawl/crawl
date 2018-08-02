@@ -3,49 +3,49 @@
  * @brief Spell casting and miscast functions.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include <sstream>
 #include <iomanip>
 
 #include "spl-cast.h"
 
-#include "externs.h"
-#include "options.h"
+#include "../sys/externs.h"
+#include "../ui/options.h"
 
-#include "areas.h"
-#include "beam.h"
-#include "cloud.h"
-#include "colour.h"
-#include "describe.h"
-#include "directn.h"
-#include "effects.h"
-#include "env.h"
-#include "exercise.h"
-#include "food.h"
-#include "format.h"
-#include "godabil.h"
-#include "godconduct.h"
-#include "goditem.h"
-#include "hints.h"
-#include "item_use.h"
-#include "items.h"
+#include "../sys/areas.h"
+#include "../sys/beam.h"
+#include "../sys/cloud.h"
+#include "../ui/colour.h"
+#include "../io/describe.h"
+#include "../ui/directn.h"
+#include "../sys/effects.h"
+#include "../sys/env.h"
+#include "../mode/exercise.h"
+#include "../sys/food.h"
+#include "../io/format.h"
+#include "../god/godabil.h"
+#include "../god/godconduct.h"
+#include "../god/goditem.h"
+#include "../sys/hints.h"
+#include "../item/item_use.h"
+#include "../item/items.h"
 #include "../lib/libutil.h"
-#include "macro.h"
-#include "menu.h"
-#include "misc.h"
-#include "message.h"
-#include "mon-cast.h"
-#include "mon-place.h"
-#include "mon-project.h"
-#include "mon-stuff.h"
-#include "mon-util.h"
-#include "mutation.h"
-#include "ouch.h"
-#include "player.h"
-#include "religion.h"
-#include "shout.h"
-#include "skills.h"
+#include "../ui/macro.h"
+#include "../ui/menu.h"
+#include "../sys/misc.h"
+#include "../io/message.h"
+#include "../mon/mon-cast.h"
+#include "../mon/mon-place.h"
+#include "../mon/mon-project.h"
+#include "../mon/mon-stuff.h"
+#include "../mon/mon-util.h"
+#include "../sys/mutation.h"
+#include "../sys/ouch.h"
+#include "../player/player.h"
+#include "../sys/religion.h"
+#include "../sys/shout.h"
+#include "../sys/skills.h"
 #include "spl-book.h"
 #include "spl-clouds.h"
 #include "spl-damage.h"
@@ -59,13 +59,13 @@
 #include "spl-wpnench.h"
 #include "spl-zap.h"
 #include "../sys/state.h"
-#include "stuff.h"
-#include "target.h"
+#include "../sys/stuff.h"
+#include "../sys/target.h"
 #ifdef USE_TILE
- #include "tilepick.h"
+ #include "../tile/tilepick.h"
 #endif
-#include "transform.h"
-#include "view.h"
+#include "../sys/transform.h"
+#include "../io/view.h"
 
 static int _spell_enhancement(unsigned int typeflags);
 
@@ -2071,3 +2071,5 @@ void spell_skills(spell_type spell, set<skill_type> &skills)
             skills.insert(spell_type2skill(bit));
     }
 }
+
+

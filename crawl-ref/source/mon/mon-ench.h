@@ -54,3 +54,5 @@ private:
 enchant_type name_to_ench(const char *name);
 
 #endif
+
+

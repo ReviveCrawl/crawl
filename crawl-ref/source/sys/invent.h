@@ -8,9 +8,9 @@
 
 #include <stddef.h>
 #include <vector>
-#include "menu.h"
+#include "../ui/menu.h"
 #include "../sys/enum.h"
-#include "itemname.h"
+#include "../item/itemname.h"
 
 enum object_selector
 {
@@ -233,3 +233,5 @@ bool item_is_evokable(const item_def &item, bool reach = true,
                       bool msg = false, bool equip = true);
 bool needs_handle_warning(const item_def &item, operation_types oper);
 #endif
+
+

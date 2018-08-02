@@ -1,11 +1,11 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE_LOCAL
 
 #include "tilereg-msg.h"
 
 #include "../lib/libutil.h"
-#include "macro.h"
+#include "../ui/macro.h"
 #include "tilebuf.h"
 #include "tilefont.h"
 
@@ -120,3 +120,5 @@ void MessageRegion::render()
 }
 
 #endif
+
+

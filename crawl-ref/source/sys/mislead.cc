@@ -3,22 +3,22 @@
  * @brief Handling of Mara's Mislead spell and stats, plus fakes.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 #include "mislead.h"
 
 #include "../sys/enum.h"
 #include "env.h"
 #include "hints.h"
-#include "message.h"
+#include "../io/message.h"
 #include "misc.h"
-#include "monster.h"
-#include "mon-iter.h"
-#include "mon-util.h"
+#include "../mon/monster.h"
+#include "../mon/mon-iter.h"
+#include "../mon/mon-util.h"
 #ifdef USE_TILE_LOCAL
- #include "tilepick.h"
+ #include "../tile/tilepick.h"
 #endif
-#include "view.h"
-#include "xom.h"
+#include "../io/view.h"
+#include "../god/xom.h"
 
 bool unsuitable_misled_monster(monster_type mons)
 {
@@ -158,3 +158,5 @@ int count_mara_fakes()
 
     return count;
 }
+
+

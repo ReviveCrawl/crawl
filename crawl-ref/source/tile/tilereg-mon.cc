@@ -1,17 +1,17 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE_LOCAL
 #include <algorithm>
 
 #include "tilereg-mon.h"
-#include "process_desc.h"
+#include "../platforms/process_desc.h"
 
-#include "cio.h"
-#include "directn.h"
-#include "env.h"
+#include "../low/cio.h"
+#include "../ui/directn.h"
+#include "../sys/env.h"
 #include "../lib/libutil.h"
-#include "monster.h"
-#include "stuff.h"
+#include "../mon/monster.h"
+#include "../sys/stuff.h"
 #include "tiledef-dngn.h"
 #include "tiledef-icons.h"
 #include "tiledef-player.h"
@@ -221,3 +221,5 @@ void MonsterRegion::activate()
 }
 
 #endif
+
+

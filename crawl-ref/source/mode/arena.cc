@@ -3,42 +3,42 @@
  * @brief Functions related to the monster arena (stage and watch fights).
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "arena.h"
 
-#include "cio.h"
-#include "colour.h"
-#include "command.h"
-#include "dungeon.h"
-#include "env.h"
-#include "externs.h"
-#include "items.h"
-#include "itemname.h" // for make_name()
+#include "../low/cio.h"
+#include "../ui/colour.h"
+#include "../io/command.h"
+#include "../sys/dungeon.h"
+#include "../sys/env.h"
+#include "../sys/externs.h"
+#include "../item/items.h"
+#include "../item/itemname.h" // for make_name()
 #include "../lib/libutil.h"
-#include "los.h"
-#include "macro.h"
-#include "maps.h"
-#include "message.h"
-#include "mon-behv.h"
-#include "mon-iter.h"
-#include "mon-pick.h"
-#include "mon-util.h"
-#include "mon-place.h"
-#include "mgen_data.h"
-#include "mon-stuff.h"
+#include "../los/los.h"
+#include "../ui/macro.h"
+#include "../map/maps.h"
+#include "../io/message.h"
+#include "../mon/mon-behv.h"
+#include "../mon/mon-iter.h"
+#include "../mon/mon-pick.h"
+#include "../mon/mon-util.h"
+#include "../mon/mon-place.h"
+#include "../sys/mgen_data.h"
+#include "../mon/mon-stuff.h"
 #include "ng-init.h"
-#include "options.h"
-#include "spl-miscast.h"
-#include "spl-util.h"
+#include "../ui/options.h"
+#include "../spl/spl-miscast.h"
+#include "../spl/spl-util.h"
 #include "../sys/state.h"
-#include "stuff.h"
-#include "terrain.h"
+#include "../sys/stuff.h"
+#include "../sys/terrain.h"
 #ifdef USE_TILE
- #include "tileview.h"
+ #include "../tile/tileview.h"
 #endif
-#include "version.h"
-#include "view.h"
+#include "../build/version.h"
+#include "../io/view.h"
 #include "../io/viewgeom.h"
 
 #define ARENA_VERBOSE
@@ -1426,3 +1426,6 @@ NORETURN void run_arena(const string& teams)
     arena::global_shutdown();
     game_ended();
 }
+
+
+

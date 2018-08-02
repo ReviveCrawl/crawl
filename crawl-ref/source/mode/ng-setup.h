@@ -6,7 +6,7 @@
 #ifndef NG_SETUP_H
 #define NG_SETUP_H
 
-#include "itemprop-enum.h"
+#include "../item/itemprop-enum.h"
 
 void give_basic_mutations(species_type speci);
 void autopickup_starting_ammo(missile_type missile);
@@ -21,3 +21,6 @@ struct newgame_def;
 void setup_game(const newgame_def& ng);
 void unfocus_stats();
 #endif
+
+
+

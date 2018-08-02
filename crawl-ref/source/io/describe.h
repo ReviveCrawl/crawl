@@ -8,9 +8,9 @@
 
 #include <string>
 #include <sstream>
-#include "externs.h"
-#include "enum.h"
-#include "mon-util.h"
+#include "../sys/externs.h"
+#include "../sys/enum.h"
+#include "../mon/mon-util.h"
 
 struct monster_info;
 
@@ -124,3 +124,6 @@ protected:
 };
 
 #endif
+
+
+

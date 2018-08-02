@@ -1,9 +1,9 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "place-info.h"
 
-#include "branch.h"
-#include "player.h"
+#include "../sys/branch.h"
+#include "../player/player.h"
 
 PlaceInfo::PlaceInfo()
     : branch(NUM_BRANCHES), num_visits(0),
@@ -131,3 +131,6 @@ void player::clear_place_info()
     for (unsigned int i = 0; i < NUM_BRANCHES; ++i)
         branch_info[i] = PlaceInfo();
 }
+
+
+

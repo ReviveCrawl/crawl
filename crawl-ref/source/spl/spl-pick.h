@@ -6,8 +6,8 @@
 #ifndef SPL_PICK_H
 #define SPL_PICK_H
 
-#include "externs.h"
-#include "random-pick.h"
+#include "../sys/externs.h"
+#include "../random/random-pick.h"
 
 #define spell_entry random_pick_entry<spell_type>
 typedef bool (*spell_pick_vetoer)(spell_type);
@@ -29,3 +29,5 @@ protected:
 };
 
 #endif
+
+

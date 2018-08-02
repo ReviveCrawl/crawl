@@ -29,7 +29,7 @@
  *
  */
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "perlin.h"
 #include <cmath>
@@ -448,3 +448,6 @@ namespace perlin
         return value / norm;
     }
 }
+
+
+

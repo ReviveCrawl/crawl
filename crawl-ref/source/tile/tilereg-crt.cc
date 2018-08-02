@@ -1,9 +1,9 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE_LOCAL
 
-#include "cio.h"
-#include "menu.h"
+#include "../low/cio.h"
+#include "../ui/menu.h"
 #include "tilefont.h"
 #include "tilereg-crt.h"
 #include "../io/viewgeom.h"
@@ -77,3 +77,5 @@ void CRTRegion::detach_menu()
 }
 
 #endif
+
+

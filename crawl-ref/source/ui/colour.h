@@ -109,3 +109,5 @@ int dam_colour(const monster_info&);
 unsigned real_colour(unsigned raw_colour, const coord_def& loc = coord_def());
 
 #endif
+
+

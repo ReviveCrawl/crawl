@@ -7,7 +7,7 @@
 #ifndef OVERMAP_H
 #define OVERMAP_H
 
-#include "stash.h"
+#include "../sys/stash.h"
 #include <vector>
 
 void overview_clear();
@@ -44,3 +44,6 @@ class reader;
 void marshallUniqueAnnotations(writer& outf);
 void unmarshallUniqueAnnotations(reader& inf);
 #endif
+
+
+

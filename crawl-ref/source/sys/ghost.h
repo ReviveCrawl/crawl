@@ -7,8 +7,8 @@
 #define GHOST_H
 
 #include "../sys/enum.h"
-#include "itemprop-enum.h"
-#include "mon-enum.h"
+#include "../item/itemprop-enum.h"
+#include "../mon/mon-enum.h"
 
 class ghost_demon
 {
@@ -78,3 +78,5 @@ int ghost_level_to_rank(const int xl);
 extern vector<ghost_demon> ghosts;
 
 #endif
+
+

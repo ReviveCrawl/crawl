@@ -21,3 +21,5 @@ void wizard_quick_fsim();
 void wizard_fight_sim(bool double_scale);
 
 #endif
+
+

@@ -1,22 +1,22 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE_LOCAL
 
 #include "tilereg-skl.h"
-#include "process_desc.h"
+#include "../platforms/process_desc.h"
 
-#include "cio.h"
+#include "../low/cio.h"
 #include "../lib/libutil.h"
-#include "options.h"
-#include "skills.h"
-#include "skills2.h"
-#include "stuff.h"
+#include "../ui/options.h"
+#include "../sys/skills.h"
+#include "../sys/skills2.h"
+#include "../sys/stuff.h"
 #include "tiledef-icons.h"
 #include "tilepick.h"
 #include "../io/viewgeom.h"
 
 #ifdef WIZARD
-#include "wiz-you.h"
+#include "../wiz/wiz-you.h"
 #endif
 
 SkillRegion::SkillRegion(const TileRegionInit &init) : GridRegion(init)
@@ -253,3 +253,5 @@ void SkillRegion::update()
 }
 
 #endif
+
+

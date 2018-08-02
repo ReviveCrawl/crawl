@@ -30,3 +30,6 @@ string debug_mon_str(const monster* mon);
 void wizard_toggle_dprf();
 
 #endif
+
+
+

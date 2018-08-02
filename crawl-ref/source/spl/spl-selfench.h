@@ -30,3 +30,5 @@ spret_type cast_shroud_of_golubria(int pow, bool fail);
 spret_type cast_transform(int pow, transformation_type which_trans, bool fail);
 
 #endif
+
+

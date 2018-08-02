@@ -1,11 +1,11 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "../io/viewgeom.h"
 
-#include "options.h"
-#include "player.h"
+#include "../ui/options.h"
+#include "../player/player.h"
 #include "../sys/state.h"
-#include "stuff.h"
+#include "../sys/stuff.h"
 
 // ----------------------------------------------------------------------
 // Layout helper classes
@@ -424,3 +424,6 @@ void crawl_view_geometry::calc_vlos()
     vlos1 = grid2view(glos1);
     vlos2 = grid2view(glos2);
 }
+
+
+

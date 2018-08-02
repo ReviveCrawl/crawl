@@ -3,21 +3,21 @@
  * @brief Map generation statistics/testing.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "dbg-maps.h"
 
-#include "branch.h"
-#include "chardump.h"
-#include "dungeon.h"
-#include "env.h"
-#include "initfile.h"
+#include "../sys/branch.h"
+#include "../io/chardump.h"
+#include "../sys/dungeon.h"
+#include "../sys/env.h"
+#include "../io/initfile.h"
 #include "../lib/libutil.h"
-#include "maps.h"
-#include "message.h"
-#include "ng-init.h"
-#include "player.h"
-#include "view.h"
+#include "../map/maps.h"
+#include "../io/message.h"
+#include "../mode/ng-init.h"
+#include "../player/player.h"
+#include "../io/view.h"
 
 #ifdef DEBUG_DIAGNOSTICS
 // Map statistics generation.
@@ -444,3 +444,6 @@ void generate_map_stats()
 }
 
 #endif // DEBUG_DIAGNOSTICS
+
+
+

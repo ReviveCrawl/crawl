@@ -3,15 +3,15 @@
  * @brief Place related functions.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
-#include "externs.h"
+#include "../sys/externs.h"
 
-#include "branch.h"
+#include "../sys/branch.h"
 #include "../lib/libutil.h"
 #include "place.h"
-#include "player.h"
-#include "travel.h"
+#include "../player/player.h"
+#include "../sys/travel.h"
 
 string short_place_name(level_id id)
 {
@@ -127,3 +127,6 @@ bool is_level_on_stack(level_id lev)
 
     return false;
 }
+
+
+

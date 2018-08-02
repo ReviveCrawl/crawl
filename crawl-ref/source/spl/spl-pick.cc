@@ -3,7 +3,7 @@
  * @brief Functions for picking from lists of spells.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "spl-pick.h"
 
@@ -21,3 +21,5 @@ bool spell_picker::veto(spell_type mon)
 {
     return veto_func && veto_func(mon);
 }
+
+

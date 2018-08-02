@@ -14,3 +14,5 @@ bool find_siren_water_target(monster* mon);
 bool pacified_leave_level(monster* mon, vector<level_exit> e, int e_index);
 
 #endif
+
+

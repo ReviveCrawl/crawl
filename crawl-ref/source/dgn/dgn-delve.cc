@@ -1,13 +1,13 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 #include <deque>
 
-#include "env.h"
+#include "../sys/env.h"
 #include "../coord/coord.h"
 #include "../coord/coordit.h"
-#include "directn.h"
-#include "dungeon.h"
-#include "mapdef.h"
-#include "random.h"
+#include "../ui/directn.h"
+#include "../sys/dungeon.h"
+#include "../map/mapdef.h"
+#include "../random/random.h"
 #include "dgn-delve.h"
 
 /* Original algorithm by Kusigrosz.
@@ -312,3 +312,4 @@ retry:
         goto retry;
     }
 }
+

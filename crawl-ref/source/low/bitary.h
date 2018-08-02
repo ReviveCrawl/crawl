@@ -9,7 +9,7 @@
 #ifndef BITARY_H
 #define BITARY_H
 
-#include "defines.h"
+#include "../sys/defines.h"
 
 #include <bitset>
 
@@ -180,3 +180,6 @@ public:
 };
 
 #endif
+
+
+

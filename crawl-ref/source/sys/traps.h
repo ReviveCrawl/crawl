@@ -7,7 +7,7 @@
 #define TRAPS_H
 
 #include "../sys/enum.h"
-#include "externs.h"
+#include "../sys/externs.h"
 
 struct bolt;
 class monster;
@@ -44,3 +44,5 @@ void place_webs(int num, bool is_second_phase = false);
 bool maybe_destroy_web(actor *oaf);
 bool ensnare(actor *fly);
 #endif
+
+

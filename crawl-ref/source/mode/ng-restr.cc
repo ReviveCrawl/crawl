@@ -6,12 +6,12 @@
  * access any global data.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 #include "ng-restr.h"
 
 #include "newgame_def.h"
-#include "species.h"
-#include "jobs.h"
+#include "../sys/species.h"
+#include "../sys/jobs.h"
 
 char_choice_restriction job_allowed(species_type speci, job_type job)
 {
@@ -855,3 +855,6 @@ char_choice_restriction weapon_restriction(weapon_type wpn,
         return CC_BANNED;
     }
 }
+
+
+

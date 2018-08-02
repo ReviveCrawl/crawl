@@ -3,13 +3,13 @@
  * @brief Chimeric beasties
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 #include "mon-chimera.h"
 
-#include "externs.h"
+#include "../sys/externs.h"
 #include "../sys/enum.h"
-#include "ghost.h"
-#include "mgen_data.h"
+#include "../sys/ghost.h"
+#include "../sys/mgen_data.h"
 #include "mon-info.h"
 #include "mon-util.h"
 #include "mon-pick.h"
@@ -277,3 +277,6 @@ string monster_info::chimera_part_names() const
       << ", " << get_monster_data(chimtype3)->name;
     return s.str();
 }
+
+
+

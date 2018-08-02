@@ -14,3 +14,5 @@ void debug_waves();
 string zotdef_debug_wave_desc();
 
 #endif // ZOTDEF_H
+
+

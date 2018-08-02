@@ -11,7 +11,7 @@
  * DATA_DIR_PATH set.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #if defined(DEBUG_DIAGNOSTICS) || defined(DEBUG_TESTS)
 
@@ -20,17 +20,17 @@
 #include "clua.h"
 #include "cluautil.h"
 #include "dlua.h"
-#include "errors.h"
-#include "files.h"
+#include "../io/errors.h"
+#include "../io/files.h"
 #include "../lib/libutil.h"
-#include "maps.h"
-#include "message.h"
-#include "mon-pick.h"
-#include "mon-util.h"
-#include "ng-init.h"
+#include "../map/maps.h"
+#include "../io/message.h"
+#include "../mon/mon-pick.h"
+#include "../mon/mon-util.h"
+#include "../mode/ng-init.h"
 #include "../sys/state.h"
-#include "stuff.h"
-#include "zotdef.h"
+#include "../sys/stuff.h"
+#include "../sys/zotdef.h"
 
 #include <algorithm>
 #include <vector>
@@ -206,3 +206,6 @@ bool run_tests(bool exit_on_complete)
 }
 
 #endif // DEBUG_DIAGNOSTICS
+
+
+

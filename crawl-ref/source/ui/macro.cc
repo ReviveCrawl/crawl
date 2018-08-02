@@ -18,9 +18,9 @@
  * (When the above text mentions characters, it actually means int).
  */
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
-#include "macro.h"
+#include "../ui/macro.h"
 #include "../sys/state.h"
 
 #include <string>
@@ -33,20 +33,20 @@
 #include <cctype>      // for tolower
 #include <cstdlib>
 
-#include "cio.h"
-#include "externs.h"
-#include "files.h"
+#include "../low/cio.h"
+#include "../sys/externs.h"
+#include "../io/files.h"
 #include "../lib/libutil.h"
 #include "options.h"
-#include "message.h"
+#include "../io/message.h"
 #include "../sys/state.h"
-#include "stuff.h"
-#include "syscalls.h"
-#include "unicode.h"
-#include "version.h"
+#include "../sys/stuff.h"
+#include "../sys/syscalls.h"
+#include "../low/unicode.h"
+#include "../build/version.h"
 
 // for trim_string:
-#include "initfile.h"
+#include "../io/initfile.h"
 
 typedef deque<int> keybuf;
 typedef map<keyseq,keyseq> macromap;
@@ -95,7 +95,7 @@ struct default_binding
 };
 
 static default_binding _default_binding_list[] = {
-#include "cmd-keys.h"
+#include "../io/cmd-keys.h"
 };
 
 typedef map<int, int> key_to_cmd_map;
@@ -1480,3 +1480,5 @@ static void _list_all_commands(string &commands)
     commands += "\n";
 }
 #endif
+
+

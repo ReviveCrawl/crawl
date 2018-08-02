@@ -1,7 +1,7 @@
 #ifndef LOS_DEF_H
 #define LOS_DEF_H
 
-#include "los.h"
+#include "../los/los.h"
 
 class los_base
 {
@@ -64,3 +64,6 @@ public:
 };
 
 #endif
+
+
+

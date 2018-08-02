@@ -18,7 +18,7 @@ Notes:
   reading even if the chunk has been changed since.
 */
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include <stdio.h>
 
@@ -31,9 +31,9 @@ Notes:
 #include <sstream>
 
 #include "package.h"
-#include "endianness.h"
+#include "../platforms/endianness.h"
 #include "errors.h"
-#include "syscalls.h"
+#include "../sys/syscalls.h"
 
 #if !defined(DGAMELAUNCH) && !defined(__ANDROID__) && !defined(DEBUG_DIAGNOSTICS)
 #define DO_FSYNC
@@ -950,3 +950,6 @@ void chunk_reader::read_all(vector<char> &data)
     data.resize(at + s);
 #undef SPACE
 }
+
+
+

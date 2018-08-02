@@ -12,3 +12,6 @@ void mons_summon_illusion_from(monster* mons, actor *foe,
 bool actor_is_illusion_cloneable(actor *target);
 
 #endif
+
+
+

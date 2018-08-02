@@ -1,25 +1,25 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "map_knowledge.h"
 
 #include "../coord/coordit.h"
-#include "dgn-overview.h"
-#include "dgnevent.h"
-#include "directn.h"
-#include "env.h"
-#include "feature.h"
-#include "los.h"
-#include "mon-util.h"
-#include "notes.h"
-#include "options.h"
-#include "religion.h"
-#include "show.h"
-#include "terrain.h"
+#include "../dgn/dgn-overview.h"
+#include "../dgn/dgnevent.h"
+#include "../ui/directn.h"
+#include "../sys/env.h"
+#include "../sys/feature.h"
+#include "../los/los.h"
+#include "../mon/mon-util.h"
+#include "../sys/notes.h"
+#include "../ui/options.h"
+#include "../sys/religion.h"
+#include "../sys/show.h"
+#include "../sys/terrain.h"
 #ifdef USE_TILE
- #include "tilepick.h"
- #include "tileview.h"
+ #include "../tile/tilepick.h"
+ #include "../tile/tileview.h"
 #endif
-#include "view.h"
+#include "../io/view.h"
 
 // Used to mark dug out areas, unset when terrain is seen or mapped again.
 void set_terrain_changed(int x, int y)
@@ -237,3 +237,6 @@ map_feature get_cell_map_feature(const map_cell& cell)
 
     return mf;
 }
+
+
+

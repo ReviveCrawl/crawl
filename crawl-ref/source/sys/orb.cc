@@ -3,13 +3,13 @@
  * @brief Orb-related functionality.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "areas.h"
-#include "message.h"
+#include "../io/message.h"
 #include "orb.h"
 #include "shout.h"
-#include "view.h"
+#include "../io/view.h"
 
 /**
  * Make a "noise" caused by the orb.
@@ -69,3 +69,5 @@ void orb_pickup_noise(const coord_def& where, int loudness, const char* msg, con
             mpr("The orb lets out a furious burst of light!", MSGCH_ORB);
     }
 }
+
+

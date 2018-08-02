@@ -59,7 +59,7 @@
  * Latest version: http://www.cl.cam.ac.uk/~mgk25/ucs/wcwidth.c
  */
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifndef UNIX
 #include "unicode.h"
@@ -232,3 +232,6 @@ int wcwidth(ucs_t ucs)
              (ucs >= 0x30000 && ucs <= 0x3fffd)));
 }
 #endif
+
+
+

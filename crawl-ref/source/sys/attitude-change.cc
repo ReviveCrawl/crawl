@@ -3,27 +3,27 @@
  * @brief Monster attitude changing due to religion.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "attitude-change.h"
 
 #include <sstream>
 
 #include "../coord/coordit.h"
-#include "database.h"
+#include "../io/database.h"
 #include "env.h"
-#include "godcompanions.h"
-#include "goditem.h"
-#include "itemprop.h"
+#include "../god/godcompanions.h"
+#include "../god/goditem.h"
+#include "../item/itemprop.h"
 #include "../lib/libutil.h"
-#include "message.h"
-#include "mon-behv.h"
-#include "mon-iter.h"
-#include "mon-util.h"
-#include "monster.h"
-#include "mon-stuff.h"
-#include "player.h"
-#include "random.h"
+#include "../io/message.h"
+#include "../mon/mon-behv.h"
+#include "../mon/mon-iter.h"
+#include "../mon/mon-util.h"
+#include "../mon/monster.h"
+#include "../mon/mon-stuff.h"
+#include "../player/player.h"
+#include "../random/random.h"
 #include "religion.h"
 #include "../sys/state.h"
 #include "travel.h"
@@ -494,3 +494,5 @@ static void _jiyva_convert_slime(monster* slime)
 
     mons_att_changed(slime);
 }
+
+

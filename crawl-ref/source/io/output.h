@@ -60,3 +60,6 @@ string magic_res_adjective(int mr);
 string stealth_desc(int stealth);
 
 #endif
+
+
+

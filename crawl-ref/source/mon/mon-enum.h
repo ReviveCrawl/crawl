@@ -9,7 +9,7 @@
 #ifndef MON_ENUM_H
 #define MON_ENUM_H
 
-// #include "tag-version.h"
+// #include "../build/tag-version.h"
 
 #define HERD_COMFORT_RANGE 6
 
@@ -286,3 +286,5 @@ enum mon_body_shape
 };
 
 #endif
+
+

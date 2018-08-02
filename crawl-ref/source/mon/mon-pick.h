@@ -6,8 +6,8 @@
 #ifndef MONPICK_H
 #define MONPICK_H
 
-#include "externs.h"
-#include "random-pick.h"
+#include "../sys/externs.h"
+#include "../random/random-pick.h"
 
 #define DEPTH_NOWHERE 999
 
@@ -85,3 +85,5 @@ monster_type pick_monster_all_branches(int absdepth0, monster_picker &picker,
                                        mon_pick_vetoer veto = nullptr);
 
 #endif
+
+

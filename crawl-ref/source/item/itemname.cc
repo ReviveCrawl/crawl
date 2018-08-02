@@ -3,7 +3,7 @@
  * @brief Misc functions.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "itemname.h"
 
@@ -12,39 +12,39 @@
 #include <ctype.h>
 #include <string.h>
 
-#include "clua.h"
+#include "../lua/clua.h"
 
-#include "externs.h"
-#include "options.h"
+#include "../sys/externs.h"
+#include "../ui/options.h"
 
 #include "art-enum.h"
 #include "artefact.h"
-#include "colour.h"
+#include "../ui/colour.h"
 #include "decks.h"
-#include "describe.h"
-#include "food.h"
-#include "goditem.h"
-#include "invent.h"
+#include "../io/describe.h"
+#include "../sys/food.h"
+#include "../god/goditem.h"
+#include "../sys/invent.h"
 #include "item_use.h"
 #include "itemprop.h"
 #include "items.h"
 #include "../lib/libutil.h"
-#include "makeitem.h"
-#include "mon-util.h"
-#include "mon-stuff.h"
-#include "notes.h"
-#include "player.h"
-#include "religion.h"
-#include "quiver.h"
-#include "shopping.h"
-#include "showsymb.h"
-#include "skills2.h"
-#include "spl-book.h"
-#include "spl-summoning.h"
+#include "../sys/makeitem.h"
+#include "../mon/mon-util.h"
+#include "../mon/mon-stuff.h"
+#include "../sys/notes.h"
+#include "../player/player.h"
+#include "../sys/religion.h"
+#include "../sys/quiver.h"
+#include "../sys/shopping.h"
+#include "../sys/showsymb.h"
+#include "../sys/skills2.h"
+#include "../spl/spl-book.h"
+#include "../spl/spl-summoning.h"
 #include "../sys/state.h"
-#include "stuff.h"
-#include "throw.h"
-#include "transform.h"
+#include "../sys/stuff.h"
+#include "../sys/throw.h"
+#include "../sys/transform.h"
 
 
 static bool _is_random_name_space(char let);
@@ -3698,3 +3698,6 @@ string get_corpse_name(const item_def &corpse, uint64_t *name_type)
 
     return corpse.props[CORPSE_NAME_KEY].get_string();
 }
+
+
+

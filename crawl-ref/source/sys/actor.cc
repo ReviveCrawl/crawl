@@ -1,22 +1,22 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
-#include "actor.h"
+#include "../sys/actor.h"
 #include "areas.h"
-#include "artefact.h"
+#include "../item/artefact.h"
 #include "attack.h"
 #include "../coord/coord.h"
-#include "describe.h"
+#include "../io/describe.h"
 #include "env.h"
 #include "fprop.h"
-#include "itemprop.h"
+#include "../item/itemprop.h"
 #include "../lib/libutil.h"
-#include "los.h"
+#include "../los/los.h"
 #include "misc.h"
-#include "mon-death.h"
+#include "../mon/mon-death.h"
 #include "ouch.h"
-#include "player.h"
+#include "../player/player.h"
 #include "religion.h"
-#include "random.h"
+#include "../random/random.h"
 #include "../sys/state.h"
 #include "stuff.h"
 #include "terrain.h"
@@ -829,3 +829,5 @@ string actor::describe_props() const
     }
     return oss.str();
 }
+
+

@@ -3,7 +3,7 @@
  * @brief Version (and revision) functionality.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "version.h"
 #include "build.h"
@@ -40,3 +40,6 @@ const char* compilation_info =
     "Platform: " CRAWL_ARCH "\n"
     "CFLAGS: " CRAWL_CFLAGS "\n"
     "LDFLAGS: " CRAWL_LDFLAGS "\n";
+
+
+

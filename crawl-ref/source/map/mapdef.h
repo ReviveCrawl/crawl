@@ -18,15 +18,15 @@
 #include <cstdio>
 #include <memory>
 
-#include "dlua.h"
+#include "../lua/dlua.h"
 #include "../sys/enum.h"
-#include "externs.h"
-#include "matrix.h"
-#include "fprop.h"
-#include "makeitem.h"
-#include "mon-ench.h"
-#include "tags.h"
-#include "travel_defs.h"
+#include "../sys/externs.h"
+#include "../los/matrix.h"
+#include "../sys/fprop.h"
+#include "../sys/makeitem.h"
+#include "../mon/mon-ench.h"
+#include "../io/tags.h"
+#include "../sys/travel_defs.h"
 
 class mon_enchant;
 extern const char *traversable_glyphs;
@@ -1318,3 +1318,6 @@ const char *map_section_name(int msect);
 
 int store_tilename_get_index(const string tilename);
 #endif
+
+
+

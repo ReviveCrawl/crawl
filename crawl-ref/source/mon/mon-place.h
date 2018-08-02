@@ -7,7 +7,7 @@
 #ifndef MONPLACE_H
 #define MONPLACE_H
 
-#include "mgen_enum.h"
+#include "../sys/mgen_enum.h"
 
 class mons_spec;
 struct mgen_data;
@@ -109,3 +109,5 @@ void mons_add_blame(monster* mon, const string &blame_string);
 extern band_type active_monster_band;
 
 #endif  // MONPLACE_H
+
+

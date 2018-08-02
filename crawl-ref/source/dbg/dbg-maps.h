@@ -18,3 +18,6 @@ void mapgen_report_map_veto();
 #endif
 
 #endif
+
+
+

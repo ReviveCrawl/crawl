@@ -3,7 +3,7 @@
  * @brief Functions used to create vaults.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "maps.h"
 
@@ -17,27 +17,27 @@
 #include <unistd.h>
 #endif
 
-#include "branch.h"
+#include "../sys/branch.h"
 #include "../coord/coordit.h"
-#include "dbg-maps.h"
-#include "dungeon.h"
-#include "endianness.h"
-#include "env.h"
+#include "../dbg/dbg-maps.h"
+#include "../sys/dungeon.h"
+#include "../platforms/endianness.h"
+#include "../sys/env.h"
 #include "../sys/enum.h"
-#include "files.h"
+#include "../io/files.h"
 #include "../lib/libutil.h"
-#include "message.h"
+#include "../io/message.h"
 #include "mapdef.h"
 #include "mapmark.h"
-#include "mon-util.h"
-#include "mon-place.h"
+#include "../mon/mon-util.h"
+#include "../mon/mon-place.h"
 #include "../coord/coord.h"
-#include "random.h"
+#include "../random/random.h"
 #include "../sys/state.h"
-#include "stuff.h"
-#include "syscalls.h"
-#include "tags.h"
-#include "terrain.h"
+#include "../sys/stuff.h"
+#include "../sys/syscalls.h"
+#include "../io/tags.h"
+#include "../sys/terrain.h"
 
 #ifndef BYTE_ORDER
 # error BYTE_ORDER is not defined
@@ -1594,3 +1594,6 @@ void mg_report_random_maps(FILE *outf, const level_id &place)
 }
 
 #endif
+
+
+

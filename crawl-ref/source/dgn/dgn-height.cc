@@ -3,13 +3,13 @@
  * @brief Dungeon heightmap routines.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "../coord/coord.h"
 #include "../coord/coordit.h"
 #include "dgn-height.h"
-#include "dungeon.h"
-#include "random.h"
+#include "../sys/dungeon.h"
+#include "../random/random.h"
 
 void dgn_initialise_heightmap(int height)
 {
@@ -177,3 +177,6 @@ coord_def dgn_island_plan::pick_and_remove_random_island()
     islands.erase(islands.begin() + lucky_island);
     return c;
 }
+
+
+

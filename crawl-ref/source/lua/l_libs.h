@@ -87,3 +87,6 @@ struct monster_info;
 void lua_push_moninf(lua_State *ls, monster_info *mi);
 
 #endif
+
+
+

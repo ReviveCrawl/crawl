@@ -3,7 +3,7 @@
  * @brief Functions for eating and butchering.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "food.h"
 
@@ -13,47 +13,47 @@
 #include <stdio.h>
 #include <ctype.h>
 
-#include "externs.h"
-#include "options.h"
+#include "../sys/externs.h"
+#include "../ui/options.h"
 
-#include "artefact.h"
-#include "cio.h"
-#include "clua.h"
-#include "command.h"
-#include "database.h"
+#include "../item/artefact.h"
+#include "../low/cio.h"
+#include "../lua/clua.h"
+#include "../io/command.h"
+#include "../io/database.h"
 #include "delay.h"
 #include "effects.h"
 #include "env.h"
 #include "hints.h"
 #include "invent.h"
-#include "items.h"
-#include "itemname.h"
-#include "itemprop.h"
-#include "item_use.h"
+#include "../item/items.h"
+#include "../item/itemname.h"
+#include "../item/itemprop.h"
+#include "../item/item_use.h"
 #include "../lib/libutil.h"
-#include "macro.h"
+#include "../ui/macro.h"
 #include "mgen_data.h"
-#include "message.h"
+#include "../io/message.h"
 #include "misc.h"
-#include "mon-place.h"
-#include "mon-util.h"
+#include "../mon/mon-place.h"
+#include "../mon/mon-util.h"
 #include "mutation.h"
-#include "output.h"
-#include "player.h"
-#include "player-equip.h"
-#include "player-stats.h"
+#include "../io/output.h"
+#include "../player/player.h"
+#include "../player/player-equip.h"
+#include "../player/player-stats.h"
 #include "potion.h"
-#include "random.h"
+#include "../random/random.h"
 #include "religion.h"
-#include "godconduct.h"
-#include "godabil.h"
+#include "../god/godconduct.h"
+#include "../god/godabil.h"
 #include "skills2.h"
-#include "spl-util.h"
+#include "../spl/spl-util.h"
 #include "../sys/state.h"
 #include "stuff.h"
 #include "transform.h"
 #include "travel.h"
-#include "xom.h"
+#include "../god/xom.h"
 
 static corpse_effect_type _determine_chunk_effect(corpse_effect_type chunktype,
                                                   bool rotten_chunk);
@@ -2890,3 +2890,5 @@ maybe_bool drop_spoiled_chunks(int weight_needed, bool whole_slot)
 
     return result;
 }
+
+

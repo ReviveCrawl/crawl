@@ -6,8 +6,8 @@
 #ifndef GOD_COMPANION_H
 #define GOD_COMPANION_H
 
-#include "monster.h"
-#include "mon-transit.h"
+#include "../mon/monster.h"
+#include "../mon/mon-transit.h"
 #include <map>
 #include <list>
 
@@ -45,3 +45,6 @@ void fixup_bad_companions();
 #endif
 
 #endif
+
+
+

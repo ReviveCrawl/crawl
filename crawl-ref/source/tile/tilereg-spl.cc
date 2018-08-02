@@ -1,17 +1,17 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE_LOCAL
 
 #include "tilereg-spl.h"
-#include "process_desc.h"
+#include "../platforms/process_desc.h"
 
-#include "cio.h"
+#include "../low/cio.h"
 #include "../lib/libutil.h"
-#include "macro.h"
-#include "message.h"
-#include "spl-cast.h"
-#include "spl-util.h"
-#include "stuff.h"
+#include "../ui/macro.h"
+#include "../io/message.h"
+#include "../spl/spl-cast.h"
+#include "../spl/spl-util.h"
+#include "../sys/stuff.h"
 #include "tiledef-dngn.h"
 #include "tiledef-icons.h"
 #include "tiledef-main.h"
@@ -244,3 +244,5 @@ void SpellRegion::update()
 }
 
 #endif
+
+

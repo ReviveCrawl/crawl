@@ -1,12 +1,12 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "tilecell.h"
 
-#include "cloud.h"
+#include "../sys/cloud.h"
 #include "../coord/coord.h"
 #include "../coord/coordit.h"
-#include "env.h"
-#include "terrain.h"
+#include "../sys/env.h"
+#include "../sys/terrain.h"
 #include "tiledef-dngn.h"
 
 void packed_cell::clear()
@@ -477,3 +477,5 @@ void pack_cell_overlays(const coord_def &gc, packed_cell *cell)
         _pack_wall_shadows(gc, cell, shadow_tile);
     }
 }
+
+

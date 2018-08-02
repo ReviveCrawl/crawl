@@ -3,7 +3,7 @@
  * @brief Spellbook/rod contents array and management functions
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "spl-book.h"
 
@@ -13,38 +13,38 @@
 #include <algorithm>
 #include <iomanip>
 
-#include "artefact.h"
-#include "cio.h"
-#include "colour.h"
-#include "database.h"
-#include "delay.h"
-#include "describe.h"
-#include "effects.h"
-#include "externs.h"
-#include "food.h"
-#include "format.h"
-#include "godconduct.h"
-#include "goditem.h"
-#include "hints.h"
-#include "invent.h"
-#include "itemname.h"
-#include "itemprop.h"
-#include "items.h"
+#include "../item/artefact.h"
+#include "../low/cio.h"
+#include "../ui/colour.h"
+#include "../io/database.h"
+#include "../sys/delay.h"
+#include "../io/describe.h"
+#include "../sys/effects.h"
+#include "../sys/externs.h"
+#include "../sys/food.h"
+#include "../io/format.h"
+#include "../god/godconduct.h"
+#include "../god/goditem.h"
+#include "../sys/hints.h"
+#include "../sys/invent.h"
+#include "../item/itemname.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
 #include "../lib/libutil.h"
-#include "macro.h"
-#include "message.h"
-#include "player.h"
-#include "religion.h"
-#include "species.h"
+#include "../ui/macro.h"
+#include "../io/message.h"
+#include "../player/player.h"
+#include "../sys/religion.h"
+#include "../sys/species.h"
 #include "spl-cast.h"
 #include "spl-miscast.h"
 #include "spl-util.h"
 #include "../sys/state.h"
-#include "stuff.h"
+#include "../sys/stuff.h"
 #ifdef USE_TILE
- #include "tilepick.h"
+ #include "../tile/tilepick.h"
 #endif
-#include "transform.h"
+#include "../sys/transform.h"
 
 #define SPELL_LIST_KEY "spell_list"
 
@@ -2549,3 +2549,5 @@ void destroy_spellbook(const item_def &book)
 
     did_god_conduct(DID_DESTROY_SPELLBOOK, maxlevel + 5);
 }
+
+

@@ -3,13 +3,13 @@
  * @brief Random number generator wrapping.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "rng.h"
 
-#include "endianness.h"
+#include "../platforms/endianness.h"
 #include "asg.h"
-#include "syscalls.h"
+#include "../sys/syscalls.h"
 
 #ifdef UNIX
 // for times()
@@ -118,3 +118,5 @@ uint32_t hash32(const void *data, int len)
 
     return h;
 }
+
+

@@ -1,9 +1,9 @@
 #ifndef ATTACK_H
 #define ATTACK_H
 
-#include "artefact.h"
-#include "itemprop-enum.h"
-#include "mon-enum.h"
+#include "../item/artefact.h"
+#include "../item/itemprop-enum.h"
+#include "../mon/mon-enum.h"
 
 // Used throughout inheriting classes, define them here for universal access
 const int HIT_WEAK   = 7;
@@ -141,3 +141,5 @@ protected:
 };
 
 #endif
+
+

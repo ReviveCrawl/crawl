@@ -1,13 +1,13 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "cluautil.h"
 #include "l_libs.h"
 
-#include "food.h"
-#include "invent.h"
-#include "itemprop.h"
-#include "items.h"
-#include "player.h"
+#include "../sys/food.h"
+#include "../sys/invent.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
+#include "../player/player.h"
 
 /////////////////////////////////////////////////////////////////////
 // Food information.
@@ -193,3 +193,6 @@ void cluaopen_food(lua_State *ls)
 {
     luaL_openlib(ls, "food", food_lib, 0);
 }
+
+
+

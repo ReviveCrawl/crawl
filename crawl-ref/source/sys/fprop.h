@@ -44,3 +44,5 @@ feature_property_type str_to_fprop(const string &str);
 char blood_rotation(const coord_def & p);
 
 #endif
+
+

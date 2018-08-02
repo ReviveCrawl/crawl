@@ -8,7 +8,7 @@
 
 #include <list>
 
-#include "random-var.h"
+#include "../random/random-var.h"
 
 enum unchivalric_attack_type
 {
@@ -50,3 +50,5 @@ void attack_cleave_targets(actor* attacker, list<actor*> &targets,
 int finesse_adjust_delay(int delay);
 
 #endif
+
+

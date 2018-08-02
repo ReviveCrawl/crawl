@@ -10,7 +10,7 @@
 const int MAX_SKILL_ORDER = 100;
 
 #include "../sys/enum.h"
-#include "player.h"
+#include "../player/player.h"
 
 struct skill_state
 {
@@ -119,3 +119,5 @@ static inline bool is_invalid_skill(skill_type skill)
 }
 
 #endif
+
+

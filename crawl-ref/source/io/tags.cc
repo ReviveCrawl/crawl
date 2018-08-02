@@ -11,8 +11,8 @@
    width ones.  For now, that wasn't done in order to keep things convenient.
 */
 
-#include "AppHdr.h"
-#include "bitary.h"
+#include "../build/AppHdr.h"
+#include "../low/bitary.h"
 
 #include <cstdlib>
 #include <cstdio>
@@ -28,54 +28,54 @@
 #include <unistd.h>
 #endif
 
-#include "abyss.h"
+#include "../map/abyss.h"
 #include "art-enum.h"
-#include "artefact.h"
-#include "branch.h"
+#include "../item/artefact.h"
+#include "../sys/branch.h"
 #include "../coord/coord.h"
 #include "../coord/coordit.h"
 #include "describe.h"
-#include "dgn-overview.h"
-#include "dungeon.h"
+#include "../dgn/dgn-overview.h"
+#include "../sys/dungeon.h"
 #include "../sys/enum.h"
 #include "errors.h"
-#include "map_knowledge.h"
-#include "externs.h"
+#include "../map/map_knowledge.h"
+#include "../sys/externs.h"
 #include "files.h"
-#include "ghost.h"
-#include "godcompanions.h"
-#include "itemname.h"
-#include "items.h"
+#include "../sys/ghost.h"
+#include "../god/godcompanions.h"
+#include "../item/itemname.h"
+#include "../item/items.h"
 #include "../lib/libutil.h"
-#include "mapmark.h"
-#include "misc.h"
-#include "mislead.h"
-#include "mon-info.h"
+#include "../map/mapmark.h"
+#include "../sys/misc.h"
+#include "../sys/mislead.h"
+#include "../mon/mon-info.h"
 #if TAG_MAJOR_VERSION == 34
- #include "mon-chimera.h"
+ #include "../mon/mon-chimera.h"
 #endif
-#include "mon-util.h"
-#include "mon-transit.h"
-#include "place.h"
-#include "quiver.h"
-#include "religion.h"
-#include "skills.h"
-#include "skills2.h"
+#include "../mon/mon-util.h"
+#include "../mon/mon-transit.h"
+#include "../map/place.h"
+#include "../sys/quiver.h"
+#include "../sys/religion.h"
+#include "../sys/skills.h"
+#include "../sys/skills2.h"
 #include "../sys/state.h"
-#include "stuff.h"
-#include "env.h"
-#include "syscalls.h"
+#include "../sys/stuff.h"
+#include "../sys/env.h"
+#include "../sys/syscalls.h"
 #include "tags.h"
-#include "terrain.h"
+#include "../sys/terrain.h"
 #include "tiledef-dngn.h"
 #include "tiledef-player.h"
-#include "tilepick.h"
-#include "tileview.h"
+#include "../tile/tilepick.h"
+#include "../tile/tileview.h"
 #ifdef USE_TILE
- #include "tilemcache.h"
+ #include "../tile/tilemcache.h"
 #endif
-#include "travel.h"
-#include "version.h"
+#include "../sys/travel.h"
+#include "../build/version.h"
 
 // defined in dgn-overview.cc
 extern map<branch_type, set<level_id> > stair_level;
@@ -4593,3 +4593,6 @@ static void tag_read_ghost(reader &th)
     for (int i = 0; i < nghosts; ++i)
         ghosts.push_back(unmarshallGhost(th));
 }
+
+
+

@@ -3,7 +3,7 @@
  * @brief Functions used when Bad Things happen to the player.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include <cstring>
 #include <string>
@@ -21,54 +21,54 @@
 
 #include "ouch.h"
 
-#include "externs.h"
-#include "options.h"
+#include "../sys/externs.h"
+#include "../ui/options.h"
 
 #include "art-enum.h"
-#include "artefact.h"
+#include "../item/artefact.h"
 #include "beam.h"
-#include "chardump.h"
+#include "../io/chardump.h"
 #include "delay.h"
-#include "describe.h"
-#include "dgnevent.h"
+#include "../io/describe.h"
+#include "../dgn/dgnevent.h"
 #include "effects.h"
 #include "env.h"
-#include "files.h"
+#include "../io/files.h"
 #include "fight.h"
 #include "fineff.h"
-#include "godabil.h"
+#include "../god/godabil.h"
 #include "hints.h"
-#include "hiscores.h"
+#include "../io/hiscores.h"
 #include "invent.h"
-#include "itemname.h"
-#include "itemprop.h"
-#include "items.h"
+#include "../item/itemname.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
 #include "../lib/libutil.h"
-#include "macro.h"
-#include "message.h"
+#include "../ui/macro.h"
+#include "../io/message.h"
 #include "mgen_data.h"
 #include "misc.h"
-#include "mon-util.h"
-#include "mon-place.h"
-#include "mon-stuff.h"
+#include "../mon/mon-util.h"
+#include "../mon/mon-place.h"
+#include "../mon/mon-stuff.h"
 #include "mutation.h"
 #include "notes.h"
-#include "player.h"
-#include "player-stats.h"
+#include "../player/player.h"
+#include "../player/player-stats.h"
 #include "potion.h"
-#include "random.h"
+#include "../random/random.h"
 #include "religion.h"
 #include "shopping.h"
 #include "skills2.h"
-#include "spl-selfench.h"
-#include "spl-other.h"
+#include "../spl/spl-selfench.h"
+#include "../spl/spl-other.h"
 #include "../sys/state.h"
 #include "stuff.h"
 #include "transform.h"
-#include "tutorial.h"
-#include "view.h"
+#include "../mode/tutorial.h"
+#include "../io/view.h"
 #include "shout.h"
-#include "xom.h"
+#include "../god/xom.h"
 
 static void _end_game(scorefile_entry &se);
 
@@ -1536,3 +1536,5 @@ int timescale_damage(const actor *act, int damage)
         return div_rand_round(damage * BASELINE_DELAY, speed);
     }
 }
+
+

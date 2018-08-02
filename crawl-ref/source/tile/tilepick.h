@@ -6,7 +6,7 @@
 #ifndef TILEPICK_H
 #define TILEPICK_H
 
-#include "tiledef_defines.h"
+#include "../rltiles/tiledef_defines.h"
 
 struct bolt;
 struct cloud_info;
@@ -67,3 +67,5 @@ string tile_debug_string(tileidx_t fg, tileidx_t bg, tileidx_t cloud, char prefi
 void tile_init_props(monster* mon);
 
 #endif
+
+

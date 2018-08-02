@@ -1,11 +1,11 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "species.h"
 
 #include "../lib/libutil.h"
-#include "random.h"
+#include "../random/random.h"
 
-#include "version.h"
+#include "../build/version.h"
 
 // March 2008: change order of species and jobs on character selection
 // screen as suggested by Markus Maier. Summarizing comments below are
@@ -537,3 +537,5 @@ int species_mp_modifier(species_type species)
         return 3;
     }
 }
+
+

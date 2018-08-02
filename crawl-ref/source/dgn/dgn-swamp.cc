@@ -1,11 +1,11 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "dgn-swamp.h"
 
 #include "../coord/coordit.h"
-#include "dungeon.h"
+#include "../sys/dungeon.h"
 #include "dgn-height.h"
-#include "random.h"
+#include "../random/random.h"
 
 static void _swamp_slushy_patches(int depth_multiplier)
 {
@@ -71,3 +71,6 @@ void dgn_build_swamp_level()
     _swamp_apply_features(2);
     env.heightmap.reset(NULL);
 }
+
+
+

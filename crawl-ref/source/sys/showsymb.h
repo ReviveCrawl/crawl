@@ -17,3 +17,5 @@ cglyph_t get_cell_glyph(const coord_def& loc, bool only_stationary_monsters = fa
 cglyph_t get_cell_glyph(const map_cell& cell, const coord_def& loc, bool only_stationary_monsters = false, int colour_mode = 0);
 
 #endif
+
+

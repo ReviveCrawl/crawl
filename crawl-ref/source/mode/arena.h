@@ -32,3 +32,6 @@ void arena_monster_died(monster* mons, killer_type killer,
 
 int arena_cull_items();
 #endif
+
+
+

@@ -12,7 +12,7 @@
 #include <map>
 #include <vector>
 
-#include "externs.h"
+#include "../sys/externs.h"
 
 class input_history;
 class reader;
@@ -418,3 +418,5 @@ string stash_annotate_item(const char *s, const item_def *item,
 #define STASH_LUA_VIEW_ANNOTATE   "ch_stash_view_annotate_item"
 
 #endif
+
+

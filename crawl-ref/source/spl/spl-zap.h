@@ -10,3 +10,5 @@ int spell_zap_power(spell_type spell, int powc);
 int spell_zap_power_cap(spell_type spell);
 
 #endif
+
+

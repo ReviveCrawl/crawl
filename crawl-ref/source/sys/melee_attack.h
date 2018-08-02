@@ -5,7 +5,7 @@
 
 #include "attack.h"
 #include "fight.h"
-#include "random-var.h"
+#include "../random/random-var.h"
 
 // Forward declaration of the struct
 struct mon_attack_def;
@@ -199,3 +199,5 @@ private:
 };
 
 #endif
+
+

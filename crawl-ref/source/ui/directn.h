@@ -7,9 +7,9 @@
 #ifndef DIRECT_H
 #define DIRECT_H
 
-#include "externs.h"
+#include "../sys/externs.h"
 #include "../sys/enum.h"
-#include "mon-info.h"
+#include "../mon/mon-info.h"
 
 struct describe_info;
 
@@ -315,3 +315,5 @@ void do_look_around(const coord_def &whence = coord_def(0, 0));
 extern const struct coord_def Compass[9];
 
 #endif
+
+

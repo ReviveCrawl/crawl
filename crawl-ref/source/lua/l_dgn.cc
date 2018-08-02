@@ -1,32 +1,32 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "l_libs.h"
 #include "cluautil.h"
 
 #include <cmath>
 
-#include "branch.h"
-#include "cloud.h"
-#include "colour.h"
+#include "../sys/branch.h"
+#include "../sys/cloud.h"
+#include "../ui/colour.h"
 #include "../coord/coord.h"
 #include "../coord/coordit.h"
-#include "directn.h"
-#include "dungeon.h"
-#include "dgn-shoals.h"
-#include "env.h"
-#include "flood_find.h"
+#include "../ui/directn.h"
+#include "../sys/dungeon.h"
+#include "../dgn/dgn-shoals.h"
+#include "../sys/env.h"
+#include "../sys/flood_find.h"
 #include "l_defs.h"
 #include "../lib/libutil.h"
-#include "mapmark.h"
-#include "maps.h"
-#include "random.h"
-#include "shout.h"
-#include "spl-util.h"
+#include "../map/mapmark.h"
+#include "../map/maps.h"
+#include "../random/random.h"
+#include "../sys/shout.h"
+#include "../spl/spl-util.h"
 #include "../sys/state.h"
 #include "tiledef-dngn.h"
-#include "tileview.h"
-#include "unwind.h"
-#include "view.h"
+#include "../tile/tileview.h"
+#include "../low/unwind.h"
+#include "../io/view.h"
 
 static const char *VAULT_PLACEMENT_METATABLE = "crawl.vault-placement";
 
@@ -2031,3 +2031,6 @@ void dluaopen_dgn(lua_State *ls)
     luaL_openlib(ls, "dgn", dgn_subvault_dlib, 0);
     luaL_openlib(ls, "dgn", dgn_tile_dlib, 0);
 }
+
+
+

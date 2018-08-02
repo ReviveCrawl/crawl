@@ -1,4 +1,4 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "target.h"
 
@@ -7,11 +7,11 @@
 #include "../coord/coordit.h"
 #include "env.h"
 #include "fight.h"
-#include "godabil.h"
-#include "itemprop.h"
+#include "../god/godabil.h"
+#include "../item/itemprop.h"
 #include "../lib/libutil.h"
-#include "losglobal.h"
-#include "spl-damage.h"
+#include "../los/losglobal.h"
+#include "../spl/spl-damage.h"
 #include "terrain.h"
 
 #define notify_fail(x) (why_not = (x), false)
@@ -875,3 +875,5 @@ aff_type targetter_spray::is_affected(coord_def loc)
 
     return affected;
 }
+
+

@@ -3,11 +3,11 @@
  * @brief dbm wrapper for SQLite
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "sqldbm.h"
-#include "stuff.h"
-#include "syscalls.h"
+#include "../sys/stuff.h"
+#include "../sys/syscalls.h"
 #include <fcntl.h>
 #include <unistd.h>
 #include <cstring>
@@ -445,3 +445,6 @@ int dbm_store(SQL_DBM *db, const sql_datum &key, const sql_datum &value, int)
 }
 
 #endif // USE_SQLITE_DBM
+
+
+

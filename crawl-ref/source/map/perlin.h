@@ -9,3 +9,6 @@ namespace perlin
     double fBM(double xin, double yin, double zin, uint32_t octaves) IMMUTABLE;
 }
 #endif /* PERLIN_H */
+
+
+

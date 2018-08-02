@@ -20,21 +20,21 @@
 
 #define ART_FUNC_H
 
-#include "cloud.h"         // For storm bow's and robe of clouds' rain
-#include "effects.h"       // For Sceptre of Torment tormenting
-#include "env.h"           // For storm bow env.cgrid
-#include "food.h"          // For evokes
-#include "godconduct.h"    // did_god_conduct
-#include "misc.h"
-#include "mgen_data.h"     // For Sceptre of Asmodeus evoke
-#include "mon-place.h"     // For Sceptre of Asmodeus evoke
-#include "mon-stuff.h"     // For Scythe of Curses cursing items
-#include "player.h"
-#include "spl-cast.h"      // For evokes
-#include "spl-damage.h"    // For the Singing Sword.
-#include "spl-miscast.h"   // For Staff of Wucad Mu and Scythe of Curses miscasts
-#include "spl-summoning.h" // For Zonguldrok animating dead
-#include "terrain.h"       // For storm bow
+#include "../sys/cloud.h"         // For storm bow's and robe of clouds' rain
+#include "../sys/effects.h"       // For Sceptre of Torment tormenting
+#include "../sys/env.h"           // For storm bow env.cgrid
+#include "../sys/food.h"          // For evokes
+#include "../god/godconduct.h"    // did_god_conduct
+#include "../sys/misc.h"
+#include "../sys/mgen_data.h"     // For Sceptre of Asmodeus evoke
+#include "../mon/mon-place.h"     // For Sceptre of Asmodeus evoke
+#include "../mon/mon-stuff.h"     // For Scythe of Curses cursing items
+#include "../player/player.h"
+#include "../spl/spl-cast.h"      // For evokes
+#include "../spl/spl-damage.h"    // For the Singing Sword.
+#include "../spl/spl-miscast.h"   // For Staff of Wucad Mu and Scythe of Curses miscasts
+#include "../spl/spl-summoning.h" // For Zonguldrok animating dead
+#include "../sys/terrain.h"       // For storm bow
 
 /*******************
  * Helper functions.
@@ -836,3 +836,6 @@ static void _WOE_melee_effect(item_def* weapon, actor* attacker,
     if (!mondied)
         defender->hurt(attacker, defender->stat_hp());
 }
+
+
+

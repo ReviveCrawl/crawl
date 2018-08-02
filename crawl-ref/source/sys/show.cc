@@ -3,7 +3,7 @@
  * @brief Updates the screen via map_knowledge.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "show.h"
 
@@ -11,31 +11,31 @@
 #include "cloud.h"
 #include "../coord/coord.h"
 #include "../coord/coordit.h"
-#include "dgnevent.h"
-#include "dgn-overview.h"
-#include "directn.h"
+#include "../dgn/dgnevent.h"
+#include "../dgn/dgn-overview.h"
+#include "../ui/directn.h"
 #include "dungeon.h"
 #include "env.h"
 #include "exclude.h"
 #include "fprop.h"
-#include "itemprop.h"
+#include "../item/itemprop.h"
 #include "../lib/libutil.h"
-#include "mon-place.h"
-#include "mon-util.h"
-#include "monster.h"
-#include "options.h"
-#include "random.h"
+#include "../mon/mon-place.h"
+#include "../mon/mon-util.h"
+#include "../mon/monster.h"
+#include "../ui/options.h"
+#include "../random/random.h"
 #include "showsymb.h"
 #include "../sys/state.h"
 #include "areas.h"
 #include "terrain.h"
 #ifdef USE_TILE
- #include "tileview.h"
+ #include "../tile/tileview.h"
 #endif
 #include "tiledef-main.h"
 #include "traps.h"
 #include "travel.h"
-#include "viewmap.h"
+#include "../io/viewmap.h"
 
 show_type::show_type()
     : cls(SH_NOTHING),
@@ -516,3 +516,5 @@ void show_update_emphasis()
         if (stairs[i].destination.is_valid())
             env.map_knowledge(stairs[i].position).flags &= ~MAP_EMPHASIZE;
 }
+
+

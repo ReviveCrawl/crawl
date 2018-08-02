@@ -3,28 +3,28 @@
  * @brief Self-enchantment spells.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "spl-selfench.h"
-#include "externs.h"
+#include "../sys/externs.h"
 
-#include "areas.h"
-#include "delay.h"
-#include "env.h"
-#include "godconduct.h"
-#include "hints.h"
+#include "../sys/areas.h"
+#include "../sys/delay.h"
+#include "../sys/env.h"
+#include "../god/godconduct.h"
+#include "../sys/hints.h"
 #include "../lib/libutil.h"
-#include "message.h"
-#include "misc.h"
-#include "options.h"
-#include "religion.h"
-#include "shout.h"
+#include "../io/message.h"
+#include "../sys/misc.h"
+#include "../ui/options.h"
+#include "../sys/religion.h"
+#include "../sys/shout.h"
 #include "spl-cast.h"
 #include "spl-transloc.h"
 #include "spl-util.h"
-#include "stuff.h"
-#include "transform.h"
-#include "view.h"
+#include "../sys/stuff.h"
+#include "../sys/transform.h"
+#include "../io/view.h"
 
 int allowed_deaths_door_hp(void)
 {
@@ -439,3 +439,5 @@ spret_type cast_transform(int pow, transformation_type which_trans, bool fail)
     transform(pow, which_trans);
     return SPRET_SUCCESS;
 }
+
+

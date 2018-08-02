@@ -60,3 +60,5 @@ spret_type cast_searing_ray(int pow, bolt &beam, bool fail);
 void handle_searing_ray();
 void end_searing_ray();
 #endif
+
+

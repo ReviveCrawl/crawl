@@ -1,7 +1,7 @@
 #ifndef VIEWGEOM_H
 #define VIEWGEOM_H
 
-#include "tilecell.h"
+#include "../tile/tilecell.h"
 
 struct screen_cell_t
 {
@@ -201,3 +201,6 @@ static inline bool in_los_bounds_g(const coord_def& pos)
 }
 
 #endif
+
+
+

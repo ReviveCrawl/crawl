@@ -3,9 +3,9 @@
  * @brief Bit array data type.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
-#include "bitary.h"
+#include "../low/bitary.h"
 
 bit_vector::bit_vector(unsigned long s)
     : size(s)
@@ -77,3 +77,6 @@ bit_vector bit_vector::operator & (const bit_vector& other) const
         res.data[w] = data[w] & other.data[w];
     return res;
 }
+
+
+

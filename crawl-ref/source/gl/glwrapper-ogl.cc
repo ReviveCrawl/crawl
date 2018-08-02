@@ -1,10 +1,10 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE_LOCAL
 #ifdef USE_GL
 
 #include "glwrapper-ogl.h"
-#include "options.h"
+#include "../ui/options.h"
 
 // How do we get access to the GL calls?
 // If other UI types use the -ogl wrapper they should
@@ -615,3 +615,6 @@ void OGLShapeBuffer::glDebug(const char* msg)
 
 #endif // USE_GL
 #endif // USE_TILE_LOCAL
+
+
+

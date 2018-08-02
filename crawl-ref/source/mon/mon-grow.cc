@@ -3,7 +3,7 @@
  * @brief Monster level-up code.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "../sys/enum.h"
 #include "mon-grow.h"
@@ -11,7 +11,7 @@
 #include "mon-place.h"
 #include "mon-stuff.h"
 #include "monster.h"
-#include "random.h"
+#include "../random/random.h"
 
 // Base experience required by a monster to reach HD 1.
 const int monster_xp_base       = 15;
@@ -254,3 +254,5 @@ bool monster::gain_exp(int exp, int max_levels_to_gain)
 
     return (levels_gained > 0);
 }
+
+

@@ -3,7 +3,7 @@
  * @brief Code related to travel exclusions.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "exclude.h"
 
@@ -13,17 +13,17 @@
 #include "cloud.h"
 #include "../coord/coord.h"
 #include "../coord/coordit.h"
-#include "dgn-overview.h"
+#include "../dgn/dgn-overview.h"
 #include "../lib/libutil.h"
-#include "map_knowledge.h"
-#include "mon-util.h"
-#include "options.h"
+#include "../map/map_knowledge.h"
+#include "../mon/mon-util.h"
+#include "../ui/options.h"
 #include "env.h"
-#include "tags.h"
+#include "../io/tags.h"
 #include "terrain.h"
 #include "travel.h"
 #include "hints.h"
-#include "view.h"
+#include "../io/view.h"
 
 // defined in dgn-overview.cc
 extern set<pair<string, level_id> > auto_unique_annotations;
@@ -711,3 +711,5 @@ void unmarshallExcludes(reader& inf, int minorVersion, exclude_set &excludes)
         }
     }
 }
+
+

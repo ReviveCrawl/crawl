@@ -3,7 +3,7 @@
  * @brief Slow projectiles, done as monsters.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "mon-project.h"
 
@@ -12,21 +12,21 @@
 #include <stdio.h>
 #include <cmath>
 
-#include "externs.h"
+#include "../sys/externs.h"
 
-#include "cloud.h"
-#include "directn.h"
-#include "env.h"
-#include "itemprop.h"
-#include "mgen_data.h"
+#include "../sys/cloud.h"
+#include "../ui/directn.h"
+#include "../sys/env.h"
+#include "../item/itemprop.h"
+#include "../sys/mgen_data.h"
 #include "mon-place.h"
 #include "mon-stuff.h"
 #include "mon-util.h"
-#include "ouch.h"
-#include "shout.h"
-#include "stuff.h"
-#include "terrain.h"
-#include "viewchar.h"
+#include "../sys/ouch.h"
+#include "../sys/shout.h"
+#include "../sys/stuff.h"
+#include "../sys/terrain.h"
+#include "../io/viewchar.h"
 
 static void _fuzz_direction(const actor *caster, monster& mon, int pow);
 
@@ -645,3 +645,5 @@ void boulder_start(monster *mon, bolt *beam)
         -beam->ray.r.dir.y : beam->ray.r.dir.y;
     iood_act(*mon);
 }
+
+

@@ -3,48 +3,48 @@
  * @brief Spell miscast class.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "spl-miscast.h"
 
-#include "externs.h"
+#include "../sys/externs.h"
 
 #include <sstream>
 
-#include "branch.h"
-#include "colour.h"
-#include "cloud.h"
-#include "directn.h"
-#include "effects.h"
-#include "env.h"
-#include "itemprop.h"
-#include "kills.h"
+#include "../sys/branch.h"
+#include "../ui/colour.h"
+#include "../sys/cloud.h"
+#include "../ui/directn.h"
+#include "../sys/effects.h"
+#include "../sys/env.h"
+#include "../item/itemprop.h"
+#include "../sys/kills.h"
 #include "../lib/libutil.h"
-#include "mapmark.h"
-#include "message.h"
-#include "misc.h"
-#include "mon-cast.h"
-#include "mon-place.h"
-#include "mgen_data.h"
-#include "mon-stuff.h"
-#include "mon-util.h"
-#include "mutation.h"
-#include "player.h"
-#include "player-stats.h"
-#include "potion.h"
-#include "religion.h"
+#include "../map/mapmark.h"
+#include "../io/message.h"
+#include "../sys/misc.h"
+#include "../mon/mon-cast.h"
+#include "../mon/mon-place.h"
+#include "../sys/mgen_data.h"
+#include "../mon/mon-stuff.h"
+#include "../mon/mon-util.h"
+#include "../sys/mutation.h"
+#include "../player/player.h"
+#include "../player/player-stats.h"
+#include "../sys/potion.h"
+#include "../sys/religion.h"
 #include "spl-clouds.h"
 #include "spl-summoning.h"
 #include "../sys/state.h"
-#include "stuff.h"
-#include "areas.h"
-#include "terrain.h"
-#include "transform.h"
-#include "view.h"
-#include "shout.h"
-#include "unwind.h"
-#include "viewchar.h"
-#include "xom.h"
+#include "../sys/stuff.h"
+#include "../sys/areas.h"
+#include "../sys/terrain.h"
+#include "../sys/transform.h"
+#include "../io/view.h"
+#include "../sys/shout.h"
+#include "../low/unwind.h"
+#include "../io/viewchar.h"
+#include "../god/xom.h"
 
 // This determines how likely it is that more powerful wild magic
 // effects will occur.  Set to 100 for the old probabilities (although
@@ -3096,3 +3096,5 @@ void MiscastEffect::_zot()
         break;
     }
 }
+
+

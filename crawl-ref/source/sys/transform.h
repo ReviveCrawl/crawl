@@ -10,7 +10,7 @@
 #include <set>
 
 #include "../sys/enum.h"
-#include "player.h"
+#include "../player/player.h"
 
 bool form_can_wield(transformation_type form = you.form);
 bool form_can_wear(transformation_type form = you.form);
@@ -53,3 +53,5 @@ const char* transform_name(transformation_type form = you.form);
 int form_hp_mod();
 
 #endif
+
+

@@ -1,4 +1,4 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef REGEX_PCRE
     // Statically link pcre on Windows
@@ -143,3 +143,6 @@ bool text_pattern::matches(const char *s, int length) const
 {
     return valid() && _pattern_match(compiled_pattern, s, length);
 }
+
+
+

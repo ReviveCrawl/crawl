@@ -3,7 +3,7 @@
  * @brief Declarations for the god menu.
  */
 
-#include "menu.h"
+#include "../ui/menu.h"
 
 class GodMenuEntry : public MenuEntry
 {
@@ -18,3 +18,6 @@ public:
 private:
     string colour_text;
 };
+
+
+

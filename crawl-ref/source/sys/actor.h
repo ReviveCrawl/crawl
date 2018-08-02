@@ -1,8 +1,8 @@
 #ifndef ACTOR_H
 #define ACTOR_H
 
-#include "itemprop-enum.h"
-#include "los_def.h"
+#include "../item/itemprop-enum.h"
+#include "../los/los_def.h"
 
 enum ev_ignore_type
 {
@@ -449,3 +449,5 @@ protected:
 bool actor_slime_wall_immune(const actor *actor);
 
 #endif
+
+

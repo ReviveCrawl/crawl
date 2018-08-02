@@ -1,9 +1,9 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "cluautil.h"
 #include "l_libs.h"
 
-#include "dgnevent.h"
+#include "../dgn/dgnevent.h"
 
 /*
  * Methods for DEVENT_METATABLE.
@@ -150,3 +150,6 @@ const struct luaL_reg dgn_event_dlib[] =
 
 { NULL, NULL }
 };
+
+
+

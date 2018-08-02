@@ -1,7 +1,7 @@
 #ifndef DGN_ACTIONS_H
 #define DGN_ACTIONS_H
 
-#include "travel.h"
+#include "../sys/travel.h"
 
 void add_daction(daction_type act);
 void catchup_dactions();
@@ -13,3 +13,6 @@ void apply_daction_to_mons(monster* mons, daction_type act, bool local,
                            bool in_transit);
 
 #endif
+
+
+

@@ -3,17 +3,17 @@
  * @brief Functions that may be missing from some systems
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
-#include "defines.h"
-#include "itemname.h" // is_vowel()
+#include "../sys/defines.h"
+#include "../item/itemname.h" // is_vowel()
 #include "../lib/libutil.h"
-#include "externs.h"
-#include "files.h"
-#include "message.h"
+#include "../sys/externs.h"
+#include "../io/files.h"
+#include "../io/message.h"
 #include "../sys/state.h"
-#include "unicode.h"
-#include "version.h"
+#include "../low/unicode.h"
+#include "../build/version.h"
 #include "../io/viewgeom.h"
 
 #include <sstream>
@@ -1277,3 +1277,6 @@ void init_signals()
 }
 
 #endif
+
+
+

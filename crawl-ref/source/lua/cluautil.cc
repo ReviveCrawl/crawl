@@ -1,10 +1,10 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "cluautil.h"
 #include "clua.h"
 #include "l_libs.h"
 
-#include "delay.h"
+#include "../sys/delay.h"
 
 int push_activity_interrupt(lua_State *ls, activity_interrupt_data *t)
 {
@@ -116,3 +116,6 @@ int clua_pushpoint(lua_State *ls, const coord_def &pos)
     }
     return 1;
 }
+
+
+

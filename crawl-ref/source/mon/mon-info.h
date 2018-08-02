@@ -293,3 +293,5 @@ void get_monster_info(vector<monster_info>& mons);
 
 typedef vector<string> (*desc_filter) (const monster_info& mi);
 #endif
+
+

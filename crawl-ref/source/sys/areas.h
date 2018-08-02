@@ -56,3 +56,5 @@ bool soul_aura(const coord_def& p);
 bool heated(const coord_def& p);
 
 #endif
+
+

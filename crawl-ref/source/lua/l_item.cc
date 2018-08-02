@@ -3,34 +3,34 @@
  * @brief functions for managed Lua item manipulation
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include <sstream>
 
 #include "cluautil.h"
 #include "l_libs.h"
 
-#include "artefact.h"
+#include "../item/artefact.h"
 #include "cluautil.h"
-#include "colour.h"
+#include "../ui/colour.h"
 #include "../coord/coord.h"
-#include "command.h"
-#include "env.h"
+#include "../io/command.h"
+#include "../sys/env.h"
 #include "../sys/enum.h"
-#include "food.h"
-#include "invent.h"
-#include "item_use.h"
-#include "itemprop.h"
-#include "items.h"
+#include "../sys/food.h"
+#include "../sys/invent.h"
+#include "../item/item_use.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
 #include "l_defs.h"
 #include "../lib/libutil.h"
-#include "output.h"
-#include "player.h"
-#include "skills2.h"
-#include "spl-summoning.h"
-#include "stash.h"
-#include "stuff.h"
-#include "throw.h"
+#include "../io/output.h"
+#include "../player/player.h"
+#include "../sys/skills2.h"
+#include "../spl/spl-summoning.h"
+#include "../sys/stash.h"
+#include "../sys/stuff.h"
+#include "../sys/throw.h"
 
 /////////////////////////////////////////////////////////////////////
 // Item handling
@@ -1144,3 +1144,6 @@ void cluaopen_item(lua_State *ls)
 
     luaL_openlib(ls, "items", item_lib, 0);
 }
+
+
+

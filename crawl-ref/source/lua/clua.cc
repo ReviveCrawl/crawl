@@ -1,4 +1,4 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "clua.h"
 
@@ -6,12 +6,12 @@
 #include "dlua.h"
 #include "l_libs.h"
 
-#include "files.h"
+#include "../io/files.h"
 #include "../lib/libutil.h"
 #include "../sys/state.h"
-#include "stuff.h"
-#include "syscalls.h"
-#include "unicode.h"
+#include "../sys/stuff.h"
+#include "../sys/syscalls.h"
+#include "../low/unicode.h"
 
 #include <algorithm>
 
@@ -1213,3 +1213,6 @@ bool lua_datum::is_udata() const
 {
     LUA_CHECK_TYPE(lua_isuserdata);
 }
+
+
+

@@ -3,13 +3,13 @@
  * @brief Level and branch bindings (library "dgn").
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "cluautil.h"
 #include "l_libs.h"
 
-#include "branch.h"
-#include "player.h"
+#include "../sys/branch.h"
+#include "../player/player.h"
 
 #define BRANCH(br, pos)                                                 \
 const char *branch_name = luaL_checkstring(ls, pos);                \
@@ -145,3 +145,6 @@ const struct luaL_reg dgn_level_dlib[] =
 
 { NULL, NULL }
 };
+
+
+

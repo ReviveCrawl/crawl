@@ -3,15 +3,15 @@
  * @brief Implementations of some of the dungeon layouts.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "dgn-layouts.h"
 
 #include "../coord/coordit.h"
-#include "dungeon.h"
+#include "../sys/dungeon.h"
 #include "../lib/libutil.h"
-#include "terrain.h"
-#include "traps.h"
+#include "../sys/terrain.h"
+#include "../sys/traps.h"
 
 static bool _find_forbidden_in_area(dgn_region& area, unsigned int mask);
 static int _count_antifeature_in_box(int x0, int y0, int x1, int y1,
@@ -1221,3 +1221,6 @@ static void _build_lake(dungeon_feature_type lake_type) //mv
             }
     }
 }
+
+
+

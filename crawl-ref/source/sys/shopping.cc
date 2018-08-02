@@ -3,45 +3,45 @@
  * @brief Shop keeper functions.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "shopping.h"
-#include "message.h"
+#include "../io/message.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#include "externs.h"
-#include "artefact.h"
+#include "../sys/externs.h"
+#include "../item/artefact.h"
 #include "branch.h"
-#include "cio.h"
-#include "describe.h"
-#include "decks.h"
-#include "dgn-overview.h"
-#include "files.h"
+#include "../low/cio.h"
+#include "../io/describe.h"
+#include "../item/decks.h"
+#include "../dgn/dgn-overview.h"
+#include "../io/files.h"
 #include "food.h"
 #include "invent.h"
-#include "items.h"
-#include "itemname.h"
-#include "itemprop.h"
+#include "../item/items.h"
+#include "../item/itemname.h"
+#include "../item/itemprop.h"
 #include "../lib/libutil.h"
-#include "macro.h"
-#include "menu.h"
+#include "../ui/macro.h"
+#include "../ui/menu.h"
 #include "misc.h"
 #include "notes.h"
-#include "options.h"
-#include "place.h"
-#include "player.h"
-#include "spl-book.h"
+#include "../ui/options.h"
+#include "../map/place.h"
+#include "../player/player.h"
+#include "../spl/spl-book.h"
 #include "stash.h"
 #include "../sys/state.h"
 #include "stuff.h"
 #include "travel.h"
-#include "unwind.h"
+#include "../low/unwind.h"
 #include "env.h"
 #ifdef USE_TILE_LOCAL
-#include "tilereg-crt.h"
+#include "../tile/tilereg-crt.h"
 #endif
 #define SHOPPING_LIST_COST_KEY "shopping_list_cost_key"
 
@@ -3294,3 +3294,5 @@ string ShoppingList::item_name_simple(const item_def& item, bool ident)
     return item.name(DESC_PLAIN, false, ident, false, false,
                      ISFLAG_KNOW_CURSE);
 }
+
+

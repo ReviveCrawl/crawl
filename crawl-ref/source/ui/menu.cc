@@ -3,45 +3,45 @@
  * @brief Menus and associated malarkey.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "menu.h"
 
 #include <cctype>
 #include <functional>
 
-#include "cio.h"
+#include "../low/cio.h"
 #include "colour.h"
-#include "command.h"
+#include "../io/command.h"
 #include "../coord/coord.h"
-#include "env.h"
-#include "hints.h"
-#include "invent.h"
+#include "../sys/env.h"
+#include "../sys/hints.h"
+#include "../sys/invent.h"
 #include "../lib/libutil.h"
-#include "macro.h"
-#include "message.h"
+#include "../ui/macro.h"
+#include "../io/message.h"
 #include "options.h"
-#include "player.h"
+#include "../player/player.h"
 #include "../sys/state.h"
 
 #ifdef USE_TILE_LOCAL
- #include "tilebuf.h"
- #include "tilefont.h"
- #include "tilereg-crt.h"
- #include "tilereg-menu.h"
- #include "tilereg-popup.h"
+ #include "../tile/tilebuf.h"
+ #include "../tile/tilefont.h"
+ #include "../tile/tilereg-crt.h"
+ #include "../tile/tilereg-menu.h"
+ #include "../tile/tilereg-popup.h"
 #endif
 #ifdef USE_TILE
- #include "mon-stuff.h"
- #include "mon-util.h"
- #include "terrain.h"
+ #include "../mon/mon-stuff.h"
+ #include "../mon/mon-util.h"
+ #include "../sys/terrain.h"
  #include "tiledef-dngn.h"
  #include "tiledef-icons.h"
  #include "tiledef-main.h"
  #include "tiledef-player.h"
- #include "tilepick.h"
- #include "tilepick-p.h"
- #include "travel.h"
+ #include "../tile/tilepick.h"
+ #include "../tile/tilepick-p.h"
+ #include "../sys/travel.h"
 #endif
 
 #ifdef USE_TILE_LOCAL
@@ -4451,3 +4451,5 @@ void BlackWhiteHighlighter::_place_items()
     }
     m_active_item = tmp;
 }
+
+

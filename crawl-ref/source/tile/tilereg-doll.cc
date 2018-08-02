@@ -1,12 +1,12 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE_LOCAL
 
 #include "tilereg-doll.h"
 
 #include "../lib/libutil.h"
-#include "macro.h"
-#include "player.h"
+#include "../ui/macro.h"
+#include "../player/player.h"
 #include "tiledef-player.h"
 #include "tilefont.h"
 #include "tilepick-p.h"
@@ -478,3 +478,5 @@ void DollEditRegion::run()
 }
 
 #endif
+
+

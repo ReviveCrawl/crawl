@@ -7,7 +7,7 @@
 #define GODABIL_H
 
 #include "../sys/enum.h"
-#include "externs.h"
+#include "../sys/externs.h"
 
 struct bolt;
 
@@ -73,3 +73,6 @@ bool ashenzari_end_transfer(bool finished = false, bool force = false);
 bool can_convert_to_beogh();
 void spare_beogh_convert();
 #endif
+
+
+

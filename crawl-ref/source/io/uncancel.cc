@@ -4,14 +4,14 @@
  *        saved (via SIGHUP/window close).
 **/
 
-#include "AppHdr.h"
-#include "acquire.h"
-#include "decks.h"
+#include "../build/AppHdr.h"
+#include "../sys/acquire.h"
+#include "../item/decks.h"
 #include "../lib/libutil.h"
-#include "player.h"
+#include "../player/player.h"
 #include "../sys/state.h"
 #include "uncancel.h"
-#include "unwind.h"
+#include "../low/unwind.h"
 
 void add_uncancel(uncancellable_type kind, int arg)
 {
@@ -67,3 +67,6 @@ void run_uncancels()
             erase_any(you.uncancel, act);
     }
 }
+
+
+

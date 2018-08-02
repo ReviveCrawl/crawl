@@ -15,3 +15,5 @@ int acquirement_create_item(object_class_type class_wanted,
                             const coord_def &pos, bool debug = false);
 
 #endif
+
+

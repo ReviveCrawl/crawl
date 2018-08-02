@@ -6,7 +6,7 @@
  * library. (http://www.github.com/bhickey/librng)
  */
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 #include "asg.h"
 #include <stack>
 
@@ -89,3 +89,5 @@ void seed_asg(uint32_t seed_array[], int seed_len)
     delete asg_rng;
     asg_rng = new AsgKISS(seed_array, seed_len);
 }
+
+

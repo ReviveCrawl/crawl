@@ -6,8 +6,8 @@
 #ifndef MON_PROJECT_H
 #define MON_PROJECT_H
 
-#include "beam.h"
-#include "spl-cast.h"
+#include "../sys/beam.h"
+#include "../spl/spl-cast.h"
 
 spret_type cast_iood(actor *caster, int pow, bolt *beam,
                      float vx = 0, float vy = 0, int foe = MHITNOT,
@@ -18,3 +18,5 @@ void iood_catchup(monster* mon, int turns);
 void boulder_start(monster *mon, bolt *beam);
 
 #endif
+
+

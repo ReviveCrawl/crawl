@@ -3,7 +3,7 @@
  * @brief Functions for handling player mutations.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 #include "mutation.h"
 
 #include <math.h>
@@ -13,41 +13,41 @@
 
 #include <sstream>
 
-#include "externs.h"
+#include "../sys/externs.h"
 
 #include "abl-show.h"
-#include "cio.h"
+#include "../low/cio.h"
 #include "../coord/coordit.h"
 #include "delay.h"
 #include "defines.h"
-#include "dactions.h"
+#include "../map/dactions.h"
 #include "effects.h"
 #include "env.h"
-#include "godabil.h"
-#include "godpassive.h"
+#include "../god/godabil.h"
+#include "../god/godpassive.h"
 #include "hints.h"
-#include "itemprop.h"
-#include "items.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
 #include "../lib/libutil.h"
-#include "menu.h"
+#include "../ui/menu.h"
 #include "mgen_data.h"
 #include "misc.h"
-#include "mon-place.h"
-#include "mon-iter.h"
-#include "mon-stuff.h"
-#include "mon-util.h"
+#include "../mon/mon-place.h"
+#include "../mon/mon-iter.h"
+#include "../mon/mon-stuff.h"
+#include "../mon/mon-util.h"
 #include "notes.h"
 #include "ouch.h"
-#include "player.h"
-#include "player-stats.h"
+#include "../player/player.h"
+#include "../player/player-stats.h"
 #include "religion.h"
-#include "random.h"
+#include "../random/random.h"
 #include "skills2.h"
 #include "../sys/state.h"
 #include "stuff.h"
 #include "transform.h"
-#include "viewchar.h"
-#include "xom.h"
+#include "../io/viewchar.h"
+#include "../god/xom.h"
 
 static int _body_covered();
 
@@ -2653,3 +2653,5 @@ int augmentation_amount()
 
     return amount;
 }
+
+

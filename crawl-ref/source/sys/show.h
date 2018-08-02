@@ -69,3 +69,5 @@ void show_update_at(const coord_def &gp, bool terrain_only = false);
 void show_update_emphasis();
 
 #endif
+
+

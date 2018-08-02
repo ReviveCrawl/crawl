@@ -1,8 +1,8 @@
 #ifndef ENV_H
 #define ENV_H
 
-#include "map_knowledge.h"
-#include "monster.h"
+#include "../map/map_knowledge.h"
+#include "../mon/monster.h"
 #include "trap_def.h"
 #include <set>
 
@@ -145,3 +145,5 @@ struct crawl_environment
 extern struct crawl_environment env;
 
 #endif
+
+

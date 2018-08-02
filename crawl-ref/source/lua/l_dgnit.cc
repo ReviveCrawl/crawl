@@ -3,18 +3,18 @@
  * @brief Item-related functions in lua library "dgn".
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "cluautil.h"
 #include "l_libs.h"
 
 #include "../coord/coord.h"
-#include "dungeon.h"
-#include "env.h"
-#include "items.h"
+#include "../sys/dungeon.h"
+#include "../sys/env.h"
+#include "../item/items.h"
 #include "../lib/libutil.h"
-#include "mapdef.h"
-#include "stash.h"
+#include "../map/mapdef.h"
+#include "../sys/stash.h"
 
 #define ITEMLIST_METATABLE "crawldgn.item_list"
 
@@ -260,3 +260,6 @@ const struct luaL_reg dgn_item_dlib[] =
 
     { NULL, NULL }
 };
+
+
+

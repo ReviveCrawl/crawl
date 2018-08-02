@@ -1,8 +1,8 @@
 #ifndef TILEFONT_H
 #define TILEFONT_H
 
-#include "defines.h"
-#include "glwrapper.h"
+#include "../sys/defines.h"
+#include "../gl/glwrapper.h"
 
 extern const VColour term_colours[MAX_TERM_COLOUR];
 
@@ -66,3 +66,5 @@ public:
 };
 
 #endif
+
+

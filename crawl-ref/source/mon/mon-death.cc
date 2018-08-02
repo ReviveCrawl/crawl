@@ -4,32 +4,32 @@
  *        Kirke, Pikel and shedu.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 #include "mon-death.h"
 
-#include "areas.h"
-#include "cloud.h"
+#include "../sys/areas.h"
+#include "../sys/cloud.h"
 #include "../coord/coordit.h"
-#include "database.h"
-#include "dactions.h"
-#include "env.h"
-#include "fineff.h"
-#include "items.h"
+#include "../io/database.h"
+#include "../map/dactions.h"
+#include "../sys/env.h"
+#include "../sys/fineff.h"
+#include "../item/items.h"
 #include "../lib/libutil.h"
-#include "mapmark.h"
-#include "message.h"
-#include "mgen_data.h"
+#include "../map/mapmark.h"
+#include "../io/message.h"
+#include "../sys/mgen_data.h"
 #include "mon-behv.h"
 #include "mon-iter.h"
 #include "mon-place.h"
 #include "mon-speak.h"
 #include "mon-stuff.h"
 #include "mon-util.h"
-#include "random.h"
-#include "religion.h"
+#include "../random/random.h"
+#include "../sys/religion.h"
 #include "../sys/state.h"
-#include "transform.h"
-#include "view.h"
+#include "../sys/transform.h"
+#include "../io/view.h"
 
 /**
  * Determine if a specified monster is Pikel.
@@ -769,3 +769,5 @@ void shedu_do_actual_resurrection(monster* mons)
     else if (you.can_see(my_pair))
         simple_monster_message(mons, " rises from the grave!");
 }
+
+

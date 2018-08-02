@@ -8,10 +8,10 @@
 #define BEAM_H
 
 
-#include "externs.h"
-#include "random.h"
+#include "../sys/externs.h"
+#include "../random/random.h"
 #include "ray.h"
-#include "spl-cast.h"
+#include "../spl/spl-cast.h"
 
 class monster;
 
@@ -342,3 +342,5 @@ int zap_power_cap(zap_type ztype);
 void zappy(zap_type z_type, int power, bolt &pbolt);
 
 #endif
+
+

@@ -3,7 +3,7 @@
  * @brief Functions related to teleportation and blinking.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "teleport.h"
 
@@ -13,14 +13,14 @@
 #include "delay.h"
 #include "env.h"
 #include "fprop.h"
-#include "item_use.h"
-#include "los.h"
-#include "losglobal.h"
-#include "monster.h"
-#include "mon-stuff.h"
-#include "player.h"
-#include "random.h"
-#include "random-weight.h"
+#include "../item/item_use.h"
+#include "../los/los.h"
+#include "../los/losglobal.h"
+#include "../mon/monster.h"
+#include "../mon/mon-stuff.h"
+#include "../player/player.h"
+#include "../random/random.h"
+#include "../random/random-weight.h"
 #include "../sys/state.h"
 #include "stuff.h"
 #include "terrain.h"
@@ -343,3 +343,5 @@ bool random_near_space(const coord_def& origin, coord_def& target,
 
     return false;
 }
+
+

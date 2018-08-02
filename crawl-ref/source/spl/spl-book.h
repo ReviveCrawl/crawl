@@ -7,7 +7,7 @@
 #ifndef SPL_BOOK_H
 #define SPL_BOOK_H
 
-#include "externs.h"
+#include "../sys/externs.h"
 
 #define SPELLBOOK_SIZE 8
 
@@ -77,3 +77,5 @@ bool book_has_title(const item_def &book);
 
 void destroy_spellbook(const item_def &book);
 #endif
+
+

@@ -3,40 +3,40 @@
  * @brief Showing the level map (X and background).
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "viewmap.h"
 
 #include <algorithm>
 
-#include "branch.h"
-#include "cio.h"
-#include "colour.h"
+#include "../sys/branch.h"
+#include "../low/cio.h"
+#include "../ui/colour.h"
 #include "command.h"
 #include "../coord/coord.h"
 #include "../coord/coordit.h"
-#include "dgn-overview.h"
-#include "env.h"
-#include "map_knowledge.h"
+#include "../dgn/dgn-overview.h"
+#include "../sys/env.h"
+#include "../map/map_knowledge.h"
 #include "message.h"
-#include "fprop.h"
-#include "exclude.h"
-#include "feature.h"
+#include "../sys/fprop.h"
+#include "../sys/exclude.h"
+#include "../sys/feature.h"
 #include "files.h"
-#include "format.h"
+#include "../io/format.h"
 #include "../lib/libutil.h"
-#include "macro.h"
-#include "mon-util.h"
-#include "options.h"
-#include "place.h"
-#include "player.h"
-#include "showsymb.h"
-#include "stash.h"
+#include "../ui/macro.h"
+#include "../mon/mon-util.h"
+#include "../ui/options.h"
+#include "../map/place.h"
+#include "../player/player.h"
+#include "../sys/showsymb.h"
+#include "../sys/stash.h"
 #include "../sys/state.h"
-#include "stuff.h"
-#include "terrain.h"
-#include "tileview.h"
-#include "travel.h"
+#include "../sys/stuff.h"
+#include "../sys/terrain.h"
+#include "../tile/tileview.h"
+#include "../sys/travel.h"
 #include "viewchar.h"
 #include "../io/viewgeom.h"
 
@@ -1401,3 +1401,6 @@ static cglyph_t _get_feat_glyph(const coord_def& gc)
     return g;
 }
 #endif
+
+
+

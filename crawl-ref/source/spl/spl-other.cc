@@ -4,36 +4,36 @@
  *           Mostly Transmutations.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "spl-other.h"
-#include "externs.h"
+#include "../sys/externs.h"
 
 #include "../coord/coord.h"
-#include "delay.h"
-#include "env.h"
-#include "food.h"
-#include "godcompanions.h"
-#include "godconduct.h"
-#include "itemname.h"
-#include "itemprop.h"
-#include "items.h"
+#include "../sys/delay.h"
+#include "../sys/env.h"
+#include "../sys/food.h"
+#include "../god/godcompanions.h"
+#include "../god/godconduct.h"
+#include "../item/itemname.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
 #include "../lib/libutil.h"
-#include "makeitem.h"
-#include "message.h"
-#include "misc.h"
-#include "mon-iter.h"
-#include "mon-place.h"
-#include "mon-util.h"
-#include "place.h"
-#include "player.h"
-#include "player-stats.h"
-#include "potion.h"
-#include "religion.h"
+#include "../sys/makeitem.h"
+#include "../io/message.h"
+#include "../sys/misc.h"
+#include "../mon/mon-iter.h"
+#include "../mon/mon-place.h"
+#include "../mon/mon-util.h"
+#include "../map/place.h"
+#include "../player/player.h"
+#include "../player/player-stats.h"
+#include "../sys/potion.h"
+#include "../sys/religion.h"
 #include "spl-util.h"
-#include "stuff.h"
-#include "terrain.h"
-#include "transform.h"
+#include "../sys/stuff.h"
+#include "../sys/terrain.h"
+#include "../sys/transform.h"
 
 spret_type cast_cure_poison(int pow, bool fail)
 {
@@ -533,3 +533,5 @@ spret_type cast_darkness(int pow, bool fail)
 
     return SPRET_SUCCESS;
 }
+
+

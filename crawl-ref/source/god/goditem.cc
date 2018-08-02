@@ -3,7 +3,7 @@
  * @brief Gods' attitude towards items.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "goditem.h"
 
@@ -15,15 +15,15 @@
 #include <cmath>
 
 #include "art-enum.h"
-#include "artefact.h"
-#include "itemname.h"
-#include "itemprop.h"
-#include "items.h"
-#include "religion.h"
-#include "skills2.h"
-#include "spl-book.h"
-#include "spl-cast.h"
-#include "spl-util.h"
+#include "../item/artefact.h"
+#include "../item/itemname.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
+#include "../sys/religion.h"
+#include "../sys/skills2.h"
+#include "../spl/spl-book.h"
+#include "../spl/spl-cast.h"
+#include "../spl/spl-util.h"
 
 static bool _is_bookrod_type(const item_def& item,
                              bool (*suitable)(spell_type spell))
@@ -622,3 +622,6 @@ bool god_dislikes_spell_discipline(int discipline, god_type god)
 
     return false;
 }
+
+
+

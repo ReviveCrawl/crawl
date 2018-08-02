@@ -8,7 +8,7 @@
 
 #include <string>
 
-#include "player.h"
+#include "../player/player.h"
 
 bool wizard_create_portal(const coord_def& pos = you.pos());
 bool wizard_create_feature(const coord_def& pos = you.pos());
@@ -29,3 +29,5 @@ void debug_test_explore();
 void wizard_abyss_speed();
 
 #endif
+
+

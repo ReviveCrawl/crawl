@@ -4,22 +4,22 @@
  *             unexpected way.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 #include "../coord/coord.h"
-#include "dactions.h"
+#include "../map/dactions.h"
 #include "effects.h"
 #include "env.h"
 #include "fineff.h"
 #include "../lib/libutil.h"
 #include "mgen_data.h"
 #include "misc.h"
-#include "mon-abil.h"
-#include "mon-place.h"
+#include "../mon/mon-abil.h"
+#include "../mon/mon-place.h"
 #include "ouch.h"
 #include "religion.h"
 #include "../sys/state.h"
 #include "transform.h"
-#include "view.h"
+#include "../io/view.h"
 
 void final_effect::schedule()
 {
@@ -338,3 +338,5 @@ void fire_final_effects()
         delete eff;
     }
 }
+
+

@@ -1,22 +1,22 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE_LOCAL
 
-#include "abl-show.h"
-#include "artefact.h"
-#include "cio.h"
-#include "command.h"
+#include "../sys/abl-show.h"
+#include "../item/artefact.h"
+#include "../low/cio.h"
+#include "../io/command.h"
 #include "../coord/coord.h"
-#include "env.h"
-#include "files.h"
-#include "glwrapper.h"
+#include "../sys/env.h"
+#include "../io/files.h"
+#include "../gl/glwrapper.h"
 #include "../lib/libutil.h"
-#include "map_knowledge.h"
-#include "menu.h"
-#include "message.h"
-#include "mon-util.h"
-#include "options.h"
-#include "player.h"
+#include "../map/map_knowledge.h"
+#include "../ui/menu.h"
+#include "../io/message.h"
+#include "../mon/mon-util.h"
+#include "../ui/options.h"
+#include "../player/player.h"
 #include "../sys/state.h"
 #include "tiledef-dngn.h"
 #include "tiledef-gui.h"
@@ -43,12 +43,12 @@
 #include "tilereg-title.h"
 #include "tilesdl.h"
 #include "tileview.h"
-#include "travel.h"
-#include "unwind.h"
-#include "version.h"
-#include "view.h"
+#include "../sys/travel.h"
+#include "../low/unwind.h"
+#include "../build/version.h"
+#include "../io/view.h"
 #include "../io/viewgeom.h"
-#include "windowmanager.h"
+#include "../ui/windowmanager.h"
 
 #ifdef __ANDROID__
 #include <android/log.h>
@@ -1607,3 +1607,5 @@ int TilesFramework::to_lines(int num_tiles, int tile_height)
     return num_tiles * tile_height / get_crt_font()->char_height();
 }
 #endif
+
+

@@ -1,9 +1,9 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "spl-zap.h"
 
-#include "beam.h"
-#include "stuff.h"
+#include "../sys/beam.h"
+#include "../sys/stuff.h"
 
 zap_type spell_to_zap(spell_type spell)
 {
@@ -143,3 +143,5 @@ int spell_zap_power_cap(spell_type spell)
         return cap;
     }
 }
+
+

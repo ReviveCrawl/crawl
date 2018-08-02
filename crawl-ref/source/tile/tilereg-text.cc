@@ -1,11 +1,11 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE_LOCAL
 
 #include "tilereg-text.h"
 
 #include "tilefont.h"
-#include "unicode.h"
+#include "../low/unicode.h"
 
 int TextRegion::print_x;
 int TextRegion::print_y;
@@ -259,3 +259,5 @@ void TextRegion::scroll()
 }
 
 #endif
+
+

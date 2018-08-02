@@ -6,25 +6,25 @@
  *       Some of these might fit better elsewhere.
  */
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "ng-init.h"
 
-#include "branch.h"
-#include "describe.h"
-#include "dungeon.h"
-#include "itemname.h"
+#include "../sys/branch.h"
+#include "../io/describe.h"
+#include "../sys/dungeon.h"
+#include "../item/itemname.h"
 #include "../lib/libutil.h"
-#include "maps.h"
-#include "player.h"
-#include "random.h"
-#include "random-weight.h"
-#include "religion.h"
-#include "spl-util.h"
+#include "../map/maps.h"
+#include "../player/player.h"
+#include "../random/random.h"
+#include "../random/random-weight.h"
+#include "../sys/religion.h"
+#include "../spl/spl-util.h"
 #include "../sys/state.h"
-#include "store.h"
-#include "stuff.h"
-#include "version.h"
+#include "../sys/store.h"
+#include "../sys/stuff.h"
+#include "../build/version.h"
 
 #ifdef DEBUG_DIAGNOSTICS
 #define DEBUG_TEMPLES
@@ -468,3 +468,6 @@ void fix_up_jiyva_name()
 
     you.jiyva_second_name = replace_all(you.jiyva_second_name, " ", "");
 }
+
+
+

@@ -3,13 +3,13 @@
  * @brief Region system implementations
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE_LOCAL
 
 #include "tilereg.h"
 
-#include "glwrapper.h"
+#include "../gl/glwrapper.h"
 
 Region::Region() :
     ox(0),
@@ -160,3 +160,5 @@ TileRegion::~TileRegion()
 }
 
 #endif
+
+

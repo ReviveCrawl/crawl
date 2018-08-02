@@ -3,37 +3,37 @@
  * @brief Throwing and launching stuff.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "throw.h"
 
 #include <math.h>
 
-#include "externs.h"
+#include "../sys/externs.h"
 
-#include "artefact.h"
+#include "../item/artefact.h"
 #include "cloud.h"
-#include "colour.h"
-#include "command.h"
+#include "../ui/colour.h"
+#include "../io/command.h"
 #include "delay.h"
-#include "describe.h"
+#include "../io/describe.h"
 #include "env.h"
-#include "exercise.h"
+#include "../mode/exercise.h"
 #include "fight.h"
 #include "fineff.h"
-#include "godconduct.h"
+#include "../god/godconduct.h"
 #include "hints.h"
 #include "invent.h"
-#include "itemprop.h"
-#include "items.h"
-#include "item_use.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
+#include "../item/item_use.h"
 #include "../lib/libutil.h"
-#include "macro.h"
-#include "message.h"
+#include "../ui/macro.h"
+#include "../io/message.h"
 #include "misc.h"
-#include "mon-behv.h"
+#include "../mon/mon-behv.h"
 #include "mutation.h"
-#include "options.h"
+#include "../ui/options.h"
 #include "shout.h"
 #include "skills2.h"
 #include "../sys/state.h"
@@ -41,9 +41,9 @@
 #include "teleport.h"
 #include "terrain.h"
 #include "transform.h"
-#include "version.h"
-#include "view.h"
-#include "viewchar.h"
+#include "../build/version.h"
+#include "../io/view.h"
+#include "../io/viewchar.h"
 
 static int  _fire_prompt_for_item();
 static bool _fire_validate_item(int selected, string& err);
@@ -2603,3 +2603,5 @@ bool thrown_object_destroyed(item_def *item, const coord_def& where)
 
     return x_chance_in_y(mult, chance);
 }
+
+

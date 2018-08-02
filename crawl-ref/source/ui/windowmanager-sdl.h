@@ -76,3 +76,5 @@ private:
 #endif // USE_TILE_LOCAL
 
 #endif // SDL_WINDOWMANAGER_H
+
+

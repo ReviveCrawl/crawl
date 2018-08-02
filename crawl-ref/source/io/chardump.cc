@@ -3,10 +3,10 @@
  * @brief Dumps character info out to the morgue file.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "chardump.h"
-#include "clua.h"
+#include "../lua/clua.h"
 
 #include <string>
 #include <stdio.h>
@@ -18,51 +18,51 @@
 #endif
 #include <ctype.h>
 
-#include "externs.h"
-#include "options.h"
+#include "../sys/externs.h"
+#include "../ui/options.h"
 
-#include "abl-show.h"
+#include "../sys/abl-show.h"
 #include "art-enum.h"
-#include "artefact.h"
-#include "branch.h"
+#include "../item/artefact.h"
+#include "../sys/branch.h"
 #include "describe.h"
-#include "dgn-overview.h"
-#include "dungeon.h"
-#include "fight.h"
+#include "../dgn/dgn-overview.h"
+#include "../sys/dungeon.h"
+#include "../sys/fight.h"
 #include "files.h"
-#include "godprayer.h"
+#include "../god/godprayer.h"
 #include "hiscores.h"
 #include "initfile.h"
-#include "itemprop.h"
-#include "itemname.h"
-#include "items.h"
-#include "kills.h"
+#include "../item/itemprop.h"
+#include "../item/itemname.h"
+#include "../item/items.h"
+#include "../sys/kills.h"
 #include "../lib/libutil.h"
 #include "message.h"
-#include "menu.h"
-#include "mutation.h"
-#include "notes.h"
+#include "../ui/menu.h"
+#include "../sys/mutation.h"
+#include "../sys/notes.h"
 #include "output.h"
-#include "place.h"
-#include "player.h"
-#include "religion.h"
-#include "shopping.h"
-#include "showsymb.h"
-#include "skills2.h"
-#include "spl-book.h"
-#include "spl-cast.h"
-#include "spl-util.h"
-#include "stash.h"
+#include "../map/place.h"
+#include "../player/player.h"
+#include "../sys/religion.h"
+#include "../sys/shopping.h"
+#include "../sys/showsymb.h"
+#include "../sys/skills2.h"
+#include "../spl/spl-book.h"
+#include "../spl/spl-cast.h"
+#include "../spl/spl-util.h"
+#include "../sys/stash.h"
 #include "../sys/state.h"
-#include "stuff.h"
-#include "env.h"
-#include "transform.h"
-#include "travel.h"
-#include "unicode.h"
-#include "version.h"
+#include "../sys/stuff.h"
+#include "../sys/env.h"
+#include "../sys/transform.h"
+#include "../sys/travel.h"
+#include "../low/unicode.h"
+#include "../build/version.h"
 #include "view.h"
 #include "viewchar.h"
-#include "xom.h"
+#include "../god/xom.h"
 
 struct dump_params;
 
@@ -1538,7 +1538,7 @@ void whereis_record(const char *status)
 
 #ifdef DGL_TURN_TIMESTAMPS
 
-#include "syscalls.h"
+#include "../sys/syscalls.h"
 #include <sys/stat.h>
 
 // File-format version for timestamp files. Crawl will never append to a
@@ -1657,3 +1657,6 @@ void record_turn_timestamp()
         _dgl_record_timestamp(you.num_turns);
 #endif
 }
+
+
+

@@ -27,3 +27,6 @@ void queue_monster_for_action(monster* mons);
 #define ENERGY_SUBMERGE(entry) (max(entry->energy_usage.swim / 2, 1))
 
 #endif
+
+
+

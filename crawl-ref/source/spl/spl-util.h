@@ -8,7 +8,7 @@
 #define SPL_UTIL_H
 
 #include "../sys/enum.h"
-#include "mon-info.h"
+#include "../mon/mon-info.h"
 
 enum spschool_flag_type
 {
@@ -139,3 +139,5 @@ int spell_highlight_by_utility(spell_type spell,
 bool spell_no_hostile_in_range(spell_type spell);
 
 #endif
+
+

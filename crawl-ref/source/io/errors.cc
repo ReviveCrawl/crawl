@@ -7,7 +7,7 @@
 #include <errno.h>
 #include <string.h>
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 #include "errors.h"
 #include "../lib/libutil.h"
 
@@ -45,3 +45,6 @@ NORETURN void corrupted(const char *msg, ...)
 
     throw corrupted_save(buf);
 }
+
+
+

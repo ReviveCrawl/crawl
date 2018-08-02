@@ -3,42 +3,42 @@
  * @brief Misc function related to player transformations.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "transform.h"
 
 #include <stdio.h>
 #include <string.h>
 
-#include "externs.h"
+#include "../sys/externs.h"
 
 #include "art-enum.h"
-#include "artefact.h"
+#include "../item/artefact.h"
 #include "cloud.h"
 #include "delay.h"
 #include "env.h"
-#include "godabil.h"
-#include "goditem.h"
-#include "item_use.h"
-#include "itemprop.h"
-#include "items.h"
+#include "../god/godabil.h"
+#include "../god/goditem.h"
+#include "../item/item_use.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
 #include "../lib/libutil.h"
 #include "misc.h"
-#include "mon-abil.h"
+#include "../mon/mon-abil.h"
 #include "mutation.h"
-#include "newgame.h"
-#include "output.h"
-#include "player.h"
-#include "player-equip.h"
-#include "player-stats.h"
-#include "random.h"
+#include "../mode/newgame.h"
+#include "../io/output.h"
+#include "../player/player.h"
+#include "../player/player-equip.h"
+#include "../player/player-stats.h"
+#include "../random/random.h"
 #include "religion.h"
 #include "skills2.h"
 #include "../sys/state.h"
 #include "stuff.h"
 #include "terrain.h"
 #include "traps.h"
-#include "xom.h"
+#include "../god/xom.h"
 
 static void _extra_hp(int amount_extra);
 
@@ -1412,3 +1412,5 @@ static void _extra_hp(int amount_extra) // must also set in calc_hp
 
     deflate_hp(you.hp_max, false);
 }
+
+

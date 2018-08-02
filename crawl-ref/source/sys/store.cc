@@ -4,15 +4,15 @@
  *             multiple types of data.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "store.h"
 
-#include "dlua.h"
-#include "externs.h"
+#include "../lua/dlua.h"
+#include "../sys/externs.h"
 #include "../lib/libutil.h"
-#include "monster.h"
-#include "tags.h"
+#include "../mon/monster.h"
+#include "../io/tags.h"
 #include "travel.h"
 
 #include <algorithm>
@@ -1943,3 +1943,5 @@ void dump_prop_accesses()
     fclose(f);
 }
 #endif
+
+

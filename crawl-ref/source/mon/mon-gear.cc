@@ -3,29 +3,29 @@
  * @brief Monsters' starting equipment.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include <algorithm>
 
 #include "../sys/enum.h"
-#include "externs.h"
+#include "../sys/externs.h"
 #include "mon-gear.h"
 
 #include "art-enum.h"
-#include "artefact.h"
-#include "dungeon.h"
-#include "env.h"
-#include "itemprop.h"
-#include "items.h"
-#include "makeitem.h"
-#include "mgen_enum.h"
+#include "../item/artefact.h"
+#include "../sys/dungeon.h"
+#include "../sys/env.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
+#include "../sys/makeitem.h"
+#include "../sys/mgen_enum.h"
 #include "mon-place.h"
 #include "mon-util.h"
-#include "random.h"
-#include "spl-book.h"
+#include "../random/random.h"
+#include "../spl/spl-book.h"
 #include "../sys/state.h"
-#include "tilepick.h"
-#include "unwind.h"
+#include "../tile/tilepick.h"
+#include "../low/unwind.h"
 
 
 static void _give_monster_item(monster* mon, int thing,
@@ -2449,3 +2449,5 @@ void give_item(monster *mons, int level_number, bool mons_summoned, bool spectra
     _give_armour(mons, 1 + level_number / 2, spectral_orcs);
     _give_shield(mons, 1 + level_number / 2);
 }
+
+

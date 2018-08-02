@@ -3,25 +3,25 @@
  * @brief Delayed level actions.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "dactions.h"
 
 #include "../coord/coordit.h"
-#include "decks.h"
-#include "dungeon.h"
-#include "env.h"
+#include "../item/decks.h"
+#include "../sys/dungeon.h"
+#include "../sys/env.h"
 #include "../lib/libutil.h"
-#include "mon-behv.h"
-#include "mon-iter.h"
-#include "mon-stuff.h"
-#include "mon-transit.h"
-#include "mon-util.h"
-#include "player.h"
-#include "religion.h"
+#include "../mon/mon-behv.h"
+#include "../mon/mon-iter.h"
+#include "../mon/mon-stuff.h"
+#include "../mon/mon-transit.h"
+#include "../mon/mon-util.h"
+#include "../player/player.h"
+#include "../sys/religion.h"
 #include "../sys/state.h"
-#include "travel.h"
-#include "view.h"
+#include "../sys/travel.h"
+#include "../io/view.h"
 
 static void _daction_hog_to_human(monster *mon, bool in_transit);
 
@@ -393,3 +393,6 @@ static void _daction_hog_to_human(monster *mon, bool in_transit)
     else if (!could_see && can_see)
         mprf("%s appears from out of thin air!", mon->name(DESC_A).c_str());
 }
+
+
+

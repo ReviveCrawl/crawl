@@ -3,16 +3,16 @@
  * @brief Boolean feat-related functions lua library "feat".
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "clua.h"
 #include "cluautil.h"
 #include "l_libs.h"
 
-#include "env.h"
-#include "spl-damage.h"
-#include "spl-cast.h"
-#include "spl-util.h"
+#include "../sys/env.h"
+#include "../spl/spl-damage.h"
+#include "../spl/spl-cast.h"
+#include "../spl/spl-util.h"
 
 LUAFN(l_spells_mana_cost)
 {
@@ -59,3 +59,6 @@ const struct luaL_reg spells_dlib[] =
 { "toxic_radiance", _toxic_radiance },
 { NULL, NULL }
 };
+
+
+

@@ -2,10 +2,10 @@
 #ifndef TILEREG_MENU_H
 #define TILEREG_MENU_H
 
-#include "format.h"
+#include "../io/format.h"
 #include "tilebuf.h"
 #include "tilereg.h"
-#include "fixedvector.h"
+#include "../low/fixedvector.h"
 #include <vector>
 
 class MenuEntry;
@@ -68,3 +68,5 @@ protected:
 
 #endif
 #endif
+
+

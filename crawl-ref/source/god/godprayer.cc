@@ -1,39 +1,39 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "godprayer.h"
 
 #include <cmath>
 
-#include "areas.h"
-#include "artefact.h"
+#include "../sys/areas.h"
+#include "../item/artefact.h"
 #include "../coord/coordit.h"
-#include "database.h"
-#include "effects.h"
-#include "env.h"
-#include "fprop.h"
+#include "../io/database.h"
+#include "../sys/effects.h"
+#include "../sys/env.h"
+#include "../sys/fprop.h"
 #include "godabil.h"
 #include "goditem.h"
 #include "godpassive.h"
-#include "invent.h"
-#include "itemprop.h"
-#include "items.h"
-#include "item_use.h"
+#include "../sys/invent.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
+#include "../item/item_use.h"
 #include "../lib/libutil.h"
-#include "player.h"
-#include "makeitem.h"
-#include "message.h"
-#include "misc.h"
-#include "monster.h"
-#include "notes.h"
-#include "options.h"
-#include "random.h"
-#include "religion.h"
-#include "skills2.h"
-#include "stash.h"
+#include "../player/player.h"
+#include "../sys/makeitem.h"
+#include "../io/message.h"
+#include "../sys/misc.h"
+#include "../mon/monster.h"
+#include "../sys/notes.h"
+#include "../ui/options.h"
+#include "../random/random.h"
+#include "../sys/religion.h"
+#include "../sys/skills2.h"
+#include "../sys/stash.h"
 #include "../sys/state.h"
-#include "stuff.h"
-#include "terrain.h"
-#include "view.h"
+#include "../sys/stuff.h"
+#include "../sys/terrain.h"
+#include "../io/view.h"
 
 static bool _offer_items();
 static bool _zin_donate_gold();
@@ -908,3 +908,6 @@ static bool _offer_items()
 
     return (num_sacced > 0);
 }
+
+
+

@@ -5,35 +5,35 @@
  * Used to fill the monster pane and to pass monster info to Lua.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "mon-info.h"
 
-#include "areas.h"
-#include "artefact.h"
+#include "../sys/areas.h"
+#include "../item/artefact.h"
 #include "../coord/coord.h"
 #include "../coord/coordit.h"
-#include "env.h"
-#include "fight.h"
-#include "ghost.h"
-#include "itemname.h"
-#include "itemprop.h"
+#include "../sys/env.h"
+#include "../sys/fight.h"
+#include "../sys/ghost.h"
+#include "../item/itemname.h"
+#include "../item/itemprop.h"
 #include "../lib/libutil.h"
-#include "message.h"
-#include "misc.h"
+#include "../io/message.h"
+#include "../sys/misc.h"
 #include "mon-chimera.h"
 #include "mon-iter.h"
 #include "mon-util.h"
 #include "monster.h"
-#include "options.h"
-#include "religion.h"
-#include "showsymb.h"
-#include "skills2.h"
-#include "spl-summoning.h"
+#include "../ui/options.h"
+#include "../sys/religion.h"
+#include "../sys/showsymb.h"
+#include "../sys/skills2.h"
+#include "../spl/spl-summoning.h"
 #include "../sys/state.h"
-#include "tagstring.h"
-#include "terrain.h"
-#include "traps.h"
+#include "../ui/tagstring.h"
+#include "../sys/terrain.h"
+#include "../sys/traps.h"
 
 #include <algorithm>
 #include <sstream>
@@ -1782,3 +1782,5 @@ void get_monster_info(vector<monster_info>& mons)
     }
     sort(mons.begin(), mons.end(), monster_info::less_than_wrapper);
 }
+
+

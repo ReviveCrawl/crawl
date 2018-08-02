@@ -98,3 +98,5 @@ bool interrupt_activity(activity_interrupt_type ai,
                             = activity_interrupt_data(),
                         vector<string>* msgs_buf = NULL);
 #endif
+
+

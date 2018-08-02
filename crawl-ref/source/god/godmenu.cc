@@ -4,12 +4,12 @@
  * @todo The god menu.
  */
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 #include "godmenu.h"
 
-#include "colour.h"
+#include "../ui/colour.h"
 #include "../lib/libutil.h"
-#include "religion.h"
+#include "../sys/religion.h"
 
 GodMenuEntry::GodMenuEntry(god_type god_, bool long_name) :
     MenuEntry(god_name(god_, long_name), MEL_ITEM, 1, 0, false),
@@ -38,3 +38,6 @@ string GodMenuEntry::get_text(const bool unused) const
     }
     return text;
 }
+
+
+

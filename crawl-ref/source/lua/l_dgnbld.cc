@@ -3,23 +3,23 @@
  * @brief Building routines (library "dgn").
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include <cmath>
 #include <vector>
 
-#include "dungeon.h"
-#include "dgn-delve.h"
-#include "dgn-irregular-box.h"
-#include "dgn-shoals.h"
-#include "dgn-swamp.h"
-#include "dgn-layouts.h"
+#include "../sys/dungeon.h"
+#include "../dgn/dgn-delve.h"
+#include "../dgn/dgn-irregular-box.h"
+#include "../dgn/dgn-shoals.h"
+#include "../dgn/dgn-swamp.h"
+#include "../dgn/dgn-layouts.h"
 #include "cluautil.h"
 #include "../coord/coord.h"
 #include "../coord/coordit.h"
 #include "l_libs.h"
-#include "mapdef.h"
-#include "random.h"
+#include "../map/mapdef.h"
+#include "../random/random.h"
 
 static const char *exit_glyphs = "{}()[]<>@";
 
@@ -1879,3 +1879,6 @@ const struct luaL_reg dgn_build_dlib[] =
 
     { NULL, NULL }
 };
+
+
+

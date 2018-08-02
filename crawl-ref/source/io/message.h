@@ -42,7 +42,7 @@ void mpr_comma_separated_list(const string &prefix,
                               const msg_channel_type channel = MSGCH_PLAIN,
                               const int param = 0);
 
-#include "cio.h"
+#include "../low/cio.h"
 
 // Sets whether messages that are printed through mpr are
 // considered temporary.
@@ -163,3 +163,6 @@ ostream& operator<<(ostream& os, const msg::setparam& sp);
 void set_msg_dump_file(FILE* file);
 
 #endif
+
+
+

@@ -3,7 +3,7 @@
  * @brief functions used during combat
  */
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "fight.h"
 
@@ -19,19 +19,19 @@
 #include "fineff.h"
 #include "hints.h"
 #include "invent.h"
-#include "itemprop.h"
+#include "../item/itemprop.h"
 #include "melee_attack.h"
 #include "mgen_data.h"
-#include "mon-behv.h"
-#include "mon-cast.h"
-#include "mon-place.h"
-#include "mon-util.h"
+#include "../mon/mon-behv.h"
+#include "../mon/mon-cast.h"
+#include "../mon/mon-place.h"
+#include "../mon/mon-util.h"
 #include "ouch.h"
-#include "player.h"
-#include "random-var.h"
+#include "../player/player.h"
+#include "../random/random-var.h"
 #include "shopping.h"
-#include "spl-miscast.h"
-#include "spl-summoning.h"
+#include "../spl/spl-miscast.h"
+#include "../spl/spl-summoning.h"
 #include "../sys/state.h"
 #include "stuff.h"
 #include "terrain.h"
@@ -483,3 +483,5 @@ int finesse_adjust_delay(int delay)
     }
     return delay;
 }
+
+

@@ -3,34 +3,34 @@
  * @brief Potion and potion-like effects.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "potion.h"
 
 #include <stdio.h>
 #include <string.h>
 
-#include "externs.h"
+#include "../sys/externs.h"
 
 #include "areas.h"
-#include "artefact.h"
+#include "../item/artefact.h"
 #include "beam.h"
 #include "env.h"
 #include "food.h"
-#include "godconduct.h"
+#include "../god/godconduct.h"
 #include "hints.h"
-#include "item_use.h"
+#include "../item/item_use.h"
 #include "../lib/libutil.h"
-#include "message.h"
+#include "../io/message.h"
 #include "misc.h"
 #include "mutation.h"
-#include "player.h"
-#include "player-stats.h"
-#include "skill_menu.h"
-#include "spl-miscast.h"
+#include "../player/player.h"
+#include "../player/player-stats.h"
+#include "../ui/skill_menu.h"
+#include "../spl/spl-miscast.h"
 #include "terrain.h"
 #include "transform.h"
-#include "xom.h"
+#include "../god/xom.h"
 
 /*
  * Apply the effect of a potion to the player.
@@ -465,3 +465,5 @@ bool potion_effect(potion_type pot_eff, int pow, bool drank_it, bool was_known,
 
     return (!was_known && effect);
 }
+
+

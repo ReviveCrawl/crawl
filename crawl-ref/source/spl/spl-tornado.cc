@@ -1,25 +1,25 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 #include <math.h>
 
 #include "spl-damage.h"
 
-#include "areas.h"
-#include "cloud.h"
+#include "../sys/areas.h"
+#include "../sys/cloud.h"
 #include "../coord/coord.h"
 #include "../coord/coordit.h"
-#include "env.h"
-#include "fineff.h"
-#include "godconduct.h"
+#include "../sys/env.h"
+#include "../sys/fineff.h"
+#include "../god/godconduct.h"
 #include "../lib/libutil.h"
-#include "los.h"
-#include "losglobal.h"
-#include "misc.h"
-#include "mon-behv.h"
-#include "ouch.h"
-#include "shout.h"
+#include "../los/los.h"
+#include "../los/losglobal.h"
+#include "../sys/misc.h"
+#include "../mon/mon-behv.h"
+#include "../sys/ouch.h"
+#include "../sys/shout.h"
 #include "spl-cast.h"
-#include "stuff.h"
-#include "terrain.h"
+#include "../sys/stuff.h"
+#include "../sys/terrain.h"
 
 static bool _airtight(coord_def c)
 {
@@ -508,3 +508,5 @@ void tornado_move(const coord_def &p)
     if (age > _age_needed(dist - TORNADO_RADIUS))
         you.duration[DUR_TORNADO_COOLDOWN] = random_range(25, 35);
 }
+
+

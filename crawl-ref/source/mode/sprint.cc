@@ -1,15 +1,15 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "sprint.h"
 
-#include "externs.h"
-#include "maps.h"
-#include "mon-util.h"
-#include "monster.h"
-#include "mpr.h"
-#include "player.h"
-#include "religion.h"
-#include "random.h"
+#include "../sys/externs.h"
+#include "../map/maps.h"
+#include "../mon/mon-util.h"
+#include "../mon/monster.h"
+#include "../io/mpr.h"
+#include "../player/player.h"
+#include "../sys/religion.h"
+#include "../random/random.h"
 
 int sprint_modify_exp(int exp)
 {
@@ -27,3 +27,6 @@ int sprint_modify_piety(int piety)
         return piety;
     return piety * 9;
 }
+
+
+

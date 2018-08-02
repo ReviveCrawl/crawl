@@ -9,7 +9,7 @@
 
 #include "../sys/enum.h"
 
-#include "externs.h"
+#include "../sys/externs.h"
 
 // DECK STRUCTURE: deck.plus is the number of cards the deck *started*
 // with, deck.plus2 is the number of cards drawn, deck.special is the
@@ -157,3 +157,6 @@ const vector<card_type> get_drawn_cards(const item_def& deck);
 bool deck_identify_first(int slot);
 
 #endif
+
+
+

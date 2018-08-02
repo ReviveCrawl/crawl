@@ -7,7 +7,7 @@
 #ifndef DATABASE_H
 #define DATABASE_H
 
-#include "externs.h"
+#include "../sys/externs.h"
 #include <list>
 
 #ifdef DB_NDBM
@@ -53,3 +53,6 @@ vector<string> getAllFAQKeys(void);
 string getFAQ_Question(const string &key);
 string getFAQ_Answer(const string &question);
 #endif
+
+
+

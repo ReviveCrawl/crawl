@@ -5,39 +5,39 @@
  * Creating a cloud module so all the cloud stuff can be isolated.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include <algorithm>
 
-#include "externs.h"
+#include "../sys/externs.h"
 
 #include "areas.h"
 #include "cloud.h"
-#include "colour.h"
+#include "../ui/colour.h"
 #include "../coord/coord.h"
 #include "../coord/coordit.h"
 #include "dungeon.h"
 #include "env.h"
 #include "fprop.h"
-#include "godconduct.h"
-#include "los.h"
-#include "losglobal.h"
-#include "mapmark.h"
+#include "../god/godconduct.h"
+#include "../los/los.h"
+#include "../los/losglobal.h"
+#include "../map/mapmark.h"
 #include "melee_attack.h"
 #include "mgen_data.h"
 #include "misc.h"
-#include "mon-behv.h"
-#include "mon-place.h"
+#include "../mon/mon-behv.h"
+#include "../mon/mon-place.h"
 #include "mutation.h"
 #include "ouch.h"
-#include "random.h"
+#include "../random/random.h"
 #include "religion.h"
 #include "../sys/state.h"
 #include "stuff.h"
 #include "terrain.h"
 #include "tiledef-gui.h"
 #include "tiledef-main.h"
-#include "unwind.h"
+#include "../low/unwind.h"
 
 static int _actor_cloud_damage(actor *act, const cloud_struct &cloud,
                                bool maximum_damage);
@@ -1570,3 +1570,5 @@ void fume()
             place_cloud(clouds[bestroll(3, 2)], you.pos(), 3 + random2(4), &you, 4);
     }
 }
+
+

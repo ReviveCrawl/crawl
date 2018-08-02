@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "externs.h"
+#include "../sys/externs.h"
 
 class formatted_string;
 class writer;
@@ -205,3 +205,5 @@ extern hints_state Hints;
 
 void tutorial_msg(const char *text, bool end = false);
 #endif
+
+

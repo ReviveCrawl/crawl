@@ -13,7 +13,7 @@
 
    Jan 1998 Svante Gerhard <svante@algonet.se>                          */
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -24,18 +24,18 @@
 #include <term.h>
 #define _LIBUNIX_IMPLEMENTATION
 #include "libunix.h"
-#include "defines.h"
+#include "../sys/defines.h"
 
-#include "cio.h"
-#include "crash.h"
+#include "../low/cio.h"
+#include "../low/crash.h"
 #include "../sys/enum.h"
-#include "externs.h"
+#include "../sys/externs.h"
 #include "../lib/libutil.h"
-#include "options.h"
-#include "files.h"
+#include "../ui/options.h"
+#include "../io/files.h"
 #include "../sys/state.h"
-#include "unicode.h"
-#include "view.h"
+#include "../low/unicode.h"
+#include "../io/view.h"
 #include "../io/viewgeom.h"
 
 #include <wchar.h>
@@ -882,3 +882,6 @@ bool kbhit()
     return result;
 #endif
 }
+
+
+

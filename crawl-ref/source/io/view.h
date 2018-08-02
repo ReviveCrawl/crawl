@@ -49,3 +49,6 @@ void reset_show_terrain();
 void handle_terminal_resize(bool redraw = true);
 
 #endif
+
+
+

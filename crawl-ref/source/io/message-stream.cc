@@ -1,4 +1,4 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "message.h"
 
@@ -99,3 +99,6 @@ ostream& operator<<(ostream& os, const msg::setparam& sp)
     ps->set_param(sp.m_param);
     return os;
 }
+
+
+

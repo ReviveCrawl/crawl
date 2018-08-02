@@ -12,14 +12,14 @@
  * - Old input lines are not visible.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "luaterp.h"
 
 #include "clua.h"
 #include "dlua.h"
-#include "message.h"
-#include "options.h"
+#include "../io/message.h"
+#include "../ui/options.h"
 
 #ifdef WIZARD
 
@@ -159,3 +159,6 @@ void debug_terp_dlua(CLua &vm)
 }
 
 #endif
+
+
+

@@ -15,3 +15,5 @@ void up_stairs(dungeon_feature_type force_stair = DNGN_UNSEEN);
 void new_level(bool restore = false);
 void leaving_level_now(dungeon_feature_type stair_used);
 #endif
+
+

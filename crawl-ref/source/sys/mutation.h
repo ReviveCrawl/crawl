@@ -106,3 +106,5 @@ int augmentation_amount();
 bool delete_temp_mutation();
 
 #endif
+
+

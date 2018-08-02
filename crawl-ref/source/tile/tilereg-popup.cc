@@ -1,17 +1,17 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE_LOCAL
 
 #include "tilereg-popup.h"
 #include "tilereg-menu.h"
 
-#include "menu.h"
-#include "macro.h"
-#include "options.h"
+#include "../ui/menu.h"
+#include "../ui/macro.h"
+#include "../ui/options.h"
 #include "tilebuf.h"
 #include "tilefont.h"
-#include "cio.h"
-#include "process_desc.h"
+#include "../low/cio.h"
+#include "../platforms/process_desc.h"
 
 PopupRegion::PopupRegion(ImageManager *im, FontWrapper *entry) :
     MenuRegion(im, entry),
@@ -67,3 +67,5 @@ int PopupRegion::get_retval()
     return m_retval;
 }
 #endif
+
+

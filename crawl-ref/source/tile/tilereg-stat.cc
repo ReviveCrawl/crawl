@@ -1,11 +1,11 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE_LOCAL
 
 #include "tilereg-stat.h"
 
 #include "../lib/libutil.h"
-#include "macro.h"
+#include "../ui/macro.h"
 
 StatRegion::StatRegion(FontWrapper *font) : TextRegion(font)
 {
@@ -68,3 +68,5 @@ void StatRegion::clear()
 }
 
 #endif
+
+

@@ -3,9 +3,9 @@
  * @brief General dungeon events.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
-#include "dgnevent.h"
+#include "dgn/dgnevent.h"
 
 #include "../coord/coord.h"
 #include <algorithm>
@@ -179,3 +179,6 @@ void dgn_event_dispatcher::remove_listener_at(const coord_def &pos,
 dgn_event_listener::~dgn_event_listener()
 {
 }
+
+
+

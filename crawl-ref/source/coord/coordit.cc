@@ -3,14 +3,14 @@
  * @brief Coordinate iterators.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
-#include "../coord/coordit.h"
-
+#include "coordit.h"
 #include "coord-circle.h"
-#include "../coord/coord.h"
-#include "random.h"
-#include "player.h"
+#include "coord.h"
+
+#include "../random/random.h"
+#include "../player/player.h"
 
 rectangle_iterator::rectangle_iterator(const coord_def& corner1,
                                         const coord_def& corner2)
@@ -371,3 +371,6 @@ int distance_iterator::radius() const
 {
     return r;
 }
+
+
+

@@ -7,19 +7,19 @@
  * - Track last_used of each type so each weapon can do the right thing
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "quiver.h"
 
 #include "env.h"
 #include "invent.h"
-#include "itemprop.h"
-#include "items.h"
+#include "../item/itemprop.h"
+#include "../item/items.h"
 #include "../lib/libutil.h"
-#include "options.h"
-#include "player.h"
+#include "../ui/options.h"
+#include "../player/player.h"
 #include "stuff.h"
-#include "tags.h"
+#include "../io/tags.h"
 #include "throw.h"
 
 #include <algorithm>
@@ -659,3 +659,5 @@ static bool _items_similar(const item_def& a, const item_def& b, bool force)
 {
     return (items_similar(a, b) && (force || a.slot == b.slot));
 }
+
+

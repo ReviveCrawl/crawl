@@ -52,3 +52,5 @@ void apply_daction_to_transit(daction_type act);
 int count_daction_in_transit(daction_type act);
 
 #endif
+
+

@@ -1,29 +1,29 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
-#include "branch.h"
-#include "cio.h"
-#include "colour.h"
+#include "../sys/branch.h"
+#include "../low/cio.h"
+#include "../ui/colour.h"
 #include "../coord/coordit.h"
-#include "dungeon.h"
+#include "../sys/dungeon.h"
 #include "dgn-shoals.h"
 #include "dgn-height.h"
-#include "env.h"
-#include "flood_find.h"
-#include "fprop.h"
-#include "items.h"
-#include "itemprop.h"
+#include "../sys/env.h"
+#include "../sys/flood_find.h"
+#include "../sys/fprop.h"
+#include "../item/items.h"
+#include "../item/itemprop.h"
 #include "../lib/libutil.h"
-#include "mapmark.h"
-#include "maps.h"
-#include "message.h"
-#include "mgen_data.h"
-#include "mon-iter.h"
-#include "mon-place.h"
-#include "mon-util.h"
-#include "random.h"
-#include "terrain.h"
-#include "traps.h"
-#include "view.h"
+#include "../map/mapmark.h"
+#include "../map/maps.h"
+#include "../io/message.h"
+#include "../sys/mgen_data.h"
+#include "../mon/mon-iter.h"
+#include "../mon/mon-place.h"
+#include "../mon/mon-util.h"
+#include "../random/random.h"
+#include "../sys/terrain.h"
+#include "../sys/traps.h"
+#include "../io/view.h"
 
 #include <algorithm>
 #include <vector>
@@ -1302,3 +1302,6 @@ void wizard_mod_tide()
     }
 }
 #endif
+
+
+

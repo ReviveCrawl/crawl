@@ -3,16 +3,16 @@
  * @brief Collection of tutorial related functions.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 #include "tutorial.h"
 
-#include "externs.h"
-#include "hints.h"
-#include "message.h"
-#include "mon-ench.h"
-#include "mpr.h"
-#include "player.h"
-#include "skills.h"
+#include "../sys/externs.h"
+#include "../sys/hints.h"
+#include "../io/message.h"
+#include "../mon/mon-ench.h"
+#include "../io/mpr.h"
+#include "../player/player.h"
+#include "../sys/skills.h"
 #include "../sys/state.h"
 
 void set_tutorial_hunger(int hunger)
@@ -75,3 +75,6 @@ void tutorial_death_message()
               MSGCH_TUTORIAL);
     more();
 }
+
+
+

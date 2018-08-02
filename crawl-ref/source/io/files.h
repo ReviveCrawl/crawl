@@ -7,7 +7,7 @@
 #ifndef FILES_H
 #define FILES_H
 
-#include "externs.h"
+#include "../sys/externs.h"
 #include <stdio.h>
 #include <string>
 #include <vector>
@@ -120,3 +120,6 @@ private:
 
 FILE *fopen_replace(const char *name);
 #endif
+
+
+

@@ -1,13 +1,13 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #ifdef USE_TILE_LOCAL
 
 #include "tilereg-title.h"
 
-#include "files.h"
+#include "../io/files.h"
 #include "../lib/libutil.h"
-#include "macro.h"
-#include "random.h"
+#include "../ui/macro.h"
+#include "../random/random.h"
 
 static const string _get_title_image()
 {
@@ -92,3 +92,5 @@ void TitleRegion::update_message(string message)
 }
 
 #endif
+
+

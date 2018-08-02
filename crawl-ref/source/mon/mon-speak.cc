@@ -3,7 +3,7 @@
  * @brief Functions to handle speaking monsters
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "mon-speak.h"
 
@@ -12,25 +12,25 @@
 #include <stdio.h>
 #include <algorithm>
 
-#include "externs.h"
+#include "../sys/externs.h"
 
-#include "beam.h"
-#include "branch.h"
-#include "cluautil.h"
-#include "database.h"
-#include "dlua.h"
-#include "ghost.h"
+#include "../sys/beam.h"
+#include "../sys/branch.h"
+#include "../lua/cluautil.h"
+#include "../io/database.h"
+#include "../lua/dlua.h"
+#include "../sys/ghost.h"
 #include "../lib/libutil.h"
-#include "message.h"
+#include "../io/message.h"
 #include "mon-util.h"
 #include "monster.h"
-#include "player.h"
-#include "religion.h"
-#include "skills2.h"
+#include "../player/player.h"
+#include "../sys/religion.h"
+#include "../sys/skills2.h"
 #include "../sys/state.h"
-#include "stuff.h"
-#include "areas.h"
-#include "view.h"
+#include "../sys/stuff.h"
+#include "../sys/areas.h"
+#include "../io/view.h"
 
 // Try the exact key lookup along with the entire prefix list.
 // If that fails, start ignoring hostile/religion/branch/silence, in that order,
@@ -867,3 +867,5 @@ bool mons_speaks_msg(monster* mons, const string &msg,
     }
     return noticed;
 }
+
+

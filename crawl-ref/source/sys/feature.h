@@ -45,3 +45,5 @@ void init_show_table();
 dungeon_feature_type magic_map_base_feat(dungeon_feature_type feat);
 
 #endif
+
+

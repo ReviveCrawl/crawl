@@ -6,12 +6,12 @@
 #ifndef PROC_LAYOUTS_H
 #define PROC_LAYOUTS_H
 
-#include "fixedvector.h"
+#include "../low/fixedvector.h"
 
-#include "dungeon.h"
+#include "../sys/dungeon.h"
 #include "../sys/enum.h"
-#include "externs.h"
-#include "worley.h"
+#include "../sys/externs.h"
+#include "../mon/worley.h"
 
 dungeon_feature_type sanitize_feature(dungeon_feature_type feature,
         bool strict = false);
@@ -325,3 +325,6 @@ class WorleyDistortFunction : public DistortFunction
 };
 
 #endif /* PROC_LAYOUTS_H */
+
+
+

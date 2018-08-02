@@ -6,7 +6,7 @@
 #ifndef XOM_H
 #define XOM_H
 
-#include "ouch.h"
+#include "../sys/ouch.h"
 
 struct item_def;
 
@@ -104,3 +104,6 @@ void debug_xom_effects();
 bool move_stair(coord_def stair_pos, bool away, bool allow_under);
 
 #endif
+
+
+

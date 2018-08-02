@@ -5,7 +5,7 @@
  *  Written by: Robert Burnham
  */
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "attack.h"
 
@@ -15,12 +15,12 @@
 #include <algorithm>
 
 #include "art-enum.h"
-// #include "artefact.h"
-#include "externs.h"
+// #include "../item/artefact.h"
+#include "../sys/externs.h"
 #include "../sys/enum.h"
 #include "fight.h"
 #include "../lib/libutil.h"
-#include "player.h"
+#include "../player/player.h"
 
 /*
  **************************************************
@@ -321,3 +321,5 @@ int attack::modify_blood_amount(const int damage, const int dam_type)
 
     return (damage * factor / 10);
 }
+
+

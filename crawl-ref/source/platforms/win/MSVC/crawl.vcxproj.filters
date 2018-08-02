@@ -851,6 +851,9 @@
       <Filter>wiz</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\main.cc" />
+    <ClCompile Include="..\..\..\build\AppHdr.cc">
+      <Filter>build</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\libutil.h">
@@ -1749,6 +1752,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\wiz\wiz-fsim.h">
       <Filter>wiz</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\build\AppHdr.h">
+      <Filter>build</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

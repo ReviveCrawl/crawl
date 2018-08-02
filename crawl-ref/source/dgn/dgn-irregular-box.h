@@ -77,3 +77,6 @@ void make_irregular_box(map_lines& map, int x1, int y1, int x2, int y2,
                         char door_glyph = '+',  int door_count = 1);
 
 #endif
+
+
+

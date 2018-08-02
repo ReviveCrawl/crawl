@@ -8,9 +8,9 @@
 #define DUNGEON_H
 
 #include "env.h"
-#include "externs.h"
-#include "mapdef.h"
-#include "mon-pick.h"
+#include "../sys/externs.h"
+#include "../map/mapdef.h"
+#include "../mon/mon-pick.h"
 
 #include <vector>
 #include <set>
@@ -289,3 +289,5 @@ bool door_vetoed(const coord_def pos);
 
 void fixup_misplaced_items(void);
 #endif
+
+

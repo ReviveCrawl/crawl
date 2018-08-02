@@ -1,29 +1,29 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 #include <math.h>
 
 #include "godpassive.h"
 
 #include "art-enum.h"
-#include "artefact.h"
-#include "branch.h"
+#include "../item/artefact.h"
+#include "../sys/branch.h"
 #include "../coord/coord.h"
 #include "../coord/coordit.h"
-#include "defines.h"
-#include "describe.h"
-#include "env.h"
-#include "files.h"
-#include "food.h"
-#include "fprop.h"
+#include "../sys/defines.h"
+#include "../io/describe.h"
+#include "../sys/env.h"
+#include "../io/files.h"
+#include "../sys/food.h"
+#include "../sys/fprop.h"
 #include "goditem.h"
 #include "godprayer.h"
-#include "items.h"
-#include "itemname.h"
-#include "itemprop.h"
+#include "../item/items.h"
+#include "../item/itemname.h"
+#include "../item/itemprop.h"
 #include "../lib/libutil.h"
-#include "mon-stuff.h"
-#include "player.h"
-#include "religion.h"
-#include "skills2.h"
+#include "../mon/mon-stuff.h"
+#include "../player/player.h"
+#include "../sys/religion.h"
+#include "../sys/skills2.h"
 #include "../sys/state.h"
 
 int chei_stat_boost(int piety)
@@ -717,3 +717,6 @@ int ash_skill_boost(skill_type sk, int scale)
 
     return min(level, 27 * scale);
 }
+
+
+

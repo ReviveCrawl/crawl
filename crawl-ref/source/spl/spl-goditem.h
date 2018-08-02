@@ -21,3 +21,5 @@ bool cast_smiting(int pow, monster* mons);
 
 int is_pacifiable(const monster* mon);
 #endif
+
+

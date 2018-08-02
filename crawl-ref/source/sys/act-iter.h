@@ -6,7 +6,7 @@
 #ifndef ACT_ITER_H
 #define ACT_ITER_H
 
-#include "mon-iter.h"
+#include "../mon/mon-iter.h"
 
 class actor_iterator
 {
@@ -36,3 +36,5 @@ protected:
 };
 
 #endif
+
+

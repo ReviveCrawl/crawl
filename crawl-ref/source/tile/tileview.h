@@ -7,7 +7,7 @@
 #ifndef TILEVIEW_H
 #define TILEVIEW_H
 
-#include "target.h"
+#include "../sys/target.h"
 
 struct cloud_info;
 struct coord_def;
@@ -61,3 +61,5 @@ void tile_clear_map(const coord_def &gc);
 void tile_forget_map(const coord_def &gc);
 
 #endif
+
+

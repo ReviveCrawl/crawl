@@ -3,7 +3,7 @@
  * @brief Misc functions.
 **/
 
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "itemname.h"
 
@@ -12,30 +12,30 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "externs.h"
+#include "../sys/externs.h"
 
 #include "artefact.h"
 #include "decks.h"
-#include "describe.h"
-#include "food.h"
-#include "godpassive.h"
-#include "invent.h"
+#include "../io/describe.h"
+#include "../sys/food.h"
+#include "../god/godpassive.h"
+#include "../sys/invent.h"
 #include "items.h"
 #include "itemprop.h"
 #include "../lib/libutil.h"
-#include "misc.h"
-#include "mon-util.h"
-#include "mon-stuff.h"
-#include "notes.h"
-#include "options.h"
-#include "player.h"
-#include "religion.h"
-#include "skills.h"
-#include "spl-book.h"
-#include "quiver.h"
-#include "random.h"
-#include "shopping.h"
-#include "xom.h"
+#include "../sys/misc.h"
+#include "../mon/mon-util.h"
+#include "../mon/mon-stuff.h"
+#include "../sys/notes.h"
+#include "../ui/options.h"
+#include "../player/player.h"
+#include "../sys/religion.h"
+#include "../sys/skills.h"
+#include "../spl/spl-book.h"
+#include "../sys/quiver.h"
+#include "../random/random.h"
+#include "../sys/shopping.h"
+#include "../god/xom.h"
 
 static iflags_t _full_ident_mask(const item_def& item);
 
@@ -2924,3 +2924,6 @@ bool evoker_is_charged(const item_def &item)
 {
     return (item.plus2 == 0);
 }
+
+
+

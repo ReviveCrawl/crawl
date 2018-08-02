@@ -1,17 +1,17 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include "mon-pathfind.h"
 
 #include "../coord/coord.h"
-#include "directn.h"
-#include "env.h"
+#include "../ui/directn.h"
+#include "../sys/env.h"
 #include "mon-place.h"
 #include "mon-stuff.h"
 #include "mon-util.h"
 #include "monster.h"
-#include "random.h"
-#include "terrain.h"
-#include "traps.h"
+#include "../random/random.h"
+#include "../sys/terrain.h"
+#include "../sys/traps.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // monster_pathfind
@@ -541,3 +541,5 @@ void monster_pathfind::update_pos(coord_def npos, int total)
 
     add_new_pos(npos, total);
 }
+
+

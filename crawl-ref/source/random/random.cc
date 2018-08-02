@@ -1,7 +1,7 @@
-#include "AppHdr.h"
+#include "../build/AppHdr.h"
 
 #include <math.h>
-#include "random.h"
+#include "../random/random.h"
 
 // [low, high]
 int random_range(int low, int high)
@@ -394,3 +394,5 @@ int defer_rand::random2avg(int max, int rolls)
 
     return (sum / rolls);
 }
+
+
