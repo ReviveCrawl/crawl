@@ -3,6 +3,9 @@
 #include <vector>
 #include <stdlib.h>
 #include <stdio.h>
+
+#include <minmax.h>
+
 #ifdef USE_TILE
  #include <png.h>
 #endif

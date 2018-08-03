@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <memory.h>
+#include <minmax.h>
 
 #include <assert.h>
 #ifdef USE_TILE

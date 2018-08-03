@@ -6,6 +6,7 @@
   #include <SDL_main.h>
 #endif
 
+
 static void _usage(const char *fname)
 {
     fprintf(stderr, "Usage: %s [-i] [-c] [-l] (tile_list.txt)\n", fname);
