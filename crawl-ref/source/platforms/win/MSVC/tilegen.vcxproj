@@ -78,7 +78,7 @@
     <_ProjectFileVersion>11.0.60315.1</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)\..\</OutDir>
+    <OutDir>$(SolutionDir)\..\..\..</OutDir>
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -99,7 +99,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(SolutionDir)\..\contrib\sdl\include;$(SolutionDir)\..\contrib\sdl-image;$(SolutionDir)\..\contrib\libpng;$(SolutionDir)\..\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\..\..\..\contrib\sdl\include;$(SolutionDir)\..\..\..\contrib\sdl-image;$(SolutionDir)\..\..\..\contrib\libpng;$(SolutionDir)\..\..\..\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -112,9 +112,11 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\..\..\contrib\bin\8.0\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Link>
     <PostBuildEvent>
-      <Command>cd "$(SolutionDir)\..\rltiles"
+      <Command>cd "$(SolutionDir)\..\..\..\rltiles"
 echo Generating main.png...
 "$(TargetPath)" dc-main.txt
 echo Generating dngn.png...
@@ -131,8 +133,7 @@ echo Generating gui.png...
 "$(TargetPath)" dc-gui.txt
 echo Generating icons..
 "$(TargetPath)" dc-icons.txt
-copy *.png ..\dat\tiles\
-</Command>
+copy *.png ..\dat\tiles\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -257,17 +258,17 @@ copy *.png ..\dat\tiles\
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\rltiles\tool\main.cc" />
-    <ClCompile Include="..\rltiles\tool\tile.cc" />
-    <ClCompile Include="..\rltiles\tool\tile_colour.cc" />
-    <ClCompile Include="..\rltiles\tool\tile_list_processor.cc" />
-    <ClCompile Include="..\rltiles\tool\tile_page.cc" />
+    <ClCompile Include="..\..\..\rltiles\tool\main.cc" />
+    <ClCompile Include="..\..\..\rltiles\tool\tile.cc" />
+    <ClCompile Include="..\..\..\rltiles\tool\tile_colour.cc" />
+    <ClCompile Include="..\..\..\rltiles\tool\tile_list_processor.cc" />
+    <ClCompile Include="..\..\..\rltiles\tool\tile_page.cc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\rltiles\tool\tile.h" />
-    <ClInclude Include="..\rltiles\tool\tile_colour.h" />
-    <ClInclude Include="..\rltiles\tool\tile_list_processor.h" />
-    <ClInclude Include="..\rltiles\tool\tile_page.h" />
+    <ClInclude Include="..\..\..\rltiles\tool\tile.h" />
+    <ClInclude Include="..\..\..\rltiles\tool\tile_colour.h" />
+    <ClInclude Include="..\..\..\rltiles\tool\tile_list_processor.h" />
+    <ClInclude Include="..\..\..\rltiles\tool\tile_page.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
