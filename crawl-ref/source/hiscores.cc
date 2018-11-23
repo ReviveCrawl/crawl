@@ -2671,10 +2671,10 @@ string scorefile_entry::death_description(death_desc_verbosity verbosity) const
             }
             else if (needs_called_by_monster_line)
             {
-                desc += make_stringf("<851>... %s by %s",
+                desc += make_stringf("<851>... %s 에게 %s",
                          death_type == KILLED_BY_COLLISION ? "caused" :
-                         auxkilldata == "by angry trees"   ? "awakened"
-                                                           : "invoked",
+                         auxkilldata == "성난 나무들에게"   ? "깨어남"
+                                                           : "흡수당함",
                          death_source_name.c_str());
                 desc += _hiscore_newline_string();
                 needs_damage = true;
@@ -2911,12 +2911,12 @@ void mark_milestone(const string &type, const string &milestone,
                       current_level_parent().describe() :
                       origin_level).c_str());
     }
-    xl.add_field("time", "<853>%s",
+    xl.add_field("시간", "<853>%s",
                  make_date_string(
                      milestone_time ? milestone_time
                                     : se.get_death_time()).c_str());
-    xl.add_field("type", "<854>%s", type.c_str());
-    xl.add_field("milestone", "<855>%s", milestone.c_str());
+    xl.add_field("타입", "<854>%s", type.c_str());
+    xl.add_field("지표", "<855>%s", milestone.c_str());
     const string xlog_line = xl.xlog_line();
     if (FILE *fp = lk_open("a", milestone_file))
     {
@@ -2932,7 +2932,7 @@ string xlog_status_line()
     const scorefile_entry se(0, MID_NOBODY, KILL_MISC, nullptr);
     se.set_base_xlog_fields();
     xlog_fields xl = se.get_fields();
-    xl.add_field("time", "<857>%s", make_date_string(time(nullptr)).c_str());
+    xl.add_field("시간", "<857>%s", make_date_string(time(nullptr)).c_str());
     return xl.xlog_line();
 }
 #endif // DGL_WHEREIS

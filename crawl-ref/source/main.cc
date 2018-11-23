@@ -1382,7 +1382,7 @@ static bool _prompt_stairs(dungeon_feature_type ygrd, bool down, bool shaft)
         string prompt = make_stringf("<1128>%s을 종료할 것인가?%s",
                                      branches[root_branch].longname,
                                      crawl_state.game_is_tutorial() ? "" :
-                                     " 이것은 당신이 게임을 잃게 만들 것이다!");
+                                     "게임에서 패배할 것이다!");
         if (!yesno(prompt.c_str(), false, 'n'))
         {
             mpr("좋아, 기다려!");

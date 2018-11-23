@@ -485,7 +485,7 @@ static void _recap_spell_keys(vector<string> &keys)
         // first, strip " spell"
         const string key_name = keys[i].substr(0, keys[i].length() - 6);
         // then get the real name
-        keys[i] = make_stringf("<1089>%s spell",
+        keys[i] = make_stringf("<1089>%s 주문",
                                spell_title(spell_by_name(key_name)));
     }
 }
@@ -501,7 +501,7 @@ static void _recap_ability_keys(vector<string> &keys)
     {
         strip_suffix(key, "ability");
         // get the real name
-        key = make_stringf("<1090>%s ability", ability_name(ability_by_name(key)));
+        key = make_stringf("<1090>%s 능력", ability_name(ability_by_name(key)));
     }
 }
 
@@ -1126,8 +1126,8 @@ static string _branch_entry_runes(branch_type br)
 
     if (num_runes > 0)
     {
-        desc = make_stringf("<1092>\n\nThis %s can only be entered while carrying "
-                            "<1093>at least %d rune%s of Zot.",
+        desc = make_stringf("<1092>\n\n이 %s는(은) 최소 %d개의 조트의 %s 룬을 "
+                            "<1093>들고 있을 때만 입장 가능합니다.",
                             br == BRANCH_ZIGGURAT ? "portal" : "branch",
                             num_runes, num_runes > 1 ? "s" : "");
     }
@@ -1143,7 +1143,7 @@ static string _branch_depth(branch_type br)
     // Abyss depth is explained in the description.
     if (depth > 1 && br != BRANCH_ABYSS)
     {
-        desc = make_stringf("<1094>\n\nThis %s is %d levels deep.",
+        desc = make_stringf("<1094>\n\n이 %s 는(은) 지하 %d 층이다.",
                             br == BRANCH_ZIGGURAT ? "portal"
                                                   : "branch",
                             depth);
@@ -1307,10 +1307,10 @@ static string _prompt_for_regex(const LookupType &lookup_type, string &err)
                      " symbol.", pluralise(type).c_str()) :
         "";
     mprf(MSGCH_PROMPT,
-         "<1097>Describe a %s; partial names and regexps are fine.%s",
+         "<1097>%s을(를) 모사; 이름의 일부분이나 정규식도 가능합니다..%s",
          type.c_str(), extra.c_str());
 
-    mprf(MSGCH_PROMPT, "Describe what? ");
+    mprf(MSGCH_PROMPT, "무엇을 묘사합니까? ");
     char buf[80];
     if (cancellable_get_line(buf, sizeof(buf)) || buf[0] == '\0')
     {
@@ -1370,7 +1370,7 @@ static string _keylist_invalid_reason(const vector<string> &key_list,
                     "' to display.";
         }
 
-        return make_stringf("<1098>Too many matching %s (%d) to display.",
+        return make_stringf("<1098>%s에 대한 검색 결과가 너무 많습니다. (%d)",
                             plur_type.c_str(), (int) key_list.size());
     }
 
@@ -1391,7 +1391,7 @@ static bool _find_description(string &response)
     const string lookup_type_prompts =
         comma_separated_fn(lookup_types.begin(), lookup_types.end(),
                            mem_fn(&LookupType::prompt_string), " or ");
-    mprf(MSGCH_PROMPT, "<1099>Describe a %s? ", lookup_type_prompts.c_str());
+    mprf(MSGCH_PROMPT, "<1099>%s을(를) 묘사합니까? ", lookup_type_prompts.c_str());
 
     int ch;
     {

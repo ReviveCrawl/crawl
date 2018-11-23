@@ -263,7 +263,7 @@ bool melee_attack::handle_phase_dodged()
             player_warn_miss();
         else
         {
-            mprf("<1272>%s%s misses %s%s",
+            mprf("<1272>%s%s는(은) %s%s를(을) 빗맞혔다",
                  atk_name(DESC_THE).c_str(),
                  evasion_margin_adverb().c_str(),
                  defender_name(true).c_str(),
@@ -453,7 +453,7 @@ bool melee_attack::handle_phase_hit()
                       : attacker->conj_verb(mons_attack_verb());
 
         // TODO: Clean this up if possible, checking atype for do / does is ugly
-        mprf("<1273>%s %s %s but %s no damage.",
+        mprf("<1273>%s %s %s 했지만, %s 피해를 입히지 못했다.",
              attacker->name(DESC_THE).c_str(),
              attack_verb.c_str(),
              defender_name(true).c_str(),
@@ -532,7 +532,7 @@ bool melee_attack::handle_phase_damaged()
         {
             if (needs_message)
             {
-                mprf("<1274>%s shroud bends %s attack away%s",
+                mprf("<1274>%s 장막이 %s 공격을 흘려보냈다.%s",
                      def_name(DESC_ITS).c_str(),
                      atk_name(DESC_ITS).c_str(),
                      attack_strength_punctuation(damage_done).c_str());
@@ -550,7 +550,7 @@ bool melee_attack::handle_phase_damaged()
     if (shroud_broken && needs_message)
     {
         mprf(defender->is_player() ? MSGCH_WARN : MSGCH_PLAIN,
-             "<1275>%s shroud falls apart!",
+             "<1275>%s 장막이 흩어져간다!",
              def_name(DESC_ITS).c_str());
     }
 
@@ -608,7 +608,7 @@ static void _hydra_devour(monster &victim)
     // give a clearer message for eating invisible things
     if (!you.can_see(victim))
     {
-        mprf("<1277>It tastes like %s.",
+        mprf("<1277>%s 맛이 난다.",
              mons_type_name(mons_genus(victim.type), DESC_PLAIN).c_str());
         // this could be the actual creature name, but it feels more
         // 'flavourful' this way??
@@ -662,9 +662,9 @@ static void _hydra_consider_devouring(monster &defender)
     if (defender.is_shapeshifter())
     {
         // handle this carefully, so the player knows what's going on
-        mprf("<1278>You spit out %s as %s twists & changes in your mouth!",
-             defender.name(DESC_THE).c_str(),
-             defender.pronoun(PRONOUN_SUBJECTIVE).c_str());
+        mprf("<1278>당신은 %s, 입에서 뒤틀리고 변화하는 %s 를(을) 내뿜었다!",
+			defender.pronoun(PRONOUN_SUBJECTIVE).c_str());
+			defender.name(DESC_THE).c_str(),
         return;
     }
 
@@ -1261,7 +1261,7 @@ bool melee_attack::player_aux_test_hit()
     if (to_hit >= evasion || auto_hit)
         return true;
 
-    mprf("<1279>Your %s misses %s.", aux_attack.c_str(),
+    mprf("<1279>당신의 %s이(가) %s를 빚맛혔다.", aux_attack.c_str(),
          defender->name(DESC_THE).c_str());
 
     return false;
@@ -1871,7 +1871,7 @@ void melee_attack::rot_defender(int amount)
             if (defender->is_player())
                 mpr("당신의 살점이 썩어가는 것이 느껴졌다!");
             else if (defender->is_monster() && defender_visible)
-                mprf("<1285>%s looks less resilient!", defender_name(false).c_str());
+                mprf("<1285>%s 은(는) 저항력이 약해진 것 같다!", defender_name(false).c_str());
         }
     }
 }
@@ -2042,7 +2042,7 @@ void melee_attack::decapitate(int dam_type)
     {
         if (defender_visible)
         {
-            mprf("<1286>%s %s %s last head off!",
+            mprf("<1286>%s %s %s 마지막 머리가 잘렸다!",
                  atk_name(DESC_THE).c_str(),
                  attacker->conj_verb(verb).c_str(),
                  apostrophise(defender_name(true)).c_str());
@@ -2061,7 +2061,7 @@ void melee_attack::decapitate(int dam_type)
 
     if (defender_visible)
     {
-        mprf("<1287>%s %s one of %s heads off!",
+        mprf("<1287>%s %s 이(가) %s의 머리 중 하나를 잘랐다!",
              atk_name(DESC_THE).c_str(),
              attacker->conj_verb(verb).c_str(),
              apostrophise(defender_name(true)).c_str());
@@ -2144,7 +2144,7 @@ void melee_attack::apply_staff_damage()
         if (special_damage)
         {
             special_damage_message =
-                make_stringf("<1288>%s %s electrocuted!",
+                make_stringf("<1288>%s 이(가) %s를 감전시켰다!",
                              defender->name(DESC_THE).c_str(),
                              defender->conj_verb("are").c_str());
             special_damage_flavour = BEAM_ELECTRICITY;
@@ -2162,7 +2162,7 @@ void melee_attack::apply_staff_damage()
         {
             special_damage_message =
                 make_stringf(
-                    "<1289>%s freeze%s %s!",
+                    "<1289>%s 이(가) %s를 얼렸다 %s!",
                     attacker->name(DESC_THE).c_str(),
                     attacker->is_player() ? "" : "s",
                     defender->name(DESC_THE).c_str());
@@ -2178,7 +2178,7 @@ void melee_attack::apply_staff_damage()
         {
             special_damage_message =
                 make_stringf(
-                    "<1290>%s crush%s %s!",
+                    "<1290>%s이(가) %s을(를) 부쉈다 %s!",
                     attacker->name(DESC_THE).c_str(),
                     attacker->is_player() ? "" : "es",
                     defender->name(DESC_THE).c_str());
@@ -2195,7 +2195,7 @@ void melee_attack::apply_staff_damage()
         {
             special_damage_message =
                 make_stringf(
-                    "<1291>%s burn%s %s!",
+                    "<1291>%s이(가) %s을(를) 불태웠다 %s!",
                     attacker->name(DESC_THE).c_str(),
                     attacker->is_player() ? "" : "s",
                     defender->name(DESC_THE).c_str());
@@ -2227,7 +2227,7 @@ void melee_attack::apply_staff_damage()
         {
             special_damage_message =
                 make_stringf(
-                    "<1292>%s %s in agony!",
+                    "<1292>%s %s는(은) 고통에 휩싸였다!",
                     defender->name(DESC_THE).c_str(),
                     defender->conj_verb("writhe").c_str());
 
@@ -2375,7 +2375,7 @@ void melee_attack::announce_hit()
             verb_degree = " " + verb_degree;
         }
 
-        mprf("<1294>You %s %s%s%s%s",
+        mprf("<1294>당신은 %s %s%s%s%s",
              attack_verb.c_str(),
              defender->name(DESC_THE).c_str(),
              verb_degree.c_str(), debug_damage_number().c_str(),
@@ -2404,7 +2404,7 @@ bool melee_attack::mons_do_poison()
 
     if (needs_message)
     {
-        mprf("<1295>%s poisons %s!",
+        mprf("<1295>%s이(가) %s을(를) 독에 감염시켰다!",
                 atk_name(DESC_THE).c_str(),
                 defender_name(true).c_str());
     }
@@ -2421,7 +2421,7 @@ void melee_attack::mons_do_napalm()
     {
         if (needs_message)
         {
-            mprf("<1296>%s %s covered in liquid flames%s",
+            mprf("<1296>%s %s은(는) 액상 불꽃에 휩싸였다! %s",
                  defender_name(false).c_str(),
                  defender->conj_verb("are").c_str(),
                  attack_strength_punctuation(special_damage).c_str());
@@ -2624,7 +2624,7 @@ void melee_attack::mons_apply_attack_flavour()
 
         if (needs_message && base_damage)
         {
-            mprf("<1297>%s %s engulfed in flames%s",
+            mprf("<1297>%s %s 는 화염에 휩싸였다%s",
                  defender_name(false).c_str(),
                  defender->conj_verb("are").c_str(),
                  attack_strength_punctuation(special_damage).c_str());
@@ -2701,7 +2701,7 @@ void melee_attack::mons_apply_attack_flavour()
                 attacker->heal(healed);
                 if (needs_message)
                 {
-                    mprf("<1300>%s %s strength from %s injuries!",
+                    mprf("<1300>%s %s 부상으로부터 %s 힘을 얻었다!",
                          atk_name(DESC_THE).c_str(),
                          attacker->conj_verb("draw").c_str(),
                          def_name(DESC_ITS).c_str());
@@ -2748,7 +2748,7 @@ void melee_attack::mons_apply_attack_flavour()
 
             if (defender_visible)
             {
-                mprf("<1301>%s %s engulfed in a cloud of spores!",
+                mprf("<1301>%s %s 은(는) 포자의 안개에 휩싸였다!",
                      defender->name(DESC_THE).c_str(),
                      defender->conj_verb("are").c_str());
             }
@@ -2931,7 +2931,7 @@ void melee_attack::mons_apply_attack_flavour()
 
             if (needs_message)
             {
-                mprf("<1306>%s %s %s in water!",
+                mprf("<1306>%s %s %s 는 물 속에 있다!",
                      atk_name(DESC_THE).c_str(),
                      attacker->conj_verb("engulf").c_str(),
                      defender_name(true).c_str());
@@ -3101,7 +3101,7 @@ void melee_attack::mons_do_tendril_disarm()
         item_def* mons_wpn = mon->disarm();
         if (mons_wpn)
         {
-            mprf("<1311>Your tendrils lash around %s %s and pull it to the ground!",
+            mprf("<1311>당신의 덩굴이 휘몰아치며 %s %s 을(를) 땅에 쳐박았다!",
                  apostrophise(mon->name(DESC_THE)).c_str(),
                  mons_wpn->name(DESC_PLAIN).c_str());
         }
@@ -3537,7 +3537,7 @@ int melee_attack::apply_damage_modifiers(int damage, int damage_max)
                          &&!defender->can_see(*attacker))))
     {
         damage = damage * 5 / 2;
-        dprf(DIAG_COMBAT, "<1322>Stab damage vs %s: %d",
+        dprf(DIAG_COMBAT, "<1322>찌르기 대미지 vs %s: %d",
              defender->name(DESC_PLAIN).c_str(),
              damage);
     }
