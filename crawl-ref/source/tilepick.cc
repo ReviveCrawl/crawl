@@ -3769,12 +3769,12 @@ void bind_item_tile(item_def &item)
     if (item.props.exists("item_tile_name"))
     {
         string tile = item.props["item_tile_name"].get_string();
-        dprf("Binding non-worn item tile: \"<2431>%s\".", tile.c_str());
+        dprf("사용되지 않은 항목을 묶는 것: \"<2431>%s\".", tile.c_str());
         tileidx_t index;
         if (!tile_main_index(tile.c_str(), &index))
         {
             // If invalid tile name, complain and discard the props.
-            dprf("bad tile name: \"<2432>%s\".", tile.c_str());
+            dprf("불량 타일 이름: \"<2432>%s\".", tile.c_str());
             item.props.erase("item_tile_name");
             item.props.erase("item_tile");
         }
@@ -3785,12 +3785,12 @@ void bind_item_tile(item_def &item)
     if (item.props.exists("worn_tile_name"))
     {
         string tile = item.props["worn_tile_name"].get_string();
-        dprf("Binding worn item tile: \"<2433>%s\".", tile.c_str());
+        dprf("사용된 항목을 묶는 것: \"<2433>%s\".", tile.c_str());
         tileidx_t index;
         if (!tile_player_index(tile.c_str(), &index))
         {
             // If invalid tile name, complain and discard the props.
-            dprf("bad tile name: \"<2434>%s\".", tile.c_str());
+            dprf("불량 타일 이름: \"<2434>%s\".", tile.c_str());
             item.props.erase("worn_tile_name");
             item.props.erase("worn_tile");
         }

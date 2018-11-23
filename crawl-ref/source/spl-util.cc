@@ -105,17 +105,17 @@ void init_spell_descs()
                 "spell #%d, id %d has no name", i, data.id);
 
         ASSERTM(data.level >= 1 && data.level <= 9,
-                "<2332>spell '%s' has invalid level %d", data.title, data.level);
+                "<2332>'%s' 스펠은 %d레벨에 가능하다.", data.title, data.level);
 
         ASSERTM(data.min_range <= data.max_range,
-                "<2333>spell '%s' has min_range larger than max_range", data.title);
+                "<2333>'%s' 스펠은 최대 범위보다 큰 최소 범위를 갖습니다", data.title);
 
         ASSERTM(!(data.flags & SPFLAG_TARGETING_MASK)
                 || (data.min_range >= 0 && data.max_range > 0),
-                "<2334>targeted/directed spell '%s' has invalid range", data.title);
+                "<2334>대상/지시된 '%s' 스펠은 유효하지 않은 범위입니다.", data.title);
 
         ASSERTM(!(data.flags & SPFLAG_MONSTER && is_player_spell(data.id)),
-                "<2335>spell '%s' is declared as a monster spell but is a player spell", data.title);
+                "<2335>'%s' 스펠은 몬스터 스펠로 선언되었지만 플레이어의 스펠입니다.", data.title);
 
         spell_list[data.id] = i;
     }

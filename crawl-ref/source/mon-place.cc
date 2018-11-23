@@ -636,7 +636,7 @@ monster_type resolve_monster_type(monster_type mon_type,
                 proximity = PROX_AWAY_FROM_PLAYER;
             if (proximity == PROX_NEAR_STAIRS)
             {
-                dprf(DIAG_MONPLACE, "<1551>foreign monster from %s",
+                dprf(DIAG_MONPLACE, "<1551> %s 로부터의 foreign 몬스터",
                      place->describe().c_str());
             }
             else // we dunt cotton to no ferrniers in these here parts
@@ -869,8 +869,8 @@ monster* place_monster(mgen_data mg, bool force_pos, bool dont_place)
     // places.
     if (chose_ood_monster && _in_ood_pack_protected_place())
     {
-        dprf(DIAG_MONPLACE, "<1552>Chose monster with OOD roll: %s,"
-                            " disabling band generation",
+        dprf(DIAG_MONPLACE, "<1552>OOD를 굴려 몬스터를 선택하라 : %s,"
+                            "자식몬스터 생성불가",
                             get_monster_data(mg.cls)->name);
         create_band = false;
     }
@@ -1047,7 +1047,7 @@ monster* place_monster(mgen_data mg, bool force_pos, bool dont_place)
     {
         mon->patrol_point = mon->pos();
 #ifdef DEBUG_PATHFIND
-        mprf("<1553>Monster %s is patrolling around (%d, %d).",
+        mprf("<1553>몬스터 %s (이)가 주변 순찰중 (%d, %d).",
              mon->name(DESC_PLAIN).c_str(), mon->pos().x, mon->pos().y);
 #endif
     }
@@ -1198,7 +1198,7 @@ static monster* _place_monster_aux(const mgen_data &mg, const monster *leader,
             && !crawl_state.game_is_arena()
         || mons_class_flag(mg.cls, M_CANT_SPAWN))
     {
-        die("<1555>invalid monster to place: %s (%d)", mons_class_name(mg.cls), mg.cls);
+        die("<1555> 위치불가한 몬스터 : %s (%d)", mons_class_name(mg.cls), mg.cls);
     }
 
     const monsterentry *m_ent = get_monster_data(mg.cls);
@@ -1781,7 +1781,7 @@ static monster* _place_monster_aux(const mgen_data &mg, const monster *leader,
     // A rare case of a debug message NOT showing in the debug mode.
     if (mons_class_flag(mon->type, M_UNFINISHED))
     {
-        mprf(MSGCH_WARN, "<1556>Warning: monster '%s' is not yet fully coded.",
+        mprf(MSGCH_WARN, "<1556>경고 : 몬스터 '%s' (이)가 아직 완전히 코드화되지 않았습니다.",
              mon->name(DESC_PLAIN, true).c_str());
     }
 #endif
@@ -2905,7 +2905,7 @@ monster* mons_place(mgen_data mg)
     if (!creation)
         return 0;
 
-    dprf(DIAG_MONPLACE, "<1557>Created %s.", creation->base_name(DESC_A, true).c_str());
+    dprf(DIAG_MONPLACE, "<1557> 생성된 %s ", creation->base_name(DESC_A, true).c_str());
 
     // Look at special cases: CHARMED, FRIENDLY, NEUTRAL, GOOD_NEUTRAL,
     // HOSTILE.

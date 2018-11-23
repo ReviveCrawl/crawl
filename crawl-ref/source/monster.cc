@@ -3249,7 +3249,7 @@ static int _zombie_ac_modifier(monster_type type)
         case MONS_SPECTRAL_THING:
             return 2;
         default:
-            die("<1640>invalid zombie type %d (%s)", type,
+            die("<1640>유효하지않은 좀비 타입 %d (%s)", type,
                 mons_class_name(type));
     }
 }
@@ -3385,7 +3385,7 @@ static int _zombie_ev_modifier(monster_type type)
         case MONS_SKELETON:
             return -7;
         default:
-            die("<1641>invalid zombie type %d (%s)", type,
+            die("<1641>유효하지 않은 좀비 %d (%s)", type,
                 mons_class_name(type));
     }
 }
@@ -5066,7 +5066,7 @@ void monster::check_speed()
 
         calc_speed();
 
-        dprf("<1649>Fixed speed for %s to %d", name(DESC_PLAIN).c_str(), speed);
+        dprf("<1649> %s의 스피드가  %d 로", name(DESC_PLAIN).c_str(), speed);
     }
 
     if (speed_increment < 0)
@@ -5074,7 +5074,7 @@ void monster::check_speed()
 
     if (speed_increment > 200)
     {
-        dprf("<1650>Clamping speed increment on %s: %d",
+        dprf("<1650> %s 의 클램프 속도 증가 : %d",
              name(DESC_PLAIN).c_str(), speed_increment);
 
         speed_increment = 140;
@@ -6625,7 +6625,7 @@ void monster::note_spell_cast(spell_type spell)
         if (old_spell == spell)
             return;
 
-    dprf("<1663>tracking seen spell %s for %s",
+    dprf("<1663> 목격된 마법 %s for %s 추적중",
          spell_title(spell), name(DESC_A, true).c_str());
     props[SEEN_SPELLS_KEY].get_vector().push_back(spell);
 }

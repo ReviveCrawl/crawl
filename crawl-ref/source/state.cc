@@ -231,7 +231,7 @@ bool interrupt_cmd_repeat(activity_interrupt_type ai,
             monster_info mi(mon);
             set_auto_exclude(mon);
 
-            mprf(MSGCH_WARN, "<2376>%s comes into view.",
+            mprf(MSGCH_WARN, "<2376>%s이(가) 보이기 시작했다.",
                  get_monster_equipment_desc(mi, DESC_WEAPON).c_str());
         }
 
@@ -514,7 +514,7 @@ void game_state::dump()
 
     if (god_act.which_god != GOD_NO_GOD || god_act.depth != 0)
     {
-        fprintf(stderr, "<2382>God %s currently acting with depth %d\n\n",
+        fprintf(stderr, "<2382>신 %s은(는) 현재 %d 깊이로 활동 중이다.\n\n",
                 god_name(god_act.which_god).c_str(), god_act.depth);
     }
 
@@ -523,7 +523,7 @@ void game_state::dump()
         fprintf(stderr, "Other gods acting:\n");
         for (const god_act_state &godact : god_act_stack)
         {
-            fprintf(stderr, "<2383>God %s with depth %d\n",
+            fprintf(stderr, "<2383>신 %s은(는) %d 깊이에 있다.\n",
                     god_name(godact.which_god).c_str(), godact.depth);
         }
         fprintf(stderr, "\n\n");
@@ -531,14 +531,14 @@ void game_state::dump()
 
     if (mon_act != nullptr)
     {
-        fprintf(stderr, "<2384>%s currently acting:\n\n",
+        fprintf(stderr, "<2384>%s 현재 활동 중:\n\n",
                 debug_mon_str(mon_act).c_str());
         debug_dump_mon(mon_act, true);
     }
 
     if (!mon_act_stack.empty())
     {
-        fprintf(stderr, "Others monsters acting:\n");
+        fprintf(stderr, "다른 몬스터들이 활동 중:\n");
         for (const monster *mon : mon_act_stack)
             fprintf(stderr, "<2385>    %s\n", debug_mon_str(mon).c_str());
     }

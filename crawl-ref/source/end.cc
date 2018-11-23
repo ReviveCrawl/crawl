@@ -410,7 +410,7 @@ NORETURN void game_ended_with_error(const string &message)
         }
         else
         {
-            fprintf(stderr, "<558>%s\nHit Enter to continue...\n", message.c_str());
+            fprintf(stderr, "<558>%s\n계속하시려면 Enter를 누르시오...\n", message.c_str());
             getchar();
         }
         game_ended();

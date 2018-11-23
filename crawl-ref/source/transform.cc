@@ -202,8 +202,8 @@ int Form::get_duration(int pow) const
  */
 string Form::get_description(bool past_tense) const
 {
-    return make_stringf("<2469>You %s %s",
-                        past_tense ? "were" : "are",
+    return make_stringf("<2469>당신은 %s %s",
+                        past_tense ? "이었다" : "이다",
                         description.c_str());
 }
 
@@ -501,8 +501,8 @@ public:
      */
     string get_description(bool past_tense) const override
     {
-        return make_stringf("<2473>You %s blades for %s.",
-                            past_tense ? "had" : "have",
+        return make_stringf("<2473>당신은 %s %s을 위한 날을.",
+                            past_tense ? "가졌다" : "가진다",
                             blade_parts().c_str());
     }
 
@@ -527,9 +527,9 @@ public:
         const bool singular = you.get_mutation_level(MUT_MISSING_HAND);
 
         // XXX: a little ugly
-        return make_stringf("<2475>Your %s revert%s to %s normal proportions.",
-                            blade_parts().c_str(), singular ? "s" : "",
-                            singular ? "its" : "their");
+        return make_stringf("<2475>당신의 %s은(는) %s되돌아갔다 %s 정상 비율로.",
+                            blade_parts().c_str(), singular ? "" : "",
+                            singular ? "그것의" : "그들의");
     }
 
     bool can_offhand_punch() const override { return true; }
@@ -595,7 +595,7 @@ public:
             return "Stone tentacles";
 
         const bool singular = you.get_mutation_level(MUT_MISSING_HAND);
-        return make_stringf("<2476>Stone fist%s", singular ? "" : "s");
+        return make_stringf("<2476>돌 주먹%s", singular ? "" : "s");
     }
 };
 
@@ -621,7 +621,7 @@ public:
     string get_uc_attack_name(string default_name) const override
     {
         const bool singular = you.get_mutation_level(MUT_MISSING_HAND);
-        return make_stringf("<2477>Ice fist%s", singular ? "" : "s");
+        return make_stringf("<2477>얼음 주먹%s", singular ? "" : "s");
     }
 };
 
@@ -782,14 +782,14 @@ public:
     {
         if (you.attribute[ATTR_APPENDAGE] == MUT_TENTACLE_SPIKE)
         {
-            return make_stringf("<2480>One of your tentacles %s a temporary spike.",
-                                 past_tense ? "had" : "has");
+            return make_stringf("<2480>당신의 촉수중 하나가 일시적으로 뾰족해%s.",
+                                 past_tense ? "졌다" : "진다");
         }
 
-        return make_stringf("<2481>You %s grown temporary %s.",
-                            past_tense ? "had" : "have",
-                            mutation_name((mutation_type)
-                                          you.attribute[ATTR_APPENDAGE]));
+        return make_stringf("<2481>당신은 일시적으로 성장한 %s을(를)  %s.",
+			mutation_name((mutation_type)
+				you.attribute[ATTR_APPENDAGE])); ,
+                             past_tense ? "가졌다" : "가진다"
     }
 
     /**
@@ -935,7 +935,7 @@ public:
      */
     string get_description(bool past_tense) const override
     {
-        return make_stringf("<2482>You %s %s",
+        return make_stringf("<2482>당신은 %s %s",
                             past_tense ? "were" : "are",
                             get_transform_description().c_str());
     }
@@ -1890,7 +1890,7 @@ bool transform(int pow, transformation which_trans, bool involuntary,
     if (you.hp <= 0)
     {
         ouch(0, KILLED_BY_FRAILTY, MID_NOBODY,
-             make_stringf("<2488>gaining the %s transformation",
+             make_stringf("<2488>%s의 변환을 얻었다.",
                           transform_name(which_trans)).c_str());
     }
 
@@ -1946,7 +1946,7 @@ void untransform(bool skip_move)
         {
             const char * const verb = you.has_mutation(app) ? "shrink"
                                                             : "disappear";
-            mprf(MSGCH_DURATION, "<2489>Your %s %s%s.",
+            mprf(MSGCH_DURATION, "<2489>당신의 %s %s%s.",
                  mutation_name(app), verb,
                  app == MUT_TENTACLE_SPIKE ? "s" : "");
         }
@@ -2025,7 +2025,7 @@ void untransform(bool skip_move)
     if (you.hp <= 0)
     {
         ouch(0, KILLED_BY_FRAILTY, MID_NOBODY,
-             make_stringf("<2492>losing the %s form",
+             make_stringf("<2492>%s 형태를 잃었다.",
                           transform_name(old_form)).c_str());
     }
 

@@ -96,8 +96,8 @@ string unpacifiable_reason(const monster &mon)
 
     if (mon.asleep()) // not aware of what is happening
     {
-        return make_stringf("<2280>You cannot pacify this monster while %s is "
-                            "sleeping!",
+        return make_stringf("<2280>%s이 있는 동안에는 이 몬스터를 진정시킬 수 없다."
+                            "잠들었다!",
                             mon.pronoun(PRONOUN_SUBJECTIVE).c_str());
     }
 
@@ -142,7 +142,7 @@ static int _pacifiable_hp(const monster &mon, int healing)
     const int base_hp = you.skill(SK_INVOCATIONS, healing) + healing;
     const int hp = heal_mult * base_hp / heal_div;
 
-    dprf("<2281>pacifying %s? factor: %d, Inv: %d, healed: %d, pacify hp pre-roll %d",
+    dprf("<2281>%s이 진정됐습니까? 원인: %d, Inv: %d, healed: %d, pacify hp pre-roll %d",
          mon.name(DESC_PLAIN).c_str(), heal_mult, you.skill(SK_INVOCATIONS),
          healing, hp);
 

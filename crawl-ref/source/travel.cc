@@ -165,7 +165,7 @@ bool deviant_route_warning::warn_continue_travel(
         return true;
 
     target = dest;
-    const string prompt = make_stringf("<2516>Have to go through %s. Continue?",
+    const string prompt = make_stringf("<2516>%s을 통과해야만 한다. 계속 할 것인가?",
                                        deviant.describe().c_str());
     // If the user says "Yes, shut up and take me there", we won't ask
     // again for that destination. If the user says "No", we will
@@ -778,7 +778,7 @@ static void _explore_find_target_square()
 
             if (!inacc.empty())
             {
-                inacc_desc = make_stringf("<2517>can't reach some %s",
+                inacc_desc = make_stringf("<2517> %s에 도달할 수 없다.",
                                  comma_separated_line(inacc.begin(),
                                                       inacc.end()).c_str());
                 reasons.push_back(inacc_desc.c_str());
@@ -815,7 +815,7 @@ void explore_pickup_event(int did_pickup, int tried_pickup)
         if (explore_stopped_pos == you.pos())
         {
             const string prompt =
-                make_stringf("<2519>Could not pick up %s here; shall I ignore %s?",
+                make_stringf("<2519>여기에서 %s을 찾을 수 없다; 할 것인가 I %s을(를) 무시할 것인가?",
                              tried_pickup == 1? "an item" : "some items",
                              tried_pickup == 1? "it" : "them");
 
@@ -2111,7 +2111,7 @@ static int _prompt_travel_branch(int prompt_flags)
             if (!trans_travel_dest.empty() && remember_targ)
             {
                 segs.push_back(
-                    make_stringf("<2523>Enter - %s", trans_travel_dest.c_str()));
+                    make_stringf("<2523>입장 - %s", trans_travel_dest.c_str()));
             }
 
             segs.emplace_back("? - help");

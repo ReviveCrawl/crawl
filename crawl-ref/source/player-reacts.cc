@@ -188,7 +188,7 @@ static bool _decrement_a_duration(duration_type dur, int delay,
             if (you.duration[dur] <= 0)
                 you.duration[dur] = 1;
             if (need_expiration_warning(dur))
-                mprf(MSGCH_DANGER, "<1789>Careful! %s", midmsg);
+                mprf(MSGCH_DANGER, "<1789> 주의하세요! %s", midmsg);
             else
                 mprf(chan, "<1790>%s", midmsg);
         }

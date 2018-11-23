@@ -240,7 +240,7 @@ bool ranged_attack::handle_phase_dodged()
                      projectile->name(DESC_THE).c_str());
             }
             else
-                mprf("<1937>%s is repelled.", projectile->name(DESC_THE).c_str());
+                mprf("<1937>%s (이)가 거부됌.", projectile->name(DESC_THE).c_str());
 
             defender->ablate_deflection();
         }
@@ -396,7 +396,7 @@ bool ranged_attack::ignores_shield(bool verbose)
     {
         if (verbose)
         {
-            mprf("<1940>%s pierces through %s %s!",
+            mprf("<1940>%s (이)가 %s %s (을)를 관통했다!!",
                  projectile->name(DESC_THE).c_str(),
                  apostrophise(defender_name(false)).c_str(),
                  defender_shield ? defender_shield->name(DESC_PLAIN).c_str()

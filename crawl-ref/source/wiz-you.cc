@@ -364,7 +364,7 @@ void wizard_set_gold()
     else
         you.set_gold(max(atoi(buf), 0));
 
-    mprf("<2724>You now have %d gold piece%s.", you.gold, you.gold != 1 ? "s" : "");
+    mprf("<2724>당신은 지금 %d 골드가 있다.", you.gold, you.gold != 1 ? "" : "");
 }
 
 void wizard_set_piety()
@@ -441,9 +441,9 @@ void wizard_set_skill_level(skill_type skill)
 
     redraw_skill(skill);
 
-    mprf("<2725>%s %s to skill level %.1f.", (old_amount < amount ? "Increased" :
-                                      old_amount > amount ? "Lowered"
-                                                          : "Reset"),
+    mprf("<2725>%s %s 스킬 레벨을 %.1f.", (old_amount < amount ? "증가시킨다" :
+                                      old_amount > amount ? "감소시킨다"
+                                                          : "초기화한다"),
          skill_name(skill), amount);
 }
 
@@ -526,7 +526,7 @@ bool wizard_add_mutation()
                 matches.emplace_back(mutname);
             }
 
-            string prefix = make_stringf("<2726>No exact match for mutation '%s', possible matches are: ", specs);
+            string prefix = make_stringf("<2726>'%s'의 변화와 정확한 일치가 없고, 가능한 일치가 있다: ", specs);
 
             // Use mpr_comma_separated_list() because the list
             // might be *LONG*.
@@ -538,7 +538,7 @@ bool wizard_add_mutation()
     }
     else
     {
-        mprf("<2727>Found #%d: %s (\"%s\")", (int) mutat,
+        mprf("<2727> #%d을 찾았다: %s (\"%s\")", (int) mutat,
              mutation_name(mutat),
              mutation_desc(mutat, 1, false).c_str());
 
@@ -694,7 +694,7 @@ void wizard_edit_durations()
             choice = matches[0];
         else if (matches.empty())
         {
-            mprf(MSGCH_PROMPT, "<2728>No durations matching '%s'.", buf);
+            mprf(MSGCH_PROMPT, "<2728>'%s'와 일치하는 기간이 없다.", buf);
             return;
         }
         else
@@ -722,7 +722,7 @@ void wizard_edit_durations()
 
 void wizard_list_props()
 {
-    mprf(MSGCH_DIAGNOSTICS, "<2730>props: %s",
+    mprf(MSGCH_DIAGNOSTICS, "<2730>버팀목: %s",
          you.describe_props().c_str());
 }
 
@@ -870,7 +870,7 @@ void wizard_get_god_gift()
 void wizard_toggle_xray_vision()
 {
     you.xray_vision = !you.xray_vision;
-    mprf("<2731>X-ray vision %s.", you.xray_vision ? "enabled" : "disabled");
+    mprf("<2731>엑스레이 비전 %s.", you.xray_vision ? "활성화" : "비활성화");
     viewwindow(true);
 }
 
@@ -900,7 +900,7 @@ void wizard_god_wrath()
     else if (!divine_retribution(god, true, true))
     {
         // Dead Jiyva, or Ru/Gozag/Ashenzari.
-        mprf("<2732>%s is not feeling wrathful today.", god_name(god).c_str());
+        mprf("<2732>%s은 오늘 화나지 않았다.", god_name(god).c_str());
     }
 }
 
@@ -1010,7 +1010,7 @@ void wizard_xom_acts()
         const maybe_bool nice = you_worship(GOD_XOM) ? MB_MAYBE :
                                 frombool(coinflip());
         const xom_event_type result = xom_acts(severity, nice);
-        dprf("<2734>Xom did '%s'.", xom_effect_to_name(result).c_str());
+        dprf("<2734>Xom이 '%s'을(를) 했다.", xom_effect_to_name(result).c_str());
 #ifndef DEBUG_DIAGNOSTICS
         UNUSED(result);
 #endif
@@ -1024,7 +1024,7 @@ void wizard_xom_acts()
         return;
     }
 
-    dprf("<2735>Okay, Xom is doing '%s'.", xom_effect_to_name(event).c_str());
+    dprf("<2735>그래, Xom이 '%s'을(를) 하는 중이다.", xom_effect_to_name(event).c_str());
     xom_take_action(event, severity);
 }
 #endif

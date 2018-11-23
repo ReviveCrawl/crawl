@@ -320,7 +320,7 @@ spellset monster_spellset(const monster_info &mi)
     {
         spellbook_contents output_book;
         output_book.label
-          = make_stringf("<432>You have seen %s using the following:",
+          = make_stringf("<432>다음을 이용하여 %s을(를) 보았습니다.:",
                          mi.pronoun(PRONOUN_SUBJECTIVE));
         for (int spell : mi.props[SEEN_SPELLS_KEY].get_vector())
             output_book.spells.emplace_back((spell_type)spell);

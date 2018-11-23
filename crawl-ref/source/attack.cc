@@ -549,7 +549,7 @@ void attack::pain_affects_defender()
         if (special_damage && defender_visible)
         {
             special_damage_message =
-                make_stringf("<61>%s %s in agony.",
+                make_stringf("<61>%s %s 혼란에 빠졌다.",
                              defender->name(DESC_THE).c_str(),
                              defender->conj_verb("writhe").c_str());
         }

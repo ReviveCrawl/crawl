@@ -71,7 +71,7 @@ bool save_doll_data(int mode, int num, const dolls_data* dolls)
     FILE *fp = nullptr;
     if ((fp = fopen_u(dollsTxt, "w+")) != nullptr)
     {
-        fprintf(fp, "<2427>MODE=%s\n",
+        fprintf(fp, "<2427>¸ðµå=%s\n",
                     (mode == TILEP_MODE_EQUIP)   ? "EQUIP" :
                     (mode == TILEP_MODE_LOADING) ? "LOADING"
                                                  : "DEFAULT");

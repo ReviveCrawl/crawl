@@ -236,7 +236,7 @@ void MiscastEffect::do_miscast()
     // killed a target which was alive when the object was created.
     if (!target->alive())
     {
-        dprf("<2293>Miscast target '%s' already dead",
+        dprf("<2293>잘못된 타겟인'%s'은 벌써 죽었다.",
              target->name(DESC_PLAIN, true).c_str());
         return;
     }
@@ -780,8 +780,8 @@ void MiscastEffect::_conjuration(int severity)
             // Player only (for now).
             bool plural;
             string hair = _hair_str(target, plural);
-            you_msg = make_stringf("<2297>Your %s stand%s on end.", hair.c_str(),
-                                   plural ? "" : "s");
+            you_msg = make_stringf("<2297>당신의 %s%s이 곤두서 있다.", hair.c_str(),
+                                   plural ? "" : "들");
         }
         }
         do_msg();
@@ -1866,8 +1866,8 @@ void MiscastEffect::_transmutation(int severity)
             // Player only (for now).
             bool plural;
             string hair = _hair_str(target, plural);
-            you_msg = make_stringf("<2298>Your %s momentarily turn%s into snakes!",
-                                   hair.c_str(), plural ? "" : "s");
+            you_msg = make_stringf("<2298>당신의 %s이 잠시 뱀으로 변했다!",
+                                   hair.c_str(), plural ? "" : "");
         }
         }
         do_msg();
@@ -2640,8 +2640,8 @@ void MiscastEffect::_air(int severity)
             // Player only (for now).
             bool plural;
             string hair = _hair_str(target, plural);
-            you_msg = make_stringf("<2299>Your %s stand%s on end.", hair.c_str(),
-                                   plural ? "" : "s");
+            you_msg = make_stringf("<2299>당신의 %s%s이 곤두서있다.", hair.c_str(),
+                                   plural ? "" : "들");
             break;
         }
         }

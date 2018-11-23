@@ -117,13 +117,13 @@ static string _time_string()
 
 static void _write_version(FILE * o)
 {
-    fprintf(o, CRAWL "<2662> version %s\n", Version::Long);
+    fprintf(o, CRAWL "<2662> 버전 %s\n", Version::Long);
 }
 
 static void _write_matchup(FILE * o, monster &mon, bool defend, int iter_limit)
 {
     fprintf(o, "<2663>%s: %s %s vs. %s (%d rounds) (%s)\n",
-            defend ? "Defense" : "Attack",
+            defend ? "방어" : "공격",
             species_name(you.species).c_str(),
             get_job_name(you.char_class),
             mon.name(DESC_PLAIN, true).c_str(),
@@ -144,7 +144,7 @@ static void _write_you(FILE * o)
 
 static void _write_weapon(FILE * o)
 {
-    fprintf(o, "<2665>%s, Skill: %s\n",
+    fprintf(o, "<2665>%s, 기술: %s\n",
             _equipped_weapon_name().c_str(),
             skill_name(_equipped_skill()));
 }
@@ -465,11 +465,11 @@ void wizard_quick_fsim()
 
     const int iter_limit = Options.fsim_rounds;
     fight_data fdata = _get_fight_data(*mon, iter_limit, false);
-    mprf("<2667>           %s\nAttacking: %s", _title_line,
+    mprf("<2667>           %s\n공격: %s", _title_line,
          _fight_string(fdata, false).c_str());
 
     fdata = _get_fight_data(*mon, iter_limit, true);
-    mprf("<2668>Defending: %s", _fight_string(fdata, false).c_str());
+    mprf("<2668>방어: %s", _fight_string(fdata, false).c_str());
 
     _uninit_fsim(mon);
     return;
@@ -640,7 +640,7 @@ void wizard_fight_sim(bool double_scale)
     FILE * o = fopen(fightstat, "a");
     if (!o)
     {
-        mprf(MSGCH_ERROR, "<2677>Can't write %s: %s", fightstat, strerror(errno));
+        mprf(MSGCH_ERROR, "<2677 %s을(를) 쓸 수 없다: %s", fightstat, strerror(errno));
         _uninit_fsim(mon);
         return;
     }
@@ -707,7 +707,7 @@ void wizard_fight_sim(bool double_scale)
             }
             else
             {
-                mprf("<2678>Aborting sim on %s", kit.c_str());
+                mprf("<2678> %s의 시뮬레이션을 중단한다.", kit.c_str());
                 if (error != "")
                     mpr(error);
                 break;

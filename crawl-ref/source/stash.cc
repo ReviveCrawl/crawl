@@ -651,7 +651,7 @@ ShopInfo::ShopInfo(const shop_struct& shop_)
 
 string ShopInfo::shop_item_name(const item_def &it) const
 {
-    return make_stringf("<2364>%s%s (%d gold)",
+    return make_stringf("<2364>%s%s (%d 골드)",
                         Stash::stash_item_name(it).c_str(),
                         shop_item_unknown(it) ? " (unknown)" : "",
                         item_price(it, shop));
@@ -741,7 +741,7 @@ vector<stash_search_result> ShopInfo::matches_search(
 void ShopInfo::write(FILE *f, bool identify) const
 {
     no_notes nx;
-    fprintf(f, "<2365>[Shop] %s\n", OUTS(shop_name(shop)));
+    fprintf(f, "<2365>[상점] %s\n", OUTS(shop_name(shop)));
     if (!shop.stock.empty())
     {
         for (item_def item : shop.stock) // intentional copy
@@ -1196,7 +1196,7 @@ string StashTracker::stash_search_prompt()
     {
         const string disp = replace_all(lastsearch, "<", "<<");
         opts.push_back(
-            make_stringf("Enter for \"<2370>%s\"", disp.c_str()));
+            make_stringf("\"<2370>%s\에 들어간다."", disp.c_str()));
     }
     if (lastsearch != ".")
         opts.emplace_back("? for help");
@@ -1207,7 +1207,7 @@ string StashTracker::stash_search_prompt()
     if (!prompt_qual.empty())
         prompt_qual = " [" + prompt_qual + "]";
 
-    return make_stringf("<2371>Search for what%s? ", prompt_qual.c_str());
+    return make_stringf("<2371>%s을(를) 찾아보겠습니까? ", prompt_qual.c_str());
 }
 
 void StashTracker::remove_shop(const level_pos &pos)
@@ -1608,9 +1608,9 @@ void StashSearchMenu::draw_title()
         } else {
             draw_title_suffix(formatted_string::parse_string(make_stringf(
                 "<lightgrey>"
-                "<2373>: <w>%s</w> [toggle: <w>!</w>],"
+                "<2373>: <w>%s</w> [토글: <w>!</w>],"
                 "<2374> by <w>%s</w> [<w>/</w>],"
-                "<2375> <w>%s</w> useless & duplicates [<w>=</w>]"
+                "<2375> <w>%s</w> 쓸모없고 똑같은 [<w>=</w>]"
                 "</lightgrey>",
                 menu_action == ACT_EXECUTE ? "travel" : "view  ",
                 sort_style, filtered)), false);

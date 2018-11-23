@@ -600,7 +600,7 @@ bool make_book_level_randart(item_def &book, int level)
 
         if (god_discard > 0 && uncastable_discard == 0)
         {
-            snprintf(buf, sizeof(buf), "<1928>%s disliked all level %d spells",
+            snprintf(buf, sizeof(buf), "<1928>%s (은)는 모든 level %d spells 을 싫어한다.",
                      god_name(god).c_str(), level);
         }
         else if (god_discard == 0 && uncastable_discard > 0)
@@ -608,14 +608,14 @@ bool make_book_level_randart(item_def &book, int level)
         else if (god_discard > 0 && uncastable_discard > 0)
         {
             snprintf(buf, sizeof(buf),
-                     "<1929>All level %d spells are either disliked by %s "
+                     "<1929>All level %d spells (을)를 %s가 싫어함 "
                      "or cannot be cast by you.",
                      level, god_name(god).c_str());
         }
         else
             sprintf(buf, "No level %d spells?!?!?!", level);
 
-        mprf(MSGCH_ERROR, "<1930>Could not create fixed level randart spellbook: %s",
+        mprf(MSGCH_ERROR, "<1930> fixed 레벨의  스펠북을 산더미처럼 많이는 만들 수 없습니다.: %s",
              buf);
 
         return false;

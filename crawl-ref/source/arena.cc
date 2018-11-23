@@ -886,7 +886,7 @@ namespace arena
         if (was_tied)
             msg = "Tie";
         else
-            msg = "<51>Winner: %s!";
+            msg = "<51>승리: %s!";
 
         if (Options.arena_dump_msgs || Options.arena_list_eq)
             msg = "---------- " + msg + " ----------";
@@ -1007,7 +1007,7 @@ namespace arena
 
         if (total_trials > 0)
         {
-            mprf("<54>Final score: %s (%d); %s (%d) [%d ties]",
+            mprf("<54>최종 점수: %s (%d); %s (%d) [%d ties]",
                  faction_a.desc.c_str(), team_a_wins,
                  faction_b.desc.c_str(), trials_done - team_a_wins - ties,
                  ties);

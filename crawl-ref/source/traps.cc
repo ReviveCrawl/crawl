@@ -592,7 +592,7 @@ void trap_def::trigger(actor& triggerer)
         {
             if (you_know && in_sight)
             {
-                mprf("<2498>%s vibrates slightly, failing to make a sound.",
+                mprf("<2498>%s 약간 떨리고, 소리가 나지 않는다.",
                      name(DESC_THE).c_str());
             }
         }
@@ -601,7 +601,7 @@ void trap_def::trigger(actor& triggerer)
             string msg;
             if (you_trigger)
             {
-                msg = make_stringf("<2499>%s emits a blaring wail!",
+                msg = make_stringf("<2499>%s이(가) 불길한 울음을 터뜨렸다!",
                                    name(DESC_THE).c_str());
             }
             else
@@ -895,7 +895,7 @@ void trap_def::trigger(actor& triggerer)
             // to their friend.
             if (player_can_hear(pos) && (!targ || !in_sight))
             {
-                mprf(MSGCH_SOUND, "<2502>You hear a %s \"Zot\"!",
+                mprf(MSGCH_SOUND, "<2502>당신은 %s을(를) 들었다 \"Zot\"!",
                      in_sight ? "loud" : "distant");
             }
 
@@ -953,7 +953,7 @@ void trap_def::trigger(actor& triggerer)
         {
             if (in_sight)
             {
-                mprf("<2504>%s shaft crumbles and collapses.",
+                mprf("<2504>%s 통로가 허물고 붕괴되었다.",
                      triggerer_seen ? "The" : "A");
                 know_trap_destroyed = true;
             }
@@ -1351,7 +1351,7 @@ void trap_def::shoot_ammo(actor& act, bool was_known)
     {
         if (one_chance_in(5) || was_known && !one_chance_in(4))
         {
-            mprf("<2507>You avoid triggering %s.", name(DESC_A).c_str());
+            mprf("<2507>당신은 %s을(를) 작동시키는 것을 피한다.", name(DESC_A).c_str());
             return;
         }
     }
@@ -1359,7 +1359,7 @@ void trap_def::shoot_ammo(actor& act, bool was_known)
     {
         if (was_known && you.see_cell(pos) && you.can_see(act))
         {
-            mprf("<2508>%s avoids triggering %s.", act.name(DESC_THE).c_str(),
+            mprf("<2508>%s %s을(를) 작동시키는 것을 피한다.", act.name(DESC_THE).c_str(),
                  name(DESC_A).c_str());
         }
         return;

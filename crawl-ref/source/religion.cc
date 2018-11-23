@@ -554,7 +554,7 @@ void dec_penance(god_type god, int val)
         const bool dead_jiyva = (god == GOD_JIYVA && jiyva_is_dead());
 
         simple_god_message(
-            make_stringf("<1944> seems mollified%s.",
+            make_stringf("<1944> %s (이)가 혼쭐이 난 것 같다 .",
                          dead_jiyva ? ", and vanishes" : "").c_str(),
             god);
 
@@ -1201,7 +1201,7 @@ void mons_make_god_gift(monster& mon, god_type god)
 
     if (mon.flags & MF_GOD_GIFT)
     {
-        dprf("<1945>Monster '%s' was already a gift of god '%s', now god '%s'.",
+        dprf("<1945>Monster '%s' 이미 신의 선물이었다. '%s', now god '%s'.",
              mon.name(DESC_PLAIN, true).c_str(),
              god_name(mon.god).c_str(),
              god_name(god).c_str());
@@ -1373,7 +1373,7 @@ mgen_data hepliaklqana_ancestor_gen_data()
 /// Print a message for an ancestor's *something* being gained.
 static void _regain_memory(const monster &ancestor, string memory)
 {
-    mprf("<1947>%s regains the memory of %s %s.",
+    mprf("<1947>%s (이)가 %s 의 기억을 다시 얻었다. %s.",
          ancestor.name(DESC_YOUR, true).c_str(),
          ancestor.pronoun(PRONOUN_POSSESSIVE, true).c_str(),
          memory.c_str());
@@ -1453,7 +1453,7 @@ void upgrade_hepliaklqana_ancestor(bool quiet_force)
 
     if (!quiet_force)
     {
-        mprf("<1949>%s remembers more of %s old skill.",
+        mprf("<1949>%s (이)가  오래된 스킬인  %s(을)를 기억해냈다.",
              ancestor->name(DESC_YOUR, true).c_str(),
              ancestor->pronoun(PRONOUN_POSSESSIVE, true).c_str());
     }
@@ -1481,7 +1481,7 @@ void upgrade_hepliaklqana_ancestor(bool quiet_force)
         else if (brand != _hepliaklqana_weapon_brand(ancestor->type, old_hd)
                  && !quiet_force)
         {
-            mprf("<1950>%s remembers %s %s %s.",
+            mprf("<1950>%s (은)는 %s %s %s 를 기억한다.",
                  ancestor->name(DESC_YOUR, true).c_str(),
                  ancestor->pronoun(PRONOUN_POSSESSIVE, true).c_str(),
                  apostrophise(item_base_name(OBJ_WEAPONS, wpn)).c_str(),
@@ -3261,7 +3261,7 @@ static void _transfer_good_god_piety()
         };
 
         // Some feedback that piety moved over.
-        simple_god_message(make_stringf("<1958> says: Farewell. Go and %s with %s.",
+        simple_god_message(make_stringf("<1958> says: 작별이군. 가거라 %s  %s 과 함께...",
                                         lookup(farewell_messages, you.religion,
                                                "become a bug"),
                                         god_name(you.religion).c_str()).c_str(),
@@ -3291,7 +3291,7 @@ static string _good_god_wrath_message(god_type good_god)
         case GOD_SHINING_ONE:
             return "You will pay for your evil ways, mortal";
         case GOD_ZIN:
-            return make_stringf("<1959>You will suffer for embracing such %s",
+            return make_stringf("<1959> 너는 %s 를 받아들여서 고통받을 것이다",
                                 is_chaotic_god(you.religion) ? "chaos"
                                                              : "evil");
         default:
@@ -3401,7 +3401,7 @@ static void _join_gozag()
         }
         if (you.gold >= get_gold_cost(power.abil))
         {
-            power.display(true, "<1961>You have enough gold to %s.");
+            power.display(true, "<1961> %s를 사기에 충분한 돈을 가지고있군~.");
             needs_redraw = true;
         }
     }
@@ -3796,7 +3796,7 @@ god_type choose_god(god_type def_god)
 
     string help = def_god == NUM_GODS ? "by name"
                                       : "default " + god_name(def_god);
-    string prompt = make_stringf("<1968>Which god (%s)? ", help.c_str());
+    string prompt = make_stringf("<1968> 무슨 신(%s)? ", help.c_str());
 
     if (msgwin_get_line(prompt, specs, sizeof(specs)) != 0)
         return NUM_GODS; // FIXME: distinguish cancellation from no match

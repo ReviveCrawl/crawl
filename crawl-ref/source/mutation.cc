@@ -538,7 +538,7 @@ void validate_mutations(bool debug_msg)
         mutation_type mut = static_cast<mutation_type>(i);
         if (debug_msg && you.mutation[mut] > 0)
         {
-            dprf("<1664>mutation %s: total %d innate %d temp %d",
+            dprf("<1664>돌연변이 %s: total %d innate %d temp %d",
                 mutation_name(mut), you.mutation[mut],
                 you.innate_mutation[mut], you.temp_mutation[mut]);
         }
@@ -570,7 +570,7 @@ void validate_mutations(bool debug_msg)
 
             if (debug_msg && is_trait)
             {
-                dprf("<1665>scheduled innate for %s: %d, actual %d", mutation_name(mut),
+                dprf("<1665> 타고난 %s : %d, actual %d", mutation_name(mut),
                      trait_level, you.innate_mutation[mut]);
             }
             if (is_trait)
@@ -663,7 +663,7 @@ string describe_mutations(bool center_title)
                          num_tentacles.c_str()),
             !get_form()->slot_available(EQ_RING_EIGHT));
         result += _annotate_form_based(
-            make_stringf("<1668>You can use your tentacles to constrict %s enemies at once.",
+            make_stringf("<1668> 당신은 촉수를 사용하여  %s 적들을 즉시 속박할 수 있다.",
                          num_tentacles.c_str()),
             !form_keeps_mutations());
     }
@@ -1722,7 +1722,7 @@ bool mutate(mutation_type which_mutation, const string &reason, bool failMsg,
         if (you.hp <= 0)
         {
             ouch(0, KILLED_BY_FRAILTY, MID_NOBODY,
-                 make_stringf("<1673>gaining the %s mutation",
+                 make_stringf("<1673> %s 돌연변이를 얻음",
                               mutation_name(mutat)).c_str());
         }
     }
@@ -1849,7 +1849,7 @@ static bool _delete_single_mutation_level(mutation_type mutat,
     if (you.hp <= 0)
     {
         ouch(0, KILLED_BY_FRAILTY, MID_NOBODY,
-             make_stringf("<1676>losing the %s mutation", mutation_name(mutat)).c_str());
+             make_stringf("<1676> %s 돌연변이를 놓침", mutation_name(mutat)).c_str());
     }
 
     return true;
@@ -2511,7 +2511,7 @@ _schedule_ds_mutations(vector<mutation_type> muts)
             dt.level_gained = slots_left.front();
             dt.mutation     = muts_left.front();
 
-            dprf("<1677>Demonspawn will gain %s at level %d",
+            dprf("<1677>데몬스폰은 %s 을 얻을 예정입니다.  레벨 : %d",
                     _get_mutation_def(dt.mutation).short_desc, dt.level_gained);
 
             out.push_back(dt);
@@ -2588,7 +2588,7 @@ bool temp_mutation_wanes()
         max(starting_tmuts * 5 / 12 - random2(3),
         1 + random2(3)));
 
-    mprf(MSGCH_DURATION, "<1679>You feel the corruption within you wane %s.",
+    mprf(MSGCH_DURATION, "<1679 당신은 %s가 내부의 부패로 인해 손상됨을 느꼈다.",
         (num_remove >= starting_tmuts ? "completely" : "somewhat"));
 
     for (int i = 0; i < num_remove; ++i)

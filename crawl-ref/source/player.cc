@@ -2437,7 +2437,7 @@ static void _recharge_xp_evokers(int exp)
             continue;
 
         if (evoker_max_charges(i) == 1)
-            mprf("<1815>%s has recharged.", evoker->name(DESC_YOUR).c_str());
+            mprf("<1815>%s 가 재충전되었다.", evoker->name(DESC_YOUR).c_str());
         else
         {
             mprf("<1816>%s가 %s 재충전되었다%s.",

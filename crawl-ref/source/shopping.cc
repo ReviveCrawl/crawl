@@ -1032,7 +1032,7 @@ class ShopEntry : public InvEntry
         const string keystr = colour_to_str(keycol);
         const string itemstr =
             colour_to_str(menu_colour(text, item_prefix(*item), tag));
-        return make_stringf("<2163> <%s>%c%c%c%c</%s><%s>%4d gold   %s%s</%s>",
+        return make_stringf("<2163> <%s>%c%c%c%c</%s><%s>%4d 골드   %s%s</%s>",
                             keystr.c_str(),
                             hotkeys[0],
                             need_cursor ? '[' : ' ',
@@ -1123,25 +1123,25 @@ int ShopMenu::selected_cost() const
 
 void ShopMenu::update_help()
 {
-    string top_line = make_stringf("<2164><yellow>You have %d gold piece%s.",
+    string top_line = make_stringf("<2164><yellow>당신은 %d 가치의 골드%s를 갖고있다.",
                                    you.gold,
-                                   you.gold != 1 ? "s" : "");
+                                   you.gold != 1 ? "" : "");
     const int total_cost = selected_cost();
     if (total_cost > you.gold)
     {
         top_line += "<lightred>";
         top_line +=
-            make_stringf("<2165> You are short %d gold piece%s for the purchase.",
+            make_stringf("<2165> 당신은 구매하기에 %d만큼의 골드%s가 부족하다.",
                          total_cost - you.gold,
-                         (total_cost - you.gold != 1) ? "s" : "");
+                         (total_cost - you.gold != 1) ? "" : "");
         top_line += "</lightred>";
     }
     else if (total_cost)
     {
         top_line +=
-            make_stringf("<2166> After the purchase, you will have %d gold piece%s.",
+            make_stringf("<2166> 구매 후, 당신은 %d 골드%s가 남는다.",
                          you.gold - total_cost,
-                         (you.gold - total_cost != 1) ? "s" : "");
+                         (you.gold - total_cost != 1) ? "" : "");
     }
     top_line += "</yellow>\n";
 
@@ -1156,7 +1156,7 @@ void ShopMenu::update_help()
         "[<w>Esc</w>] exit          "
 #endif
         "<2167>%s  [%s] %s\n"
-        "<2168>[<w>/</w>] sort (%s)%s  %s  [%s] put item on shopping list",
+        "<2168>[<w>/</w>] 종류 (%s)%s  %s  [%s] 아이템을 구매 목록에 넣어라.",
         !can_purchase ? " " " "  "  " "       "  "          " :
         looking       ? "[<w>!</w>] buy|<w>examine</w> items" :
                         "[<w>!</w>] <w>buy</w>|examine items",
@@ -1197,7 +1197,7 @@ void ShopMenu::purchase_selected()
     if (cost > you.gold)
     {
         more = formatted_string::parse_string(make_stringf(
-                   "<2169><%s>You don't have enough money.</%s>\n",
+                   "<2169><%s>당신은 충분한 돈이 없다.</%s>\n",
                    col.c_str(),
                    col.c_str()));
         more += old_more;
@@ -1205,7 +1205,7 @@ void ShopMenu::purchase_selected()
         return;
     }
     more = formatted_string::parse_string(make_stringf(
-               "<2170><%s>Purchase items%s for %d gold? (y/N)</%s>\n",
+               "<2170><%s>%s 아이템들을 %d 골드로 구매하시겠습니까? (y/N)</%s>\n",
                col.c_str(),
                buying_from_list ? " in shopping list" : "",
                cost,
@@ -1266,11 +1266,11 @@ void ShopMenu::purchase_selected()
     if (outside_items)
     {
         more = formatted_string::parse_string(make_stringf(
-            "<2171><%s>I'll put %s outside for you.</%s>\n",
+            "<2171><%s>I'll %s을 당신의 바깥쪽에 놓아라.</%s>\n",
             col.c_str(),
-            bought_indices.size() == 1             ? "it" :
-      (int) bought_indices.size() == outside_items ? "them"
-                                                   : "some of them",
+            bought_indices.size() == 1             ? "그것" :
+      (int) bought_indices.size() == outside_items ? "그것들"
+                                                   : "그것들 중 약간",
             col.c_str()));
         more += old_more;
     }
@@ -1938,7 +1938,7 @@ bool ShoppingList::cull_identical_items(const item_def& item, int cost)
             thing[REPLACE_PROMPTED_KEY] = (bool) true;
 
             string prompt =
-                make_stringf("<2179>Shopping list: replace %dgp %s with cheaper "
+                make_stringf("<2179>구매 목록:  %dgp %s을(를) 싼 값으로 대체 "
                              "one? (Y/n)", list_cost,
                              describe_thing(thing).c_str());
 
@@ -1958,13 +1958,13 @@ bool ShoppingList::cull_identical_items(const item_def& item, int cost)
                 continue;
             thing[REMOVE_PROMPTED_KEY] = (bool) true;
 
-            string prompt = make_stringf("<2180>Shopping list: remove %s? (Y/n)",
+            string prompt = make_stringf("<2180> 구매 목록: %s을(를) 제거하겠습니까? (Y/n)",
                                          describe_thing(thing, DESC_A).c_str());
 
             if (yesno(prompt.c_str(), true, 'y', false))
             {
                 to_del.push_back(listed);
-                mprf("<2181>Shopping list: removing %s",
+                mprf("<2181>구매 목록: %s을(를) 제거",
                      describe_thing(thing, DESC_A).c_str());
             }
             else
@@ -1972,7 +1972,7 @@ bool ShoppingList::cull_identical_items(const item_def& item, int cost)
         }
         else
         {
-            mprf("<2182>Shopping list: removing %s",
+            mprf("<2182>구매 목록: %s을(를) 제거",
                  describe_thing(thing, DESC_A).c_str());
             to_del.push_back(listed);
         }
@@ -2193,7 +2193,7 @@ void ShoppingListMenu::draw_title()
 
         cgotoxy(1, 1);
         formatted_string fs = formatted_string(title->colour);
-        fs.cprintf("<2183>%d %s%s, total %d gold",
+        fs.cprintf("<2183>%d %s%s, 총 %d 골드",
                    title->quantity, title->text.c_str(),
                    title->quantity > 1? "s" : "",
                    total_cost);
@@ -2250,7 +2250,7 @@ void ShoppingList::fill_out_menu(Menu& shopmenu)
 
         const string etitle =
             make_stringf(
-                "<2185>%*s%5d gold  %s%s",
+                "<2185>%*s%5d 골드  %s%s",
                 longest,
                 describe_thing_pos(thing).c_str(),
                 cost,
@@ -2333,8 +2333,8 @@ void ShoppingList::display()
             if (cost > you.gold)
             {
                 string prompt =
-                   make_stringf("<2186>You cannot afford %s; travel there "
-                                "anyway? (y/N)",
+                   make_stringf("<2186>당신은 %s을(를) 갈 수 없다."
+                                "다른 방법은 없습니까? (y/N)",
                                 describe_thing(*thing, DESC_A).c_str());
                 clrscr();
                 if (!yesno(prompt.c_str(), true, 'n'))
@@ -2357,7 +2357,7 @@ void ShoppingList::display()
             {
                 // HACK: Assume it's some kind of portal vault.
                 const string info = make_stringf(
-                             "<2187>%s with an entry fee of %d gold pieces.",
+                             "<2187>%s 입장료로 %d 골드가 필요하다.",
                              describe_thing(*thing, DESC_A).c_str(),
                              (int) thing_cost(*thing));
 

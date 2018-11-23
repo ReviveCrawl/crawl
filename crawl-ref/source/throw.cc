@@ -306,7 +306,7 @@ static bool _fire_choose_item_and_target(int& slot, dist& target,
     if (teleport && cell_is_solid(target.target))
     {
         const char *feat = feat_type_name(grd(target.target));
-        mprf("<2422>There is %s there.", article_a(feat).c_str());
+        mprf("<2422>그것은 %s에 있다.", article_a(feat).c_str());
         return false;
     }
 
@@ -384,7 +384,7 @@ bool fire_warn_if_impossible(bool silent)
         {
             if (!silent)
             {
-                mprf("<2424>You cannot shoot with your %s while %s.",
+                mprf("<2424>당신은 당신의 %s을(를) 가지고 쏠 수 없다 %s 동안.",
                      weapon->name(DESC_BASENAME).c_str(), held_status());
             }
             return true;
@@ -662,7 +662,7 @@ static void _throw_noise(actor* act, const bolt &pbolt, const item_def &ammo)
         break;
 
     default:
-        die("<2425>Invalid launcher '%s'",
+        die("<2425>잘못된 런처 '%s'",
                  launcher->name(DESC_PLAIN).c_str());
         return;
     }
@@ -859,7 +859,7 @@ bool throw_it(bolt &pbolt, int throw_2, dist *target)
     you.time_taken = you.attack_delay(&item).roll();
 
     // Create message.
-    mprf("<2426>You %s%s %s.",
+    mprf("<2426>당신은 %s%s %s.",
           teleport ? "magically " : "",
           (projected == launch_retval::FUMBLED ? "toss away" :
            projected == launch_retval::LAUNCHED ? "shoot" : "throw"),

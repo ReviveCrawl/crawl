@@ -2760,7 +2760,7 @@ static string _base_feature_desc(dungeon_feature_type grid, trap_type trap)
         return full_trap_name(trap);
 
     if (grid == DNGN_ROCK_WALL && player_in_branch(BRANCH_PANDEMONIUM))
-        return "wall of the weird stuff which makes up Pandemonium";
+        return "이상한 종류의 벽은 Pandemonium을 구성한다.";
     else if (!is_valid_feature_type(grid))
         return "";
     else

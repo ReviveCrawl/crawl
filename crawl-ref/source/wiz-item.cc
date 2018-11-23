@@ -637,7 +637,7 @@ void wizard_make_object_randart()
             mpr("신을 찾을 수 없다. 물건을 신과 별개로 남긴다.");
         else
         {
-            mprf("<2691>God gift of %s.", god_name(god, false).c_str());
+            mprf("<2691>%s의 신의 선물.", god_name(god, false).c_str());
             item.orig_monnum = -god;
         }
     }
@@ -947,23 +947,23 @@ static void _debug_acquirement_stats(FILE *ostat)
     }
 
     // Print acquirement base type.
-    fprintf(ostat, "<2696>Acquiring %s for:\n\n",
-            type == OBJ_WEAPONS    ? "weapons" :
-            type == OBJ_ARMOUR     ? "armour"  :
-            type == OBJ_JEWELLERY  ? "jewellery" :
-            type == OBJ_BOOKS      ? "books" :
-            type == OBJ_STAVES     ? "staves" :
-            type == OBJ_WANDS      ? "wands" :
-            type == OBJ_MISCELLANY ? "misc. items" :
-            type == OBJ_FOOD       ? "food"
-                                   : "buggy items");
+    fprintf(ostat, "<2696> %s을(를) 획득했다:\n\n",
+            type == OBJ_WEAPONS    ? "무기" :
+            type == OBJ_ARMOUR     ? "방어구"  :
+            type == OBJ_JEWELLERY  ? "악세사리" :
+            type == OBJ_BOOKS      ? "책" :
+            type == OBJ_STAVES     ? "말뚝" :
+            type == OBJ_WANDS      ? "완드" :
+            type == OBJ_MISCELLANY ? "미스크. 아이템" :
+            type == OBJ_FOOD       ? "음식"
+                                   : "결함이 있는 아이템");
 
     // Print player species/profession.
     string godname = "";
     if (!you_worship(GOD_NO_GOD))
         godname += " of " + god_name(you.religion);
 
-    fprintf(ostat, "<2697>%s %s, Level %d %s %s%s\n\n",
+    fprintf(ostat, "<2697>%s %s, 레벨 %d %s %s%s\n\n",
             you.your_name.c_str(), player_title().c_str(),
             you.experience_level,
             species_name(you.species).c_str(),
@@ -1540,7 +1540,7 @@ void debug_item_statistics()
 
     if (!ostat)
     {
-        mprf(MSGCH_ERROR, "<2700>Can't write items.stat: %s", strerror(errno));
+        mprf(MSGCH_ERROR, "<2700>아이템을 쓸 수 없다.능력치: %s", strerror(errno));
         return;
     }
 
