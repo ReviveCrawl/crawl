@@ -560,8 +560,8 @@ void unlink_item(int dest)
                 return;
             }
         }
-        mprf(MSGCH_ERROR, "<1023>Item %s claims to be held by monster %s, but "
-                          "it isn't in the monster's inventory.",
+        mprf(MSGCH_ERROR, "<1023>아이템 %s를 몬스터 %s가 들고있다고 나오지만, "
+                          "몬스터의 인벤토리에 존재하지 않습니다.",
              mitm[dest].name(DESC_PLAIN, false, true).c_str(),
              mons->name(DESC_PLAIN, true).c_str());
         // Don't return so the debugging code can take a look at it.
@@ -1333,7 +1333,7 @@ bool pickup_single_item(int link, int qty)
     if (qty == 0 && item->quantity > 1 && item->base_type != OBJ_GOLD)
     {
         const string prompt
-                = make_stringf("<1026>Pick up how many of %s (; or enter for all)? ",
+                = make_stringf("<1026>%s을(를) 몇 개나 주우시겠습니까 (; or enter 키로 모두 줍기)? ",
                                item->name(DESC_THE, false,
                                           false, false).c_str());
 
@@ -1442,7 +1442,7 @@ void pickup(bool partial_quantity)
 
             if (keyin != 'a')
             {
-                string prompt = "<1027>Pick up %s? ((y)es/(n)o/(a)ll/(m)enu/*?g,/q)";
+                string prompt = "<1027> %s을(를) 주우시겠습니까? ((y)es/(n)o/(a)ll/(m)enu/*?g,/q)";
 
                 mprf(MSGCH_PROMPT, prompt.c_str(),
                      menu_colour_item_name(mitm[o], DESC_A).c_str());

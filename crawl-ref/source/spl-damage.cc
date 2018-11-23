@@ -400,7 +400,7 @@ static void _pre_refrigerate(const actor* agent, bool player,
             counted_monster_list mons_list =
                 _counted_monster_list_from_vector(seen_monsters);
             const string message =
-                make_stringf("<2256>%s %s frozen.",
+                make_stringf("<2256>%s %s이 얼어붙었다.",
                             mons_list.describe(DESC_THE, true).c_str(),
                             conjugate_verb("be", mons_list.count() > 1).c_str());
             if (strwidth(message) < get_number_of_cols() - 2)
@@ -760,7 +760,7 @@ void sonic_damage(bool scream)
     if (!affected_monsters.empty())
     {
         const string message =
-            make_stringf("<2259>%s %s hurt by the noise.",
+            make_stringf("<2259>%s %s이 소음에 의해 다쳤다.",
                          affected_monsters.describe().c_str(),
                          conjugate_verb("be", affected_monsters.count() > 1).c_str());
         if (strwidth(message) < get_number_of_cols() - 2)
@@ -1374,9 +1374,9 @@ void shillelagh(actor *wielder, coord_def where, int pow)
     if (!affected_monsters.empty())
     {
         const string message =
-            make_stringf("<2267>%s shudder%s.",
+            make_stringf("<2267>%s이 몸서리쳤다..",
                          affected_monsters.describe().c_str(),
-                         affected_monsters.count() == 1? "s" : "");
+                         affected_monsters.count() == 1? "" : "");
         if (strwidth(message) < get_number_of_cols() - 2)
             mpr(message);
         else
@@ -1976,7 +1976,7 @@ int discharge_monsters(coord_def where, int pow, actor *agent)
         monster* mons = victim->as_monster();
         ASSERT(mons);
 
-        dprf("<2270>%s: static discharge damage: %d",
+        dprf("<2270>%s: 정전 방전 데미지: %d",
              mons->name(DESC_PLAIN, true).c_str(), damage);
         damage = mons_adjust_flavoured(mons, beam, damage);
         if (damage > 0)

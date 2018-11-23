@@ -204,7 +204,7 @@ static string _desc_mons_type_map(map<monster_type, int> types)
             message += ", ";
         ++count;
     }
-    return make_stringf("<2612>%s come into view.", message.c_str());
+    return make_stringf("<2612>%s이(가) 보이기 시작했다.", message.c_str());
 }
 
 static monster_type _mons_genus_keep_uniques(monster_type mc)
@@ -449,12 +449,12 @@ static void _maybe_gozag_incite(vector<monster*> monsters)
     if (incited.empty())
         return;
 
-    string msg = make_stringf("<2616>%s incites %s against you.",
+    string msg = make_stringf("<2616>%s이(가) %s을 당신에 반하여 선동하였다.",
                               god_name(GOD_GOZAG).c_str(),
                               mon_count.describe().c_str());
     if (strwidth(msg) >= get_number_of_cols() - 2)
     {
-        msg = make_stringf("<2617>%s incites your enemies against you.",
+        msg = make_stringf("<2617>%s이(가) 당신의 적을 당신에 반하여 선동하였다.",
                            god_name(GOD_GOZAG).c_str());
     }
     mprf(MSGCH_GOD, GOD_GOZAG, "<2618>%s", msg.c_str());
@@ -732,14 +732,14 @@ bool magic_mapping(int map_radius, int proportion, bool suppress_msg,
 
         if (num_altars > 0)
         {
-            sensed.push_back(make_stringf("<2619>%d altar%s", num_altars,
+            sensed.push_back(make_stringf("<2619>%d 제단%s", num_altars,
                                           num_altars > 1 ? "s" : ""));
         }
 
         if (num_shops_portals > 0)
         {
             const char* plur = num_shops_portals > 1 ? "s" : "";
-            sensed.push_back(make_stringf("<2620>%d shop%s/portal%s",
+            sensed.push_back(make_stringf("<2620>%d 상점%s/포탈%s",
                                           num_shops_portals, plur, plur));
         }
 

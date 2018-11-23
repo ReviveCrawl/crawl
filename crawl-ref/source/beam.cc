@@ -930,7 +930,7 @@ void bolt::affect_wall()
             && !is_targeting && YOU_KILL(thrower) && !dont_stop_trees)
         {
             const string prompt =
-                make_stringf("<87>Are you sure you want to burn %s?",
+                make_stringf("<87>%s을(를) 태워 없애시겠습니까?",
                              feature_description_at(pos(), false, DESC_THE,
                                                     false).c_str());
 
@@ -3077,7 +3077,7 @@ void bolt::tracer_affect_player()
     {
         if (!dont_stop_player && !harmless_to_player())
         {
-            string prompt = make_stringf("<94>That %s is likely to hit you. Continue anyway?",
+            string prompt = make_stringf("<94> %s 은(는) 당신을 치고 싶어하는 듯 하다. 계속하시겠습니까?",
                                          item ? name.c_str() : "beam");
 
             if (yesno(prompt.c_str(), false, 'n'))
@@ -5701,7 +5701,7 @@ void bolt::refine_for_explosion()
         if (explosion)
         {
             seeMsg = explosion->seeMsg;
-            hearMsg = make_stringf("<130>You hear %s!", explosion->sound);
+            hearMsg = make_stringf("<130>%s 소리를 들었다!", explosion->sound);
         }
         else
         {

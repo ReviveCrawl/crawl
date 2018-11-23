@@ -41,8 +41,8 @@ void give_specific_item(monster* mon, int thing)
     item_def &mthing = mitm[thing];
     ASSERT(mthing.defined());
 
-    dprf(DIAG_MONPLACE, "<1538>Giving %s to %s...", mthing.name(DESC_PLAIN).c_str(),
-         mon->name(DESC_PLAIN, true).c_str());
+    dprf(DIAG_MONPLACE, "<1538> %s에게  %s를 주는 것은...", 
+         mon->name(DESC_PLAIN, true).c_str(), mthing.name(DESC_PLAIN).c_str());
 
     mthing.pos.reset();
     mthing.link = NON_ITEM;
@@ -71,9 +71,9 @@ void give_specific_item(monster* mon, int thing)
     unwind_var<int> save_speedinc(mon->speed_increment);
     if (!mon->pickup_item(mthing, false, true))
     {
-        dprf(DIAG_MONPLACE, "<1539>Destroying %s because %s doesn't want it!",
-             mthing.name(DESC_PLAIN, false, true).c_str(),
-             mon->name(DESC_PLAIN, true).c_str());
+        dprf(DIAG_MONPLACE, "<1539>%s가 %s를 원하지 않기 때문에 파괴합니다!!",
+            
+             mon->name(DESC_PLAIN, true).c_str(), mthing.name(DESC_PLAIN, false, true).c_str());
         destroy_item(thing, true);
         return;
     }
@@ -157,9 +157,10 @@ static void _give_wand(monster* mon, int level)
     if (rejection_reason)
     {
         dprf(DIAG_MONPLACE,
-             "<1540>Destroying %s because %s doesn't want a %s wand.",
-             wand.name(DESC_A).c_str(),
+             "<1540>%s가 %s 지팡이를 원하지 않기 때문에 %s를 파괴합니다.",
              mon->name(DESC_THE).c_str(),
+		     wand.name(DESC_A).c_str(),
+			 rejection_reaso
              rejection_reason);
         destroy_item(idx, true);
         return;

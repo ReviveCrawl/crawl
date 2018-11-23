@@ -173,9 +173,9 @@ static void _climb_message(dungeon_feature_type stair, bool going_up,
     }
     else if (feat_is_gate(stair))
     {
-        mprf("<2344>You %s %s through the gate.",
-             you.airborne() ? "fly" : "go",
-             going_up ? "up" : "down");
+        mprf("<2344>당신은 출입구를 통해 %s %s.",
+			going_up ? "위로" : "아래로", 
+			you.airborne() ? "날아간다" : "간다");
     }
     else
     {
@@ -665,7 +665,7 @@ void floor_transition(dungeon_feature_type how,
         if (have_passive(passive_t::slow_abyss))
         {
             mprf(MSGCH_GOD, you.religion,
-                 "<2351>You feel %s slowing down the madness of this place.",
+                 "<2351>당신은 %s이(가) 이곳의 광기를 늦춘다고 느낀다.",
                  god_name(you.religion).c_str());
         }
 
@@ -930,7 +930,7 @@ level_id stair_destination(dungeon_feature_type feat, const string &dst,
         }
         catch (const bad_level_id &err)
         {
-            die("<2354>Invalid destination for portal: %s", err.what());
+            die("<2354>포탈의 대상이 잘못되었다: %s", err.what());
         }
 #endif
 
@@ -957,7 +957,7 @@ level_id stair_destination(dungeon_feature_type feat, const string &dst,
                 }
                 return level_id(BRANCH_DUNGEON, 1);
             }
-            die("<2355>no return path from a portal (%s)",
+            die("<2355>포탈에서 돌아오는 길이 없다 (%s)",
                 level_id::current().describe().c_str());
         }
         return you.level_stack.back().id;

@@ -825,7 +825,7 @@ static void _animate_weapon(int pow, actor* target)
 
     if (!mons)
     {
-        mprf("<2305>%s twitches for a moment.",
+        mprf("<2305>%s 잠깐의 경련.",
              _get_item_desc(wpn, target_is_player).c_str());
         return;
     }
@@ -2207,18 +2207,18 @@ bool twisted_resurrection(actor *caster, int pow, beh_type beha,
 
     if (seen_lost)
     {
-        mprf("<2312>%s %s into %s!",
+        mprf("<2312>%s %s %s안으로!",
              _count_article(seen_lost, seen_crawlies + seen_masses == 0),
-             seen_lost == 1 ? "corpse collapses" : "corpses collapse",
-             seen_lost_piles == 1 ? "a pulpy mess" : "pulpy messes");
+             seen_lost == 1 ? "시체들이 쓰러진다" : "시체가 쓰러진다",
+             seen_lost_piles == 1 ? "걸쭉하고 지저분한" : "걸쭉하고 지저분한");
     }
 
     if (seen_crawlies > 0)
     {
-        mprf("<2313>%s %s to drag %s along the ground!",
+        mprf("<2313>%s %s %s 땅을 따라서!",
              _count_article(seen_crawlies, seen_lost + seen_masses == 0),
-             seen_crawlies == 1 ? "corpse begins" : "corpses begin",
-             seen_crawlies == 1 ? "itself" : "themselves");
+             seen_crawlies == 1 ? "시체가 생긴다" : "시체들이 생긴다",
+             seen_crawlies == 1 ? "그것 스스로" : "그들 스스로");
     }
 
     if (seen_masses > 0)
@@ -2401,7 +2401,7 @@ void init_servitor(monster* servitor, actor* caster)
 
     if (you.can_see(*caster))
     {
-        mprf("<2315>%s %s a servant imbued with %s destructive magic!",
+        mprf("<2315>%s %s했다. %s으로 가득찬 하인은 파괴적인 마법을!",
              caster->name(DESC_THE).c_str(),
              caster->conj_verb("summon").c_str(),
              caster->pronoun(PRONOUN_POSSESSIVE).c_str());
@@ -3006,7 +3006,7 @@ spret_type cast_fulminating_prism(actor* caster, int pow,
     {
         if (caster->observable())
         {
-            mprf("<2318>%s %s a prism of explosive energy!",
+            mprf("<2318>%s %s 폭발적인 에너지!",
                  caster->name(DESC_THE).c_str(),
                  caster->conj_verb("conjure").c_str());
         }

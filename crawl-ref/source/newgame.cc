@@ -2078,7 +2078,7 @@ static void _choose_gamemode_map(newgame_def& ng, newgame_def& ng_choice,
     const mapref_vector maps = find_maps_for_tag(type_name);
 
     if (maps.empty())
-        end(1, true, "<1688>No %s maps found.", type_name.c_str());
+        end(1, true, "<1688> %s 지도를 찾을 수 없습니다.", type_name.c_str());
 
     if (ng_choice.map.empty())
     {

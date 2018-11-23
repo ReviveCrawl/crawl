@@ -45,7 +45,7 @@ void opening_screen()
         msg += "<lightred>(Options file ";
         if (!Options.filename.empty())
         {
-            msg += make_stringf("\"<1695>%s\" is not readable",
+            msg += make_stringf("\"<1695>%s\" 읽을 수 없음 ",
                                 Options.filename.c_str());
         }
         else

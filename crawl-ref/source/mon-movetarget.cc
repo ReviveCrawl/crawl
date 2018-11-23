@@ -165,7 +165,7 @@ bool try_pathfind(monster* mon)
     }
 
 #ifdef DEBUG_PATHFIND
-    mprf("<1542>%s: Target out of reach! What now?",
+    mprf("<1542>%s: 가 범위 바깥에 있습니다! 어떻게 할까요?",
          mon->name(DESC_PLAIN).c_str());
 #endif
     // If we're already on our way, do nothing.

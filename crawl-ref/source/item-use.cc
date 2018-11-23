@@ -2833,7 +2833,7 @@ void read_scroll(item_def& scroll)
     // For cancellable scrolls leave printing this message to their
     // respective functions.
     const string pre_succ_msg =
-            make_stringf("<1020>As you read the %s, it crumbles to dust.",
+            make_stringf("<1020> %s를 읽음과 동시에, 먼지가 되어 사라졌다.",
                           scroll.name(DESC_QUALNAME).c_str());
     if (!_is_cancellable_scroll(which_scroll))
     {

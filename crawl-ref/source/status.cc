@@ -275,7 +275,7 @@ bool fill_status_info(int status, status_info* inf)
             inf->light_colour = RED;
             inf->light_text   = "Held";
             inf->short_text   = "held";
-            inf->long_text    = make_stringf("<2386>You are %s.", held_status());
+            inf->long_text    = make_stringf("<2386>당신은 %s이다.", held_status());
         }
         break;
 
@@ -1015,7 +1015,7 @@ static void _describe_stat_zero(status_info* inf, stat_type st)
         inf->light_text   = s0_names[st];
         inf->short_text   = make_stringf("<2388>lost %s", stat_desc(st, SD_NAME));
         inf->long_text    = make_stringf(you.stat(st) ?
-                "<2389>You are recovering from loss of %s." : "You have no %s!",
+                "<2389>당신은 %s의 부족함에서 회복한다." : "당신은 %s이(가) 없다!",
                 stat_desc(st, SD_NAME));
     }
 }

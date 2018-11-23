@@ -67,7 +67,7 @@ void add_monster_to_transit(const level_id &lid, const monster& m)
     m_transit_list &mlist = the_lost_ones[lid];
     mlist.emplace_back(m);
 
-    dprf("<1586>Monster in transit to %s: %s", lid.describe().c_str(),
+    dprf("<1586> %s 로 전송중인 몬스터 : %s", lid.describe().c_str(),
          m.name(DESC_PLAIN, true).c_str());
 
     if (m.is_divine_companion())
@@ -351,7 +351,7 @@ static bool _tag_follower_at(const coord_def &pos, const coord_def &from,
 
     fol->clear_clinging();
 
-    dprf("<1589>%s is marked for following.", fol->name(DESC_THE, true).c_str());
+    dprf("<1589>%s (은)는 다음에 따라 표시됩니다. ", fol->name(DESC_THE, true).c_str());
     return true;
 }
 
@@ -453,7 +453,7 @@ static bool _transport_follower_at(const coord_def &pos, const coord_def &from,
     {
         real_follower = true;
         env.map_knowledge(pos).clear_monster();
-        dprf("<1590>%s is transported.", fol->name(DESC_THE, true).c_str());
+        dprf("<1590>%s (이)가 전송되었다.", fol->name(DESC_THE, true).c_str());
     }
 
     return true;

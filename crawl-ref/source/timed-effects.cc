@@ -1481,7 +1481,7 @@ static void _drop_tomb(const coord_def& pos, bool premature, bool zin)
     if (count)
     {
         if (seen_change && !zin)
-            mprf("<2466>The walls disappear%s!", premature ? " prematurely" : "");
+            mprf("<2466>벽이%s 사라졌다!", premature ? " 이르게" : "");
         else if (seen_change && zin)
         {
             mprf("<2467>Zin %s %s %s.",
@@ -1489,7 +1489,7 @@ static void _drop_tomb(const coord_def& pos, bool premature, bool zin)
                        : "dismisses",
                  (mon) ? mon->name(DESC_THE).c_str()
                        : "the silver walls,",
-                 (mon) ? make_stringf("<2468>from %s prison",
+                 (mon) ? make_stringf("<2468> %s 감옥으로부터",
                              mon->pronoun(PRONOUN_POSSESSIVE).c_str()).c_str()
                        : "but there is nothing inside them");
         }

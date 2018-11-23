@@ -229,7 +229,7 @@ static void _zap_los_monsters(bool items_also)
         if (mon == nullptr || !mons_is_threatening(*mon))
             continue;
 
-        dprf("<2356>Dismissing %s",
+        dprf("<2356>%s을(를) 떨쳐 버렸다.",
              mon->name(DESC_PLAIN, true).c_str());
 
         // Do a hard reset so the monster's items will be discarded.
@@ -946,7 +946,7 @@ static void _choose_arena_teams(newgame_def& choice,
 
     cgotoxy(1, 4);
     if (!defaults.arena_teams.empty())
-        cprintf("<2358>Enter - %s\n", defaults.arena_teams.c_str());
+        cprintf("<2358>입장 - %s\n", defaults.arena_teams.c_str());
     cprintf("\n");
     cprintf("Examples:\n");
     cprintf("  Sigmund v Jessica\n");

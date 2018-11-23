@@ -281,7 +281,7 @@ static const map<spell_type, mons_spell_logic> spell_to_logic = {
         },
         [](monster &caster, mon_spell_slot, bolt&) {
             const string god = apostrophise(god_name(caster.god));
-            const string msg = make_stringf("<1393> invokes %s protection!",
+            const string msg = make_stringf("<1393>  %s의 보호를 요청한다!",
                                             god.c_str());
             simple_monster_message(caster, msg.c_str(), MSGCH_MONSTER_SPELL);
             // Not spell_hd(spell_cast); this is an invocation

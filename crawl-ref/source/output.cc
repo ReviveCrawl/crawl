@@ -2691,7 +2691,7 @@ string _status_mut_rune_list(int sw)
             runes.emplace_back(rune_type_name(i));
     if (!runes.empty())
     {
-        text += make_stringf("<1733>\n<w>%s:</w> %d/%d rune%s: %s",
+        text += make_stringf("<1733>\n<w>%s:</w> %d/%d 룬%s: %s",
                     stringize_glyph(get_item_symbol(SHOW_ITEM_MISCELLANY)).c_str(),
                     (int)runes.size(), you.obtainable_runes,
                     you.obtainable_runes == 1 ? "" : "s",

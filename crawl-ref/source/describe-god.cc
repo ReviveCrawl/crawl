@@ -707,10 +707,10 @@ static string _raw_penance_message(god_type which_god)
     if (penance > 0 && is_good_god(which_god))
     {
         if (is_good_god(you.religion))
-            return "<400>%s is ambivalent towards you.";
+            return "<400>%s은(는) 당신에게 엇갈린 감정을 가지고 있다.";
         if (!god_hates_your_god(which_god))
         {
-            return "<401>%s is almost ready to forgive your sins.";
+            return "<401>%s은(는) 거의 당신을 용서하려고 한다.";
                  // == "Come back to the one true church!"
         }
     }
@@ -718,14 +718,14 @@ static string _raw_penance_message(god_type which_god)
     const int initial_penance = initial_wrath_penance_for(which_god);
     // could do some math tricks to turn this into a table, but it seems fiddly
     if (penance > initial_penance * 3 / 4)
-        return "<402>%s's wrath is upon you!";
+        return "<402>%s's wrath가 당신 곁에 있다!";
     if (penance > initial_penance / 2)
-        return "<403>%s well remembers your sins.";
+        return "<403>%s은(는) 당신의 죄를 기억하고 있다.";
     if (penance > initial_penance / 4)
-        return "<404>%s's wrath is beginning to fade.";
+        return "<404>%s's wrath가 사라지고 있다.";
     if (penance > 0)
-        return "<405>%s is almost ready to forgive your sins.";
-    return "<406>%s is neutral towards you.";
+        return "<405>%s은(는) 거의 당신을 용서하려고 한다.";
+    return "<406>%s은(는) 당신에게 중립적이다.";
 }
 
 /**
@@ -797,12 +797,12 @@ static void _describe_god_powers(god_type which_god)
             }
         }
 
-        const char *how = (prot_chance >= 85) ? "carefully" :
-                          (prot_chance >= 55) ? "often" :
-                          (prot_chance >= 25) ? "sometimes"
-                                              : "occasionally";
+        const char *how = (prot_chance >= 85) ? "유심히" :
+                          (prot_chance >= 55) ? "종종" :
+                          (prot_chance >= 25) ? "때때로"
+                                              : "가끔";
 
-        cprintf("<408>%s %s watches over you%s.\n",
+        cprintf("<408>%s은(는) %s 당신을 지켜보고 있다. %s.\n",
                 uppercase_first(god_name(which_god)).c_str(),
                 how,
                 when);
@@ -814,12 +814,12 @@ static void _describe_god_powers(god_type which_god)
     {
         have_any = true;
         const char *how =
-            (piety >= piety_breakpoint(5)) ? "carefully" :
-            (piety >= piety_breakpoint(3)) ? "often" :
-            (piety >= piety_breakpoint(1)) ? "sometimes" :
-                                             "occasionally";
+            (piety >= piety_breakpoint(5)) ? "유심히" :
+            (piety >= piety_breakpoint(3)) ? "종종" :
+            (piety >= piety_breakpoint(1)) ? "때때로" :
+                                             "가끔";
 
-        cprintf("<409>%s %s shields you from chaos.\n",
+        cprintf("<409>%s은(는) %s 당신을 혼돈으로부터 보호한다.\n",
                 uppercase_first(god_name(which_god)).c_str(), how);
         break;
     }
@@ -827,18 +827,18 @@ static void _describe_god_powers(god_type which_god)
     case GOD_SHINING_ONE:
     {
         have_any = true;
-        cprintf("<410>%s prevents you from stabbing unaware foes.\n",
+        cprintf("<410>%s은(는) 제대로 인지되지 않은 적에게 다가가는 것을 방지한다.\n",
                 uppercase_first(god_name(which_god)).c_str());
         if (piety < piety_breakpoint(1))
             textcolour(DARKGREY);
         else
             textcolour(god_colour(which_god));
         const char *how =
-            (piety >= piety_breakpoint(5)) ? "completely" :
-            (piety >= piety_breakpoint(3)) ? "mostly" :
-                                             "partially";
+            (piety >= piety_breakpoint(5)) ? "완벽히" :
+            (piety >= piety_breakpoint(3)) ? "거의" :
+                                             "부분적으로";
 
-        cprintf("<411>%s %s shields you from negative energy.\n",
+        cprintf("<411>%s은(는) %s 당신을 부정적인 힘으로부터 막아준다.\n",
                 uppercase_first(god_name(which_god)).c_str(), how);
 
         const int halo_size = you_worship(which_god) ? you.halo_radius() : -1;
@@ -846,8 +846,7 @@ static void _describe_god_powers(god_type which_god)
             textcolour(DARKGREY);
         else
             textcolour(god_colour(which_god));
-        cprintf("<412>You radiate a%s righteous aura, and others within it are "
-                "easier to hit.\n",
+        cprintf("<412>당신은 a%s righteous aura을 내뿜고 있습니다, 안의 다른 것들을 치기 쉬워집니다.\n",
                 halo_size > 5 ? " large" :
                 halo_size > 3 ? "" :
                                 " small");
@@ -860,14 +859,14 @@ static void _describe_god_powers(god_type which_god)
             textcolour(god_colour(which_god));
         else
             textcolour(DARKGREY);
-        cprintf("<413>%s shields you from corrosive effects.\n",
+        cprintf("<413>%s은(는) 당신을 부패로부터 보호합니다.\n",
                 uppercase_first(god_name(which_god)).c_str());
 
         if (have_passive(passive_t::slime_feed))
             textcolour(god_colour(which_god));
         else
             textcolour(DARKGREY);
-        cprintf("<414>You gain nutrition%s when your fellow slimes consume items.\n",
+        cprintf("<414>당신의 동료 슬라임이 아이템을 소비하면, 당신은 %s 효과를 얻습니다.\n",
                 have_passive(passive_t::slime_hp) ? ", magic and health" :
                 have_passive(passive_t::slime_mp) ? " and magic" :
                                                     "");
@@ -880,7 +879,7 @@ static void _describe_god_powers(god_type which_god)
 
     case GOD_ASHENZARI:
         have_any = true;
-        cprintf("You are provided with a bounty of information.\n");
+        cprintf("당신은 풍부한 정보를 제공받습니다.\n");
         break;
 
     case GOD_CHEIBRIADOS:
@@ -889,12 +888,12 @@ static void _describe_god_powers(god_type which_god)
             textcolour(god_colour(which_god));
         else
             textcolour(DARKGREY);
-        cprintf("<415>%s %sslows your movement.\n",
+        cprintf("<415>%s은(는) 당신의 이동속도를 %s 느리게 합니다.\n",
                 uppercase_first(god_name(which_god)).c_str(),
-                piety >= piety_breakpoint(5) ? "greatly " :
+                piety >= piety_breakpoint(5) ? "매우 " :
                 piety >= piety_breakpoint(2) ? "" :
-                                               "slightly ");
-        cprintf("<416>%s supports your attributes. (+%d)\n",
+                                               "조금 ");
+        cprintf("<416>%s은(는) 당신의 속성을 지원합니다. (+%d)\n",
                 uppercase_first(god_name(which_god)).c_str(),
                 chei_stat_boost(piety));
         break;
@@ -905,13 +904,13 @@ static void _describe_god_powers(god_type which_god)
         {
             const char* offer = numoffers == 1
                                ? spell_title(*you.vehumet_gifts.begin())
-                               : "some of Vehumet's most lethal spells";
-            cprintf("<417>You can memorise %s.\n", offer);
+                               : "Vehumet의 치명적인 주문 중 일부";
+            cprintf("<417>%s을(를) 배웁니다.\n", offer);
         }
         else
         {
             textcolour(DARKGREY);
-            cprintf("You can memorise some of Vehumet's spells.\n");
+            cprintf("당신은 Vehumet의 몇몇 주문을 배울 수 있습니다.\n");
         }
         break;
 
@@ -923,8 +922,7 @@ static void _describe_god_powers(god_type which_god)
             textcolour(DARKGREY);
         else
             textcolour(god_colour(which_god));
-        cprintf("<418>You radiate a%s aura of darkness, enhancing your stealth "
-                "and reducing the accuracy of your foes.\n",
+        cprintf("<418>당신은 %s aura of darkness을(를) 내뿜고 있으며, stealth를 향상시키며 당신의 적의 정확도를 낮춥니다.\n",
                 umbra_size > 5 ? " large" :
                 umbra_size > 3 ? "n" :
                                  " small");
@@ -933,21 +931,21 @@ static void _describe_god_powers(god_type which_god)
 
     case GOD_GOZAG:
         have_any = true;
-        cprintf("You passively detect gold.\n");
-        cprintf("<419>%s turns your defeated foes' bodies to gold.\n",
+        cprintf("당신은 수동적으로 gold를 감지합니다.\n");
+        cprintf("<419>%s은(는) 패배한 적의 몸들을 gold로 바꿉니다.\n",
                 uppercase_first(god_name(which_god)).c_str());
-        cprintf("Your enemies may become distracted by gold.\n");
+        cprintf("당신의 적이 gold에 의해 혼란스러워 질 수 있습니다.\n");
         break;
 
     case GOD_HEPLIAKLQANA:
         have_any = true;
-        cprintf("Your life essence is reduced. (-10% HP)\n");
+        cprintf("당신의 삶의 근원이 줄어듭니다. (-10% HP)\n");
         break;
 
     case GOD_PAKELLAS:
     {
         have_any = true;
-        cprintf("<420>%s prevents your magic from regenerating.\n",
+        cprintf("<420>%s은(는) 당신의 마법이 재생성되는 것을 방지합니다.\n",
                 uppercase_first(god_name(which_god)).c_str());
         cprintf("<421>%s identifies device charges for you.\n",
                 uppercase_first(god_name(which_god)).c_str());
@@ -958,8 +956,7 @@ static void _describe_god_powers(god_type which_god)
             else
                 textcolour(DARKGREY);
 
-            cprintf("<422>%s will collect and distill excess magic from your "
-                    "kills.\n",
+            cprintf("<422>%s은(는) 당신의 죽임에서 과잉 마법을 수집하고 증류합니다.\n",
                     uppercase_first(god_name(which_god)).c_str());
         }
         break;

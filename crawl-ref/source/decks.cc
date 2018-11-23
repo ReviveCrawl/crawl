@@ -1405,7 +1405,7 @@ static void _damaging_card(card_type card, int power, deck_rarity_type rarity,
     const char *participle = dealt ? "dealt" : "drawn";
 
     bool done_prompt = false;
-    string prompt = make_stringf("<376>You have %s %s.", participle,
+    string prompt = make_stringf("<376>당신은 %s %s 가지고 있다..", participle,
                                  card_name(card));
 
     dist target;
@@ -1809,10 +1809,10 @@ bool recruit_mercenary(int mid)
         return true; // wut?
 
     int fee = mon->props["mercenary_fee"].get_int();
-    const string prompt = make_stringf("<377>Pay %s fee of %d gold?",
+    const string prompt = make_stringf("<377>%s을(를) %d gold에 지불 하시겠습니까?",
                                        mon->name(DESC_ITS).c_str(), fee);
     bool paid = yesno(prompt.c_str(), false, 0);
-    const string message = make_stringf("<378>Hired %s for %d gold.",
+    const string message = make_stringf("<378>%s을 %d gold에 고용하였다.",
                                         mon->full_name(DESC_A).c_str(), fee);
     if (crawl_state.seen_hups)
         return false;

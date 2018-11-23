@@ -227,7 +227,7 @@ void reader::fail_if_not_eof(const string &name)
         _file ? (fgetc(_file) != EOF) :
         _read_offset >= _pbuf->size())
     {
-        fail("Incomplete read of \"<2393>%s\" - aborting.", name.c_str());
+        fail("Incomplete read of \"<2393>%s\" - 중단한다.", name.c_str());
     }
 }
 
@@ -237,7 +237,7 @@ void writer::check_ok(bool ok)
     {
         failed = true;
         if (!_ignore_errors)
-            end(1, true, "<2394>Error writing to %s", _filename.c_str());
+            end(1, true, "<2394>%s을(를) 쓰는데 오류가 있다.", _filename.c_str());
     }
 }
 
@@ -705,8 +705,8 @@ static void _fix_missing_constrictions()
             h->constricting = new actor::constricting_t;
         if (h->constricting->find(m->mid) == h->constricting->end())
         {
-            dprf("<2395>Fixing missing constriction for %s (mindex=%d mid=%d)"
-                 "<2396> of %s (mindex=%d mid=%d)",
+            dprf("<2395>%s을 위한 제약이 없어진 것을 고친다. (mindex=%d mid=%d)"
+                 "<2396> %s의 (mindex=%d mid=%d)",
                  h->name(DESC_PLAIN, true).c_str(), h->mindex(), h->mid,
                  m->name(DESC_PLAIN, true).c_str(), m->mindex(), m->mid);
 
@@ -1072,13 +1072,13 @@ static void _ensure_entry(branch_type br)
                 {
                     grd(*di) = entry; // No need to update LOS, etc.
                     // Announce the repair even in non-debug builds.
-                    mprf(MSGCH_ERROR, "<2398>Placing missing branch entry: %s.",
+                    mprf(MSGCH_ERROR, "<2398>빠진 분기 항목 배치: %s.",
                          dungeon_feature_name(entry));
                     return;
                 }
             die("no floor to place a branch entrance");
         }
-    die("<2399>no upstairs on %s???", level_id::current().describe().c_str());
+    die("<2399>%s에 계단이 없습니까???", level_id::current().describe().c_str());
 }
 
 static void _add_missing_branches()
@@ -1118,7 +1118,7 @@ static void _add_missing_branches()
                     case DNGN_ENTER_GEHENNA:
                     case DNGN_ENTER_TARTARUS:
                         grd(*ri) = featm->feat;
-                        dprf("<2400>opened %s", dungeon_feature_name(featm->feat));
+                        dprf("<2400> %s을(를) 열었다.", dungeon_feature_name(featm->feat));
                         env.markers.remove(marker);
                         break;
                     default:
@@ -2165,7 +2165,7 @@ void tag_read_char(reader &th, uint8_t format, uint8_t major, uint8_t minor)
     // be forward-compatible. We validate them only on an actual restore.
     you.your_name         = unmarshallString2(th);
     you.prev_save_version = unmarshallString2(th);
-    dprf("<2404>Last save Crawl version: %s", you.prev_save_version.c_str());
+    dprf("<2404>크롤 버전의 마지막 저장: %s", you.prev_save_version.c_str());
 
     you.species           = static_cast<species_type>(unmarshallUByte(th));
     you.char_class        = static_cast<job_type>(unmarshallUByte(th));
@@ -4198,7 +4198,7 @@ void marshallItem(writer &th, const item_def &item, bool iinfo)
         if (!item.quantity)
             name = "(quantity: 0) ", dummy.quantity = 1;
         name += dummy.name(DESC_PLAIN, true);
-        die("<2407>Invalid item: %s", name.c_str());
+        die("<2407>유효하지 않은 아이템: %s", name.c_str());
     }
 #endif
     ASSERT(item.is_valid(iinfo));
@@ -5486,7 +5486,7 @@ void tag_construct_level_tiles(writer &th)
     {
         marshallString(th, name);
 #ifdef DEBUG_TILE_NAMES
-        mprf("<2410>Writing '%s' into save.", name.c_str());
+        mprf("<2410> '%s'을 저장하는데에 쓰다.", name.c_str());
 #endif
     }
 
@@ -6270,7 +6270,7 @@ static void tag_read_level_monsters(reader &th)
         env.mid_cache[m.mid] = i;
         if (m.is_divine_companion() && companion_is_elsewhere(m.mid))
         {
-            dprf("<2412>Killed elsewhere companion %s(%d) on %s",
+            dprf("<2412>다른 동료 %s(%d)이(가) %s에 죽었다.",
                     m.name(DESC_PLAIN, true).c_str(), m.mid,
                     level_id::current().describe(false, true).c_str());
             monster_die(m, KILL_RESET, -1, true, false);
@@ -6280,20 +6280,20 @@ static void tag_read_level_monsters(reader &th)
 #if defined(DEBUG) || defined(DEBUG_MONS_SCAN)
         if (invalid_monster_type(m.type))
         {
-            mprf(MSGCH_ERROR, "<2413>Unmarshalled monster #%d %s",
+            mprf(MSGCH_ERROR, "<2413>전달되지 않은 몬스터 #%d %s",
                  i, m.name(DESC_PLAIN, true).c_str());
         }
         if (!in_bounds(m.pos()))
         {
             mprf(MSGCH_ERROR,
-                 "<2414>Unmarshalled monster #%d %s out of bounds at (%d, %d)",
+                 "<2414>전달되지 않은 몬스터 #%d %s 에 있어서 도를 벗어난 (%d, %d)",
                  i, m.name(DESC_PLAIN, true).c_str(),
                  m.pos().x, m.pos().y);
         }
         int midx = mgrd(m.pos());
         if (midx != NON_MONSTER)
         {
-            mprf(MSGCH_ERROR, "<2415>(%d, %d) for %s already occupied by %s",
+            mprf(MSGCH_ERROR, "<2415>(%d, %d) %s을 위해 이미 차지되었다.  %s에 의해",
                  m.pos().x, m.pos().y,
                  m.name(DESC_PLAIN, true).c_str(),
                  menv[midx].name(DESC_PLAIN, true).c_str());

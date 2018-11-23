@@ -200,7 +200,7 @@ static bool _swap_monsters(monster& mover, monster& moved)
     // and not eligible to be swapped with
     if (moved.is_constricted())
     {
-        dprf("<1363>%s fails to swap with %s, constricted.",
+        dprf("<1363>%s 와 %s 위치 바꾸기 실패, 방해되었습니다.",
             mover.name(DESC_THE).c_str(),
             moved.name(DESC_THE).c_str());
             return false;

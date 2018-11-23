@@ -680,7 +680,7 @@ static bool _can_mutate(string *reason)
 
     if (reason)
     {
-        *reason = make_stringf("<1863>You cannot mutate%s.",
+        *reason = make_stringf("<1863>%s를 돌연변이로 만들 수 없다.",
                                you.can_safely_mutate(false) ? "" : " at present");
     }
     return false;
@@ -1140,7 +1140,7 @@ public:
         {
             if (reason)
             {
-                *reason = make_stringf("<1865>You have no %smutations to cure!",
+                *reason = make_stringf("<1865> 치료할 %s 돌연변이가 존재하지 않는다.",
                                        you.how_mutated(false, false, true)
                                        ? "permanent " : "");
             }

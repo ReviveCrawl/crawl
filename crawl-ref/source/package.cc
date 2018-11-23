@@ -93,12 +93,12 @@ package::package(const char* file, bool writeable, bool empty)
     {
         fd = open_u(file, O_RDWR | O_CREAT | O_TRUNC | O_BINARY, 0666);
         if (fd == -1)
-            sysfail("<1735>can't create save file (%s)", file);
+            sysfail("<1735>세이브 파일 생성 불가 (%s)", file);
 
         if (!lock_file(fd, true))
         {
             close(fd);
-            sysfail("<1736>failed to lock newly created save (%s)", file);
+            sysfail("<1736>새 세이브 파일 잠금 실패  (%s)", file);
         }
 
         dirty = true;
@@ -108,7 +108,7 @@ package::package(const char* file, bool writeable, bool empty)
     {
         fd = open_u(file, (writeable? O_RDWR : O_RDONLY) | O_BINARY, 0666);
         if (fd == -1)
-            sysfail("<1737>can't open save file (%s)", file);
+            sysfail("<1737>세이브 파일 오픈 불가 (%s)", file);
 
         try
         {

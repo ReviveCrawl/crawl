@@ -83,7 +83,7 @@ void wizard_place_stairs(bool down)
     if (stairs == DNGN_UNSEEN)
         return;
 
-    mprf("<2643>Creating %sstairs.", down ? "down" : "up");
+    mprf("<2643> %s계단을 만든다.", down ? "아랫" : "윗");
     dungeon_terrain_changed(you.pos(), stairs);
 }
 
@@ -206,7 +206,7 @@ bool wizard_create_feature(const coord_def& pos)
                 }
                 else
                 {
-                    mprf(MSGCH_DIAGNOSTICS, "<2645>No features matching '%s'",
+                    mprf(MSGCH_DIAGNOSTICS, "<2645>일치하는 특징이 없다. '%s'",
                          name.c_str());
                 }
                 return false;
@@ -282,12 +282,12 @@ void wizard_list_branches()
             continue;
         else if (brentry[it->id].is_valid())
         {
-            mprf(MSGCH_DIAGNOSTICS, "<2646>Branch %d (%s) is on %s",
+            mprf(MSGCH_DIAGNOSTICS, "<2646>분기가 %d (%s) %s에 있다.",
                  it->id, it->longname, brentry[it->id].describe().c_str());
         }
         else if (is_random_subbranch(it->id))
         {
-            mprf(MSGCH_DIAGNOSTICS, "<2647>Branch %d (%s) was not generated "
+            mprf(MSGCH_DIAGNOSTICS, "<2647>분기가 %d (%s) 생성되지 않았다. "
                  "this game", it->id, it->longname);
         }
     }
@@ -425,7 +425,7 @@ bool debug_make_trap(const coord_def& pos)
     {
         if (matches.empty())
         {
-            mprf("I know no traps named \"<2649>%s\".", spec.c_str());
+            mprf("나는 이름이 \"<2649>%s로 지정된 트랩을 모른다\".", spec.c_str());
             return false;
         }
         // Only one match, use that
@@ -442,7 +442,7 @@ bool debug_make_trap(const coord_def& pos)
     }
 
     place_specific_trap(you.pos(), trap);
-    mprf("<2650>Created %s, marked it undiscovered.",
+    mprf("<2650> %s을(를) 만들었고, 그것을 발견하지 못했다고 표시한다.",
          (trap == TRAP_RANDOM)
             ? "a random trap"
             : trap_at(you.pos())->name(DESC_A).c_str());
@@ -474,7 +474,7 @@ bool debug_make_shop(const coord_def& pos)
 
     if (new_shop_type == SHOP_UNASSIGNED)
     {
-        mprf("Bad shop type: \"<2651>%s\"", requested_shop);
+        mprf("불량 상점 타입: \"<2651>%s\"", requested_shop);
         list_shop_types();
         return false;
     }
@@ -510,7 +510,7 @@ static void debug_load_map_by_name(string name, bool primary)
 
         if (matches.empty())
         {
-            mprf("<2652>Can't find map named '%s'.", name.c_str());
+            mprf("<2652>'%s'의 이름으로 된 상점 타입을 찾지 못한다.", name.c_str());
             return;
         }
         else if (matches.size() == 1)
@@ -549,8 +549,8 @@ static void debug_load_map_by_name(string name, bool primary)
             {
                 if (!in_bounds(*ri))
                 {
-                    mprf("<2653>Placing %s on top of you would put part of the "
-                         "map outside of the level, cancelling.",
+                    mprf("<2653>%s을(를) 당신의 맨 위에 놓으면 "
+                         "맵이 레벨을 벗어나 취소되었다.",
                          toplace->name.c_str());
                     return;
                 }
@@ -560,7 +560,7 @@ static void debug_load_map_by_name(string name, bool primary)
         }
         else
         {
-            mprf("<2654>%s decides where it goes, can't place where you are.",
+            mprf("<2654>%s이(가) 어디로 갈지 결정해서는 안 된다.",
                  toplace->name.c_str());
         }
     }
@@ -598,7 +598,7 @@ static void debug_load_map_by_name(string name, bool primary)
         unwind_var<string_set> lumt(env.level_uniq_map_tags, string_set());
         if (dgn_place_map(toplace, false, false, where))
         {
-            mprf("<2655>Successfully placed %s.", toplace->name.c_str());
+            mprf("<2655>성공적으로 %s은(는) 위치했다.", toplace->name.c_str());
             // Fix up doors from vaults and any changes to the default walls
             // and floors from the vault.
             tile_init_flavour();
@@ -607,7 +607,7 @@ static void debug_load_map_by_name(string name, bool primary)
             dgn_make_transporters_from_markers();
         }
         else
-            mprf("<2656>Failed to place %s.", toplace->name.c_str());
+            mprf("<2656>%s은(는) 위치하지 못했다.", toplace->name.c_str());
     }
 }
 

@@ -1241,7 +1241,7 @@ string ghost_brand_name(int brand)
         return "an antimagic weapon";
     if (brand == SPWPN_VORPAL)
         return "a vorpal weapon"; // can't use brand_type_name
-    return make_stringf("<964>a weapon of %s", brand_type_name(brand, false));
+    return make_stringf("<964>의 무기 %s", brand_type_name(brand, false));
 }
 
 string ego_type_string(const item_def &item, bool terse, int override_brand)
@@ -2725,7 +2725,7 @@ void display_runes()
                                                    "lightgreen";
 
     auto title = make_stringf("<white>Runes of Zot (</white>"
-                              "<968><%s>%d</%s><white> collected) & Orbs of Power</white>",
+                              "<968><%s>%d</%s><white> collected) &힘의 오브</white>",
                               col, runes_in_pack(), col);
     title = string(max(0, 39 - printed_width(title) / 2), ' ') + title;
 
@@ -3081,7 +3081,7 @@ static void _test_scroll_names(const string& fname)
         }
     }
 
-    fprintf(f, "<970>\nLongest: %s (%d)\n", longest.c_str(), (int)longest.length());
+    fprintf(f, "<970>\최대: %s (%d)\n", longest.c_str(), (int)longest.length());
 
     fclose(f);
 }
@@ -3106,7 +3106,7 @@ static void _test_jiyva_names(const string& fname)
         fprintf(f, "<971>%s\n", name.c_str());
     }
 
-    fprintf(f, "<972>\nLongest: %s (%d)\n", longest.c_str(), (int)longest.length());
+    fprintf(f, "<972>\최대: %s (%d)\n", longest.c_str(), (int)longest.length());
 
     fclose(f);
 }

@@ -376,14 +376,14 @@ static bool _do_merge_crawlies(monster* crawlie, monster* merge_to)
         {
             if (crawlie->type == old_type)
             {
-                mprf("<1349>Two %s merge%s%s.",
+                mprf("<1349> %s두 마리가 나타났다.%s%s.",
                      pluralise_monster(crawlie->name(DESC_PLAIN)).c_str(),
                      changed ? " to form " : "",
                      changed ? merge_to->name(DESC_A).c_str() : "");
             }
             else
             {
-                mprf("<1350>%s merges with %s%s%s.",
+                mprf("<1350>%s 접근한다. %s%s%s.",
                      crawlie->name(DESC_A).c_str(),
                      old_name.c_str(),
                      changed ? " to form " : "",
@@ -744,7 +744,7 @@ static void _starcursed_scream(monster* mon, actor* target)
         {
             mprf(target->as_monster()->friendly() ? MSGCH_FRIEND_SPELL
                                                   : MSGCH_MONSTER_SPELL,
-                 "<1356>%s writhes in pain as voices assail %s mind.",
+                 "<1356>%s는 머리에서 울리는 asasil의 목솔에 고통으로 몸부림쳤다.%s",
                  target->name(DESC_THE).c_str(),
                  target->pronoun(PRONOUN_POSSESSIVE).c_str());
         }

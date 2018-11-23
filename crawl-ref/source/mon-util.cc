@@ -100,7 +100,7 @@ static int _mons_exp_mod(monster_type mclass);
 #define ASSERT_smc()                                                    \
     do {                                                                \
         if (!get_monster_data(mc))                                      \
-            die("<1591>bogus mc (no monster data): %s (%d)",                  \
+            die("<1591>bogus mc (몬스터 데이터 없음..): %s (%d)",                  \
                 mons_type_name(mc, DESC_PLAIN).c_str(), mc);            \
     } while (false)
 
@@ -208,7 +208,7 @@ void init_mon_name_cache()
                 continue;
             }
             else
-                die("<1592>Un-handled duplicate monster name: %s", name.c_str());
+                die("<1592>처리되지 않은 복제 몬스터 이름: %s", name.c_str());
         }
 
         Mon_Name_Cache[name] = mon;
@@ -2732,7 +2732,7 @@ void mons_load_spells(monster& mon)
     if (book == MST_NO_SPELLS)
         return;
 
-    dprf(DIAG_MONPLACE, "<1595>%s: loading spellbook #%d",
+    dprf(DIAG_MONPLACE, "<1595>%s: 스펠북 읽는중.. #%d",
          mon.name(DESC_PLAIN, true).c_str(), static_cast<int>(book));
 
     for (const mon_spellbook &spbook : mspell_list)

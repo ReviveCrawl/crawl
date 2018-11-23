@@ -86,8 +86,8 @@ bool MemoriseRegion::update_tab_tip_text(string &tip, bool active)
     const char *prefix2 = active ? "" : "          ";
 
     tip = make_stringf("<2447>%s%s\n%s%s",
-                       prefix1, "Display spells in carried books",
-                       prefix2, "Memorise spells");
+                       prefix1, "소지한 책에 표시된 마법",
+                       prefix2, "스펠을 기억한다");
 
     return true;
 }

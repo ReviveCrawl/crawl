@@ -551,7 +551,7 @@ bool mons_speaks(monster* mons)
             prefix += prefixes[i];
             prefix += " ";
         }
-        dprf(DIAG_SPEECH, "<1581>monster speech lookup for %s: prefix = %s",
+        dprf(DIAG_SPEECH, "<1581> %s 대화 상자 검색 : prefix = %s",
              mons->name(DESC_PLAIN).c_str(), prefix.c_str());
     }
 #endif
@@ -756,7 +756,7 @@ bool mons_speaks(monster* mons)
     if (msg.empty() || msg == "__NONE")
     {
 #ifdef DEBUG_MONSPEAK
-        dprf(DIAG_SPEECH, "<1582>final result: %s!",
+        dprf(DIAG_SPEECH, "<1582>최종 결과: %s!",
              (msg.empty() ? "empty" : "\"__NONE\""));
 #endif
         return false;

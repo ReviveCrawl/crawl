@@ -402,7 +402,7 @@ static void _print_chunk_messages(int num_chunks, int num_chunks_gone)
     if (num_chunks_gone > 0)
     {
         mprf(MSGCH_ROTTEN_MEAT,
-             "<2161>%s of the chunks of flesh in your inventory have rotted away.",
+             "<2161>당신의 인벤토리에서 %s의 살 덩어리가 썩어 없어졌다..",
              num_chunks_gone == num_chunks ? "All" : "Some");
     }
 }
@@ -413,10 +413,10 @@ static void _potion_stack_changed_message(string item_name, int num_changed,
 {
     ASSERT(num_changed > 0);
 
-    mprf(MSGCH_ROTTEN_MEAT, "<2162>%s %s rot%s away.",
+    mprf(MSGCH_ROTTEN_MEAT, "<2162>%s %s%s이 썩어 없어졌다.",
          get_desc_quantity(num_changed, initial_quantity).c_str(),
          item_name.c_str(),
-         num_changed == 1 ? "s" : "");
+         num_changed == 1 ? "들" : "");
 }
 
 // Removes the oldest timer of a stack of blood potions.

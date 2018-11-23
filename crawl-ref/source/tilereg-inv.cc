@@ -275,8 +275,8 @@ bool InventoryRegion::update_tab_tip_text(string &tip, bool active)
     const char *prefix2 = active ? "" : "          ";
 
     tip = make_stringf("<2444>%s%s\n%s%s",
-                       prefix1, "Display inventory",
-                       prefix2, "Use items");
+                       prefix1, "인벤토리를 보여준다",
+                       prefix2, "아이템들을 사용한다");
 
     return true;
 }

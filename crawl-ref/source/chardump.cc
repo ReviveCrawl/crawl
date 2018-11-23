@@ -262,7 +262,7 @@ static void _sdump_visits(dump_params &par)
     for (const PlaceInfo &branch : branches_visited)
         branches_total += branch;
 
-    text += make_stringf("<148>You %svisited %d branch",
+    text += make_stringf("<148>당신 %s은(는) 총 %d개의 장소를 방문하였다.",
                          have.c_str(), (int)branches_visited.size());
     if (branches_visited.size() != 1)
         text += "es";
@@ -275,7 +275,7 @@ static void _sdump_visits(dump_params &par)
     PlaceInfo place_info = you.get_place_info(BRANCH_PANDEMONIUM);
     if (place_info.num_visits > 0)
     {
-        text += make_stringf("<150>You %svisited Pandemonium %d time",
+        text += make_stringf("<150>당신 %s은(는) Pandemonium을 %d번 방문하였다.",
                              have.c_str(), place_info.num_visits);
         if (place_info.num_visits > 1)
             text += "s";
@@ -286,7 +286,7 @@ static void _sdump_visits(dump_params &par)
     place_info = you.get_place_info(BRANCH_ABYSS);
     if (place_info.num_visits > 0)
     {
-        text += make_stringf("<152>You %svisited the Abyss %d time",
+        text += make_stringf("<152>당신 %s은(는) the Abyss를 %d번 방문하였다.",
                              have.c_str(), place_info.num_visits);
         if (place_info.num_visits > 1)
             text += "s";
@@ -296,7 +296,7 @@ static void _sdump_visits(dump_params &par)
     place_info = you.get_place_info(BRANCH_BAZAAR);
     if (place_info.num_visits > 0)
     {
-        text += make_stringf("<153>You %svisited %d bazaar",
+        text += make_stringf("<153>당신 %s은(는) bazzar를 %d 번 방문하였다.",
                              have.c_str(), place_info.num_visits);
         if (place_info.num_visits > 1)
             text += "s";
@@ -307,10 +307,10 @@ static void _sdump_visits(dump_params &par)
     if (place_info.num_visits > 0)
     {
         int num_zigs = place_info.num_visits;
-        text += make_stringf("<154>You %s%s %d ziggurat",
+        text += make_stringf("<154>당신 %s은(는) ziggruat를 %d 번 ziggurat %s",
                              have.c_str(),
-                             (num_zigs == you.zigs_completed) ? "completed"
-                                                              : "visited",
+                             (num_zigs == you.zigs_completed) ? "완료하였다."
+                                                              : "방문하였다.",
                              num_zigs);
         if (num_zigs > 1)
             text += "s";
@@ -359,35 +359,35 @@ static void _sdump_gold(dump_params &par)
     if (you.attribute[ATTR_GOLD_FOUND] > 0)
     {
         lines++;
-        text += make_stringf("<156>You %scollected %d gold pieces.\n", have,
+        text += make_stringf("<156>당신 %s은(는) %d gold pieces만큼 모았다.\n", have,
                              you.attribute[ATTR_GOLD_FOUND]);
     }
 
     if (you.attribute[ATTR_PURCHASES] > 0)
     {
         lines++;
-        text += make_stringf("<157>You %sspent %d gold pieces at shops.\n", have,
+        text += make_stringf("<157>당신 %s은(는) %d gold pieces만큼 상점에서 사용하였다.\n", have,
                              you.attribute[ATTR_PURCHASES]);
     }
 
     if (you.attribute[ATTR_DONATIONS] > 0)
     {
         lines++;
-        text += make_stringf("<158>You %sdonated %d gold pieces to Zin.\n", have,
+        text += make_stringf("<158>당신 %s은(는) %d gold pieces만큼 Zin에게 헌금하였다.\n", have,
                              you.attribute[ATTR_DONATIONS]);
     }
 
     if (you.attribute[ATTR_GOZAG_GOLD_USED] > 0)
     {
         lines++;
-        text += make_stringf("<159>You %spaid %d gold pieces to Gozag.\n", have,
+        text += make_stringf("<159>당신 %s은(는) %d gold pieces만큼 Gozag에게 지불하였다.\n", have,
                              you.attribute[ATTR_GOZAG_GOLD_USED]);
     }
 
     if (you.attribute[ATTR_MISC_SPENDING] > 0)
     {
         lines++;
-        text += make_stringf("<160>You %sused %d gold pieces for miscellaneous "
+        text += make_stringf("<160>당신 %s은(는) %d gold pieces만큼 기타 목적으로 사용하였다. "
                              "purposes.\n", have,
                              you.attribute[ATTR_MISC_SPENDING]);
     }

@@ -564,7 +564,7 @@ static void _xom_random_spell(int sever)
 #endif
 
     your_spells(spell, sever, false);
-    const string note = make_stringf("<2736>cast spell '%s'", spell_title(spell));
+    const string note = make_stringf("<2736> '%s' 마법을 걸었다.", spell_title(spell));
     take_note(Note(NOTE_XOM_EFFECT, you.piety, -1, note), true);
 }
 
@@ -661,7 +661,7 @@ static void _xom_make_item(object_class_type base, int subtype, int power)
     _try_brand_switch(thing_created);
 
     static char gift_buf[100];
-    snprintf(gift_buf, sizeof(gift_buf), "<2737>god gift: %s",
+    snprintf(gift_buf, sizeof(gift_buf), "<2737>신의 선물: %s",
              mitm[thing_created].name(DESC_PLAIN).c_str());
     take_note(Note(NOTE_XOM_EFFECT, you.piety, -1, gift_buf), true);
 
@@ -697,7 +697,7 @@ static void _xom_acquirement(int /*sever*/)
 
     _try_brand_switch(item_index);
 
-    const string note = make_stringf("<2738>god gift: %s",
+    const string note = make_stringf("<2738>신의 선물: %s",
                                      mitm[item_index].name(DESC_PLAIN).c_str());
     take_note(Note(NOTE_XOM_EFFECT, you.piety, -1, note), true);
 
@@ -1071,9 +1071,9 @@ static void _xom_send_allies(int sever)
     {
         god_speaks(GOD_XOM, _get_xom_speech("multiple summons").c_str());
 
-        const string note = make_stringf("<2739>summons %d friendly demon%s",
+        const string note = make_stringf("<2739> %d 친근한 데몬을 소환한다.%s",
                                          num_actually_summoned,
-                                         num_actually_summoned > 1 ? "s" : "");
+                                         num_actually_summoned > 1 ? "" : "");
         take_note(Note(NOTE_XOM_EFFECT, you.piety, -1, note), true);
     }
 }
@@ -1092,7 +1092,7 @@ static void _xom_send_one_ally(int sever)
     {
         god_speaks(GOD_XOM, _get_xom_speech("single summon").c_str());
 
-        const string note = make_stringf("<2740>summons friendly %s",
+        const string note = make_stringf("<2740>친근한 %s을(를) 소환한다.",
                                          summons->name(DESC_PLAIN).c_str());
         take_note(Note(NOTE_XOM_EFFECT, you.piety, -1, note), true);
     }
@@ -1136,7 +1136,7 @@ static void _xom_polymorph_monster(monster &mons, bool helpful)
         const string new_name = see_new ? mons.full_name(DESC_PLAIN)
                                         : "something unseen";
 
-        string note = make_stringf("<2741>polymorph %s -> %s",
+        string note = make_stringf("<2741>다형의 %s -> %s",
                                    old_name.c_str(), new_name.c_str());
 
 #ifdef NOTE_DEBUG_XOM
@@ -1438,13 +1438,13 @@ static void _xom_give_mutations(bool good)
 
     const int num_tries = random2(4) + 1;
 
-    const string note = make_stringf("<2744>give %smutation%s",
+    const string note = make_stringf("<2744> %s 변화를 일으켰다.%s",
 #ifdef NOTE_DEBUG_XOM
-             good ? "good " : "random ",
+             good ? "좋은 " : "랜덤의 ",
 #else
              "",
 #endif
-             num_tries > 1 ? "s" : "");
+             num_tries > 1 ? "" : "");
 
     take_note(Note(NOTE_XOM_EFFECT, you.piety, -1, note), true);
     mpr("당신의 몸에 뒤틀린 기운이 만연하다.");
@@ -1638,10 +1638,10 @@ static void _xom_change_scenery(int /*sever*/)
     if (fountains_blood > 0)
     {
         string fountains = make_stringf(
-                 "<2745>%s fountain%s start%s gushing blood",
-                 fountains_blood == 1 ? "a" : "some",
-                 fountains_blood == 1 ? ""  : "s",
-                 fountains_blood == 1 ? "s" : "");
+                 "<2745>%s 분수가%s%s 피를 분출하기 시작했다.",
+                 fountains_blood == 1 ? "" : "",
+                 fountains_blood == 1 ? ""  : "",
+                 fountains_blood == 1 ? "" : "");
 
         if (effects.empty())
             fountains = uppercase_first(fountains);
@@ -1658,24 +1658,24 @@ static void _xom_change_scenery(int /*sever*/)
 
     if (doors_open > 0)
     {
-        effects.push_back(make_stringf("<2747>%s door%s burst%s open",
-                                       doors_open == 1 ? "A"    :
-                                       doors_open == 2 ? "Two"
-                                                       : "Several",
-                                       doors_open == 1 ? ""  : "s",
-                                       doors_open == 1 ? "s" : ""));
+        effects.push_back(make_stringf("<2747>%s 문이%s%s 터져서 열렸다.",
+                                       doors_open == 1 ? ""    :
+                                       doors_open == 2 ? "두 개의"
+                                                       : "몇몇의",
+                                       doors_open == 1 ? ""  : "",
+                                       doors_open == 1 ? "" : ""));
         terse.push_back(make_stringf("%d doors open", doors_open));
     }
     if (doors_close > 0)
     {
-        string closed = make_stringf("<2748>%s%s door%s slam%s shut",
-                 doors_close == 1 ? "a"    :
-                 doors_close == 2 ? "two"
-                                  : "several",
-                 doors_open > 0   ? (doors_close == 1 ? "nother" : " other")
+        string closed = make_stringf("<2748>%s%s 문이%s %s 쾅 닫혔다.",
+                 doors_close == 1 ? ""    :
+                 doors_close == 2 ? "두 개의"
+                                  : "몇몇의",
+                 doors_open > 0   ? (doors_close == 1 ? "전혀 다른" : " 다른")
                                   : "",
-                 doors_close == 1 ? ""  : "s",
-                 doors_close == 1 ? "s" : "");
+                 doors_close == 1 ? ""  : "",
+                 doors_close == 1 ? "" : "");
         if (effects.empty())
             closed = uppercase_first(closed);
         effects.push_back(closed);
@@ -1797,7 +1797,7 @@ static void _xom_enchant_monster(bool helpful)
     enchant_actor_with_flavour(mon, 0, ench);
 
     // Take a note.
-    const string note = make_stringf("<2750>enchant monster %s",
+    const string note = make_stringf("<2750>매혹적인 몬스터%s",
                                      helpful ? "(good)" : "(bad)");
     take_note(Note(NOTE_XOM_EFFECT, you.piety, -1, note), true);
 }
@@ -2441,8 +2441,8 @@ bool move_stair(coord_def stair_pos, bool away, bool allow_under)
 
     string stair_str = feature_description_at(stair_pos, false, DESC_THE, false);
 
-    mprf("<2753>%s slides %s you!", stair_str.c_str(),
-         away ? "away from" : "towards");
+    mprf("<2753>%s 당신을%s 미끄러졌다!", stair_str.c_str(),
+         away ? "멀리" : "향해");
 
     // Animate stair moving.
     const feature_def &feat_def = get_feature_def(feat);
@@ -2466,7 +2466,7 @@ bool move_stair(coord_def stair_pos, bool away, bool allow_under)
 
     if (!swap_features(stair_pos, ray.pos(), false, false))
     {
-        mprf(MSGCH_ERROR, "<2754>_move_stair(): failed to move %s",
+        mprf(MSGCH_ERROR, "<2754>_move_stair(): %s을(를) 움직이는데 실패했다.",
              stair_str.c_str());
         return stairs_moved;
     }
@@ -2585,7 +2585,7 @@ static void _xom_statloss(int /*sever*/)
     lose_stat(stat, loss);
 
     const char* sstr[3] = { "Str", "Int", "Dex" };
-    const string note = make_stringf("<2755>stat loss: -%d %s (%d/%d)",
+    const string note = make_stringf("<2755>스탯을 잃었다: -%d %s (%d/%d)",
                                      loss, sstr[stat], you.stat(stat),
                                      you.max_stat(stat));
 
@@ -2657,11 +2657,11 @@ static void _xom_summon_hostiles(int sever)
 
     if (num_summoned > 0)
     {
-        const string note = make_stringf("<2756>summons %d hostile %s%s",
+        const string note = make_stringf("<2756>적대적인 %d %s을(를) 소환한다%s",
                                          num_summoned,
-                                         shadow_creatures ? "shadow creature"
-                                                          : "demon",
-                                         num_summoned > 1 ? "s" : "");
+                                         shadow_creatures ? "그림자 크리처"
+                                                          : "데몬",
+                                         num_summoned > 1 ? "" : "");
         take_note(Note(NOTE_XOM_EFFECT, you.piety, -1, note), true);
 
         const string speech = _get_xom_speech("hostile monster");
@@ -3556,7 +3556,7 @@ static void _xom_good_teleport(int /*sever*/)
     maybe_update_stashes();
 
     // Take a note.
-    const string note = make_stringf("<2760>%d-stop teleportation journey%s", count,
+    const string note = make_stringf("<2760>%d-텔레포트 여행 중단%s", count,
 #ifdef NOTE_DEBUG_XOM
              player_in_a_dangerous_place() ? " (dangerous)" :
 #endif
@@ -3587,7 +3587,7 @@ static void _xom_bad_teleport(int sever)
     maybe_update_stashes();
 
     // Take a note.
-    const string note = make_stringf("<2761>%d-stop teleportation journey%s", count,
+    const string note = make_stringf("<2761>%d-텔레포트 여행 중단%s", count,
 #ifdef NOTE_DEBUG_XOM
              badness == 3 ? " (dangerous)" : "");
 #else
@@ -3727,7 +3727,7 @@ void validate_xom_events()
         }
 
         if (action_names.count(event->name))
-            fails += make_stringf("<2762>Duplicate name '%s'!\n", event->name);
+            fails += make_stringf("<2762>중복된 이름 '%s'!\n", event->name);
         action_names.insert(event->name);
 
         if (_action_is_bad(event_type))
@@ -3735,17 +3735,17 @@ void validate_xom_events()
             if ((event->badness_10x < 10 || event->badness_10x > 50)
                 && event->badness_10x != -1) // implies it's special-cased
             {
-                fails += make_stringf("<2763>'%s' badness %d outside 10-50 range.\n",
+                fails += make_stringf("<2763>'%s' 안좋은 %d 10-50의 범위 밖에.\n",
                                       event->name, event->badness_10x);
             }
         } else if (event->badness_10x)
         {
-            fails += make_stringf("<2764>'%s' is not bad, but has badness!\n",
+            fails += make_stringf("<2764>'%s'은 나쁘지 않다, 하지만 안 좋은 것을 갖고있다!\n",
                                   event->name);
         }
 
         if (event_type != XOM_DID_NOTHING && !event->action)
-            fails += make_stringf("<2765>No action for '%s'!\n", event->name);
+            fails += make_stringf("<2765>'%s'의 행동이 없다!\n", event->name);
     }
 
     dump_test_fails(fails, "xom-data");

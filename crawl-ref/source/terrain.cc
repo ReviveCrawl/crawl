@@ -1987,7 +1987,7 @@ dungeon_feature_type orig_terrain(coord_def pos)
 
     const map_terrain_change_marker *terch
         = dynamic_cast<const map_terrain_change_marker *>(mark);
-    ASSERTM(terch, "<2421>%s has incorrect class", mark->debug_describe().c_str());
+    ASSERTM(terch, "<2421>%s은 다른 클래스를 가지고있다.", mark->debug_describe().c_str());
 
     return terch->old_feature;
 }

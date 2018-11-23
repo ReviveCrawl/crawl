@@ -150,7 +150,7 @@ static int _burst_iood_target(double iood_angle, int preferred_foe)
                                         abs_angle_diff;
         if (angle_diff >= PI / 3)
         {
-            dprf("<1569>can't target %s; angle diff %f",
+            dprf("<1569> %s (을)를 타깃으로 할 수 없다 ; angle diff %f",
                  m->name(DESC_PLAIN).c_str(), angle_diff);
             continue;
         }
@@ -158,14 +158,14 @@ static int _burst_iood_target(double iood_angle, int preferred_foe)
         // if preferred foe is valid, choose it.
         if (m->mindex() == preferred_foe)
         {
-            dprf("<1570>preferred target %s is valid burst target (delta %f)",
+            dprf("<1570>선호대상 %s (은)는 버스트 유효대상 (delta %f)",
                  m->name(DESC_PLAIN).c_str(), angle_diff);
             return preferred_foe;
         }
 
         if (mons_aligned(m, &you) || mons_is_firewood(*m))
         {
-            dprf("<1571>skipping invalid burst target %s (%s)",
+            dprf("<1571> 유효하지 않은 버스트 대상인 %s (%s) 을 건너뜀",
                  m->name(DESC_PLAIN).c_str(),
                  mons_aligned(m, &you) ? "aligned" : "firewood");
             continue;
@@ -175,12 +175,12 @@ static int _burst_iood_target(double iood_angle, int preferred_foe)
         // on distance ties, bias by iterator order (mindex)
         if (dist >= closest_dist)
         {
-            dprf("<1572>%s not closer to target than closest (%d vs %d)",
+            dprf("<1572>%s (이)가 대상에 가장 근접한 사거리인 (%d vs %d) 보다 가까이 있지않음",
                  m->name(DESC_PLAIN).c_str(), dist, closest_dist);
             continue;
         }
 
-        dprf("<1573>%s is valid burst target (delta %f, dist %d)",
+        dprf("<1573>%s (은)는 버스트 유효대상 (delta %f, dist %d)",
              m->name(DESC_PLAIN).c_str(), angle_diff, dist);
         closest_dist = dist;
         closest_foe = m->mindex();

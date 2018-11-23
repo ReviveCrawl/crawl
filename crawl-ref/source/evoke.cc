@@ -513,8 +513,8 @@ void zap_wand(int slot)
     {
         if (!item_ident(wand, ISFLAG_KNOW_PLUSES))
         {
-            mpr("Your skill with magical items lets you calculate "
-                "the power of this device...");
+            mpr("마법 아이템에 대한 당신의 지식이 "
+                "이 물건의 힘을 알 수 있게 해준다...");
         }
 
         mprf("<567>이 마법봉에는 %d회의 충전횟수가 남아있다%s.",

@@ -1323,7 +1323,7 @@ const CrawlStoreValue& CrawlHashTable::get_value(const string &key) const
     ASSERT_VALIDITY();
     ACCESS(key);
     auto iter = find(key);
-    ASSERTM(iter != end(), "trying to read non-existent property \"<2390>%s\"", key.c_str());
+    ASSERTM(iter != end(), "존재하지 않는 속성을 읽으려고 시도하였다 \"<2390>%s\"", key.c_str());
 
     const CrawlStoreValue& store = iter->second;
     ASSERT(store.type != SV_NONE);
