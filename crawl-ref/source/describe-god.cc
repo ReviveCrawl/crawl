@@ -35,6 +35,7 @@
 #include "tilepick.h"
 #include "unicode.h"
 #include "xom.h"
+#include "i18n-format.h"
 
 using namespace ui;
 
@@ -88,10 +89,10 @@ static string _describe_favour(god_type which_god)
     if (player_under_penance())
     {
         const int penance = you.penance[which_god];
-        return (penance >= 50) ? "Godly wrath is upon you!" :
-               (penance >= 20) ? "You've transgressed heavily! Be penitent!" :
-               (penance >=  5) ? "You are under penance."
-                               : "You should show more discipline.";
+        return (penance >= 50) ? TR7("Godly wrath is upon you!","신은 당신에게 분노를 표출하고 있다!") :
+               (penance >= 20) ? TR7("You've transgressed heavily! Be penitent!","당신은 당신의 신의 뜻과 크게 어긋나 있다. 참회할 필요가 있다.") :
+               (penance >=  5) ? TR7("You are under penance.","당신은 참회의 길을 걷고 있다.")
+                               : TR7("You should show more discipline.","당신은 당신의 신에게 있어 좀 더 신중함을 보여야 한다.");
     }
 
     if (which_god == GOD_XOM)
@@ -275,8 +276,8 @@ static string _describe_ash_skill_boost()
     ostringstream desc;
     desc.setf(ios::left);
     desc << "<white>";
-    desc << setw(18) << "Bound part";
-    desc << setw(30) << "Boosted skills";
+    desc << setw(18) << TR7("Bound part","바운드 부위");
+    desc << setw(30) << TR7("Boosted skills","향상된 스킬");
     desc << "Bonus\n";
     desc << "</white>";
 
@@ -316,14 +317,14 @@ static string _describe_ash_skill_boost()
             // the same level.
             ASSERT(bonus == it->second);
             if (it->first == SK_CONJURATIONS)
-                skills += "Magic schools";
+                skills += TR7("Magic schools","마법 학파");
             else
                 skills += skill_name(it->first);
 
             if (boosted_skills.size() > 2)
                 skills += ", ";
             else if (boosted_skills.size() == 2)
-                skills += " and ";
+                skills += TR7(" and "," 그리고 ");
 
             boosted_skills.erase(it++);
         }
@@ -345,28 +346,28 @@ static const map<monster_type, vector<ancestor_upgrade> > ancestor_data =
         { 1,  "Chain mail (+AC)" },
         { 15, "Broad axe (flame)" },
         { 19, "Large shield (reflect)" },
-        { 19, "Haste" },
+        { 19, TR7("Haste","가속") },
         { 24, "Broad axe (speed)" },
       }
     },
     { MONS_ANCESTOR_BATTLEMAGE,
       { { 1,  "Quarterstaff" },
-        { 1,  "Throw Frost" },
-        { 1,  "Stone Arrow" },
+        { 1,  TR7("Throw Frost","냉기의 투사") },
+        { 1,  TR7("Stone Arrow","암석 화살") },
         { 1,  "Increased melee damage" },
-        { 15, "Bolt of Magma" },
+        { 15, TR7("Bolt of Magma","용암 화살") },
         { 19, "Lajatang (freeze)" },
-        { 19, "Haste" },
-        { 24, "Lehudib's Crystal Spear" },
+        { 19, TR7("Haste","가속") },
+        { 24, TR7("Lehudib's Crystal Spear","레후디브의 수정창") },
       }
     },
     { MONS_ANCESTOR_HEXER,
       { { 1,  "Dagger (drain)" },
-        { 1,  "Slow" },
-        { 1,  "Confuse" },
-        { 15, "Paralyse" },
-        { 19, "Mass Confusion" },
-        { 19, "Haste" },
+        { 1,  TR7("Slow","감속") },
+        { 1,  TR7("Confuse","혼란") },
+        { 15, TR7("Paralyse","마비") },
+        { 19, TR7("Mass Confusion","집단 혼란") },
+        { 19, TR7("Haste","가속") },
         { 24, "Quick blade (antimagic)" },
       }
     },
@@ -632,7 +633,7 @@ static string _raw_penance_message(god_type which_god)
     if (penance > 0 && is_good_god(which_god))
     {
         if (is_good_god(you.religion))
-            return "%s is ambivalent towards you.";
+            return TR7("%s is ambivalent towards you.","%s은(는) 당신과 대립중인 상태이다.");
         if (!god_hates_your_god(which_god))
         {
             return "%s is almost ready to forgive your sins.";
@@ -643,14 +644,14 @@ static string _raw_penance_message(god_type which_god)
     const int initial_penance = initial_wrath_penance_for(which_god);
     // could do some math tricks to turn this into a table, but it seems fiddly
     if (penance > initial_penance * 3 / 4)
-        return "%s's wrath is upon you!";
+        return TR7("%s's wrath is upon you!","%s은(는) 당신에게 큰 분노를 표출하고 있다!");
     if (penance > initial_penance / 2)
-        return "%s well remembers your sins.";
+        return TR7("%s well remembers your sins.","%s은(는) 당신의 참회를 주시하고 있다.");
     if (penance > initial_penance / 4)
         return "%s's wrath is beginning to fade.";
     if (penance > 0)
         return "%s is almost ready to forgive your sins.";
-    return "%s is neutral towards you.";
+    return TR7("%s is neutral towards you.","%s은(는) 당신과 중립인 상태이다.");
 }
 
 /**
@@ -682,8 +683,8 @@ static formatted_string _describe_god_powers(god_type which_god)
     int piety = you_worship(which_god) ? you.piety : 0;
 
     desc.textcolour(LIGHTGREY);
-    const char *header = "Granted powers:";
-    const char *cost   = "(Cost)";
+    const char *header = TR7("Granted powers:","수여받은 권능: ");
+    const char *cost   = TR7("(Cost)","(소모)");
     desc.cprintf("\n\n%s%*s%s\n", header,
             80 - strwidth(header) - strwidth(cost),
             "", cost);
@@ -712,11 +713,11 @@ static formatted_string _describe_god_powers(god_type which_god)
             switch (elyvilon_lifesaving())
             {
                 case lifesaving_chance::sometimes:
-                    when = ", especially when called upon";
+                    when = TR7(", especially when called upon","당신이 신의 가호를 바라는 동안, 당신을 ");
                     prot_chance += 100 - 3000/piety;
                     break;
                 case lifesaving_chance::always:
-                    when = ", and always does so when called upon";
+                    when = TR7(", and always does so when called upon","당신이 신의 가호를 바라는 동안, 당신을 항상 예의주시하여, ");
                     prot_chance = 100;
                     break;
                 default:
@@ -832,7 +833,7 @@ static formatted_string _describe_god_powers(god_type which_god)
         {
             const char* offer = numoffers == 1
                                ? spell_title(*you.vehumet_gifts.begin())
-                               : "some of Vehumet's most lethal spells";
+                               : TR7("some of Vehumet's most lethal spells","베후메트가 제공한 몇몇 파괴마법들");
             desc.cprintf("You can memorise %s.\n", offer);
         }
         else

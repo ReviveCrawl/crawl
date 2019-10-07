@@ -27,6 +27,7 @@
 #include "stepdown.h"
 #include "terrain.h"
 #include "viewchar.h"
+#include "i18n-format.h"
 
 static void _fuzz_direction(const actor *caster, monster& mon, int pow);
 
@@ -49,7 +50,7 @@ spret_type cast_iood(actor *caster, int pow, bolt *beam, float vx, float vy,
                 mtarg).set_summoned(caster, 0, SPELL_IOOD), true, true);
     if (!mon)
     {
-        mprf(MSGCH_ERROR, "Failed to spawn projectile.");
+        mprf(MSGCH_ERROR, TR7("Failed to spawn projectile.","발사체의 소환에 실패했다."));
         return SPRET_ABORT;
     }
 
@@ -231,7 +232,7 @@ static void _iood_stop(monster& mon, bool msg = true)
         return;
 
     if (msg)
-        simple_monster_message(mon, " dissipates.");
+        simple_monster_message(mon, TR7(" dissipates.","은(는) 산산조각났다."));
     dprf("iood: dissipating");
     monster_die(mon, KILL_DISMISSED, NON_MONSTER);
 }
@@ -319,9 +320,9 @@ static bool _iood_hit(monster& mon, const coord_def &pos, bool big_boom = false)
     beam.damage = dice_def(9, pow / 4);
 
     if (dist < 3)
-        beam.name = "wavering " + beam.name;
+        beam.name = TR7("wavering ","흔들거리는 ") + beam.name;
     if (dist < 2)
-        beam.hit_verb = "weakly hits";
+        beam.hit_verb = TR7("weakly hits","에게 불완전하게 명중했다");
     beam.ex_size = 1;
     beam.loudness = 7;
 
@@ -448,7 +449,7 @@ move_again:
             && you.see_cell(pos)
             && you.see_cell(starting_pos))
         {
-            mprf("%s hits %s", mon.name(DESC_THE, true).c_str(),
+            mprf(TR7("%s hits %s","%s은(는) %s을(를) 공격했다."), mon.name(DESC_THE, true).c_str(),
                  feature_description_at(pos, false, DESC_A).c_str());
         }
 
@@ -480,9 +481,9 @@ move_again:
             else
             {
                 if (mon.observable())
-                    mpr("The orbs collide in a blinding explosion!");
+                    mpr(TR7("The orbs collide in a blinding explosion!","구체가 충돌하면서 눈부신 폭발을 일으켰다!"));
                 else
-                    mpr("You hear a loud magical explosion!");
+                    mpr(TR7("You hear a loud magical explosion!","마력이 폭발하는 커다란 소리가 들렸다!"));
                 noisy(40, pos);
                 monster_die(*mons, KILL_DISMISSED, NON_MONSTER);
                 _iood_hit(mon, pos, true);
@@ -512,7 +513,7 @@ move_again:
             if ((!shield || !shield_reflects(*shield)) && !victim->reflection())
             {
                 if (victim->is_player())
-                    mprf("You block %s.", mon.name(DESC_THE, true).c_str());
+                    mprf(TR7("You block %s.","당신은 %s을(를) 막았다."), mon.name(DESC_THE, true).c_str());
                 else
                 {
                     simple_monster_message(*mons, (" blocks "
@@ -527,7 +528,7 @@ move_again:
             {
                 if (shield && shield_reflects(*shield))
                 {
-                    mprf("Your %s reflects %s!",
+                    mprf(TR7("Your %s reflects %s!","%s은(는) %s을(를) 반사했다!"),
                          shield->name(DESC_PLAIN).c_str(),
                          mon.name(DESC_THE, true).c_str());
                     ident_reflector(shield);
@@ -564,7 +565,7 @@ move_again:
                 }
                 else
                 {
-                    mprf("%s bounces off thin air!",
+                    mprf(TR7("%s bounces off thin air!","%s이(가) 공중에서 튕겨져나갔다!"),
                          mon.name(DESC_THE, true).c_str());
                 }
             }

@@ -55,6 +55,7 @@
 #include "transform.h"
 #include "view.h"
 #include "xom.h"
+#include "i18n-format.h"
 
 static void _god_smites_you(god_type god, const char *message = nullptr,
                             kill_method_type death_type = NUM_KILLBY);
@@ -215,7 +216,7 @@ static void _tso_summon_warriors()
 
     simple_god_message(success ? " sends the divine host to punish "
                        "you for your evil ways!"
-                       : "'s divine host fails to appear.", GOD_SHINING_ONE);
+                       : TR7("'s divine host fails to appear.","의 신의 대행자들은 나타나지 못했다."), GOD_SHINING_ONE);
 
 }
 
@@ -236,7 +237,7 @@ static void _tso_shouts()
 static void _tso_squelches()
 {
     god_speaks(GOD_SHINING_ONE,
-               "You feel the Shining One's silent rage upon you!");
+               TR7("You feel the Shining One's silent rage upon you!","샤이닝 원의 소리없는 분노가 느껴졌다!"));
     cast_silence(25);
 }
 
@@ -278,7 +279,7 @@ static void _zin_remove_good_mutations()
     const god_type god = GOD_ZIN;
     bool success = false;
 
-    simple_god_message(" draws some chaos from your body!", god);
+    simple_god_message(TR7(" draws some chaos from your body!","은(는) 당신의 육체의 혼돈스러움을 약간 가라앉혔다!"), god);
 
     bool failMsg = true;
 
@@ -296,7 +297,7 @@ static void _zin_remove_good_mutations()
     }
 
     if (success && !you.how_mutated())
-        simple_god_message(" rids your body of chaos!", god);
+        simple_god_message(TR7(" rids your body of chaos!","은 당신의 육체의 혼돈함을 제거해주었다!"), god);
 }
 
 static bool _zin_retribution()
@@ -315,7 +316,7 @@ static bool _zin_retribution()
     case 0:
     case 1:
     case 2: // recital
-        simple_god_message(" recites the Axioms of Law to you!", god);
+        simple_god_message(TR7(" recites the Axioms of Law to you!","은 당신에게 진리의 격언을 설교했다!"), god);
         switch (random2(3))
         {
         case 0:
@@ -331,7 +332,7 @@ static bool _zin_retribution()
         break;
     case 3:
     case 4: // famine
-        simple_god_message(" sends a famine down upon you!", god);
+        simple_god_message(TR7(" sends a famine down upon you!","은 당신에게 기근의 고통을 안겼다!"), god);
         make_hungry(you.hunger / 2, false);
         break;
     case 5: // noisiness
@@ -371,7 +372,7 @@ static bool _cheibriados_retribution()
     {
     // Very high tension wrath
     case 4:
-        simple_god_message(" adjusts the clock.", god);
+        simple_god_message(TR7(" adjusts the clock.","은(는) 시간을 조정했다."), god);
         MiscastEffect(&you, nullptr, GOD_MISCAST + god, SPTYP_RANDOM,
                       5 + div_rand_round(you.experience_level, 9),
                       random2avg(88, 3), _god_wrath_name(god));
@@ -381,7 +382,7 @@ static bool _cheibriados_retribution()
             dec_penance(god, 1); // and fall-through.
     // High tension wrath
     case 3:
-        mpr("You lose track of time.");
+        mpr(TR7("You lose track of time.","당신은 시간의 흐름을 놓쳤다."));
         you.put_to_sleep(nullptr, 30 + random2(20));
         if (coinflip())
             break;
@@ -391,14 +392,14 @@ static bool _cheibriados_retribution()
     case 2:
         if (you.duration[DUR_SLOW] < 180 * BASELINE_DELAY)
         {
-            mprf(MSGCH_WARN, "You feel the world leave you behind!");
+            mprf(MSGCH_WARN, TR7("You feel the world leave you behind!","온 세상이 자신을 저버린 듯한 기분이 들었다!"));
             slow_player(100);
         }
         break;
     // Low/no tension
     case 1:
     case 0:
-        mpr("Time shudders.");
+        mpr(TR7("Time shudders.","시간의 흐름이 진동했다."));
         MiscastEffect(&you, nullptr, GOD_MISCAST + god, SPTYP_RANDOM,
                       5 + div_rand_round(you.experience_level, 9),
                       random2avg(88, 3), _god_wrath_name(god));
@@ -584,9 +585,9 @@ static bool _makhleb_summon_servants()
             summoned++;
     }
 
-    simple_god_message(summoned > 1 ? " sends minions to punish you." :
-                       summoned > 0 ? " sends a minion to punish you."
-                       : "'s minions fail to arrive.", GOD_MAKHLEB);
+    simple_god_message(summoned > 1 ? TR7(" sends minions to punish you.","은(는) 당신을 처벌하기 위해 부하들을 보냈다.") :
+                       summoned > 0 ? TR7(" sends a minion to punish you.","은(는) 당신을 처벌하기 위해 부하를 보냈다.")
+                       : TR7("'s minions fail to arrive.","은(는) 당신을 처벌하기 위해 부하를 보냈으나, 실패했다."), GOD_MAKHLEB);
 
     return true;
 
@@ -612,8 +613,8 @@ static bool _kikubaaqudgha_retribution()
     // death/necromancy theme
     const god_type god = GOD_KIKUBAAQUDGHA;
 
-    god_speaks(god, coinflip() ? "You hear Kikubaaqudgha cackling."
-                               : "Kikubaaqudgha's malice focuses upon you.");
+    god_speaks(god, coinflip() ? TR7("You hear Kikubaaqudgha cackling.","키쿠바쿠드하가 큭큭대며 웃는 소리가 들렸다.")
+                               : TR7("Kikubaaqudgha's malice focuses upon you.","키쿠바쿠드하의 악의있는 시선이 당신을 향했다."));
 
     if (!count_corpses_in_los(nullptr) || random2(you.experience_level) > 4)
     {
@@ -691,14 +692,14 @@ static bool _yredelemnul_retribution()
                 }
             }
 
-            simple_god_message(count > 1 ? " sends servants to punish you." :
-                               count > 0 ? " sends a servant to punish you."
-                                         : "'s servants fail to arrive.", god);
+            simple_god_message(count > 1 ? TR7(" sends servants to punish you.","은(는) 당신을 처벌하기 위해 자신의 추종자들을 보냈다.") :
+                               count > 0 ? TR7(" sends a servant to punish you.","은(는) 당신을 처벌하기 위해 자신의 추종자를 보냈다.")
+                                         : TR7("'s servants fail to arrive.","은(는) 당신을 처벌하기 위해 자신의 추종자를 보으나, 실패했다."), god);
         }
     }
     else
     {
-        simple_god_message("'s anger turns toward you for a moment.", god);
+        simple_god_message(TR7("'s anger turns toward you for a moment.","의 분노가 잠시 당신을 향했다."), god);
         MiscastEffect(&you, nullptr, GOD_MISCAST + god, SPTYP_NECROMANCY,
                       2 + div_rand_round(you.experience_level, 9),
                       random2avg(88, 3), _god_wrath_name(god));
@@ -741,9 +742,9 @@ static bool _trog_retribution()
             }
         }
 
-        simple_god_message(count > 1 ? " sends monsters to punish you." :
-                           count > 0 ? " sends a monster to punish you."
-                                     : " has no time to punish you... now.",
+        simple_god_message(count > 1 ? TR7(" sends monsters to punish you.","은(는) 당신을 처벌하기 위해 몬스터들을 보냈다.") :
+                           count > 0 ? TR7(" sends a monster to punish you.","은(는) 당신을 처벌하기 위해 몬스터를 보냈다.")
+                                     : TR7(" has no time to punish you... now.","은(는) 지금은 당신을 처벌할 시간이 없는 듯 하다."),
                            god);
     }
     else if (!one_chance_in(3))
@@ -768,9 +769,9 @@ static bool _trog_retribution()
         case 3:
             if (!you.duration[DUR_PARALYSIS])
             {
-                mprf(MSGCH_WARN, "You suddenly pass out!");
+                mprf(MSGCH_WARN, TR7("You suddenly pass out!","갑자기 의식을 잃었다!"));
                 const int turns = 2 + random2(6);
-                take_note(Note(NOTE_PARALYSIS, min(turns, 13), 0, "Trog"));
+                take_note(Note(NOTE_PARALYSIS, min(turns, 13), 0, TR7("Trog","트로그")));
                 you.increase_duration(DUR_PARALYSIS, turns, 13);
             }
             return false;
@@ -791,7 +792,7 @@ static bool _trog_retribution()
         // -- actually, this function partially exists to remove that,
         //    we'll leave this effect in, but we'll remove the wild
         //    fire magic. -- bwr
-        mprf(MSGCH_WARN, "You feel Trog's fiery rage upon you!");
+        mprf(MSGCH_WARN, TR7("You feel Trog's fiery rage upon you!","트로그의 불타오르는 분노가 느껴졌다!"));
         MiscastEffect(&you, nullptr, GOD_MISCAST + god, SPTYP_FIRE,
                       8 + you.experience_level, random2avg(98, 3),
                       _god_wrath_name(god));
@@ -896,8 +897,8 @@ static bool _beogh_retribution()
             give_monster_proper_name(*mons);
 
         simple_god_message(
-            mons ? " sends forth an army of orcs."
-                 : " is still gathering forces against you.", god);
+            mons ? TR7(" sends forth an army of orcs.","은(는) 눈 앞에 오크 부대를 보냈다.")
+                 : TR7(" is still gathering forces against you.","은 당신 앞에 보낼 부대를 아직 모집하고 있는 것 같다."), god);
     }
     }
 
@@ -915,8 +916,8 @@ static bool _okawaru_retribution()
     for (; how_many > 0; --how_many)
         count += _okawaru_random_servant();
 
-    simple_god_message(count > 0 ? " sends forces against you!"
-                                 : "'s forces are busy with other wars.", god);
+    simple_god_message(count > 0 ? TR7(" sends forces against you!","은(는) 당신에게 대항할 부대를 내보냈다!")
+                                 : TR7("'s forces are busy with other wars.","의 부대는 당신을 상대할 시간이 없어보인다."), god);
 
     return true;
 }
@@ -926,7 +927,7 @@ static bool _sif_muna_retribution()
     // magic/intelligence theme
     const god_type god = GOD_SIF_MUNA;
 
-    simple_god_message("'s wrath finds you.", god);
+    simple_god_message(TR7("'s wrath finds you.","의 분노가 당신을 향했다."), god);
 
     switch (random2(10))
     {
@@ -974,15 +975,15 @@ static void _lugonu_transloc_retribution()
 
     if (coinflip())
     {
-        simple_god_message("'s wrath finds you!", god);
+        simple_god_message(TR7("'s wrath finds you!","의 분노가 당신을 향했다!"), god);
         MiscastEffect(&you, nullptr, GOD_MISCAST + god, SPTYP_TRANSLOCATION, 9,
                       90, "Lugonu's touch");
     }
     else if (coinflip())
     {
         // Give extra opportunities for embarrassing teleports.
-        simple_god_message("'s wrath finds you!", god);
-        mpr("Space warps around you!");
+        simple_god_message(TR7("'s wrath finds you!","의 분노가 당신을 향했다!"), god);
+        mpr(TR7("Space warps around you!","당신 주변의 공간이 일그려졌다!"));
         if (!one_chance_in(3))
             you_teleport_now();
         else
@@ -1043,8 +1044,8 @@ static void _lugonu_minion_retribution()
             success = true;
     }
 
-    simple_god_message(success ? " sends minions to punish you."
-                               : "'s minions fail to arrive.", god);
+    simple_god_message(success ? TR7(" sends minions to punish you.","은(는) 당신을 처벌하기 위해 부하들을 보냈다.")
+                               : TR7("'s minions fail to arrive.","은(는) 당신을 처벌하기 위해 부하를 보냈으나, 실패했다."), god);
 }
 
 /**
@@ -1167,7 +1168,7 @@ static bool _nemelex_retribution()
 static void _jiyva_mutate_player()
 {
     const god_type god = GOD_JIYVA;
-    god_speaks(god, "You feel Jiyva alter your body.");
+    god_speaks(god, TR7("You feel Jiyva alter your body.","지이바가 당신의 몸에 영향을 끼치는 것이 느껴졌다."));
 
     const int mutations = 1 + random2(3);
     for (int i = 0; i < mutations; ++i)
@@ -1201,7 +1202,7 @@ static void _jiyva_remove_slime_mutation()
 static void _jiyva_transform()
 {
     const god_type god = GOD_JIYVA;
-    god_speaks(god, "Mutagenic energy floods into your body!");
+    god_speaks(god, TR7("Mutagenic energy floods into your body!","변이의 에너지가 당신의 육체에 밀려왔다!"));
 
     const transformation form = random_choose(transformation::bat,
                                               transformation::fungus,
@@ -1218,7 +1219,7 @@ static void _jiyva_transform()
 static void _jiyva_contaminate()
 {
     const god_type god = GOD_JIYVA;
-    god_speaks(god, "Mutagenic energy floods into your body!");
+    god_speaks(god, TR7("Mutagenic energy floods into your body!","변이의 에너지가 당신의 육체에 밀려왔다!"));
     contaminate_player(random2(you.penance[god] * 500));
 }
 
@@ -1252,8 +1253,8 @@ static void _jiyva_summon_slimes()
             success = true;
     }
 
-    god_speaks(god, success ? "Some slimes ooze up out of the ground!"
-                            : "The ground quivers slightly.");
+    god_speaks(god, success ? TR7("Some slimes ooze up out of the ground!","지면에서 슬라임들이 튀어나왔다!")
+                            : TR7("The ground quivers slightly.","지면이 살짝 떨리는 것이 느껴졌다."));
 }
 
 /**
@@ -1288,7 +1289,7 @@ static bool _jiyva_retribution()
 static void _fedhas_elemental_miscast()
 {
     const god_type god = GOD_FEDHAS;
-    simple_god_message(" invokes the elements against you.", god);
+    simple_god_message(TR7(" invokes the elements against you.","은(는) 당신에게 대항할 정령들을 불러냈다."), god);
 
     const spschool_flag_type stype = random_choose(SPTYP_ICE, SPTYP_FIRE,
                                                    SPTYP_EARTH, SPTYP_AIR);
@@ -1378,7 +1379,7 @@ static bool _fedhas_summon_plants()
 
     if (success)
     {
-        god_speaks(god, "Plants grow around you in an ominous manner.");
+        god_speaks(god, TR7("Plants grow around you in an ominous manner.","주위에 식물들이 불길하게 자라났다."));
         return false;
     }
 
@@ -1407,7 +1408,7 @@ static bool _fedhas_retribution()
         // fall through to the elemental miscast effects.
         if (fedhas_corpse_spores(BEH_HOSTILE))
         {
-            simple_god_message(" produces spores.", god);
+            simple_god_message(TR7(" produces spores.","은(는) 포자를 내보냈다."), god);
             return true;
         }
 
@@ -1773,7 +1774,7 @@ bool divine_retribution(god_type god, bool no_bonus, bool force)
         {
             if (!you.confused())
             {
-                mprf(MSGCH_WARN, "The divine experience confuses you!");
+                mprf(MSGCH_WARN, TR7("The divine experience confuses you!","신과의 접촉이 당신을 혼란시켰다!"));
                 confuse_player(5 + random2(3));
             }
         }
@@ -1801,7 +1802,7 @@ static void _tso_blasts_cleansing_flame(const char *message)
     if (message)
         god_speaks(GOD_SHINING_ONE, message);
 
-    simple_god_message(" blasts you with cleansing flame!",
+    simple_god_message(TR7(" blasts you with cleansing flame!","은(는) 당신에게 정화의 불꽃을 일으켰다!"),
                        GOD_SHINING_ONE);
 
     // damage is 2d(pow), *3/2 for undead and demonspawn
@@ -1841,7 +1842,7 @@ static void _god_smites_you(god_type god, const char *message,
     for (int i = 0; i < 5; ++i)
         divine_hurt += random2(you.experience_level);
 
-    simple_god_message(" smites you!", god);
+    simple_god_message(TR7(" smites you!","은(는) 당신에게 일격을 날렸다!"), god);
     ouch(divine_hurt, death_type, MID_NOBODY, aux.c_str());
 }
 

@@ -72,6 +72,7 @@
 #include "uncancel.h"
 #include "view.h"
 #include "xom.h"
+#include "i18n-format.h"
 
 using namespace ui;
 
@@ -228,70 +229,70 @@ const char* card_name(card_type card)
 {
     switch (card)
     {
-    case CARD_VELOCITY:        return "Velocity";
+    case CARD_VELOCITY:        return TR7("Velocity","신속");
     case CARD_EXILE:           return "Exile";
-    case CARD_ELIXIR:          return "the Elixir";
-    case CARD_STAIRS:          return "the Stairs";
-    case CARD_TOMB:            return "the Tomb";
-    case CARD_WILD_MAGIC:      return "Wild Magic";
+    case CARD_ELIXIR:          return TR7("the Elixir","엘릭서");
+    case CARD_STAIRS:          return TR7("the Stairs","계단");
+    case CARD_TOMB:            return TR7("the Tomb","무덤");
+    case CARD_WILD_MAGIC:      return TR7("Wild Magic","거친 마법");
     case CARD_ELEMENTS:        return "the Elements";
-    case CARD_SUMMON_DEMON:    return "the Pentagram";
-    case CARD_SUMMON_WEAPON:   return "the Dance";
-    case CARD_SUMMON_FLYING:   return "Foxfire";
+    case CARD_SUMMON_DEMON:    return TR7("the Pentagram","오망성");
+    case CARD_SUMMON_WEAPON:   return TR7("the Dance","무도");
+    case CARD_SUMMON_FLYING:   return TR7("Foxfire","등불");
     case CARD_RANGERS:         return "the Rangers";
     case CARD_SHAFT:           return "the Shaft";
-    case CARD_VITRIOL:         return "Vitriol";
+    case CARD_VITRIOL:         return TR7("Vitriol","부식");
     case CARD_CLOUD:           return "the Cloud";
     case CARD_STORM:           return "the Storm";
-    case CARD_PAIN:            return "Pain";
-    case CARD_TORMENT:         return "Torment";
-    case CARD_WRATH:           return "Wrath";
-    case CARD_WRAITH:          return "the Wraith";
-    case CARD_SWINE:           return "the Swine";
-    case CARD_ORB:             return "the Orb";
+    case CARD_PAIN:            return TR7("Pain","고통");
+    case CARD_TORMENT:         return TR7("Torment","고문");
+    case CARD_WRATH:           return TR7("Wrath","진노");
+    case CARD_WRAITH:          return TR7("the Wraith","망령");
+    case CARD_SWINE:           return TR7("the Swine","돼지");
+    case CARD_ORB:             return TR7("the Orb","구체");
     case CARD_ILLUSION:        return "the Illusion";
     case CARD_DEGEN:           return "Degeneration";
-    case CARD_FAMINE:          return "Famine";
+    case CARD_FAMINE:          return TR7("Famine","굶주림");
 
 #if TAG_MAJOR_VERSION == 34
     // Removed cards.
-    case CARD_MERCENARY:       return "the Mercenary";
-    case CARD_ALCHEMIST:       return "the Alchemist";
-    case CARD_CURSE:           return "the Curse";
-    case CARD_VENOM:           return "Venom";
+    case CARD_MERCENARY:       return TR7("the Mercenary","용병");
+    case CARD_ALCHEMIST:       return TR7("the Alchemist","연금술사");
+    case CARD_CURSE:           return TR7("the Curse","저주");
+    case CARD_VENOM:           return TR7("Venom","독액");
     case CARD_FORTITUDE:       return "Fortitude";
-    case CARD_HAMMER:          return "the Hammer";
-    case CARD_XOM:             return "Xom";
-    case CARD_FEAST:           return "the Feast";
-    case CARD_WARPWRIGHT:      return "Warpwright";
-    case CARD_SUMMON_UGLY:     return "Repulsiveness";
+    case CARD_HAMMER:          return TR7("the Hammer","망치");
+    case CARD_XOM:             return TR7("Xom","좀");
+    case CARD_FEAST:           return TR7("the Feast","성찬");
+    case CARD_WARPWRIGHT:      return TR7("Warpwright","전이 기술자");
+    case CARD_SUMMON_UGLY:     return TR7("Repulsiveness","혐오");
     case CARD_PLACID_MAGIC:    return "Placid Magic";
-    case CARD_CRUSADE:         return "the Crusade";
-    case CARD_HELM:            return "the Helm";
-    case CARD_BLADE:           return "the Blade";
-    case CARD_SHADOW:          return "the Shadow";
-    case CARD_POTION:          return "the Potion";
-    case CARD_FOCUS:           return "Focus";
-    case CARD_HELIX:           return "the Helix";
-    case CARD_DOWSING:         return "Dowsing";
-    case CARD_BANSHEE:         return "the Banshee";
-    case CARD_SOLITUDE:        return "Solitude";
-    case CARD_PORTAL:          return "the Portal";
-    case CARD_WARP:            return "the Warp";
-    case CARD_BATTLELUST:      return "Battlelust";
-    case CARD_METAMORPHOSIS:   return "Metamorphosis";
-    case CARD_SHUFFLE:         return "Shuffle";
-    case CARD_EXPERIENCE:      return "Experience";
-    case CARD_SAGE:            return "the Sage";
-    case CARD_TROWEL:          return "the Trowel";
-    case CARD_MINEFIELD:       return "the Minefield";
-    case CARD_GENIE:           return "the Genie";
-    case CARD_GLASS:           return "Vitrification";
-    case CARD_BARGAIN:         return "the Bargain";
-    case CARD_SUMMON_ANIMAL:   return "the Herd";
-    case CARD_SUMMON_SKELETON: return "the Bones";
-    case CARD_WATER:           return "Water";
-    case CARD_SWAP:            return "Swap";
+    case CARD_CRUSADE:         return TR7("the Crusade","박멸");
+    case CARD_HELM:            return TR7("the Helm","투구");
+    case CARD_BLADE:           return TR7("the Blade","칼날");
+    case CARD_SHADOW:          return TR7("the Shadow","그림자");
+    case CARD_POTION:          return TR7("the Potion","물약");
+    case CARD_FOCUS:           return TR7("Focus","집중");
+    case CARD_HELIX:           return TR7("the Helix","나선조직");
+    case CARD_DOWSING:         return TR7("Dowsing","탐지");
+    case CARD_BANSHEE:         return TR7("the Banshee","밴시");
+    case CARD_SOLITUDE:        return TR7("Solitude","고독");
+    case CARD_PORTAL:          return TR7("the Portal","관문");
+    case CARD_WARP:            return TR7("the Warp","전이");
+    case CARD_BATTLELUST:      return TR7("Battlelust","투쟁");
+    case CARD_METAMORPHOSIS:   return TR7("Metamorphosis","탈바꿈");
+    case CARD_SHUFFLE:         return TR7("Shuffle","셔플");
+    case CARD_EXPERIENCE:      return TR7("Experience","경험");
+    case CARD_SAGE:            return TR7("the Sage","현자");
+    case CARD_TROWEL:          return TR7("the Trowel","모종삽");
+    case CARD_MINEFIELD:       return TR7("the Minefield","지뢰밭");
+    case CARD_GENIE:           return TR7("the Genie","램프 요정");
+    case CARD_GLASS:           return TR7("Vitrification","유리");
+    case CARD_BARGAIN:         return TR7("the Bargain","바겐세일");
+    case CARD_SUMMON_ANIMAL:   return TR7("the Herd","짐승떼");
+    case CARD_SUMMON_SKELETON: return TR7("the Bones","뼈");
+    case CARD_WATER:           return TR7("Water","물");
+    case CARD_SWAP:            return TR7("Swap","바꿔치기");
 #endif
 
     case NUM_CARDS:            return "a buggy card";
@@ -393,7 +394,7 @@ static card_type _draw_top_card(item_def& deck, bool message,
     {
         const char *verb = (_flags & CFLAG_DEALT) ? "deal" : "draw";
 
-        mprf("You %s a card... It is %s.", verb, card_name(card));
+        mprf(TR7("You %s a card... It is %s.","당신은 카드 한 장을 %s... %s 카드이다."), verb, card_name(card));
     }
 
     return card;
@@ -654,7 +655,7 @@ static int _choose_inventory_deck(const char* prompt)
 
     if (!is_deck(you.inv[slot]))
     {
-        mpr("That isn't a deck!");
+        mpr(TR7("That isn't a deck!","그것은 덱 안에 존재하지 않는다!"));
         return -1;
     }
 
@@ -666,7 +667,7 @@ static void _deck_ident(item_def& deck)
     if (in_inventory(deck) && !item_ident(deck, ISFLAG_KNOW_TYPE))
     {
         set_ident_flags(deck, ISFLAG_KNOW_TYPE);
-        mprf("This is %s.", deck.name(DESC_A).c_str());
+        mprf(TR7("This is %s.","이것은 %s(이)다."), deck.name(DESC_A).c_str());
         you.wield_change = true;
     }
 }
@@ -676,7 +677,7 @@ static void _deck_ident(item_def& deck)
 // failed/aborted along the way.
 bool deck_deal()
 {
-    const int slot = _choose_inventory_deck("Deal from which deck?");
+    const int slot = _choose_inventory_deck(TR7("Deal from which deck?","어느 덱에서 카드를 뒤집습니까?"));
     if (slot == -1)
     {
         crawl_state.zero_turns_taken();
@@ -689,7 +690,7 @@ bool deck_deal()
     CrawlHashTable &props = deck.props;
     if (props[STACKED_KEY].get_bool())
     {
-        mpr("This deck seems insufficiently random for dealing.");
+        mpr(TR7("This deck seems insufficiently random for dealing.","이 카드는 뒤집기에는 숫자가 너무 부족하다"));
         crawl_state.zero_turns_taken();
         return false;
     }
@@ -698,9 +699,9 @@ bool deck_deal()
     _deck_ident(deck);
 
     if (num_cards == 1)
-        mpr("There's only one card left!");
+        mpr(TR7("There's only one card left!","카드가 단 한 장밖에 남지 않았다!"));
     else if (num_cards < 4)
-        mprf("The deck only has %d cards.", num_cards);
+        mprf(TR7("The deck only has %d cards.","이 카드 덱에는 카드가 %d장밖에 남지 않았다."), num_cards);
 
     const int num_to_deal = (num_cards < 4 ? num_cards : 4);
 
@@ -720,7 +721,7 @@ bool deck_deal()
     // Nemelex doesn't like dealers with inadequate decks.
     if (num_to_deal < 4)
     {
-        mpr("Nemelex gives you another card to finish dealing.");
+        mpr(TR7("Nemelex gives you another card to finish dealing.","네멜렉스 죠베는 당신이 카드 뒤집기를 끝마칠 수 있도록 여분의 카드를 지원했다."));
         draw_from_deck_of_punishment(true);
     }
 
@@ -869,7 +870,7 @@ static void _describe_cards(vector<card_type> cards)
 // Return false if the operation was failed/aborted along the way.
 bool deck_stack()
 {
-    const int slot = _choose_inventory_deck("Stack which deck?");
+    const int slot = _choose_inventory_deck(TR7("Stack which deck?","어느 덱의 카드를 뽑아 쌓습니까?"));
     if (slot == -1)
     {
         crawl_state.zero_turns_taken();
@@ -884,14 +885,14 @@ bool deck_stack()
     const int num_cards    = cards_in_deck(deck);
 
     if (num_cards == 1)
-        mpr("There's only one card left!");
+        mpr(TR7("There's only one card left!","카드가 단 한 장밖에 남지 않았다!"));
     else if (num_cards < 5)
-        mprf("The deck only has %d cards.", num_cards);
+        mprf(TR7("The deck only has %d cards.","이 카드 덱에는 카드가 %d장밖에 남지 않았다."), num_cards);
     else if (num_cards == 5)
-        mpr("The deck has exactly five cards.");
+        mpr(TR7("The deck has exactly five cards.","이 덱에는 정확히 다섯 장의 카드가 남아있다."));
     else
     {
-        mprf("You draw the first five cards out of %d and discard the rest.",
+        mprf(TR7("You draw the first five cards out of %d and discard the rest.","당신은 카드 덱의 처음 다섯 장의 카드를 뽑았다. 나머지 %d장의 카드는 사라졌다."),
              num_cards);
     }
     // these are included in default force_more_message to show them before menu
@@ -916,7 +917,7 @@ bool StackFiveMenu::process_key(int keyin)
     {
         formatted_string old_more = more;
         set_more(formatted_string::parse_string(
-                "Are you done? (press y or Y to confirm)"));
+                TR7("Are you done? (press y or Y to confirm)","이렇게 할 것인가? (y 또는 Y 키로 결정)")));
         if (yesno(nullptr, true, 'n', false, false, true))
             return false;
         set_more(old_more);
@@ -1007,7 +1008,7 @@ bool stack_five(int slot)
 // Draw the next three cards, discard two and pick one.
 bool deck_triple_draw()
 {
-    const int slot = _choose_inventory_deck("Triple draw from which deck?");
+    const int slot = _choose_inventory_deck(TR7("Triple draw from which deck?","어느 덱에서, 세 장을 취하는가?"));
     if (slot == -1)
     {
         crawl_state.zero_turns_taken();
@@ -1039,7 +1040,7 @@ bool draw_three(int slot)
     if (num_cards == 1)
     {
         // Only one card to draw, so just draw it.
-        mpr("There's only one card left!");
+        mpr(TR7("There's only one card left!","카드가 단 한 장밖에 남지 않았다!"));
         evoke_deck(deck);
         return true;
     }
@@ -1063,7 +1064,7 @@ bool draw_three(int slot)
     {
         if (need_prompt_redraw)
         {
-            mpr("You draw... (choose one card, ? for their descriptions)");
+            mpr(TR7("You draw... (choose one card, ? for their descriptions)","당신이 뽑을 카드는... (하나의 카드를 선택하시오. ?키를 누르면 카드의 설명을 확인할 수 있다.)"));
             for (int i = 0; i < num_to_draw; ++i)
             {
                 msg::streams(MSGCH_PROMPT)
@@ -1318,7 +1319,7 @@ static void _velocity_card(int power, deck_rarity_type rarity)
                   }
 
                   if (did_haste)
-                      simple_monster_message(mon, " seems to speed up.");
+                      simple_monster_message(mon, TR7(" seems to speed up.","의 움직임이 빨라졌다."));
 
                   if (did_swift)
                       simple_monster_message(mon, " is moving somewhat quickly.");
@@ -1373,7 +1374,7 @@ static void _shaft_card(int power, deck_rarity_type rarity)
         {
             place_specific_trap(you.pos(), TRAP_SHAFT);
             trap_at(you.pos())->reveal();
-            mpr("A shaft materialises beneath you!");
+            mpr(TR7("A shaft materialises beneath you!","당신 아래에 구덩이가 나타났다!"));
             did_something = true;
         }
 
@@ -1418,7 +1419,7 @@ static void _stairs_card(int /*power*/, deck_rarity_type /*rarity*/)
 
     if (stairs_avail.empty())
     {
-        mpr("No stairs available to move.");
+        mpr(TR7("No stairs available to move.","이동할 수 없는 계단이 없다."));
         return;
     }
 
@@ -1595,7 +1596,7 @@ static void _elixir_card(int power, deck_rarity_type rarity)
         {
             const int hp = mon.max_hit_points / (4 - power_level);
             if (mon.heal(hp + random2avg(hp, 2)))
-               simple_monster_message(mon, " is healed.");
+               simple_monster_message(mon, TR7(" is healed.","은(는) 치유되었다."));
         }
         return true;
     });
@@ -1613,7 +1614,7 @@ static void _godly_wrath()
             return; // Stop once we find a god willing to punish the player.
     }
 
-    mpr("You somehow manage to escape divine attention...");
+    mpr(TR7("You somehow manage to escape divine attention...","당신은 가까스로, 신의 분노를 회피한 것 같다..."));
 }
 
 static void _summon_demon_card(int power, deck_rarity_type rarity)
@@ -1656,13 +1657,13 @@ static void _summon_demon_card(int power, deck_rarity_type rarity)
                                   you.pos(), MHITYOU, MG_AUTOFOE)
                         .set_summoned(&you, 5 - power_level, 0)))
     {
-        mpr("You see a puff of smoke.");
+        mpr(TR7("You see a puff of smoke.","연기가 피어오르는 것을 보았다."));
     }
     else if (hostile
              && mons_class_flag(dct, M_INVIS)
              && !you.can_see_invisible())
     {
-        mpr("You sense the presence of something unfriendly.");
+        mpr(TR7("You sense the presence of something unfriendly.","무언가 적대적인 존재가 근처에 있음이 느껴진다."));
     }
 
     _friendly(dct2, 5 - power_level);
@@ -1702,7 +1703,7 @@ static void _summon_dancing_weapon(int power, deck_rarity_type rarity)
 
     if (!mon)
     {
-        mpr("You see a puff of smoke.");
+        mpr(TR7("You see a puff of smoke.","연기가 피어오르는 것을 보았다."));
         return;
     }
 
@@ -1797,7 +1798,7 @@ static void _summon_flying(int power, deck_rarity_type rarity)
     }
 
     if (hostile_invis)
-        mpr("You sense the presence of something unfriendly.");
+        mpr(TR7("You sense the presence of something unfriendly.","무언가 적대적인 존재가 근처에 있음이 느껴진다."));
 }
 
 static void _summon_rangers(int power, deck_rarity_type rarity)
@@ -1835,7 +1836,7 @@ bool recruit_mercenary(int mid)
         return true; // wut?
 
     int fee = mon->props["mercenary_fee"].get_int();
-    const string prompt = make_stringf("Pay %s fee of %d gold?",
+    const string prompt = make_stringf(TR7("Pay %s fee of %d gold?","%s은(는) 당신의 편이 되어 주는 조건으로 금화 %d을(를) 제시했다. 금화를 줄 것인가?"),
                                        mon->name(DESC_ITS).c_str(), fee);
     bool paid = yesno(prompt.c_str(), false, 0);
     const string message = make_stringf("Hired %s for %d gold.",
@@ -1846,11 +1847,11 @@ bool recruit_mercenary(int mid)
     mon->props.erase("mercenary_fee");
     if (!paid)
     {
-        simple_monster_message(*mon, " attacks!");
+        simple_monster_message(*mon, TR7(" attacks!","이(가) 당신을 공격하기 시작했다!"));
         return true;
     }
 
-    simple_monster_message(*mon, " joins your ranks!");
+    simple_monster_message(*mon, TR7(" joins your ranks!","은(는) 당신 편에 들었다!"));
     for (mon_inv_iterator ii(*mon); ii; ++ii)
         ii->flags &= ~ISFLAG_SUMMONED;
     mon->flags &= ~MF_HARD_RESET;
@@ -2121,7 +2122,7 @@ void card_effect(card_type which_card, deck_rarity_type rarity,
 
     case CARD_FAMINE:
         if (you_foodless())
-            mpr("You feel rather smug.");
+            mpr(TR7("You feel rather smug.","의기양양한 기분을 느꼈다."));
         else
             set_hunger(min(you.hunger, HUNGER_STARVING / 2), true);
         break;
@@ -2210,7 +2211,7 @@ card_type top_card(const item_def &deck)
  * Return the appropriate name for a known deck of the given type.
  *
  * @param sub_type  The type of deck in question.
- * @return          A name, e.g. "deck of destruction".
+ * @return          A name, e.g. TR7("deck of destruction","파괴의 카드 덱").
  *                  Does not include rarity.
  *                  If the given type isn't a deck, return "deck of bugginess".
  */

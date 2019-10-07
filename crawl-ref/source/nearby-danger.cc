@@ -33,7 +33,7 @@
 #include "transform.h"
 #include "traps.h"
 #include "travel.h"
-
+#include "i18n-format.h"
 
 // HACK ALERT: In the following several functions, want_move is true if the
 // player is travelling. If that is the case, things must be considered one
@@ -240,7 +240,7 @@ bool i_feel_safe(bool announce, bool want_move, bool just_monsters,
             {
                 if (announce)
                 {
-                    mprf(MSGCH_WARN, "You're standing in a cloud of %s!",
+                    mprf(MSGCH_WARN, TR7("You're standing in a cloud of %s!","당신은 %s에 휩싸여있다!"),
                          cloud_type_name(type).c_str());
                 }
                 return false;
@@ -287,12 +287,12 @@ bool i_feel_safe(bool announce, bool want_move, bool just_monsters,
     if (visible.size() == 1)
     {
         const monster& m = *visible[0];
-        msg = make_stringf("%s is nearby!", m.name(DESC_A).c_str());
+        msg = make_stringf(TR7("%s is nearby!","%s이(가) 근처에 있다!"), m.name(DESC_A).c_str());
     }
     else if (visible.size() > 1)
-        msg = "There are monsters nearby!";
+        msg = TR7("There are monsters nearby!","근처에 몬스터들이 있다!");
     else if (_exposed_monsters_nearby(want_move))
-        msg = "There is a strange disturbance nearby!";
+        msg = TR7("There is a strange disturbance nearby!","보이지 않는 적대적인 존재가 근처에 있다!");
     else
         return true;
 
@@ -473,11 +473,11 @@ void revive()
     if (you.hp_max <= 0)
     {
         you.lives = 0;
-        mpr("You are too frail to live.");
+        mpr(TR7("You are too frail to live.","당신은 부활하기에는, 더이상 전생에 남아 있는 생명력이 없다."));
         // possible only with an extreme abuse of Borgnjor's
         ouch(INSTANT_DEATH, KILLED_BY_DRAINING);
     }
 
-    mpr("You rejoin the land of the living...");
+    mpr(TR7("You rejoin the land of the living...","당신은 부활하였다."));
     // included in default force_more_message
 }

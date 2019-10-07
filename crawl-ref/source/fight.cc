@@ -51,6 +51,7 @@
 #include "transform.h"
 #include "traps.h"
 #include "travel.h"
+#include "i18n-format.h"
 
 /**
  * What are the odds of an HD-checking confusion effect (e.g. Confusing Touch,
@@ -301,7 +302,7 @@ bool fight_melee(actor *attacker, actor *defender, bool *did_hit, bool simu)
                 {
                     if (could_see || you.can_see(*mons))
                     {
-                        mprf("%s hops backward while attacking.",
+                        mprf(TR7("%s hops backward while attacking.","%s은(는) 공격하며 뒤로 빠졌다."),
                              mons->name(DESC_THE, true).c_str());
                     }
                     mons->speed_increment -= 2; // Add a small extra delay
@@ -895,7 +896,7 @@ bool bad_attack(const monster *mon, string& adj, string& suffix,
     if (!check_landing_only
         && (is_sanctuary(mon->pos()) || is_sanctuary(attack_pos)))
     {
-        suffix = ", despite your sanctuary";
+        suffix = TR7(", despite your sanctuary"," 당신의 성소를 더럽힐 수 있다!");
     }
     else if (check_landing_only && is_sanctuary(attack_pos))
     {

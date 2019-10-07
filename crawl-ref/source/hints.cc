@@ -46,6 +46,7 @@
 #include "viewgeom.h"
 #include "viewmap.h"
 #include "ui.h"
+#include "i18n-format.h"
 
 using namespace ui;
 
@@ -3075,7 +3076,7 @@ string hints_describe_item(const item_def &item)
             if (is_throwable(&you, item))
             {
                 ostr << item.name(DESC_YOUR)
-                     << " can be <w>%</w>ired without the use of a launcher. ";
+                     << TR7(" can be <w>%</w>ired without the use of a launcher. ","은(는) 발사기구가 없어도 발사(<w>%</w>)하는 것이 가능하다.");
                 ostr << _hints_throw_stuff(item);
                 cmd.push_back(CMD_FIRE);
             }

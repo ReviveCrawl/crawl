@@ -35,6 +35,7 @@
 #endif
 #include "version.h"
 #include "ui.h"
+#include "i18n-format.h"
 
 using namespace ui;
 
@@ -120,7 +121,7 @@ static string _char_description(const newgame_def& ng)
     if (_is_random_viable_choice(ng))
         return "Recommended character";
     else if (_is_random_choice(ng))
-        return "Random character";
+        return TR7("Random character","임의의 캐릭터");
     else if (_is_random_job(ng.job))
     {
         const string j = (ng.job == JOB_RANDOM ? "Random " : "Recommended ");
@@ -814,7 +815,7 @@ static void _add_choice_menu_options(int choice_type,
     tmp->set_visible(true);
 
     tmp = new TextItem();
-    tmp->set_text("% - List aptitudes");
+    tmp->set_text(TR7("% - List aptitudes","%% - 스킬 선호도 표시"));
     min_coord.x = X_MARGIN;
     min_coord.y = SPECIAL_KEYS_START_Y + 2;
     max_coord.x = min_coord.x + tmp->get_text().size();
@@ -829,7 +830,7 @@ static void _add_choice_menu_options(int choice_type,
     tmp->set_visible(true);
 
     tmp = new TextItem();
-    tmp->set_text("? - Help");
+    tmp->set_text(TR7("? - Help","? - 도움말"));
     min_coord.x = X_MARGIN;
     min_coord.y = SPECIAL_KEYS_START_Y + 3;
     max_coord.x = min_coord.x + tmp->get_text().size();
@@ -859,7 +860,7 @@ static void _add_choice_menu_options(int choice_type,
     tmp->set_visible(true);
 
     tmp = new TextItem();
-    tmp->set_text("! - Random character");
+    tmp->set_text(TR7("! - Random character","! - 임의의 캐릭터"));
     min_coord.x = X_MARGIN + COLUMN_WIDTH;
     min_coord.y = SPECIAL_KEYS_START_Y + 1;
     max_coord.x = min_coord.x + tmp->get_text().size();
@@ -1158,28 +1159,28 @@ void job_group::attach(const newgame_def& ng, const newgame_def& defaults,
 static job_group jobs_order[] =
 {
     {
-        "Warrior",
+        TR7("Warrior","전사 계열"),
         coord_def(0, 0), 15,
         { JOB_FIGHTER, JOB_GLADIATOR, JOB_MONK, JOB_HUNTER, JOB_ASSASSIN }
     },
     {
-        "Adventurer",
+        TR7("Adventurer","모험가 계열"),
         coord_def(0, 7), 15,
         { JOB_ARTIFICER, JOB_WANDERER }
     },
     {
-        "Zealot",
+        TR7("Zealot","신앙 계열"),
         coord_def(15, 0), 20,
         { JOB_BERSERKER, JOB_ABYSSAL_KNIGHT, JOB_CHAOS_KNIGHT }
     },
     {
-        "Warrior-mage",
+        TR7("Warrior-mage","전투마법사 계열"),
         coord_def(35, 0), 21,
         { JOB_SKALD, JOB_TRANSMUTER, JOB_WARPER, JOB_ARCANE_MARKSMAN,
           JOB_ENCHANTER }
     },
     {
-        "Mage",
+        TR7("Mage","마법사 계열"),
         coord_def(56, 0), 22,
         { JOB_WIZARD, JOB_CONJURER, JOB_SUMMONER, JOB_NECROMANCER,
           JOB_FIRE_ELEMENTALIST, JOB_ICE_ELEMENTALIST,
@@ -1295,12 +1296,12 @@ void UINewGameMenu::_allocate_region()
     welcome.textcolour(YELLOW);
     if (choice_type == C_JOB)
     {
-        welcome.cprintf(" Please select your background.");
+        welcome.cprintf(TR7(" Please select your background."," 당신의 직업을 선택하시오."));
         _construct_backgrounds_menu(ng, defaults, freeform);
     }
     else
     {
-        welcome.cprintf(" Please select your species.");
+        welcome.cprintf(TR7(" Please select your species."," 당신의 종족을 선택하시오."));
         _construct_species_menu(ng, defaults, freeform);
     }
 
@@ -1653,7 +1654,7 @@ static void _construct_weapon_menu(const newgame_def& ng,
     tmp->set_visible(true);
 
     tmp = new TextItem();
-    tmp->set_text("% - List aptitudes");
+    tmp->set_text(TR7("% - List aptitudes","%% - 스킬 선호도 표시"));
     min_coord.x = X_MARGIN;
     min_coord.y = SPECIAL_KEYS_START_Y + 1;
     max_coord.x = min_coord.x + tmp->get_text().size();
@@ -1663,12 +1664,12 @@ static void _construct_weapon_menu(const newgame_def& ng,
     tmp->add_hotkey('%');
     tmp->set_id(M_APTITUDES);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text("Lists the numerical skill train aptitudes for all races");
+    tmp->set_description_text(TR7("Lists the numerical skill train aptitudes for all races","모든 종족의 스킬 선호도를 값 형태로 표시한다"));
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
     tmp = new TextItem();
-    tmp->set_text("? - Help");
+    tmp->set_text(TR7("? - Help","? - 도움말"));
     min_coord.x = X_MARGIN;
     min_coord.y = SPECIAL_KEYS_START_Y + 2;
     max_coord.x = min_coord.x + tmp->get_text().size();
@@ -1678,12 +1679,12 @@ static void _construct_weapon_menu(const newgame_def& ng,
     tmp->add_hotkey('?');
     tmp->set_id(M_HELP);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text("Opens the help screen");
+    tmp->set_description_text(TR7("Opens the help screen","도움말 화면을 연다"));
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
     tmp = new TextItem();
-    tmp->set_text("* - Random weapon");
+    tmp->set_text(TR7("* - Random weapon","* - 임의의 무기"));
     min_coord.x = X_MARGIN + COLUMN_WIDTH;
     min_coord.y = SPECIAL_KEYS_START_Y;
     max_coord.x = min_coord.x + tmp->get_text().size();
@@ -1693,14 +1694,14 @@ static void _construct_weapon_menu(const newgame_def& ng,
     tmp->add_hotkey('*');
     tmp->set_id(WPN_RANDOM);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text("Picks a random weapon");
+    tmp->set_description_text(TR7("Picks a random weapon","임의의 무기 선택"));
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
     // Adjust the end marker to align the - because Bksp text is longer by 3
     tmp = new TextItem();
-    tmp->set_text("Bksp - Return to character menu");
-    tmp->set_description_text("Lets you return back to Character choice menu");
+    tmp->set_text(TR7("Bksp - Return to character menu","Bksp - 캐릭터 메뉴로 돌아감"));
+    tmp->set_description_text(TR7("Lets you return back to Character choice menu","캐릭터 선택 메뉴로 돌아갈 수 있게 해줌"));
     min_coord.x = X_MARGIN + COLUMN_WIDTH - 3;
     min_coord.y = SPECIAL_KEYS_START_Y + 1;
     max_coord.x = min_coord.x + tmp->get_text().size();
@@ -1719,7 +1720,7 @@ static void _construct_weapon_menu(const newgame_def& ng,
         text = "Tab - ";
 
         ASSERT(defweapon != WPN_THROWN || thrown_name);
-        text += defweapon == WPN_RANDOM  ? "Random" :
+        text += defweapon == WPN_RANDOM  ? TR7("Random","무작위") :
                 defweapon == WPN_VIABLE  ? "Recommended" :
                 defweapon == WPN_UNARMED ? "unarmed" :
                 defweapon == WPN_THROWN  ? thrown_name :
@@ -1738,7 +1739,7 @@ static void _construct_weapon_menu(const newgame_def& ng,
         tmp->add_hotkey('\t');
         tmp->set_id(M_DEFAULT_CHOICE);
         tmp->set_highlight_colour(BLUE);
-        tmp->set_description_text("Select your old weapon");
+        tmp->set_description_text(TR7("Select your old weapon","당신의 예전 무기 선택"));
         menu->attach_item(tmp);
         tmp->set_visible(true);
     }
@@ -2153,7 +2154,7 @@ static void _construct_gamemode_map_menu(const mapref_vector& maps,
     if (!crawl_state.game_is_tutorial())
     {
         tmp = new TextItem();
-        tmp->set_text("% - List aptitudes");
+        tmp->set_text(TR7("% - List aptitudes","%% - 스킬 선호도 표시"));
         min_coord.x = X_MARGIN;
         min_coord.y = SPECIAL_KEYS_START_Y + 1;
         max_coord.x = min_coord.x + tmp->get_text().size();
@@ -2163,12 +2164,12 @@ static void _construct_gamemode_map_menu(const mapref_vector& maps,
         tmp->add_hotkey('%');
         tmp->set_id(M_APTITUDES);
         tmp->set_highlight_colour(LIGHTGRAY);
-        tmp->set_description_text("Lists the numerical skill train aptitudes for all races");
+        tmp->set_description_text(TR7("Lists the numerical skill train aptitudes for all races","모든 종족의 스킬 선호도를 값 형태로 표시한다"));
         menu->attach_item(tmp);
         tmp->set_visible(true);
 
         tmp = new TextItem();
-        tmp->set_text("? - Help");
+        tmp->set_text(TR7("? - Help","? - 도움말"));
         min_coord.x = X_MARGIN;
         min_coord.y = SPECIAL_KEYS_START_Y + 2;
         max_coord.x = min_coord.x + tmp->get_text().size();
@@ -2178,12 +2179,12 @@ static void _construct_gamemode_map_menu(const mapref_vector& maps,
         tmp->add_hotkey('?');
         tmp->set_id(M_HELP);
         tmp->set_highlight_colour(LIGHTGRAY);
-        tmp->set_description_text("Opens the help screen");
+        tmp->set_description_text(TR7("Opens the help screen","도움말 화면을 연다"));
         menu->attach_item(tmp);
         tmp->set_visible(true);
 
         tmp = new TextItem();
-        tmp->set_text("* - Random map");
+        tmp->set_text(TR7("* - Random map","* - 랜덤맵"));
         min_coord.x = X_MARGIN + COLUMN_WIDTH;
         min_coord.y = SPECIAL_KEYS_START_Y + 1;
         max_coord.x = min_coord.x + tmp->get_text().size();
@@ -2193,7 +2194,7 @@ static void _construct_gamemode_map_menu(const mapref_vector& maps,
         tmp->add_hotkey('*');
         tmp->set_id(M_RANDOM);
         tmp->set_highlight_colour(LIGHTGRAY);
-        tmp->set_description_text("Picks a random sprint map");
+        tmp->set_description_text(TR7("Picks a random sprint map","임의의 sprint 맵을 선택한다"));
         menu->attach_item(tmp);
         tmp->set_visible(true);
     }
@@ -2201,8 +2202,8 @@ static void _construct_gamemode_map_menu(const mapref_vector& maps,
     // TODO: let players escape back to first screen menu
     // Adjust the end marker to align the - because Bksp text is longer by 3
     //tmp = new TextItem();
-    //tmp->set_text("Bksp - Return to character menu");
-    //tmp->set_description_text("Lets you return back to Character choice menu");
+    //tmp->set_text(TR7("Bksp - Return to character menu","Bksp - 캐릭터 메뉴로 돌아감"));
+    //tmp->set_description_text(TR7("Lets you return back to Character choice menu","캐릭터 선택 메뉴로 돌아갈 수 있게 해줌"));
     //min_coord.x = X_MARGIN + COLUMN_WIDTH - 3;
     //min_coord.y = SPECIAL_KEYS_START_Y + 1;
     //max_coord.x = min_coord.x + tmp->get_text().size();
@@ -2236,7 +2237,7 @@ static void _construct_gamemode_map_menu(const mapref_vector& maps,
         tmp->add_hotkey('\t');
         tmp->set_id(M_DEFAULT_CHOICE);
         tmp->set_highlight_colour(LIGHTGRAY);
-        tmp->set_description_text("Select your previous sprint map and character");
+        tmp->set_description_text(TR7("Select your previous sprint map and character","당신이 예전에 선택했던 sprint 맵과 캐릭터를 다시 선택한다"));
         menu->attach_item(tmp);
         tmp->set_visible(true);
     }

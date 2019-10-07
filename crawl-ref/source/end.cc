@@ -31,6 +31,7 @@
 #include "view.h"
 #include "xom.h"
 #include "ui.h"
+#include "i18n-format.h"
 
 #ifdef __ANDROID__
 #include <android/log.h>
@@ -327,7 +328,7 @@ NORETURN void end_game(scorefile_entry &se, int hiscore_index)
 
         case GOD_YREDELEMNUL:
             if (you.undead_state() != US_ALIVE)
-                simple_god_message(" claims you as an undead slave.");
+                simple_god_message(TR7(" claims you as an undead slave.","은(는) 고개를 가로저었다... 그리고 당신은 이제 이레데렘눌이 부리는 언데드 수하중 한 존재가 되었다..."));
             else if (death_type != KILLED_BY_DISINT
                   && death_type != KILLED_BY_LAVA)
             {
@@ -376,7 +377,7 @@ NORETURN void end_game(scorefile_entry &se, int hiscore_index)
 
     string fname = morgue_name(you.your_name, se.get_death_time());
     if (!dump_char(fname, true, true, &se))
-        mpr("Char dump unsuccessful! Sorry about that.");
+        mpr(TR7("Char dump unsuccessful! Sorry about that.","캐릭터 파일 덤프에 실패했다! 유감이다."));
 #ifdef USE_TILE_WEB
     else
         tiles.send_dump_info("morgue", fname);
@@ -403,7 +404,7 @@ NORETURN void end_game(scorefile_entry &se, int hiscore_index)
     clua.save_persist();
 
     // Prompt for saving macros.
-    if (crawl_state.unsaved_macros && yesno("Save macros?", true, 'n'))
+    if (crawl_state.unsaved_macros && yesno(TR7("Save macros?","매크로를 저장합니까?"), true, 'n'))
         macro_save();
 
 #ifdef USE_TILE_WEB
@@ -411,7 +412,7 @@ NORETURN void end_game(scorefile_entry &se, int hiscore_index)
 #endif
 
     string goodbye_msg;
-    goodbye_msg += make_stringf("Goodbye, %s.", you.your_name.c_str());
+    goodbye_msg += make_stringf(TR7("Goodbye, %s.","잘가게, %s."), you.your_name.c_str());
     goodbye_msg += "\n\n    "; // Space padding where # would go in list format
 
     string hiscore = hiscores_format_single_long(se, true);

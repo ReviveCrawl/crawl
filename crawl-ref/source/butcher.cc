@@ -35,6 +35,8 @@
 #include "menu.h"
 #endif
 
+#include "i18n-format.h"
+
 /**
  * Start butchering a corpse.
  *
@@ -122,7 +124,7 @@ void butchery(item_def* specific_corpse)
 {
     if (you.visible_igrd(you.pos()) == NON_ITEM)
     {
-        mpr("There isn't anything here!");
+        mpr(TR7("There isn't anything here!","그곳엔 아무 것도 없다!"));
         return;
     }
 
@@ -140,17 +142,17 @@ void butchery(item_def* specific_corpse)
 
     if (all_corpses.empty())
     {
-        mprf("There isn't anything to %s here.", butcher_verb);
+        mprf(TR7("There isn't anything to %s here.","%s할 것이 없다."), butcher_verb);
         return;
     }
     if (you_foodless(false))
     {
-        mprf("You can't eat.");
+        mprf(TR7("You can't eat.","당신은 먹을 수 없다."));
         return;
     }
     if (you.get_mutation_level(MUT_HERBIVOROUS) > 0)
     {
-        mprf("Sorry, you're a herbivore.");
+        mprf(TR7("Sorry, you're a herbivore.","당신은 채소밖에 먹을 수 없다."));
         return;
     }
 
@@ -305,7 +307,7 @@ void butchery(item_def* specific_corpse)
 
     // No point in displaying this if the player pressed 'a' above.
     if (!to_eat && !butcher_all && !all_done)
-        mprf("There isn't anything else to %s here.", butcher_verb);
+        mprf(TR7("There isn't anything else to %s here.","%s할 것이 없다."), butcher_verb);
 #endif
 
     //XXX: this assumes that we're not being called from a delay ourselves.

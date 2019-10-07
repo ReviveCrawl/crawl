@@ -14,6 +14,7 @@
 #include "monster.h"
 #include "mon-util.h"
 #include "state.h"
+#include "i18n-format.h"
 
 // Add a monster to the list of fearmongers.
 bool player::add_fearmonger(const monster* mon)
@@ -23,11 +24,11 @@ bool player::add_fearmonger(const monster* mon)
     {
         if (can_see(*mon))
         {
-            mprf("%s's aura of fear is muted, and has no effect on you.",
+            mprf(TR7("%s's aura of fear is muted, and has no effect on you.","%s의 공포의 기운이 사라지고, 더 이상 당신에게 영향을 주지 않는다."),
                  mon->name(DESC_THE).c_str());
         }
         else
-            mpr("The fearful aura is strangely muted, and has no effect on you.");
+            mpr(TR7("The fearful aura is strangely muted, and has no effect on you.","공포의 기운이 갑자기 사라지고, 더 이상 당신에게 영향을 주지 않는다."));
 
         return false;
     }
@@ -36,7 +37,7 @@ bool player::add_fearmonger(const monster* mon)
     {
         set_duration(DUR_AFRAID, 7, 12);
         fearmongers.push_back(mon->mid);
-        mprf(MSGCH_WARN, "You are terrified of %s!",
+        mprf(MSGCH_WARN, TR7("You are terrified of %s!","%s은(는)  당신을 공포에 사로잡히게 했다!"),
                          mon->name(DESC_THE).c_str());
     }
     else
@@ -165,7 +166,7 @@ void player::_removed_fearmonger(bool quiet)
     {
         duration[DUR_AFRAID] = 0;
         if (!quiet)
-            mprf(MSGCH_DURATION, "You are no longer terrified.");
+            mprf(MSGCH_DURATION, TR7("You are no longer terrified.","공포감이 사라졌다."));
     }
 }
 

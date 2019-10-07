@@ -30,6 +30,7 @@
 #include "stringutil.h"
 #include "syscalls.h"
 #include "terrain.h"
+#include "i18n-format.h"
 
 #ifndef BYTE_ORDER
 # error BYTE_ORDER is not defined
@@ -168,7 +169,7 @@ static bool _resolve_map_lua(map_def &map)
         if (crawl_state.map_stat_gen)
             mapstat_report_error(map, err);
 #endif
-        mprf(MSGCH_ERROR, "Lua error: %s", err.c_str());
+        mprf(MSGCH_ERROR, TR7("Lua error: %s","Lua 스크립트 에러 : %s"), err.c_str());
         return false;
     }
 
@@ -1457,7 +1458,7 @@ void read_map(const string &file)
 void read_maps()
 {
     if (dlua.execfile("dlua/loadmaps.lua", true, true, true))
-        end(1, false, "Lua error: %s", dlua.error.c_str());
+        end(1, false, TR7("Lua error: %s","Lua 스크립트 에러 : %s"), dlua.error.c_str());
 
     lc_loaded_maps.clear();
 
@@ -1510,7 +1511,7 @@ void run_map_global_preludes()
         if (!chunk.empty())
         {
             if (chunk.load_call(dlua, nullptr))
-                mprf(MSGCH_ERROR, "Lua error: %s", chunk.orig_error().c_str());
+                mprf(MSGCH_ERROR, TR7("Lua error: %s","Lua 스크립트 에러 : %s"), chunk.orig_error().c_str());
         }
     }
 }

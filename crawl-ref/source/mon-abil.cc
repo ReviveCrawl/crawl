@@ -63,6 +63,7 @@
 #include "terrain.h"
 #include "viewchar.h"
 #include "view.h"
+#include "i18n-format.h"
 
 static bool _slime_split_merge(monster* thing);
 
@@ -217,7 +218,7 @@ static monster* _do_split(monster* thing, const coord_def & target)
         return 0;
 
     if (you.can_see(*thing))
-        mprf("%s splits.", thing->name(DESC_A).c_str());
+        mprf(TR7("%s splits.","%s은(는) 분열했다."), thing->name(DESC_A).c_str());
 
     // Inflict the new slime with any enchantments on the parent.
     _split_ench_durations(thing, new_slime);
@@ -394,15 +395,15 @@ static bool _do_merge_crawlies(monster* crawlie, monster* merge_to)
         }
         else if (changed)
         {
-            mprf("%s suddenly becomes %s.",
+            mprf(TR7("%s suddenly becomes %s.","%s은(는) 갑자기 %s(으)로 변했다."),
                  uppercase_first(old_name).c_str(),
                  merge_to->name(DESC_A).c_str());
         }
         else
-            mprf("%s twists grotesquely.", merge_to->name(DESC_A).c_str());
+            mprf(TR7("%s twists grotesquely.","%s은(는) 기이한 형상으로 뒤틀렸다."), merge_to->name(DESC_A).c_str());
     }
     else if (you.can_see(*crawlie))
-        mprf("%s suddenly disappears!", crawlie->name(DESC_A).c_str());
+        mprf(TR7("%s suddenly disappears!","%s이(가) 갑자기 사라졌다!"), crawlie->name(DESC_A).c_str());
 
     // Now kill the other monster.
     monster_die(*crawlie, KILL_DISMISSED, NON_MONSTER, true);
@@ -446,19 +447,19 @@ static void _do_merge_slimes(monster* initial_slime, monster* merge_to)
     {
         if (you.can_see(*initial_slime))
         {
-            mprf("Two slime creatures merge to form %s.",
+            mprf(TR7("Two slime creatures merge to form %s.","슬라임 두 마리가 합쳐져, %s이(가) 되었다."),
                  merge_to->name(DESC_A).c_str());
         }
         else
         {
-            mprf("A slime creature suddenly becomes %s.",
+            mprf(TR7("A slime creature suddenly becomes %s.","슬라임이 갑자기 %s(으)로 모습을 바꾸었다."),
                  merge_to->name(DESC_A).c_str());
         }
 
         flash_view_delay(UA_MONSTER, LIGHTGREEN, 150);
     }
     else if (you.can_see(*initial_slime))
-        mpr("A slime creature suddenly disappears!");
+        mpr(TR7("A slime creature suddenly disappears!","슬라임이 갑자기 사라졌다!"));
 
     // Have to 'kill' the slime doing the merging.
     monster_die(*initial_slime, KILL_DISMISSED, NON_MONSTER, true);
@@ -723,20 +724,20 @@ static void _starcursed_scream(monster* mon, actor* target)
 
     if (n > 7)
     {
-        message = "A cacophony of accursed wailing tears at your sanity!";
+        message = TR7("A cacophony of accursed wailing tears at your sanity!","저주받은 불협화음에 당신은 정신을 차릴 수 없다! ");
         if (coinflip())
             stun = 2;
     }
     else if (n > 4)
     {
-        message = "A deafening chorus of shrieks assaults your mind!";
+        message = TR7("A deafening chorus of shrieks assaults your mind!","귀청이 터질듯한 비명 소리가 마음 속을 헤집는다!");
         if (one_chance_in(3))
             stun = 1;
     }
     else if (n > 1)
-        message = "A chorus of shrieks assaults your mind.";
+        message = TR7("A chorus of shrieks assaults your mind.","비명소리의 화음이 마음 속을 헤집는다.");
     else
-        message = "The starcursed mass shrieks in your mind.";
+        message = TR7("The starcursed mass shrieks in your mind.","저주받은 덩어리가 당신의 마음 속으로 새된 비명 소리를 질러넣었다.");
 
     dam = 4 + random2(5) + random2(n * 3 / 2);
 
@@ -901,7 +902,7 @@ bool lost_soul_revive(monster& mons, killer_type killer)
         {
             if (!was_alive)
             {
-                mprf("%s sacrifices itself to reknit %s!",
+                mprf(TR7("%s sacrifices itself to reknit %s!","%s은(는) 스스로를 희생하여, %s을(를) 재결합했다!"),
                      mi->name(DESC_THE).c_str(),
                      revivee_name.c_str());
             }
@@ -956,7 +957,7 @@ void treant_release_fauna(monster& mons)
 
     if (created && you.can_see(mons))
     {
-        mprf("Angry insects surge out from beneath %s foliage!",
+        mprf(TR7("Angry insects surge out from beneath %s foliage!","%s의 잎파리 밑에서 성난 곤충들이 튀어나왔다!"),
              mons.name(DESC_ITS).c_str());
     }
 }
@@ -978,7 +979,7 @@ void check_grasping_roots(actor& act, bool quiet)
         if (act.is_player())
         {
             if (!quiet)
-                mpr("You escape the reach of the grasping roots.");
+                mpr(TR7("You escape the reach of the grasping roots.","당신은 뻗어오는 뿌리로부터 탈출했다."));
             you.duration[DUR_GRASPING_ROOTS] = 0;
             you.redraw_evasion = true;
             if (you.attribute[ATTR_LAST_FLIGHT_STATUS]
@@ -1078,7 +1079,7 @@ bool mon_special_ability(monster* mons)
             }
             // Otherwise, go invisible.
             else
-                enchant_monster_invisible(mons, "flickers out of sight");
+                enchant_monster_invisible(mons, TR7("flickers out of sight","깜박이며 시야에서 사라졌다"));
         }
         break;
 
@@ -1163,7 +1164,7 @@ bool mon_special_ability(monster* mons)
                 {
                     if (mons->move_to_pos(spot))
                     {
-                        simple_monster_message(*mons, " flows with the water.");
+                        simple_monster_message(*mons, TR7(" flows with the water.","이(가) 물을 따라 흘러갔다."));
                         used = true;
                     }
                 }
@@ -1189,13 +1190,13 @@ bool mon_special_ability(monster* mons)
                                        random_range(3, 7) * BASELINE_DELAY));
             if (you.can_see(*mons))
             {
-                mprf(MSGCH_MONSTER_SPELL, "%s reaches out with a gnarled limb.",
+                mprf(MSGCH_MONSTER_SPELL, TR7("%s reaches out with a gnarled limb.","%s이(가) 비틀린 가지와 함께 뻗어나왔다."),
                      mons->name(DESC_THE).c_str());
-                mprf("Grasping roots rise from the ground around %s!",
+                mprf(TR7("Grasping roots rise from the ground around %s!","%s 주변에서 뿌리들이 튀어나왔다!"),
                      mons->name(DESC_THE).c_str());
             }
             else if (you.see_cell(mons->pos()))
-                mpr("Grasping roots begin to rise from the ground!");
+                mpr(TR7("Grasping roots begin to rise from the ground!","뿌리들이 땅 속에서 솟아오르기 시작했다!"));
 
             used = true;
         }

@@ -14,6 +14,7 @@
 #include "fprop.h"
 #include "losglobal.h"
 #include "state.h"
+#include "i18n-format.h"
 
 // Add a monster to the list of beholders.
 void player::add_beholder(const monster& mon, bool axe)
@@ -24,18 +25,18 @@ void player::add_beholder(const monster& mon, bool axe)
         {
             if (can_see(mon))
             {
-                mprf("%s's singing sounds muted, and has no effect on you.",
+                mprf(TR7("%s's singing sounds muted, and has no effect on you.","%s의 노랫소리가 멈추었고, 이제 당신에게 영향을 주지 않는다."),
                      mon.name(DESC_THE).c_str());
             }
             else
-                mpr("The melody is strangely muted, and has no effect on you.");
+                mpr(TR7("The melody is strangely muted, and has no effect on you.","노랫소리가 별안간 멈추었고, 이제 당신에게 영향을 주지 않는다."));
         }
         else
         {
             if (can_see(mon))
-                mprf("%s's is no longer quite as mesmerising!", mon.name(DESC_THE).c_str());
+                mprf(TR7("%s's is no longer quite as mesmerising!","%s은(는) 더 이상 매혹적으로 보이지 않는다!"), mon.name(DESC_THE).c_str());
             else
-                mpr("Your mesmeriser suddenly seems less interesting!");
+                mpr(TR7("Your mesmeriser suddenly seems less interesting!","노랫소리가 더이상 흥미롭게 들리지 않는다."));
         }
 
         return;
@@ -47,7 +48,7 @@ void player::add_beholder(const monster& mon, bool axe)
         beholders.push_back(mon.mid);
         if (!axe)
         {
-            mprf(MSGCH_WARN, "You are mesmerised by %s!",
+            mprf(MSGCH_WARN, TR7("You are mesmerised by %s!","당신은 %s의 최면에 걸려있다!"),
                              mon.name(DESC_THE).c_str());
         }
     }
@@ -137,18 +138,18 @@ static void _removed_beholder_msg(const monster *mons)
         {
             if (you.can_see(mon))
             {
-                mprf("%s's singing becomes strangely muted.",
+                mprf(TR7("%s's singing becomes strangely muted.","%s의 노랫소리가 별안간 멈추었다."),
                      mon.name(DESC_THE).c_str());
             }
             else
-                mpr("Something's singing becomes strangely muted.");
+                mpr(TR7("Something's singing becomes strangely muted.","누군가의 노랫소리가 별안간 멈추었다."));
         }
         else
         {
             if (you.can_see(mon))
-                mprf("%s's is no longer quite as mesmerising!", mon.name(DESC_THE).c_str());
+                mprf(TR7("%s's is no longer quite as mesmerising!","%s은(는) 더 이상 매혹적으로 보이지 않는다!"), mon.name(DESC_THE).c_str());
             else
-                mpr("Your mesmeriser suddenly seems less interesting!");
+                mpr(TR7("Your mesmeriser suddenly seems less interesting!","노랫소리가 더이상 흥미롭게 들리지 않는다."));
         }
 
         return;
@@ -160,26 +161,26 @@ static void _removed_beholder_msg(const monster *mons)
         {
             if (mons_is_siren_beholder(mon))
             {
-                mprf("You can no longer hear %s's singing!",
+                mprf(TR7("You can no longer hear %s's singing!","더 이상 %s의 노랫소리가 들리지 않는다!"),
                      mon.name(DESC_THE).c_str());
             }
             else
-                mpr("The silence clears your mind.");
+                mpr(TR7("The silence clears your mind.","고요함에 정신이 맑아졌다."));
             return;
         }
 
         if (mons_is_siren_beholder(mon))
-            mprf("%s stops singing.", mon.name(DESC_THE).c_str());
+            mprf(TR7("%s stops singing.","%s은(는) 노래를 멈추었다."), mon.name(DESC_THE).c_str());
         else
-            mprf("%s is no longer quite as mesmerising!", mon.name(DESC_THE).c_str());
+            mprf(TR7("%s is no longer quite as mesmerising!","%s의 노래는 더이상 최면 효과가 없다!"), mon.name(DESC_THE).c_str());
 
         return;
     }
 
     if (mons_is_siren_beholder(mon))
-        mpr("Something stops singing.");
+        mpr(TR7("Something stops singing.","무언가가 노래를 멈추었다."));
     else
-        mpr("Your mesmeriser is now quite boring!");
+        mpr(TR7("Your mesmeriser is now quite boring!","이제 노랫소리가 지루하게 들린다!"));
 }
 
 // Update all beholders' status after changes.
@@ -236,8 +237,8 @@ void player::_removed_beholder(bool quiet)
         if (!quiet)
         {
             mprf(MSGCH_DURATION,
-                 coinflip() ? "You break out of your daze!"
-                            : "You are no longer entranced.");
+                 coinflip() ? TR7("You break out of your daze!","현혹에서 벗어나 정신을 차렸다!")
+                            : TR7("You are no longer entranced.","황홀한 감정이 사라졌다."));
         }
     }
 }

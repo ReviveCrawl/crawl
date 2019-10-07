@@ -7,6 +7,7 @@
 #include "random.h"
 #include "state.h"
 #include "ui.h"
+#include "i18n-format.h"
 
 using namespace ui;
 
@@ -52,7 +53,7 @@ void UIShrinkableImage::_allocate_region()
 
 static shared_ptr<Text> loading_text;
 static shared_ptr<ui::Popup> popup;
-static string load_complete_msg = "Loading complete, press any key to start.";
+static string load_complete_msg = TR7("Loading complete, press any key to start.","'던전 크롤 : 스톤 수프' 의 입구가 열림. 아무 키나 누르세요.");
 
 static const string _get_title_image()
 {

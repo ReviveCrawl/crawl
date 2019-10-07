@@ -57,6 +57,7 @@
 #endif
 #include "unwind.h"
 #include "version.h"
+#include "i18n-format.h"
 
 using namespace ui;
 
@@ -905,19 +906,19 @@ static const char* _job_name(int job)
     case OLD_JOB_THIEF:
         return "Thief";
     case OLD_JOB_DEATH_KNIGHT:
-        return "Death Knight";
+        return TR7("Death Knight","죽음의 기사");
     case OLD_JOB_PALADIN:
-        return "Paladin";
+        return TR7("Paladin","성기사");
     case OLD_JOB_REAVER:
-        return "Reaver";
+        return TR7("Reaver","약탈자");
     case OLD_JOB_STALKER:
-        return "Stalker";
+        return TR7("Stalker","추적자");
     case OLD_JOB_JESTER:
-        return "Jester";
+        return TR7("Jester","광대");
     case OLD_JOB_PRIEST:
-        return "Priest";
+        return TR7("Priest","사제");
     case OLD_JOB_HEALER:
-        return "Healer";
+        return TR7("Healer","치유사");
     }
 
     return get_job_name(static_cast<job_type>(job));
@@ -942,7 +943,7 @@ static const char* _job_abbrev(int job)
     case OLD_JOB_PRIEST:
         return "Pr";
     case OLD_JOB_HEALER:
-        return "He";
+        return TR7("He","그");
     }
 
     return get_job_abbrev(static_cast<job_type>(job));
@@ -980,15 +981,15 @@ static string _species_name(int race)
 {
     switch (race)
     {
-    case OLD_SP_ELF: return "Elf";
+    case OLD_SP_ELF: return TR7("Elf","엘프");
     case OLD_SP_HILL_DWARF: return "Hill Dwarf";
     case OLD_SP_OGRE_MAGE: return "Ogre-Mage";
     case OLD_SP_GREY_ELF: return "Grey Elf";
     case OLD_SP_GNOME: return "Gnome";
-    case OLD_SP_MOUNTAIN_DWARF: return "Mountain Dwarf";
-    case OLD_SP_SLUDGE_ELF: return "Sludge Elf";
-    case OLD_SP_DJINNI: return "Djinni";
-    case OLD_SP_LAVA_ORC: return "Lava Orc";
+    case OLD_SP_MOUNTAIN_DWARF: return TR7("Mountain Dwarf","마운틴 드워프");
+    case OLD_SP_SLUDGE_ELF: return TR7("Sludge Elf","슬럿지 엘프");
+    case OLD_SP_DJINNI: return TR7("Djinni","지니");
+    case OLD_SP_LAVA_ORC: return TR7("Lava Orc","라바 오크");
     }
 
     return species_name(static_cast<species_type>(race));

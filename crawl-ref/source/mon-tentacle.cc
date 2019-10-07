@@ -22,6 +22,7 @@
 #include "nearby-danger.h"
 #include "terrain.h"
 #include "view.h"
+#include "i18n-format.h"
 
 const int MAX_KRAKEN_TENTACLE_DIST = 12;
 const int MAX_ACTIVE_KRAKEN_TENTACLES = 4;
@@ -697,7 +698,7 @@ static int _collect_connection_data(monster* start_monster,
         {
             current_mon = next;
             if (current_mon->tentacle_connect != start_monster->mid)
-                mpr("link information corruption!!! tentacle in chain doesn't match mindex");
+                mpr(TR7("link information corruption!!! tentacle in chain doesn't match mindex","link information이 손상되었다!! 연결된 촉수 개체들이 mindex와 매치되지 않는다"));
             if (!retract_found)
             {
                 retract_pos = current_mon->pos();
@@ -904,7 +905,7 @@ void move_solo_tentacle(monster* tentacle)
     {
         if (you.can_see(*tentacle))
         {
-            mprf("The vine drags %s backwards!",
+            mprf(TR7("The vine drags %s backwards!","줄기가 %s을(를) 뒤로 밀어냈다!"),
                     constrictee->name(DESC_THE).c_str());
         }
 
@@ -1099,7 +1100,7 @@ void move_child_tentacles(monster* mons)
         {
             if (you.can_see(*tentacle))
             {
-                mprf("The tentacle pulls %s backwards!",
+                mprf(TR7("The tentacle pulls %s backwards!","촉수가 %s을(를) 뒤로 밀어냈다!"),
                      constrictee->name(DESC_THE).c_str());
             }
 
@@ -1271,16 +1272,16 @@ void mons_create_tentacles(monster* head)
     if (mons_base_type(*head) == MONS_KRAKEN)
     {
         if (visible_count == 1)
-            mpr("A tentacle rises from the water!");
+            mpr(TR7("A tentacle rises from the water!","물 속에서 촉수 하나가 솟아났다!"));
         else if (visible_count > 1)
-            mpr("Tentacles burst out of the water!");
+            mpr(TR7("Tentacles burst out of the water!","물 속에서 촉수들이 솟아나왔다!"));
     }
     else if (head->type == MONS_TENTACLED_STARSPAWN)
     {
         if (visible_count == 1)
-            mpr("A tentacle flies out from the starspawn's body!");
+            mpr(TR7("A tentacle flies out from the starspawn's body!","스타스폰의 몸체에서 촉수가 뻗어져나왔다!"));
         else if (visible_count > 1)
-            mpr("Tentacles burst from the starspawn's body!");
+            mpr(TR7("Tentacles burst from the starspawn's body!","스타스폰의 몸체에서 촉수들이 뻗어져나왔다!"));
     }
     return;
 }

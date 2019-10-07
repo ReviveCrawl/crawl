@@ -24,6 +24,7 @@
 #include "terrain.h"
 #include "transform.h"
 #include "traps.h"
+#include "i18n-format.h"
 
 actor::~actor()
 {
@@ -772,7 +773,7 @@ void actor::constriction_damage_defender(actor &defender, int duration)
         if (!direct)
             attacker_desc = "The zombie hands";
         else if (is_player())
-            attacker_desc = "You";
+            attacker_desc = TR7("You","당신");
         else
             attacker_desc = name(DESC_THE);
 

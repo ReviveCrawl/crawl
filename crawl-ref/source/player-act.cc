@@ -35,6 +35,7 @@
 #include "transform.h"
 #include "traps.h"
 #include "viewgeom.h"
+#include "i18n-format.h"
 
 int player::mindex() const
 {
@@ -379,7 +380,7 @@ bool player::could_wield(const item_def &item, bool ignore_brand,
         && item.is_type(OBJ_MISSILES, MI_LARGE_ROCK))
     {
         if (!quiet)
-            mpr("That's too large and heavy for you to wield.");
+            mpr(TR7("That's too large and heavy for you to wield.","이것을 사용하기엔 너무 크고 무겁다."));
         return false;
     }
 
@@ -398,7 +399,7 @@ bool player::could_wield(const item_def &item, bool ignore_brand,
     else if (species == SP_FELID)
     {
         if (!quiet)
-            mpr("You can't use weapons.");
+            mpr(TR7("You can't use weapons.","당신은 무기를 사용할 수 없다."));
         return false;
     }
 
@@ -407,7 +408,7 @@ bool player::could_wield(const item_def &item, bool ignore_brand,
     if (!is_weapon_wieldable(item, bsize))
     {
         if (!quiet)
-            mpr("That's too large for you to wield.");
+            mpr(TR7("That's too large for you to wield.","이것을 사용하기엔 너무 크다"));
         return false;
     }
 
@@ -421,7 +422,7 @@ bool player::could_wield(const item_def &item, bool ignore_brand,
     if (!ignore_brand && undead_or_demonic() && is_holy_item(item))
     {
         if (!quiet)
-            mpr("This weapon is holy and will not allow you to wield it.");
+            mpr(TR7("This weapon is holy and will not allow you to wield it.","이 신성한 무기는 당신의 사용을 거부하고, 저절로 당신에게서 벗어났다."));
         return false;
     }
 
@@ -620,12 +621,12 @@ string player::unarmed_attack_name() const
     if (has_usable_claws(true))
     {
         if (species == SP_FELID)
-            default_name = "Teeth and claws";
+            default_name = TR7("Teeth and claws","이빨과 손톱");
         else
-            default_name = "Claws";
+            default_name = TR7("Claws","손톱");
     }
     else if (has_usable_tentacles(true))
-        default_name = "Tentacles";
+        default_name = TR7("Tentacles","촉수");
 
     return get_form()->get_uc_attack_name(default_name);
 }
@@ -639,7 +640,7 @@ bool player::fumbles_attack()
     {
         if (x_chance_in_y(3, 8))
         {
-            mpr("Your unstable footing causes you to fumble your attack.");
+            mpr(TR7("Your unstable footing causes you to fumble your attack.","제대로 서 있기가 힘들어, 공격을 실패했다."));
             did_fumble = true;
         }
         if (floundering())
@@ -690,7 +691,7 @@ static bool _god_prevents_berserk_haste(bool intentional)
     // a part of your penance.
     if (!intentional)
     {
-        simple_god_message(" protects you from inadvertent hurry.");
+        simple_god_message(TR7(" protects you from inadvertent hurry.","은(는) 당신을 예기치 못한 가속으로부터 지켰다."));
         return true;
     }
 
@@ -699,7 +700,7 @@ static bool _god_prevents_berserk_haste(bool intentional)
     if (!you_worship(old_religion))
         return false;
 
-    simple_god_message(" forces you to slow down.");
+    simple_god_message(TR7(" forces you to slow down.","은(는) 당신의 가속을 막았다."));
     return true;
 }
 
@@ -722,7 +723,7 @@ bool player::go_berserk(bool intentional, bool potion)
     if (crawl_state.game_is_hints())
         Hints.hints_berserk_counter++;
 
-    mpr("A red film seems to cover your vision as you go berserk!");
+    mpr(TR7("A red film seems to cover your vision as you go berserk!","당신의 시야는 새빨갛게 물들어가고, 당신은 광전사 상태에 돌입했다!"));
 
     if (you.duration[DUR_FINESSE] > 0)
     {
@@ -731,9 +732,9 @@ bool player::go_berserk(bool intentional, bool potion)
     }
 
     if (!_god_prevents_berserk_haste(intentional))
-        mpr("You feel yourself moving faster!");
+        mpr(TR7("You feel yourself moving faster!","움직임이 빨라지는 것을 느꼈다!"));
 
-    mpr("You feel mighty!");
+    mpr(TR7("You feel mighty!","근력이 강해진 것을 느꼈다!"));
 
     int berserk_duration = (20 + random2avg(19,2)) / 2;
 
@@ -772,19 +773,19 @@ bool player::can_go_berserk(bool intentional, bool potion, bool quiet,
     bool success = false;
 
     if (berserk() && temp)
-        msg = "You're already berserk!";
+        msg = TR7("You're already berserk!","당신은 이미 광폭화 상태이다!");
     else if (duration[DUR_BERSERK_COOLDOWN] && temp)
         msg = "You're still recovering from your berserk rage.";
     else if (duration[DUR_DEATHS_DOOR] && temp)
         msg = "You can't enter a blood rage from death's door.";
     else if (beheld() && !player_equip_unrand(UNRAND_DEMON_AXE) && temp)
-        msg = "You are too mesmerised to rage.";
+        msg = TR7("You are too mesmerised to rage.","분노하기엔 유혹이 너무 강렬하다.");
     else if (afraid() && temp)
-        msg = "You are too terrified to rage.";
+        msg = TR7("You are too terrified to rage.","분노하기엔 너무 공포에 사로잡혀있다.");
     else if (!intentional && !potion && clarity() && temp)
-        msg = "You're too calm and focused to rage.";
+        msg = TR7("You're too calm and focused to rage.","당신은 정신이 너무 맑아 분노에 집중할 수 없다.");
     else if (is_lifeless_undead(temp))
-        msg = "You cannot raise a blood rage in your lifeless body.";
+        msg = TR7("You cannot raise a blood rage in your lifeless body.","당신의 생명력 없는 몸으론 피가 끓을 수 없다.");
     else if (stasis())
         msg = "Your stasis prevents you from going berserk.";
     else
@@ -830,7 +831,7 @@ bool player::shove(const char* feat_name)
         {
             moveto(*di);
             if (*feat_name)
-                mprf("You are pushed out of the %s.", feat_name);
+                mprf(TR7("You are pushed out of the %s.","당신은 %s에서 밀려났다."), feat_name);
             dprf("Moved to (%d, %d).", pos().x, pos().y);
             return true;
         }

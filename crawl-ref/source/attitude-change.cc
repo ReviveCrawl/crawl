@@ -25,6 +25,7 @@
 #include "religion.h"
 #include "state.h"
 #include "travel.h"
+#include "i18n-format.h"
 
 // Called whenever an already existing monster changes its attitude, possibly
 // temporarily.
@@ -180,11 +181,11 @@ bool yred_slaves_abandon_you()
     if (num_reclaim > 0)
     {
         if (num_reclaim == 1 && num_slaves > 1)
-            simple_god_message(" reclaims one of your granted undead slaves!");
+            simple_god_message(TR7(" reclaims one of your granted undead slaves!","은(는) 당신의 언데드 수하 중 하나를 회수하였다!"));
         else if (num_reclaim == num_slaves)
-            simple_god_message(" reclaims your granted undead slaves!");
+            simple_god_message(TR7(" reclaims your granted undead slaves!","은(는) 당신의 언데드 수하들을 회수하였다!"));
         else
-            simple_god_message(" reclaims some of your granted undead slaves!");
+            simple_god_message(TR7(" reclaims some of your granted undead slaves!","은(는) 당신의 언데드 수하 중 일부를 회수하였다!"));
         return true;
     }
 
@@ -245,11 +246,11 @@ bool beogh_followers_abandon_you()
         if (num_reconvert > 0)
         {
             if (num_reconvert == 1 && num_followers > 1)
-                chan << "One of your followers decides to abandon you.";
+                chan << TR7("One of your followers decides to abandon you.","당신의 추종자 중 하나가 당신을 떠나기로 결심했다.");
             else if (num_reconvert == num_followers)
-                chan << "Your followers decide to abandon you.";
+                chan << TR7("Your followers decide to abandon you.","당신의 추종자들은 당신을 떠나기로 결심했다.");
             else
-                chan << "Some of your followers decide to abandon you.";
+                chan << TR7("Some of your followers decide to abandon you.","당신의 추종자들 중 일부가 당신을 떠나기로 결심했다.");
         }
 
         chan << endl;
@@ -365,7 +366,7 @@ static void _jiyva_convert_slime(monster* slime)
         }
         else
         {
-            mprf(MSGCH_GOD, "%s trembles before you.",
+            mprf(MSGCH_GOD, TR7("%s trembles before you.","%s은(는) 당신 앞에 몸을 떨었다."),
                  slime->name(DESC_THE).c_str());
         }
     }

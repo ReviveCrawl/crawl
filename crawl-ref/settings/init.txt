@@ -85,3 +85,7 @@
 # include                 = 0.12_monster_glyphs.txt
 # include                 = 0.13_monster_glyphs.txt
 # include                 = 0.14_monster_glyphs.txt
+
+language = ko
+tile_window_width = 1280
+tile_window_height = 1024

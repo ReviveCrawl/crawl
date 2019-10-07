@@ -15,13 +15,14 @@
 #include "message.h"
 #include "prompt.h"
 #include "spl-util.h"
+#include "i18n-format.h"
 
 static void _adjust_spell();
 static void _adjust_ability();
 
 void adjust()
 {
-    mprf(MSGCH_PROMPT, "Adjust (i)tems, (s)pells, or (a)bilities? ");
+    mprf(MSGCH_PROMPT, TR7("Adjust (i)tems, (s)pells, or (a)bilities? ","어떤 단축키를 변경할 것인가?\n[i]아이템 [s]주문 [a]특수능력"));
 
     const int keyin = toalower(get_ch());
 
@@ -47,14 +48,14 @@ void adjust_item(int from_slot)
 
     if (from_slot == -1)
     {
-        from_slot = prompt_invent_item("Adjust which item?", MT_INVLIST, -1);
+        from_slot = prompt_invent_item(TR7("Adjust which item?","어느 아이템의 단축키를 바꿀 것인가?"), MT_INVLIST, -1);
         if (prompt_failed(from_slot))
             return;
 
         mprf_nocap("%s", you.inv[from_slot].name(DESC_INVENTORY_EQUIP).c_str());
     }
 
-    const int to_slot = prompt_invent_item("Adjust to which letter? ",
+    const int to_slot = prompt_invent_item(TR7("Adjust to which letter? ","어느 단축키로 바꿀 것인가?"),
                                            MT_INVLIST,
                                            -1, OPER_ANY,
                                            invprompt_flag::unthings_ok
@@ -80,8 +81,8 @@ static void _adjust_spell()
     }
 
     // Select starting slot
-    mprf(MSGCH_PROMPT, "Adjust which spell? ");
-    int keyin = list_spells(false, false, false, "Adjust which spell?");
+    mprf(MSGCH_PROMPT, TR7("Adjust which spell? ","어느 주문의 단축키를 바꿀 것인가?"));
+    int keyin = list_spells(false, false, false, TR7("Adjust which spell?","어느 주문의 단축키를 변경할 것인가?"));
 
     if (!isaalpha(keyin))
     {
@@ -95,7 +96,7 @@ static void _adjust_spell()
 
     if (spell == SPELL_NO_SPELL)
     {
-        mpr("You don't know that spell.");
+        mpr(TR7("You don't know that spell.","당신은 그 주문을 모른다."));
         return;
     }
 
@@ -106,7 +107,7 @@ static void _adjust_spell()
     keyin = 0;
     while (!isaalpha(keyin))
     {
-        mprf(MSGCH_PROMPT, "Adjust to which letter? ");
+        mprf(MSGCH_PROMPT, TR7("Adjust to which letter? ","어느 단축키로 바꿀 것인가?"));
         keyin = get_ch();
         if (key_is_escape(keyin))
         {
@@ -116,7 +117,7 @@ static void _adjust_spell()
         // FIXME: It would be nice if the user really could select letters
         // without spells from this menu.
         if (keyin == '?' || keyin == '*')
-            keyin = list_spells(true, false, false, "Adjust to which letter?");
+            keyin = list_spells(true, false, false, TR7("Adjust to which letter?","어느 키로 바꿀 것인가?"));
     }
 
     const int input_2 = keyin;
@@ -149,17 +150,17 @@ static void _adjust_ability()
 
     if (talents.empty())
     {
-        mpr("You don't currently have any abilities.");
+        mpr(TR7("You don't currently have any abilities.","당신은 현재 아무 특수능력도 가지고 있지 않다."));
         return;
     }
 
-    mprf(MSGCH_PROMPT, "Adjust which ability? ");
+    mprf(MSGCH_PROMPT, TR7("Adjust which ability? ","어느 특수 능력의 단축키를 바꿀 것인가?"));
     int selected = choose_ability_menu(talents);
 
     // If we couldn't find anything, cancel out.
     if (selected == -1)
     {
-        mpr("No such ability.");
+        mpr(TR7("No such ability.","그런 특수능력은 없다."));
         return;
     }
 
@@ -169,7 +170,7 @@ static void _adjust_ability()
 
     const int index1 = letter_to_index(old_key);
 
-    mprf(MSGCH_PROMPT, "Adjust to which letter?");
+    mprf(MSGCH_PROMPT, TR7("Adjust to which letter?","어느 키로 바꿀 것인가?"));
 
     const int keyin = get_ch();
 

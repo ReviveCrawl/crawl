@@ -45,6 +45,7 @@
 #include "syscalls.h"
 #include "unicode.h"
 #include "version.h"
+#include "i18n-format.h"
 
 typedef deque<int> keybuf;
 typedef map<keyseq,keyseq> macromap;
@@ -676,7 +677,7 @@ void macro_save()
     f = fopen_u(macrofile.c_str(), "w");
     if (!f)
     {
-        mprf(MSGCH_ERROR, "Couldn't open %s for writing!", macrofile.c_str());
+        mprf(MSGCH_ERROR, TR7("Couldn't open %s for writing!","%s 파일을 열 수 없다!"), macrofile.c_str());
         return;
     }
 
@@ -714,7 +715,7 @@ static keyseq _getch_mul(int (*rgetch)() = nullptr)
     // get new keys from the user.
     if (crawl_state.is_replaying_keys())
     {
-        mprf(MSGCH_ERROR, "(Key replay ran out of keys)");
+        mprf(MSGCH_ERROR, TR7("(Key replay ran out of keys)","(키 리플레이 : 키가 부족함)"));
         crawl_state.cancel_cmd_repeat();
         crawl_state.cancel_cmd_again();
     }
@@ -852,7 +853,7 @@ void flush_input_buffer(int reason)
 
 static string _macro_prompt_string(const string &macro_type)
 {
-    return make_stringf("Input %s action: ", macro_type.c_str());
+    return make_stringf(TR7("Input %s action: ","%s 행동 키를 입력하시오: "), macro_type.c_str());
 }
 
 static void _macro_prompt(const string &macro_type)
@@ -961,20 +962,20 @@ void macro_add_query()
     }
     else if (input == 's')
     {
-        mpr("Saving macros.");
+        mpr(TR7("Saving macros.","매크로를 저장했다."));
         macro_save();
         return;
     }
     else
     {
-        mpr("Aborting.");
+        mpr(TR7("Aborting.","중지."));
         return;
     }
 
     // reference to the appropriate mapping
     macromap &mapref = (keymap ? Keymaps[keymc] : Macros);
     const string macro_type = _macro_type_name(keymap, keymc);
-    const string trigger_prompt = make_stringf("Input %s trigger key: ",
+    const string trigger_prompt = make_stringf(TR7("Input %s trigger key: ","%s 트리거 키를 입력하시오: "),
                                                macro_type.c_str());
     msgwin_prompt(trigger_prompt);
 
@@ -988,8 +989,8 @@ void macro_add_query()
     {
         string action = vtostr(mapref[key]);
         action = replace_all(action, "<", "<<");
-        mprf(MSGCH_WARN, "Current Action: %s", action.c_str());
-        mprf(MSGCH_PROMPT, "Do you wish to (r)edefine, (c)lear, or (a)bort? ");
+        mprf(MSGCH_WARN, TR7("Current Action: %s","현재 행동: %s"), action.c_str());
+        mprf(MSGCH_PROMPT, TR7("Do you wish to (r)edefine, (c)lear, or (a)bort? ","(r)재설정, (c)지우기, (a)중지 하겠는가?"));
 
         input = m_getch();
 
@@ -1001,7 +1002,7 @@ void macro_add_query()
         }
         else if (input == 'c')
         {
-            mprf("Cleared %s '%s' => '%s'.",
+            mprf(TR7("Cleared %s '%s' => '%s'.","%s을(를), '%s' => '%s' 로 지우기를 실행하였다."),
                  macro_type.c_str(),
                  vtostr(key).c_str(),
                  vtostr(mapref[key]).c_str());
@@ -1032,7 +1033,7 @@ void macro_add_query()
     else
     {
         macro_add(mapref, key, action);
-        mprf("Created %s '%s' => '%s'.",
+        mprf(TR7("Created %s '%s' => '%s'.","%s을(를), '%s' => '%s' 로 생성하였다."),
              macro_type.c_str(),
              vtostr(key).c_str(), vtostr(action).c_str());
     }
@@ -1401,25 +1402,25 @@ void bind_command_to_key(command_type cmd, int key)
     {
         if (command_name == "CMD_NO_CMD")
         {
-            mprf(MSGCH_ERROR, "Cannot bind command #%d to a key.",
+            mprf(MSGCH_ERROR, TR7("Cannot bind command #%d to a key.","#%d는 하나의 키로 묶을 수 없다."),
                  (int) cmd);
             return;
         }
 
-        mprf(MSGCH_ERROR, "Cannot bind command '%s' to a key.",
+        mprf(MSGCH_ERROR, TR7("Cannot bind command '%s' to a key.","'%s'는 하나의 키로 묶을 수 없다."),
              command_name.c_str());
         return;
     }
 
     if (is_userfunction(key))
     {
-        mprf(MSGCH_ERROR, "Cannot bind user function keys to a command.");
+        mprf(MSGCH_ERROR, TR7("Cannot bind user function keys to a command.","유저 기능 키는 하나의 명령키로 묶을 수 없다."));
         return;
     }
 
     if (is_synthetic_key(key))
     {
-        mprf(MSGCH_ERROR, "Cannot bind synthetic keys to a command.");
+        mprf(MSGCH_ERROR, TR7("Cannot bind synthetic keys to a command.","조합 키는 하나의 명령키로 묶을 수 없다."));
         return;
     }
 

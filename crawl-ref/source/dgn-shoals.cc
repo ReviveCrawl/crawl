@@ -25,6 +25,7 @@
 #include "stringutil.h"
 #include "traps.h"
 #include "view.h"
+#include "i18n-format.h"
 
 static const char *PROPS_SHOALS_TIDE_KEY = "shoals-tide-height";
 static const char *PROPS_SHOALS_TIDE_VEL = "shoals-tide-velocity";
@@ -1070,7 +1071,7 @@ void shoals_release_tide(monster* mons)
     {
         if (player_can_hear(mons->pos()))
         {
-            mprf(MSGCH_SOUND, "The tide is released from %s call.",
+            mprf(MSGCH_SOUND, TR7("The tide is released from %s call.","%s 부름에 의해, 해수면의 흐름이 잔잔해졌다."),
                  apostrophise(mons->name(DESC_YOUR, true)).c_str());
             if (you.see_cell(mons->pos()))
                 flash_view_delay(UA_MONSTER, ETC_WATER, 150);

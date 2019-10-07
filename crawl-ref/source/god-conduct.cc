@@ -13,6 +13,7 @@
 #include "religion.h"
 #include "state.h"
 #include "stringutil.h" // uppercase_first
+#include "i18n-format.h"
 
 #include <functional>
 
@@ -211,13 +212,13 @@ struct dislike_response
 /// Good gods', and Beogh's, response to cannibalism.
 static const dislike_response RUDE_CANNIBALISM_RESPONSE = {
     "you perform cannibalism", true,
-    5, 3, nullptr, " expects more respect for your departed relatives."
+    5, 3, nullptr, TR7(" expects more respect for your departed relatives.","은(는) 당신이 동족의 사체를 훼손한 행위를 언짢아했다.")
 };
 
 /// Zin and Ely's responses to desecrating holy remains.
 static const dislike_response GOOD_DESECRATE_HOLY_RESPONSE = {
     "you desecrate holy remains", true,
-    1, 1, nullptr, " expects more respect for holy creatures!"
+    1, 1, nullptr, TR7(" expects more respect for holy creatures!","은(는) 신성한 존재의 사체를 훼손한 것에 대해 강한 유감을 표했다!")
 };
 
 /// Zin and Ely's responses to evil actions. TODO: parameterize & merge w/TSO
@@ -241,7 +242,7 @@ static const dislike_response GOOD_KILL_HOLY_RESPONSE = {
 /// TSO and Ely's response to the player attacking neutral monsters.
 static const dislike_response GOOD_ATTACK_NEUTRAL_RESPONSE = {
     "you attack neutral beings", true,
-    1, 1, " forgives your inadvertent attack on a neutral, just this once."
+    1, 1, TR7(" forgives your inadvertent attack on a neutral, just this once.","은(는) 다시는 이러한 행동을 하지 않겠다는 전제하에, 당신이 중립자를 공격한 행동을 용서해주었다.")
 };
 
 /// Various gods' response to attacking a pal.
@@ -250,7 +251,7 @@ static dislike_response _on_attack_friend(const char* desc)
     return
     {
         desc, true,
-        1, 3, " forgives your inadvertent attack on an ally, just this once.",
+        1, 3, TR7(" forgives your inadvertent attack on an ally, just this once.","은(는) 다시는 이러한 행동을 하지 않겠다는 전제하에, 당신이 아군을 공격한 행동을 용서해주었다."),
         nullptr, [] (const monster* victim) -> bool {
             dprf("hates friend : %d", god_hates_attacking_friend(you.religion, *victim));
             return god_hates_attacking_friend(you.religion, *victim);
@@ -290,7 +291,7 @@ static peeve_map divine_peeves[] =
         { DID_ATTACK_NEUTRAL, {
             "you attack neutral beings", false,
             1, 0,
-            " forgives your inadvertent attack on a neutral, just this once."
+            TR7(" forgives your inadvertent attack on a neutral, just this once.","은(는) 다시는 이러한 행동을 하지 않겠다는 전제하에, 당신이 중립자를 공격한 행동을 용서해주었다.")
         } },
         { DID_ATTACK_IN_SANCTUARY, {
             "you attack monsters in a sanctuary", false,
@@ -298,15 +299,15 @@ static peeve_map divine_peeves[] =
         } },
         { DID_UNCLEAN, {
             "you use unclean or chaotic magic or items", true,
-            1, 1, " forgives your inadvertent unclean act, just this once."
+            1, 1, TR7(" forgives your inadvertent unclean act, just this once.","은(는) 다시는 이러한 행동을 하지 않곘다는 전제하에, 당신의 불결한 행동을 용서해주었다.")
         } },
         { DID_CHAOS, {
             "you polymorph monsters", true,
-            1, 1, " forgives your inadvertent chaotic act, just this once."
+            1, 1, TR7(" forgives your inadvertent chaotic act, just this once.","은(는) 다시는 이러한 행동을 하지 않겠다는 전제하에, 당신의 혼돈스러운 행동을 용서해주었다.")
         } },
         { DID_DELIBERATE_MUTATING, {
             "you deliberately mutate or transform yourself", true,
-            1, 0, " forgives your inadvertent chaotic act, just this once."
+            1, 0, TR7(" forgives your inadvertent chaotic act, just this once.","은(는) 다시는 이러한 행동을 하지 않겠다는 전제하에, 당신의 혼돈스러운 행동을 용서해주었다.")
         } },
         { DID_DESECRATE_SOULED_BEING, {
             "you butcher sentient beings", true,
@@ -324,7 +325,7 @@ static peeve_map divine_peeves[] =
         { DID_KILL_HOLY, GOOD_KILL_HOLY_RESPONSE },
         { DID_DESECRATE_HOLY_REMAINS, {
             "you desecrate holy remains", true,
-            1, 2, nullptr, " expects more respect for holy creatures!"
+            1, 2, nullptr, TR7(" expects more respect for holy creatures!","은(는) 신성한 존재의 사체를 훼손한 것에 대해 강한 유감을 표했다!")
         } },
         { DID_EVIL, {
             "you use evil magic or items", true,
@@ -339,7 +340,7 @@ static peeve_map divine_peeves[] =
     {
         { DID_HOLY, {
             "you use holy magic or items", true,
-            1, 2, " forgives your inadvertent holy act, just this once."
+            1, 2, TR7(" forgives your inadvertent holy act, just this once.","은(는) 다시는 이러한 행동을 하지 않겠다는 전제하에, 신성함과 타협한 당신을 용서해주었다.")
         } },
     },
     // GOD_XOM,
@@ -366,7 +367,7 @@ static peeve_map divine_peeves[] =
         } },
         { DID_SPELL_PRACTISE, {
             "you train magic skills", true,
-            1, 0, nullptr, " doesn't appreciate your training magic!"
+            1, 0, nullptr, TR7(" doesn't appreciate your training magic!","은(는) 당신이 마법을 수련하는 것을 언짢아했다!")
         } },
     },
     // GOD_NEMELEX_XOBEH,
@@ -420,7 +421,7 @@ static peeve_map divine_peeves[] =
     {
         { DID_CORPSE_VIOLATION, {
             "you use necromancy on corpses, chunks or skeletons", true,
-            1, 1, " forgives your inadvertent necromancy, just this once."
+            1, 1, TR7(" forgives your inadvertent necromancy, just this once.","은(는) 다시는 이러한 행동을 하지 않겠다는 전제하에, 당신의 강령술 사용을 용서해주었다.")
         } },
         { DID_KILL_PLANT, {
             "you destroy plants", false,
@@ -435,8 +436,8 @@ static peeve_map divine_peeves[] =
     {
         { DID_HASTY, {
             "you hasten yourself or others", true,
-            1, 1, " forgives your accidental hurry, just this once.",
-            " thinks you should slow down.", nullptr, -5
+            1, 1, TR7(" forgives your accidental hurry, just this once.","은(는) 다시는 이러한 행동을 하지 않겠다는 전제하에, 당신의 서두름을 용서해주었다."),
+            TR7(" thinks you should slow down.","은(는) 당신에게 감속할 것을 요구했다."), nullptr, -5
         } },
     },
     // GOD_ASHENZARI,
@@ -624,7 +625,7 @@ static like_response _on_kill(const char* desc, mon_holy_type holiness,
         _piety_bonus_for_holiness(holiness),
         18,
         god_is_good ? 0 : 2,
-        " accepts your kill.",
+        TR7(" accepts your kill.","은(는) 당신의 살생을 기뻐했다."),
         special
     };
 }
@@ -670,7 +671,7 @@ static like_response okawaru_kill(const char* desc)
                      uppercase_first(god_name(you.religion)).c_str());
             }
             else if (piety > 9) // might still be miniscule
-                simple_god_message(" accepts your kill.");
+                simple_god_message(TR7(" accepts your kill.","은(는) 당신의 살생을 기뻐했다."));
         }
     };
 }
@@ -735,7 +736,7 @@ static like_map divine_likes[] =
                                      const monster* victim)
             {
                 piety *= 2;
-                simple_god_message(" appreciates your killing of a holy being.");
+                simple_god_message(TR7(" appreciates your killing of a holy being.","은(는) 당신이 신성한 존재를 죽인 것을 기뻐했다."));
             },
             true
         ) },
@@ -826,7 +827,7 @@ static like_map divine_likes[] =
         { DID_KILL_NONLIVING, KILL_NONLIVING_RESPONSE },
         { DID_KILL_WIZARD, {
             "you kill wizards and other users of magic", true,
-            -6, 10, 0, " appreciates your killing of a magic user."
+            -6, 10, 0, TR7(" appreciates your killing of a magic user.","은(는) 당신이 마법 사용자를 죽인 것을 기뻐했다.")
         } },
     },
     // GOD_NEMELEX_XOBEH,
@@ -854,7 +855,7 @@ static like_map divine_likes[] =
         { DID_KILL_NONLIVING, KILL_NONLIVING_RESPONSE },
         { DID_BANISH, {
             "you banish creatures to the Abyss", false,
-            -6, 18, 2, " claims a new guest."
+            -6, 18, 2, TR7(" claims a new guest.","은(는) 어비스로 새 손님을 초대한 것을 기뻐했다.")
         } },
     },
     // GOD_BEOGH,
@@ -866,7 +867,7 @@ static like_map divine_likes[] =
         { DID_KILL_NONLIVING, KILL_NONLIVING_RESPONSE },
         { DID_KILL_PRIEST, {
             "you kill the priests of other religions", true,
-            -6, 18, 0, " appreciates your killing of a heretic priest."
+            -6, 18, 0, TR7(" appreciates your killing of a heretic priest.","은(는) 당신이 이단자를 죽인 것을 기뻐했다.")
         } },
     },
     // GOD_JIYVA,
@@ -892,11 +893,11 @@ static like_map divine_likes[] =
 
                 if (speed_delta > 0 && x_chance_in_y(speed_delta, 12))
                 {
-                    simple_god_message(" thoroughly appreciates the change of pace.");
+                    simple_god_message(TR7(" thoroughly appreciates the change of pace.","은(는) 재빠른 존재를 살생한 것을 크게 기뻐했다."));
                     piety *= 2;
                 }
                 else
-                    simple_god_message(" appreciates the change of pace.");
+                    simple_god_message(TR7(" appreciates the change of pace.","은(는) 당신보다 빠른 존재를 살생한 것을 기뻐했다."));
             }
         } }
     },

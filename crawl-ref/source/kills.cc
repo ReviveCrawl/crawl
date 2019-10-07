@@ -26,6 +26,7 @@
 #include "travel.h"
 #include "unwind.h"
 #include "viewchar.h"
+#include "i18n-format.h"
 
 #define KILLS_MAJOR_VERSION 4
 #define KILLS_MINOR_VERSION 1
@@ -154,7 +155,7 @@ string KillMaster::kill_info() const
     {
         char buf[200];
         snprintf(buf, sizeof buf,
-                "Grand Total: %d creatures vanquished",
+                TR7("Grand Total: %d creatures vanquished","총 합계: %d마리의 몬스터를 잡았다"),
                 grandtotal);
         grandt = buf;
     }
@@ -216,7 +217,7 @@ void KillMaster::add_kill_info(string &killtext,
         if (separator)
             killtext += "\n";
 
-        killtext += "Vanquished Creatures";
+        killtext += TR7("Vanquished Creatures","처치한 몬스터: ");
         if (category)
             killtext += string(" (") + category + ")";
 
@@ -426,16 +427,16 @@ static string kill_times(int kills)
     switch (kills)
     {
     case 1:
-        strcpy(buf, " (once)");
+        strcpy(buf, TR7(" (once)","(1회)"));
         break;
     case 2:
-        strcpy(buf, " (twice)");
+        strcpy(buf, TR7(" (twice)","(2회)"));
         break;
     case 3:
-        strcpy(buf, " (thrice)");
+        strcpy(buf, TR7(" (thrice)","(3회)"));
         break;
     default:
-        snprintf(buf, sizeof buf, " (%d times)", kills);
+        snprintf(buf, sizeof buf, TR7(" (%d times)","(%d회)"), kills);
         break;
     }
     return string(buf);
@@ -516,7 +517,7 @@ string kill_def::info(const kill_monster_desc &md) const
             && md.monnum != MONS_SHAPESHIFTER
             && md.monnum != MONS_GLOWING_SHAPESHIFTER)
         {
-            name += " (shapeshifter)";
+            name += TR7(" (shapeshifter)","(변형괴물)");
         }
     }
     else if (kills > 1)
@@ -961,7 +962,7 @@ static int kill_lualc_summary(lua_State *ls)
     *buf = 0;
     if (count)
     {
-        snprintf(buf, sizeof buf, "%u creature%s vanquished.",
+        snprintf(buf, sizeof buf, TR7("%u creature%s vanquished.","%d마리의 몬스터%s을(를) 처치했다."),
                 count, count > 1? "s" : "");
     }
     lua_pushstring(ls, buf);

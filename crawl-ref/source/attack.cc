@@ -43,6 +43,7 @@
 #include "stringutil.h"
 #include "transform.h"
 #include "xom.h"
+#include "i18n-format.h"
 
 /*
  **************************************************
@@ -472,12 +473,12 @@ bool attack::distortion_affects_defender()
     switch (choice)
     {
     case SMALL_DMG:
-        special_damage_message = make_stringf("Space bends around %s.",
+        special_damage_message = make_stringf(TR7("Space bends around %s.","%s 주변의 공간이 일그러졌다."),
                                               defender_name(false).c_str());
         special_damage += 1 + random2avg(7, 2);
         break;
     case BIG_DMG:
-        special_damage_message = make_stringf("Space warps horribly around %s!",
+        special_damage_message = make_stringf(TR7("Space warps horribly around %s!","%s 주변의 공간이 심하게 요동친다!"),
                                               defender_name(false).c_str());
         special_damage += 3 + random2avg(24, 2);
         break;
@@ -551,7 +552,7 @@ void attack::pain_affects_defender()
         if (special_damage && defender_visible)
         {
             special_damage_message =
-                make_stringf("%s %s in agony.",
+                make_stringf(TR7("%s %s in agony.","%s은(는) 고통으로 온 몸을 비틀었다."),
                              defender->name(DESC_THE).c_str(),
                              defender->conj_verb("writhe").c_str());
         }
@@ -713,7 +714,7 @@ void attack::chaos_affects_defender()
         if (defender->is_player() && have_passive(passive_t::no_haste)
             && beam.flavour == BEAM_HASTE)
         {
-            simple_god_message(" protects you from inadvertent hurry.");
+            simple_god_message(TR7(" protects you from inadvertent hurry.","은(는) 당신을 예기치 못한 가속으로부터 지켰다."));
             obvious_effect = true;
             return;
         }
@@ -998,10 +999,10 @@ string attack_strength_punctuation(int dmg)
  */
 string attack::evasion_margin_adverb()
 {
-    return (ev_margin <= -20) ? " completely" :
+    return (ev_margin <= -20) ? TR7(" completely"," 완벽하게") :
            (ev_margin <= -12) ? "" :
-           (ev_margin <= -6)  ? " closely"
-                              : " barely";
+           (ev_margin <= -6)  ? TR7(" closely"," 겨우")
+                              : TR7(" barely"," 아슬아슬하게");
 }
 
 void attack::stab_message()
@@ -1019,14 +1020,14 @@ void attack::stab_message()
         }
         else
         {
-            mprf("You catch %s momentarily off-guard.",
+            mprf(TR7("You catch %s momentarily off-guard.","당신은 %s의 헛점을 정확하게 찾아내었다."),
                   defender->name(DESC_THE).c_str());
         }
         break;
     case 4:     // confused/fleeing
         if (!one_chance_in(3))
         {
-            mprf("You catch %s completely off-guard!",
+            mprf(TR7("You catch %s completely off-guard!","당신은 %s이(가) 완전히 무방비한 순간을 노렸다!"),
                   defender->name(DESC_THE).c_str());
         }
         else
@@ -1040,11 +1041,11 @@ void attack::stab_message()
     case 1:
         if (you.species == SP_FELID && coinflip())
         {
-            mprf("You pounce on the unaware %s!",
+            mprf(TR7("You pounce on the unaware %s!","당신은 %s이(가) 눈치채지 못하게 기습을 날렸다!"),
                  defender->name(DESC_PLAIN).c_str());
             break;
         }
-        mprf("%s fails to defend %s.",
+        mprf(TR7("%s fails to defend %s.","%s은(는) %s을(를) 방어하는데 실패했다."),
               defender->name(DESC_THE).c_str(),
               defender->pronoun(PRONOUN_REFLEXIVE).c_str());
         break;
@@ -1510,7 +1511,7 @@ bool attack::apply_damage_brand(const char *what)
         {
             special_damage_message =
                 defender->is_player()?
-                   "You are electrocuted!"
+                   TR7("You are electrocuted!","당신은 감전되었다!")
                 :  make_stringf("Lightning courses through %s!",
                                 defender->name(DESC_THE).c_str());
             special_damage = 8 + random2(13);
@@ -1565,7 +1566,7 @@ bool attack::apply_damage_brand(const char *what)
                 }
                 else
                 {
-                    mprf("%s is healed.",
+                    mprf(TR7("%s is healed.","%s은(는) 치료되었다."),
                          attacker->name(DESC_THE).c_str());
                 }
             }

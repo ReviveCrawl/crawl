@@ -29,6 +29,7 @@
 #ifdef USE_TILE
  #include "tilepick.h"
 #endif
+#include "i18n-format.h"
 
 /**
  * Returns a spellset containing the spells for the given item.
@@ -545,7 +546,7 @@ static void _describe_book(const spellbook_contents &book,
         }
 
         string schools =
-            source_item->base_type == OBJ_RODS ? "Evocations"
+            source_item->base_type == OBJ_RODS ? TR7("Evocations","발동술")
                                                : _spell_schools(spell);
         description.cprintf("%s%d\n",
                             chop_string(schools, 30).c_str(),
@@ -612,7 +613,7 @@ static void _write_book(const spellbook_contents &book,
         }
 
         string schools = (source_item && source_item->base_type == OBJ_RODS) ?
-                "Evocations" : _spell_schools(spell);
+                TR7("Evocations","발동술") : _spell_schools(spell);
         tiles.json_write_string("schools", schools);
         tiles.json_write_int("level", spell_difficulty(spell));
         tiles.json_close_object();

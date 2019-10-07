@@ -40,6 +40,7 @@
 #include "stringutil.h"
 #include "terrain.h"
 #include "unwind.h"
+#include "i18n-format.h"
 
 static equipment_type _acquirement_armour_slot(bool);
 static armour_type _acquirement_armour_for_slot(equipment_type, bool);
@@ -1032,7 +1033,7 @@ static bool _do_book_acquirement(item_def &book, int agent)
 static int _failed_acquirement(bool quiet)
 {
     if (!quiet)
-        mpr("The demon of the infinite void smiles upon you.");
+        mpr(TR7("The demon of the infinite void smiles upon you.", "무한한 공허의 악마가 당신을 향해 미소 짓는다."));
     return NON_ITEM;
 }
 
@@ -1466,7 +1467,7 @@ int acquirement_create_item(object_class_type class_wanted,
         && agent < NUM_GODS)
     {
         if (agent == GOD_XOM)
-            simple_god_message(" snickers.", GOD_XOM);
+            simple_god_message(TR7(" snickers.", "은 낄낄대며 웃었다."), GOD_XOM);
         else
             return _failed_acquirement(quiet);
     }
@@ -1503,12 +1504,12 @@ bool acquirement(object_class_type class_wanted, int agent,
     {
         { OBJ_WEAPONS,    "Weapon" },
         { OBJ_ARMOUR,     "Armour" },
-        { OBJ_JEWELLERY,  "Jewellery" },
+        { OBJ_JEWELLERY,  TR7("Jewellery","장신구") },
         { OBJ_BOOKS,      "Book" },
         { OBJ_STAVES,     "Staff " },
         { OBJ_MISCELLANY, "Evocable" },
         { OBJ_FOOD,       0 }, // amended below
-        { OBJ_GOLD,       "Gold" },
+        { OBJ_GOLD,       TR7("Gold","금화") },
     };
     ASSERT(acq_classes[6].type == OBJ_FOOD);
     acq_classes[6].name = you.species == SP_VAMPIRE ? "Blood":
@@ -1544,7 +1545,7 @@ bool acquirement(object_class_type class_wanted, int agent,
                 line.clear();
             }
         }
-        mprf(MSGCH_PROMPT, "What kind of item would you like to acquire? (\\ to view known items)");
+        mprf(MSGCH_PROMPT, TR7("What kind of item would you like to acquire? (\\ to view known items)", "어떤 종류의 아이템을 원하는가? (\\ 를 눌러 알고 있는 아이템 보기)"));
 
         const int keyin = toalower(get_ch());
         if (keyin >= 'a' && keyin < 'a' + (int)ARRAYSZ(acq_classes))

@@ -34,6 +34,7 @@
 #include "state.h"
 #include "stringutil.h"
 #include "unicode.h"
+#include "i18n-format.h"
 
 // Putting this here since art-enum.h is generated.
 
@@ -645,13 +646,13 @@ static const artefact_prop_data artp_data[] =
         _gen_good_res_artp, _gen_bad_res_artp, 2, 4 },
     { "rElec", ARTP_VAL_BOOL, 55,   // ARTP_ELECTRICITY,
         []() { return 1; }, nullptr, 0, 0  },
-    { "rPois", ARTP_VAL_BOOL, 55,   // ARTP_POISON,
+    { TR7("rPois","독저항"), ARTP_VAL_BOOL, 55,   // ARTP_POISON,
         []() { return 1; }, nullptr, 0, 0 },
     { "rN", ARTP_VAL_ANY, 55,       // ARTP_NEGATIVE_ENERGY,
         _gen_good_res_artp, nullptr, 2, 4 },
     { "MR", ARTP_VAL_ANY, 50,       // ARTP_MAGIC_RESISTANCE,
         _gen_good_res_artp, _gen_bad_res_artp, 2, 4 },
-    { "SInv", ARTP_VAL_BOOL, 30,    // ARTP_SEE_INVISIBLE,
+    { TR7("SInv","감지"), ARTP_VAL_BOOL, 30,    // ARTP_SEE_INVISIBLE,
         []() { return 1; }, nullptr, 0, 0 },
     { "+Inv", ARTP_VAL_BOOL, 15,    // ARTP_INVISIBLE,
         []() { return 1; }, nullptr, 0, 0 },
@@ -672,7 +673,7 @@ static const artefact_prop_data artp_data[] =
     { "*Rage", ARTP_VAL_POS, 25,    // ARTP_ANGRY,
         nullptr, []() { return 5; }, 0, 0 },
 #if TAG_MAJOR_VERSION == 34
-    { "Hungry", ARTP_VAL_POS, 0, nullptr, nullptr, 0, 0 },// ARTP_METABOLISM,
+    { TR7("Hungry","배고픔"), ARTP_VAL_POS, 0, nullptr, nullptr, 0, 0 },// ARTP_METABOLISM,
 #endif
     { "*Contam", ARTP_VAL_POS, 20,   // ARTP_CONTAM
         nullptr, []() { return 1; }, 0, 0 },
@@ -687,17 +688,17 @@ static const artefact_prop_data artp_data[] =
         _gen_good_res_artp, _gen_bad_res_artp, 0, 0 },
     { "MP", ARTP_VAL_ANY, 15,       // ARTP_MAGICAL_POWER,
         _gen_good_hpmp_artp, _gen_bad_hpmp_artp, 0, 0 },
-    { "Delay", ARTP_VAL_ANY, 0, nullptr, nullptr, 0, 0 }, // ARTP_BASE_DELAY,
+    { TR7("Delay","지연"), ARTP_VAL_ANY, 0, nullptr, nullptr, 0, 0 }, // ARTP_BASE_DELAY,
     { "HP", ARTP_VAL_ANY, 0,       // ARTP_HP,
         _gen_good_hpmp_artp, _gen_bad_hpmp_artp, 0, 0 },
     { "Clar", ARTP_VAL_BOOL, 0, nullptr, nullptr, 0, 0 }, // ARTP_CLARITY,
     { "BAcc", ARTP_VAL_ANY, 0, nullptr, nullptr, 0, 0 },  // ARTP_BASE_ACC,
     { "BDam", ARTP_VAL_ANY, 0, nullptr, nullptr, 0, 0 },  // ARTP_BASE_DAM,
-    { "RMsl", ARTP_VAL_BOOL, 0, nullptr, nullptr, 0, 0 }, // ARTP_RMSL,
+    { TR7("RMsl","편향"), ARTP_VAL_BOOL, 0, nullptr, nullptr, 0, 0 }, // ARTP_RMSL,
 #if TAG_MAJOR_VERSION == 34
     { "+Fog", ARTP_VAL_BOOL, 0, nullptr, nullptr, 0, 0 }, // ARTP_FOG,
 #endif
-    { "Regen", ARTP_VAL_BOOL, 35,   // ARTP_REGENERATION,
+    { TR7("Regen","재생"), ARTP_VAL_BOOL, 35,   // ARTP_REGENERATION,
         []() { return 1; }, nullptr, 0, 0 },
 #if TAG_MAJOR_VERSION == 34
     { "SustAt", ARTP_VAL_BOOL, 0, nullptr, nullptr, 0, 0 }, // ARTP_SUSTAT,
@@ -1680,7 +1681,7 @@ static void _make_faerie_armour(item_def &item)
             continue;
         }
 
-        // -Cast makes no sense on someone called "the Enchantress".
+        // -Cast makes no sense on someone called TR7("the Enchantress","스프리건 대주술사").
         if (artefact_property(doodad, ARTP_PREVENT_SPELLCASTING))
             continue;
 

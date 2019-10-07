@@ -82,6 +82,8 @@
 #endif
 #include "unicode.h"
 
+#include "i18n-format.h"
+
 using namespace ui;
 
 int count_desc_lines(const string &_desc, const int width)
@@ -232,8 +234,8 @@ const char* jewellery_base_ability_string(int subtype)
     case RING_SUSTAIN_ATTRIBUTES: return "SustAt";
 #endif
     case RING_WIZARDRY:           return "Wiz";
-    case RING_FIRE:               return "Fire";
-    case RING_ICE:                return "Ice";
+    case RING_FIRE:               return TR7("Fire","화염 마술");
+    case RING_ICE:                return TR7("Ice","얼음 마술");
     case RING_TELEPORTATION:      return "*Tele";
     case RING_RESIST_CORROSION:   return "rCorr";
 #if TAG_MAJOR_VERSION == 34
@@ -242,7 +244,7 @@ const char* jewellery_base_ability_string(int subtype)
     case AMU_HARM:                return "Harm";
     case AMU_MANA_REGENERATION:   return "RegenMP";
     case AMU_THE_GOURMAND:        return "Gourm";
-    case AMU_ACROBAT:             return "Acrobat";
+    case AMU_ACROBAT:             return TR7("Acrobat","경쾌한 묘기꾼");
 #if TAG_MAJOR_VERSION == 34
     case AMU_CONSERVATION:        return "Cons";
     case AMU_CONTROLLED_FLIGHT:   return "cFly";
@@ -524,38 +526,38 @@ static string _randart_descrip(const item_def &item)
 
     const property_descriptor propdescs[] =
     {
-        { ARTP_AC, "It affects your AC (%d).", false },
-        { ARTP_EVASION, "It affects your evasion (%d).", false},
-        { ARTP_STRENGTH, "It affects your strength (%d).", false},
-        { ARTP_INTELLIGENCE, "It affects your intelligence (%d).", false},
-        { ARTP_DEXTERITY, "It affects your dexterity (%d).", false},
+        { ARTP_AC, TR7("It affects your AC (%d).","이것은 당신의 방어력에 영향을 준다 (%d)"), false },
+        { ARTP_EVASION, TR7("It affects your evasion (%d).","이것은 당신의 회피력에 영향을 준다 (%d)"), false},
+        { ARTP_STRENGTH, TR7("It affects your strength (%d).","이것은 당신의 힘에 영향을 준다 (%d)"), false},
+        { ARTP_INTELLIGENCE, TR7("It affects your intelligence (%d).","이것은 당신의 지능에 영향을 준다 (%d)."), false},
+        { ARTP_DEXTERITY, TR7("It affects your dexterity (%d).","이것은 당신의 민첩에 영향을 준다 (%d)."), false},
         { ARTP_SLAYING, "It affects your accuracy and damage with ranged "
                         "weapons and melee attacks (%d).", false},
         { ARTP_FIRE, "fire", true},
         { ARTP_COLD, "cold", true},
-        { ARTP_ELECTRICITY, "It insulates you from electricity.", false},
+        { ARTP_ELECTRICITY, TR7("It insulates you from electricity.","이것은 당신을 전기 쇼크로부터 보호한다."), false},
         { ARTP_POISON, "poison", true},
         { ARTP_NEGATIVE_ENERGY, "negative energy", true},
         { ARTP_MAGIC_RESISTANCE, "It affects your resistance to hostile "
                                  "enchantments.", false},
-        { ARTP_HP, "It affects your health (%d).", false},
-        { ARTP_MAGICAL_POWER, "It affects your magic capacity (%d).", false},
+        { ARTP_HP, TR7("It affects your health (%d).","이것은 당신의 생명력에 영향을 준다 (%d)."), false},
+        { ARTP_MAGICAL_POWER, TR7("It affects your magic capacity (%d).","이것은 당신의 마력에 영향을 준다 (%d)."), false},
         { ARTP_SEE_INVISIBLE, "It lets you see invisible.", false},
-        { ARTP_INVISIBLE, "It lets you turn invisible.", false},
-        { ARTP_FLY, "It lets you fly.", false},
-        { ARTP_BLINK, "It lets you blink.", false},
-        { ARTP_BERSERK, "It lets you go berserk.", false},
+        { ARTP_INVISIBLE, TR7("It lets you turn invisible.","이것은 당신이 투명화를 할 수 있게 해준다."), false},
+        { ARTP_FLY, TR7("It lets you fly.","이것은 당신이 비행을 할 수 있게 해준다."), false},
+        { ARTP_BLINK, TR7("It lets you blink.","이것은 당신이 순간이동을 할 수 있게 해준다."), false},
+        { ARTP_BERSERK, TR7("It lets you go berserk.","이것은 당신이 광폭화를 할 수 있게 해준다."), false},
         { ARTP_NOISE, "It may make noises in combat.", false},
-        { ARTP_PREVENT_SPELLCASTING, "It prevents spellcasting.", false},
+        { ARTP_PREVENT_SPELLCASTING, TR7("It prevents spellcasting.","이것은 당신의 주문시전을 방해한다."), false},
         { ARTP_CAUSE_TELEPORTATION, "It may teleport you next to monsters.", false},
-        { ARTP_PREVENT_TELEPORTATION, "It prevents most forms of teleportation.",
+        { ARTP_PREVENT_TELEPORTATION, TR7("It prevents most forms of teleportation.","이것은 대부분의 공간이동을 방해한다."),
           false},
         { ARTP_ANGRY,  "It may make you go berserk in combat.", false},
         { ARTP_CURSE, "It curses itself when equipped.", false},
-        { ARTP_CLARITY, "It protects you against confusion.", false},
-        { ARTP_CONTAM, "It causes magical contamination when unequipped.", false},
-        { ARTP_RMSL, "It protects you from missiles.", false},
-        { ARTP_REGENERATION, "It increases your rate of regeneration.", false},
+        { ARTP_CLARITY, TR7("It protects you against confusion.","이것은 당신을 혼란으로부터 보호한다."), false},
+        { ARTP_CONTAM, TR7("It causes magical contamination when unequipped.","이것을 해제할 경우, 마력 오염을 일으킬 것이다."), false},
+        { ARTP_RMSL, TR7("It protects you from missiles.","이것은 당신을 발사체로부터 보호한다."), false},
+        { ARTP_REGENERATION, TR7("It increases your rate of regeneration.","이것은 당신의 재생력을 향상시킨다."), false},
         { ARTP_RCORR, "It provides partial protection from all sources of acid and corrosion.",
           false},
         { ARTP_RMUT, "It protects you from mutation.", false},
@@ -674,7 +676,7 @@ string full_trap_name(trap_type trap)
 
 int str_to_trap(const string &s)
 {
-    // "Zot trap" is capitalised in trap_names[], but the other trap
+    // TR7("Zot trap","조트의 함정") is capitalised in trap_names[], but the other trap
     // names aren't.
     const string tspec = lowercase_string(s);
 
@@ -771,25 +773,25 @@ static string _describe_demon(const string& name, bool flying)
 
     static const char* misc_descs[] =
     {
-        " It seethes with hatred of the living.",
-        " Tiny orange flames dance around it.",
-        " Tiny purple flames dance around it.",
-        " It is surrounded by a weird haze.",
-        " It glows with a malevolent light.",
-        " It looks incredibly angry.",
-        " It oozes with slime.",
-        " It dribbles constantly.",
-        " Mould grows all over it.",
+        TR7(" It seethes with hatred of the living."," 이 악마는 살아있는 존재들에 대한 강한 적개심을 표출하고 있다."),
+        TR7(" Tiny orange flames dance around it."," 오렌지 색 빛의 작은 불덩어리들이 이 악마의 주변을 춤추듯 배회하고 있다."),
+        TR7(" Tiny purple flames dance around it."," 보랏빛의 작은 불덩어리들이 이 악마의 주변을 춤추듯 배회하고 있다."),
+        TR7(" It is surrounded by a weird haze."," 이 악마는 옅으면서도 괴상한 연기에 둘러싸여 있다."),
+        TR7(" It glows with a malevolent light."," 이 악마는 불경스러운 빛을 내며 발광하고 있다."),
+        TR7(" It looks incredibly angry."," 이 악마는 극도로 분노한 듯 보인다."),
+        TR7(" It oozes with slime."," 이 악마는 점액을 흘리고 있다."),
+        TR7(" It dribbles constantly."," 이 악마는 끊임없이 침을 흘리고 있다."),
+        TR7(" Mould grows all over it."," 곰팡이들이 이 악마의 몸에 피어 있다."),
         " Its body is covered in fungus.",
         " It is covered with lank hair.",
-        " It looks diseased.",
-        " It looks as frightened of you as you are of it.",
-        " It moves in a series of hideous convulsions.",
-        " It moves with an unearthly grace.",
-        " It leaves a glistening oily trail.",
-        " It shimmers before your eyes.",
-        " It is surrounded by a brilliant glow.",
-        " It radiates an aura of extreme power.",
+        TR7(" It looks diseased."," 이 악마는 병에 걸린것 같다."),
+        TR7(" It looks as frightened of you as you are of it."," 이 악마는 당신이 겁에 질린 만큼 당신에게 겁에 질려 있다."),
+        TR7(" It moves in a series of hideous convulsions."," 이 악마는 흉측스럽게 경기를 일으키면서 움직이고 있다."),
+        TR7(" It moves with an unearthly grace."," 이 악마는 믿을 수 없을 정도로 우아하게 움직인다."),
+        TR7(" It leaves a glistening oily trail."," 이 악마는 윤기가 흐르는 기름의 궤적을 남기며 움직이고 있다."),
+        TR7(" It shimmers before your eyes."," 이 악마는 당신의 눈 뒤에서 희미하게 빛난다."),
+        TR7(" It is surrounded by a brilliant glow."," 이 악마는 화려한 광채를 내고 있다."),
+        TR7(" It radiates an aura of extreme power."," 이 악마는 궁극의 힘의 오라를 방출하고 있다."),
         " It seems utterly heartbroken.",
         " It seems filled with irrepressible glee.",
         " It constantly shivers and twitches.",
@@ -814,7 +816,7 @@ static string _describe_demon(const string& name, bool flying)
     static const char* smell_descs[] =
     {
         " It smells of brimstone.",
-        " It is surrounded by a sickening stench.",
+        TR7(" It is surrounded by a sickening stench."," 이 악마에게서 고약한 악취가 진동하고 있다."),
         " It smells of rotting flesh.",
         " It stinks of death.",
         " It stinks of decay.",
@@ -1098,8 +1100,8 @@ static void _append_weapon_stats(string &description, const item_def &item)
     }
 
     description += make_stringf(
-    "\nBase accuracy: %+d  Base damage: %d  Base attack delay: %.1f"
-    "\nThis weapon's minimum attack delay (%.1f) is reached at skill level %d.",
+    TR7("\nBase accuracy: %+d  Base damage: %d  Base attack delay: %.1f","\n기본 정확도: %+d  기본 데미지: %d  기본 공격 딜레이: %.1f")
+    TR7("\nThis weapon's minimum attack delay (%.1f) is reached at skill level %d.","\n이 무기의 최소 공격 딜레이는 (%.1f)에 도달합니다. ( 스킬레벨이 %d 일때 )"),
         property(item, PWPN_HIT),
         base_dam + ammo_dam,
         (float) property(item, PWPN_SPEED) / 10,
@@ -1126,10 +1128,10 @@ static string _handedness_string(const item_def &item)
         if (you.species == SP_FORMICID)
             description += "It is a weapon for one hand-pair.";
         else
-            description += "It is a one handed weapon.";
+            description += TR7("It is a one handed weapon.", "한손무기다");
         break;
     case HANDS_TWO:
-        description += "It is a two handed weapon.";
+        description += TR7("It is a two handed weapon.", "양손무기다");
         break;
     }
 
@@ -1159,7 +1161,7 @@ static string _describe_weapon(const item_def &item, bool verbose)
         switch (item_attack_skill(item))
         {
         case SK_POLEARMS:
-            description += "\n\nIt can be evoked to extend its reach.";
+            description += TR7("\n\nIt can be evoked to extend its reach.","\n\n이 무기는 발동을 통해 사거리를 늘려 공격하는 것이 가능하다.");
             break;
         case SK_AXES:
             description += "\n\nIt hits all enemies adjacent to the wielder, "
@@ -1263,9 +1265,9 @@ static string _describe_weapon(const item_def &item, bool verbose)
             break;
         case SPWPN_VENOM:
             if (is_range_weapon(item))
-                description += "It poisons the ammo it fires.";
+                description += TR7("It poisons the ammo it fires.","발사되는 화살이나 다트 등에 독을 부여한다.");
             else
-                description += "It poisons the flesh of those it strikes.";
+                description += TR7("It poisons the flesh of those it strikes.","이 무기는 공격당한 상대를 독에 걸리게 한다.");
             break;
         case SPWPN_PROTECTION:
             description += "It protects the one who uses it against "
@@ -1366,39 +1368,39 @@ static string _describe_weapon(const item_def &item, bool verbose)
         if (!item_ident(item, ISFLAG_KNOW_PROPERTIES)
             && item_type_known(item))
         {
-            description += "\nThis weapon may have some hidden properties.";
+            description += "\n";
+            description += TR7("This weapon may have some hidden properties.", "이 무기는 숨겨진 능력이 있을 것 같다.");
         }
     }
 
     if (verbose)
     {
-        description += "\n\nThis ";
-        if (is_unrandom_artefact(item))
-            description += get_artefact_base_name(item);
-        else
-            description += "weapon";
-        description += " falls into the";
-
         const skill_type skill = item_attack_skill(item);
-
-        description +=
-            make_stringf(" '%s' category. ",
-                         skill == SK_FIGHTING ? "buggy" : skill_name(skill));
+        description += "\n\n";
+        description += make_stringf(TR7("This %s falls into the '%s' category. ","이 %s(은)는 '%s'류로 분류된다."),
+            is_unrandom_artefact(item) ? get_artefact_base_name(item).c_str() : TR7("weapon", "무기"),
+            skill == SK_FIGHTING ? "buggy" : skill_name(skill)
+        );
 
         description += _handedness_string(item);
 
         if (!you.could_wield(item, true) && crawl_state.need_save)
-            description += "\nIt is too large for you to wield.";
+        {
+            description += "\n";
+            description += TR7("It is too large for you to wield.","이 무기는 장비하기에 너무 커 보인다.");
+        }
     }
 
     if (!is_artefact(item))
     {
-        if (item_ident(item, ISFLAG_KNOW_PLUSES) && item.plus >= MAX_WPN_ENCHANT)
-            description += "\nIt cannot be enchanted further.";
+        if (item_ident(item, ISFLAG_KNOW_PLUSES) && item.plus >= MAX_WPN_ENCHANT){
+            description += "\n";
+            description += TR7("It cannot be enchanted further.","이것은 더 이상 강화할 수 없다.");
+        }
         else
         {
-            description += "\nIt can be maximally enchanted to +"
-                           + to_string(MAX_WPN_ENCHANT) + ".";
+            description += "\n";
+            description += make_stringf(TR7("It can be maximally enchanted to +%s.","이것은 최대 +%s까지 강화가 가능하다."), to_string(MAX_WPN_ENCHANT).c_str());
         }
     }
 
@@ -1423,7 +1425,7 @@ static string _describe_ammo(const item_def &item)
         {
             threw_or_fired += "threw";
             if (can_launch)
-                threw_or_fired += " or ";
+                threw_or_fired += TR7(" or "," 혹은 ");
         }
         if (can_launch)
             threw_or_fired += "fired";
@@ -1456,12 +1458,12 @@ static string _describe_ammo(const item_def &item)
             }
 
             if (can_launch)
-                description += "fired from an appropriate launcher, ";
+                description += TR7("fired from an appropriate launcher, ","이것을 발사할 수 있는 무기로 발사하면, ");
 
             description += "it has a random effect.";
             break;
         case SPMSL_POISONED:
-            description += "It is coated with poison.";
+            description += TR7("It is coated with poison.","이것은 독이 발라져 있다.");
             break;
         case SPMSL_CURARE:
             description += "It is tipped with a substance that causes "
@@ -1471,17 +1473,17 @@ static string _describe_ammo(const item_def &item)
                            "other needles.";
             break;
         case SPMSL_PARALYSIS:
-            description += "It is tipped with a paralysing substance.";
+            description += TR7("It is tipped with a paralysing substance.","끝에 마비를 일으키는 물질이 발라져 있다.");
             break;
         case SPMSL_SLEEP:
-            description += "It is coated with a fast-acting tranquilizer.";
+            description += TR7("It is coated with a fast-acting tranquilizer.","효과빠른 수면제가 발라져 있다.");
             break;
         case SPMSL_CONFUSION:
-            description += "It is tipped with a substance that causes confusion.";
+            description += TR7("It is tipped with a substance that causes confusion.","혼란을 일으키는 물질이 발라져 있다.");
             break;
 #if TAG_MAJOR_VERSION == 34
         case SPMSL_SICKNESS:
-            description += "It has been contaminated by something likely to cause disease.";
+            description += TR7("It has been contaminated by something likely to cause disease.","질병을 일으킬 것 같이 오염되어 있다.");
             break;
 #endif
         case SPMSL_FRENZY:
@@ -1607,18 +1609,18 @@ static string _describe_armour(const item_def &item, bool verbose)
         else
         {
             const int evp = property(item, PARM_EVASION);
-            description += "\n\nBase armour rating: "
+            description += TR7("\n\nBase armour rating: ","\n\n방어력 등급       :")
                         + to_string(property(item, PARM_AC));
             if (get_armour_slot(item) == EQ_BODY_ARMOUR)
             {
-                description += "       Encumbrance rating: "
+                description += TR7("       Encumbrance rating: ","       움직임 방해 등급:   ")
                             + to_string(-evp / 10);
             }
             // Bardings reduce evasion by a fixed amount, and don't have any of
             // the other effects of encumbrance.
             else if (evp)
             {
-                description += "       Evasion: "
+                description += TR7("       Evasion: ", "       회피력 : ")
                             + to_string(evp / 30);
             }
 
@@ -1644,103 +1646,103 @@ static string _describe_armour(const item_def &item, bool verbose)
         {
         case SPARM_RUNNING:
             if (item.sub_type == ARM_NAGA_BARDING)
-                description += "It allows its wearer to slither at a great speed.";
+                description += TR7("It allows its wearer to slither at a great speed.","착용자를 빠른 속도로 기어갈 수 있게 해준다.");
             else
-                description += "It allows its wearer to run at a great speed.";
+                description += TR7("It allows its wearer to run at a great speed.","착용자를 빠른 속도로 달릴 수 있게 해준다.");
             break;
         case SPARM_FIRE_RESISTANCE:
-            description += "It protects its wearer from heat.";
+            description += TR7("It protects its wearer from heat.","착용자를 열기로부터 보호한다.");
             break;
         case SPARM_COLD_RESISTANCE:
-            description += "It protects its wearer from cold.";
+            description += TR7("It protects its wearer from cold.","착용자를 냉기로부터 보호한다.");
             break;
         case SPARM_POISON_RESISTANCE:
-            description += "It protects its wearer from poison.";
+            description += TR7("It protects its wearer from poison.","착용자를 독으로부터 보호한다.");
             break;
         case SPARM_SEE_INVISIBLE:
-            description += "It allows its wearer to see invisible things.";
+            description += TR7("It allows its wearer to see invisible things.","착용자가 투명한 것들을 볼 수 있게 해준다.");
             break;
         case SPARM_INVISIBILITY:
-            description += "When activated it hides its wearer from "
-                "the sight of others, but also increases "
-                "their metabolic rate by a large amount.";
+            description += TR7("When activated it hides its wearer from ","발동시 이것은 착용자를 주위 시선으로부터 숨기지만, 동시에 신진대사의 속도도 큰 폭으로 증가하게 된다.")
+                TR7("the sight of others, but also increases ","")
+                TR7("their metabolic rate by a large amount.","");
             break;
         case SPARM_STRENGTH:
-            description += "It increases the physical power of its wearer (+3 to strength).";
+            description += TR7("It increases the physical power of its wearer (+3 to strength).","착용자의 물리적 힘을 증가시킨다. (+3 힘)");
             break;
         case SPARM_DEXTERITY:
-            description += "It increases the dexterity of its wearer (+3 to dexterity).";
+            description += TR7("It increases the dexterity of its wearer (+3 to dexterity).","착용자의 민첩성을 증가시킨다. (+3 민첩성)");
             break;
         case SPARM_INTELLIGENCE:
-            description += "It makes you more clever (+3 to intelligence).";
+            description += TR7("It makes you more clever (+3 to intelligence).","착용자를 더욱 똑똑하게 만들어준다. (+3 지능)");
             break;
         case SPARM_PONDEROUSNESS:
-            description += "It is very cumbersome, thus slowing your movement.";
+            description += TR7("It is very cumbersome, thus slowing your movement.","움직임에 매우 방해가 되어, 이동속도를 감소시킨다.");
             break;
         case SPARM_FLYING:
-            description += "It can be activated to allow its wearer to "
-                "fly indefinitely.";
+            description += TR7("It can be activated to allow its wearer to ","발동시켜 착용자를 공중으로 떠올라 비행하도록 할 수 있다. 공중에 떠 있는 상태는 어느정도 지속된다.")
+                TR7("fly indefinitely.","");
             break;
         case SPARM_MAGIC_RESISTANCE:
-            description += "It increases its wearer's resistance "
-                "to enchantments.";
+            description += TR7("It increases its wearer's resistance ","착용자의 마법에 대한 저항력을 강화시킨다.")
+                TR7("to enchantments.","");
             break;
         case SPARM_PROTECTION:
-            description += "It protects its wearer from harm (+3 to AC).";
+            description += TR7("It protects its wearer from harm (+3 to AC).","착용자를 물리적 피해로부터 보호한다. (+3 AC)");
             break;
         case SPARM_STEALTH:
-            description += "It enhances the stealth of its wearer.";
+            description += TR7("It enhances the stealth of its wearer.","착용자가 더 은밀하게 움직일 수 있도록 해준다.");
             break;
         case SPARM_RESISTANCE:
-            description += "It protects its wearer from the effects "
-                "of both cold and heat.";
+            description += TR7("It protects its wearer from the effects ","착용자를 냉기와 불로부터 보호한다.")
+                TR7("of both cold and heat.","");
             break;
         case SPARM_POSITIVE_ENERGY:
-            description += "It protects its wearer from "
-                "the effects of negative energy.";
+            description += TR7("It protects its wearer from ","착용자를 음에너지로부터 보호한다.")
+                TR7("the effects of negative energy.","");
             break;
 
         // This is only for robes.
         case SPARM_ARCHMAGI:
-            description += "It increases the power of its wearer's "
-                "magical spells.";
+            description += TR7("It increases the power of its wearer's ","착용자가 시전하는 주문의 위력을 강화시킨다.")
+                TR7("magical spells.","");
             break;
 #if TAG_MAJOR_VERSION == 34
         case SPARM_PRESERVATION:
-            description += "It does nothing special.";
+            description += TR7("It does nothing special.","특별한 것은 없습니다.");
             break;
 #endif
         case SPARM_REFLECTION:
-            description += "It reflects blocked things back in the "
-                "direction they came from.";
+            description += TR7("It reflects blocked things back in the ","막은 것들을 그것들이 온 방향으로 되돌려보낸다.")
+                TR7("direction they came from.","");
             break;
 
         case SPARM_SPIRIT_SHIELD:
-            description += "It shields its wearer from harm at the cost "
-                "of magical power.";
+            description += TR7("It shields its wearer from harm at the cost ","마나를 소모하여 착용자를 피해로부터 보호한다.")
+                TR7("of magical power.","");
             break;
 
         case SPARM_NORMAL:
             ASSERT(enchanted);
-            description += "It has no special ego (it is not resistant to "
-                           "fire, etc), but is still enchanted in some way - "
-                           "positive or negative.";
+            description += TR7("It has no special ego (it is not resistant to ","특별한 에고가 없습니다 ( 불에대한 저항, 등등 ) 그러나 어떤 방식으로 마법에 걸렸습니다. - 긍정적이거나 부정적입니다.")
+                           TR7("fire, etc), but is still enchanted in some way - ","")
+                           TR7("positive or negative.","");
 
             break;
 
         // This is only for gloves.
         case SPARM_ARCHERY:
-            description += "It improves your effectiveness with ranged "
-                           "weaponry, such as bows and javelins (Slay+4).";
+            description += TR7("It improves your effectiveness with ranged ","활과 자벨린같은 원거리 무기의 공격 효과를 향상시킵니다. (Slay+4)")
+                           TR7("weaponry, such as bows and javelins (Slay+4).","");
             break;
 
         // These are only for scarves.
         case SPARM_REPULSION:
-            description += "It protects its wearer by repelling missiles.";
+            description += TR7("It protects its wearer by repelling missiles.","투사체를 밀어내 착용자를 보호합니다.");
             break;
 
         case SPARM_CLOUD_IMMUNE:
-            description += "It completely protects its wearer from the effects of clouds.";
+            description += TR7("It completely protects its wearer from the effects of clouds.","착용자를 구름의 영향으로부터 완전히 보호합니다.");
             break;
         }
     }
@@ -1756,18 +1758,18 @@ static string _describe_armour(const item_def &item, bool verbose)
 
         // Can't happen, right? (XXX)
         if (!item_ident(item, ISFLAG_KNOW_PROPERTIES) && item_type_known(item))
-            description += "\nThis armour may have some hidden properties.";
+            description += TR7("\nThis armour may have some hidden properties.","\n이 방어구는 왠지 숨겨진 능력이 있을 것 같다.");
     }
     else
     {
         const int max_ench = armour_max_enchant(item);
         if (item.plus < max_ench || !item_ident(item, ISFLAG_KNOW_PLUSES))
         {
-            description += "\n\nIt can be maximally enchanted to +"
-                           + to_string(max_ench) + ".";
+            description += TR7("\n\nIt can be maximally enchanted to +","\n\n이것은 최대 다음까지 강화가 가능하다. (+")
+                           + to_string(max_ench) + TR7(".",")");
         }
         else
-            description += "\n\nIt cannot be enchanted further.";
+            description += TR7("\n\nIt cannot be enchanted further.","\n\n이것은 더 이상 강화할 수 없다.");
     }
 
     return description;
@@ -1788,38 +1790,38 @@ static string _describe_jewellery(const item_def &item, bool verbose)
             switch (item.sub_type)
             {
             case RING_PROTECTION:
-                description += make_stringf("\nIt affects your AC (%+d).",
+                description += make_stringf(TR7("\nIt affects your AC (%+d).","\n이것은 당신의 방어력에 영향을 준다 (%+d)"),
                                             item.plus);
                 break;
 
             case RING_EVASION:
-                description += make_stringf("\nIt affects your evasion (%+d).",
+                description += make_stringf(TR7("\nIt affects your evasion (%+d).","\n이것은 당신의 회피력에 영향을 준다 (%+d)"),
                                             item.plus);
                 break;
 
             case RING_STRENGTH:
-                description += make_stringf("\nIt affects your strength (%+d).",
+                description += make_stringf(TR7("\nIt affects your strength (%+d).","\n이것은 당신의 힘에 영향을 준다 (%+d)"),
                                             item.plus);
                 break;
 
             case RING_INTELLIGENCE:
-                description += make_stringf("\nIt affects your intelligence (%+d).",
+                description += make_stringf(TR7("\nIt affects your intelligence (%+d).","\n이것은 당신의 지능에 영향을 준다 (%+d)."),
                                             item.plus);
                 break;
 
             case RING_DEXTERITY:
-                description += make_stringf("\nIt affects your dexterity (%+d).",
+                description += make_stringf(TR7("\nIt affects your dexterity (%+d).","\n이것은 당신의 민첩에 영향을 준다 (%+d)."),
                                             item.plus);
                 break;
 
             case RING_SLAYING:
-                description += make_stringf("\nIt affects your accuracy and"
-                      " damage with ranged weapons and melee attacks (%+d).",
+                description += make_stringf(TR7("\nIt affects your accuracy and","\n 원거리 무기 및 근접 공격의 정확도와 데미지에 영향을 줍니다. (%+d)")
+                      TR7(" damage with ranged weapons and melee attacks (%+d).",""),
                       item.plus);
                 break;
 
             case AMU_REFLECTION:
-                description += make_stringf("\nIt affects your shielding (%+d).",
+                description += make_stringf(TR7("\nIt affects your shielding (%+d).","\n막는 능력에 영향을 미칩니다. (%+d)"),
                                             item.plus);
                 break;
 
@@ -1841,9 +1843,9 @@ static string _describe_jewellery(const item_def &item, bool verbose)
         if (!item_ident(item, ISFLAG_KNOW_PROPERTIES) ||
             !item_ident(item, ISFLAG_KNOW_TYPE))
         {
-            description += "\nThis ";
-            description += (jewellery_is_amulet(item) ? "amulet" : "ring");
-            description += " may have hidden properties.";
+            description += TR7("\nThis ","\n이");
+            description += (jewellery_is_amulet(item) ? TR7("amulet","부적") : TR7("ring","링"));
+            description += TR7(" may have hidden properties.","은 숨겨진 능력을 갖고 있는듯 하다.");
         }
     }
 
@@ -1859,7 +1861,7 @@ static bool _check_buggy_deck(const item_def &deck, string &desc)
 {
     if (!is_deck(deck))
     {
-        desc += "This isn't a deck at all!\n";
+        desc += TR7("This isn't a deck at all!\n","이것은 덱이 아닙니다!\n");
         return true;
     }
 
@@ -1890,15 +1892,15 @@ static string _describe_deck(const item_def &item)
     if (item_type_known(item))
         description += deck_contents(item.sub_type) + "\n";
 
-    description += make_stringf("\nMost decks begin with %d to %d cards.",
+    description += make_stringf(TR7("\nMost decks begin with %d to %d cards.","대부분의 덱은 %d에서 %d카드로 시작합니다."),
                                 MIN_STARTING_CARDS,
                                 MAX_STARTING_CARDS);
 
     const vector<card_type> drawn_cards = get_drawn_cards(item);
     if (!drawn_cards.empty())
     {
-        description += "\n";
-        description += "Drawn card(s): ";
+        description += TR7("\n","");
+        description += TR7("Drawn card(s): ","뽑은 카드 : ");
         description += comma_separated_fn(drawn_cards.begin(),
                                           drawn_cards.end(),
                                           card_name);
@@ -1930,7 +1932,7 @@ static string _describe_deck(const item_def &item)
     if (!seen_top_cards.empty())
     {
         description += "\n";
-        description += "Next card(s): ";
+        description += TR7("Next card(s): ","다음 카드: ");
         description += comma_separated_fn(seen_top_cards.begin(),
                                           seen_top_cards.end(),
                                           card_name);
@@ -1941,7 +1943,7 @@ static string _describe_deck(const item_def &item)
         sort(other_seen_cards.begin(), other_seen_cards.end(),
              _compare_card_names);
 
-        description += "Seen card(s): ";
+        description += TR7("Seen card(s): ","확인한 카드: ");
         description += comma_separated_fn(other_seen_cards.begin(),
                                           other_seen_cards.end(),
                                           card_name);
@@ -2025,7 +2027,7 @@ string get_item_description(const item_def &item, bool verbose,
         else if (is_artefact(item) && item_type_known(item)
                  && item.base_type == OBJ_JEWELLERY)
         {
-            description << "It is an ancient artefact.";
+            description << TR7("It is an ancient artefact.","고대의 유물이다.");
             need_base_desc = false;
         }
 
@@ -2038,7 +2040,7 @@ string get_item_description(const item_def &item, bool verbose,
             {
                 if (item_type_known(item))
                 {
-                    description << "[ERROR: no desc for item name '" << db_name
+                    description << TR7("[ERROR: no desc for item name '","[ERROR: 아이템의 설명을 찾을 수 없다 '") << db_name
                                 << "']. Perhaps this item has been removed?\n";
                 }
                 else
@@ -2116,7 +2118,7 @@ string get_item_description(const item_def &item, bool verbose,
             switch (determine_chunk_effect(item))
             {
             case CE_NOXIOUS:
-                description << "\n\nThis meat is toxic.";
+                description << TR7("\n\nThis meat is toxic.","\n\n이 고기는 유독합니다.");
                 break;
             default:
                 break;
@@ -2130,7 +2132,7 @@ string get_item_description(const item_def &item, bool verbose,
             _append_weapon_stats(stats, item);
             description << stats;
         }
-        description << "\n\nIt falls into the 'Staves' category. ";
+        description << TR7("\n\nIt falls into the 'Staves' category. ","\n\n이 이것은 '지팡이'류로 분류된다.");
         description << _handedness_string(item);
         break;
 
@@ -2203,7 +2205,7 @@ string get_item_description(const item_def &item, bool verbose,
     }
 
     if (!verbose && item_known_cursed(item))
-        description << "\nIt has a curse placed upon it.";
+        description << TR7("\nIt has a curse placed upon it.","\n이것에는 저주가 걸려있다.");
     else
     {
         if (verbose)
@@ -2211,21 +2213,21 @@ string get_item_description(const item_def &item, bool verbose,
             if (need_extra_line)
                 description << "\n";
             if (item_known_cursed(item))
-                description << "\nIt has a curse placed upon it.";
+                description << TR7("\nIt has a curse placed upon it.","\n이것에는 저주가 걸려있다.");
 
             if (is_artefact(item))
             {
                 if (item.base_type == OBJ_ARMOUR
                     || item.base_type == OBJ_WEAPONS)
                 {
-                    description << "\nThis ancient artefact cannot be changed "
-                        "by magic or mundane means.";
+                    description << TR7("\nThis ancient artefact cannot be changed ","\n이것은 고대의 아티팩트로, 마법이나 일상의 수단으로는 변화시킬 수 없다.")
+                        TR7("by magic or mundane means.","");
                 }
                 // Randart jewellery has already displayed this line.
                 else if (item.base_type != OBJ_JEWELLERY
                          || (item_type_known(item) && is_unrandom_artefact(item)))
                 {
-                    description << "\nIt is an ancient artefact.";
+                    description << TR7("\nIt is an ancient artefact.","\n이것은 고대의 아티팩트다.");
                 }
             }
         }
@@ -2244,11 +2246,11 @@ string get_item_description(const item_def &item, bool verbose,
     // a docs file you don't know to exist is tedious.
     if (verbose)
     {
-        description << "\n\n" << "Stash search prefixes: "
+        description << "\n\n" << TR7("Stash search prefixes: ","이 아이템에 대한 검색어: ")
                     << userdef_annotate_item(STASH_LUA_SEARCH_ANNOTATE, &item);
         string menu_prefix = item_prefix(item, false);
         if (!menu_prefix.empty())
-            description << "\nMenu/colouring prefixes: " << menu_prefix;
+            description << TR7("\nMenu/colouring prefixes: ","\n메뉴/컬러링 접두어: ") << menu_prefix;
     }
 
     return description.str();
@@ -2595,29 +2597,29 @@ static string _actions_desc(const vector<command_type>& actions, const item_def&
 {
     static const map<command_type, string> act_str =
     {
-        { CMD_WIELD_WEAPON, "(w)ield" },
-        { CMD_UNWIELD_WEAPON, "(u)nwield" },
-        { CMD_QUIVER_ITEM, "(q)uiver" },
-        { CMD_WEAR_ARMOUR, "(w)ear" },
-        { CMD_REMOVE_ARMOUR, "(t)ake off" },
-        { CMD_EVOKE, "e(v)oke" },
-        { CMD_EAT, "(e)at" },
-        { CMD_READ, "(r)ead" },
-        { CMD_WEAR_JEWELLERY, "(p)ut on" },
-        { CMD_REMOVE_JEWELLERY, "(r)emove" },
-        { CMD_QUAFF, "(q)uaff" },
-        { CMD_DROP, "(d)rop" },
-        { CMD_INSCRIBE_ITEM, "(i)nscribe" },
-        { CMD_ADJUST_INVENTORY, "(=)adjust" },
-        { CMD_SET_SKILL_TARGET, "(s)kill" },
+        { CMD_WIELD_WEAPON, TR7("(w)ield","(w)장비") },
+        { CMD_UNWIELD_WEAPON, TR7("(u)nwield","(u)해제") },
+        { CMD_QUIVER_ITEM, TR7("(q)uiver","(q)장착") },
+        { CMD_WEAR_ARMOUR, TR7("(w)ear","(q)착용") },
+        { CMD_REMOVE_ARMOUR, TR7("(t)ake off","(t)벗기") },
+        { CMD_EVOKE, TR7("e(v)oke","(v)발동") },
+        { CMD_EAT, TR7("(e)at","(e)식사") },
+        { CMD_READ, TR7("(r)ead","(r)읽기") },
+        { CMD_WEAR_JEWELLERY, TR7("(p)ut on","(p)장착") },
+        { CMD_REMOVE_JEWELLERY, TR7("(r)emove","(r)해제") },
+        { CMD_QUAFF, TR7("(q)uaff","(q)마시기") },
+        { CMD_DROP, TR7("(d)rop","(d)버림") },
+        { CMD_INSCRIBE_ITEM, TR7("(i)nscribe","(i)문장 새기기") },
+        { CMD_ADJUST_INVENTORY, TR7("(=)adjust","(=)단축키 변경") },
+        { CMD_SET_SKILL_TARGET, TR7("(s)kill","(s)스킬 목표지정") },
     };
     return comma_separated_fn(begin(actions), end(actions),
                                 [] (command_type cmd)
                                 {
                                     return act_str.at(cmd);
                                 },
-                                ", or ")
-           + " the " + item.name(DESC_BASENAME) + ".";
+                                TR7(", or "," 혹은 "))
+           + TR7(" the "," - 대상 : ") + item.name(DESC_BASENAME) + TR7(".", "");
 }
 
 // Take a key and a list of commands and return the command from the list
@@ -2889,8 +2891,8 @@ void inscribe_item(item_def &item)
     mprf_nocap(MSGCH_EQUIPMENT, "%s", item.name(DESC_INVENTORY).c_str());
 
     const bool is_inscribed = !item.inscription.empty();
-    string prompt = is_inscribed ? "Replace inscription with what? "
-                                 : "Inscribe with what? ";
+    string prompt = is_inscribed ? TR7("Replace inscription with what? ","문장을 무엇으로 교체할 것인가? ")
+                                 : TR7("Inscribe with what? ","무슨 문장을 새길 것인가? ");
 
     char buf[79];
     int ret = msgwin_get_line(prompt, buf, sizeof buf, nullptr,
@@ -2943,13 +2945,13 @@ static string _player_spell_stats(const spell_type spell)
     const string failure = failure_rate_to_string(raw_spell_fail(spell));
     description += make_stringf("        Fail: %s", failure.c_str());
 
-    description += "\n\nPower : ";
+    description += TR7("\n\nPower : ","\n\n위력   : ");
     description += spell_power_string(spell);
-    description += "\nRange : ";
+    description += TR7("\nRange : ","\n사정거리 : ");
     description += spell_range_string(spell);
-    description += "\nHunger: ";
+    description += TR7("\nHunger: ","\n만복도  : ");
     description += spell_hunger_string(spell);
-    description += "\nNoise : ";
+    description += TR7("\nNoise : ","\n소음   : ");
     description += spell_noise_string(spell);
     description += "\n";
     return description;
@@ -2974,13 +2976,13 @@ string get_skill_description(skill_type skill, bool need_title)
             if (you.species == SP_DEMIGOD)
             {
                 result += "\n";
-                result += "How on earth did you manage to pick this up?";
+                result += TR7("How on earth did you manage to pick this up?","어떻게 반신족이 기도술의 설명을 볼 수 있었는가?");
             }
             else if (you_worship(GOD_TROG))
             {
                 result += "\n";
-                result += "Note that Trog doesn't use Invocations, due to its "
-                          "close connection to magic.";
+                result += TR7("Note that Trog doesn't use Invocations, due to its ","트로그의 권능은 기도술에 의지하지 않음을 기억하라.")
+                          TR7("close connection to magic.","기도술은 마법과 밀접한 관련이 있다.");
             }
             break;
 
@@ -2988,8 +2990,8 @@ string get_skill_description(skill_type skill, bool need_title)
             if (you_worship(GOD_TROG))
             {
                 result += "\n";
-                result += "Keep in mind, though, that Trog will greatly "
-                          "disapprove of this.";
+                result += TR7("Keep in mind, though, that Trog will greatly ","명심해라.")
+                          TR7("disapprove of this.","주문을 사용하는 것은 '트로그'의 큰 반감을 사는 행위이다.");
             }
             break;
         default:
@@ -3042,33 +3044,33 @@ static string _player_spell_desc(spell_type spell)
     const int limit = summons_limit(spell);
     if (limit)
     {
-        description += "You can sustain at most " + number_in_words(limit)
-                        + " creature" + (limit > 1 ? "s" : "")
-                        + " summoned by this spell.\n";
+        description += TR7("You can sustain at most ","당신은 이 주문을 통해, 최대 ") + number_in_words(limit)
+                        + TR7(" creature","인(마리)") + (limit > 1 ? TR7("s","") : "")
+                        + TR7(" summoned by this spell.\n","의 소환물을 유지시킬 수 있다.\n");
     }
 
     if (god_hates_spell(spell, you.religion))
     {
         description += uppercase_first(god_name(you.religion))
-                       + " frowns upon the use of this spell.\n";
+                       + TR7(" frowns upon the use of this spell.\n","은(는) 이 마법을 사용하시는 것을 내켜하지 않는다.\n");
         if (god_loathes_spell(spell, you.religion))
-            description += "You'd be excommunicated if you dared to cast it!\n";
+            description += TR7("You'd be excommunicated if you dared to cast it!\n","이 주문을 외우면 즉시 파문당할 것이다!\n");
     }
     else if (god_likes_spell(spell, you.religion))
     {
         description += uppercase_first(god_name(you.religion))
-                       + " supports the use of this spell.\n";
+                       + TR7(" supports the use of this spell.\n","은(는) 이 마법의 사용을 돕는다.\n");
     }
 
     if (!you_can_memorise(spell))
     {
-        description += "\nYou cannot memorise this spell because "
+        description += TR7("\nYou cannot memorise this spell because ","\n_")
                        + desc_cannot_memorise_reason(spell)
                        + "\n";
     }
     else if (spell_is_useless(spell, true, false))
     {
-        description += "\nThis spell will have no effect right now because "
+        description += TR7("\nThis spell will have no effect right now because ","\n_")
                        + spell_uselessness_reason(spell, true, false)
                        + "\n";
     }
@@ -3115,12 +3117,12 @@ static bool _get_spell_description(const spell_type spell,
         description += long_descrip;
     else
     {
-        description += "This spell has no description. "
-                       "Casting it may therefore be unwise. "
+        description += TR7("This spell has no description. ","_")
+                       TR7("Casting it may therefore be unwise. ","_")
 #ifdef DEBUG
-                       "Instead, go fix it. ";
+                       TR7("Instead, go fix it. ","_");
 #else
-                       "Please file a bug report.";
+                       TR7("Please file a bug report.","_");
 #endif
     }
 
@@ -3128,7 +3130,7 @@ static bool _get_spell_description(const spell_type spell,
     {
         const int hd = mon_owner->spell_hd();
         const int range = mons_spell_range(spell, hd);
-        description += "\nRange : "
+        description += TR7("\nRange : ", "\n사정거리 : ")
                        + range_string(range, range, mons_char(mon_owner->type))
                        + "\n";
 
@@ -3203,11 +3205,11 @@ static string _spell_sources(const spell_type spell)
     }
 
     if (books.empty())
-        return "\nThis spell is not found in any books.";
+        return TR7("\nThis spell is not found in any books.","\n이 주문은 마법서로부터는 찾을 수 없다.");
 
     string desc;
 
-    desc += "\nThis spell can be found in the following book";
+    desc += TR7("\nThis spell can be found in the following book","\n이 주문은 다음 마법서들에서 습득할 수 있다");
     if (books.size() > 1)
         desc += "s";
     desc += ":\n ";
@@ -3283,7 +3285,7 @@ void describe_spell(spell_type spell, const monster_info *mon_owner,
     if (can_mem)
     {
         auto more = make_shared<Text>();
-        more->set_text(formatted_string("(M)emorise this spell.", CYAN));
+        more->set_text(formatted_string(TR7("(M)emorise this spell.","(M)이 마법을 암기한다."), CYAN));
         more->set_margin_for_crt({1, 0, 0, 0});
         more->set_margin_for_sdl({20, 0, 0, 0});
         vbox->add_child(move(more));
@@ -3356,50 +3358,50 @@ static string _describe_draconian(const monster_info& mi)
 
     if (subsp != mi.type)
     {
-        description += "It has ";
+        description += TR7("It has ","");
 
         switch (subsp)
         {
-        case MONS_BLACK_DRACONIAN:      description += "black ";   break;
-        case MONS_YELLOW_DRACONIAN:     description += "yellow ";  break;
-        case MONS_GREEN_DRACONIAN:      description += "green ";   break;
-        case MONS_PURPLE_DRACONIAN:     description += "purple ";  break;
-        case MONS_RED_DRACONIAN:        description += "red ";     break;
-        case MONS_WHITE_DRACONIAN:      description += "white ";   break;
-        case MONS_GREY_DRACONIAN:       description += "grey ";    break;
-        case MONS_PALE_DRACONIAN:       description += "pale ";    break;
+        case MONS_BLACK_DRACONIAN:      description += TR7("black ","검은 ");   break;
+        case MONS_YELLOW_DRACONIAN:     description += TR7("yellow ","노란 ");  break;
+        case MONS_GREEN_DRACONIAN:      description += TR7("green ","녹색 ");   break;
+        case MONS_PURPLE_DRACONIAN:     description += TR7("purple ","보라색 ");  break;
+        case MONS_RED_DRACONIAN:        description += TR7("red ","붉은색 ");     break;
+        case MONS_WHITE_DRACONIAN:      description += TR7("white ","흰색 ");   break;
+        case MONS_GREY_DRACONIAN:       description += TR7("grey ","회색 ");    break;
+        case MONS_PALE_DRACONIAN:       description += TR7("pale ","옅은 색 ");    break;
         default:
             break;
         }
 
-        description += "scales. ";
+        description += TR7("scales. ","비늘이 있다.");
     }
 
     switch (subsp)
     {
     case MONS_BLACK_DRACONIAN:
-        description += "Sparks flare out of its mouth and nostrils.";
+        description += TR7("Sparks flare out of its mouth and nostrils.","입과 콧구멍에서 스파크가 튄다.");
         break;
     case MONS_YELLOW_DRACONIAN:
-        description += "Acidic fumes swirl around it.";
+        description += TR7("Acidic fumes swirl around it.","산성 가스가 주위를 소용돌이 친다.");
         break;
     case MONS_GREEN_DRACONIAN:
-        description += "Venom drips from its jaws.";
+        description += TR7("Venom drips from its jaws.","턱에서 독액이 뚝뚝 떨어진다.");
         break;
     case MONS_PURPLE_DRACONIAN:
-        description += "Its outline shimmers with magical energy.";
+        description += TR7("Its outline shimmers with magical energy.","외곽선이 마법적 에너지로 반짝인다.");
         break;
     case MONS_RED_DRACONIAN:
-        description += "Smoke pours from its nostrils.";
+        description += TR7("Smoke pours from its nostrils.","연기가 콧구멍에서 흘러나온다.");
         break;
     case MONS_WHITE_DRACONIAN:
-        description += "Frost pours from its nostrils.";
+        description += TR7("Frost pours from its nostrils.","냉기가 콧구멍에서 흘러나온다.");
         break;
     case MONS_GREY_DRACONIAN:
-        description += "Its scales and tail are adapted to the water.";
+        description += TR7("Its scales and tail are adapted to the water.","비늘과 꼬리가 물에 쉽게 적응한다.");
         break;
     case MONS_PALE_DRACONIAN:
-        description += "It is cloaked in a pall of superheated steam.";
+        description += TR7("It is cloaked in a pall of superheated steam.","과열된 증기로 은폐하고 있다.");
         break;
     default:
         break;
@@ -3413,16 +3415,16 @@ static string _describe_demonspawn_role(monster_type type)
     switch (type)
     {
     case MONS_BLOOD_SAINT:
-        return "It weaves powerful and unpredictable spells of devastation.";
+        return TR7("It weaves powerful and unpredictable spells of devastation.","강력하고 예측할 수 없는 황폐의 마법을 만듭니다.");
     case MONS_WARMONGER:
-        return "It is devoted to combat, disrupting the magic of its foes as "
-               "it battles endlessly.";
+        return TR7("It is devoted to combat, disrupting the magic of its foes as ","끝없이 전투를 벌여 적들의 마법을 혼란시킵니다.")
+               TR7("it battles endlessly.","");
     case MONS_CORRUPTER:
-        return "It corrupts space around itself, and can twist even the very "
-               "flesh of its opponents.";
+        return TR7("It corrupts space around itself, and can twist even the very ","주변의 공간을 오염시키고 상대방의 살점을 뒤틀어버릴 수 있습니다.")
+               TR7("flesh of its opponents.","");
     case MONS_BLACK_SUN:
-        return "It shines with an unholy radiance, and wields powers of "
-               "darkness from its devotion to the deities of death.";
+        return TR7("It shines with an unholy radiance, and wields powers of ","부정한 파장을 흩뿌리며, 죽음의 신에 대한 헌신을 위해 어둠의 군세를 휘두릅니다.")
+               TR7("darkness from its devotion to the deities of death.","");
     default:
         return "";
     }
@@ -3433,13 +3435,13 @@ static string _describe_demonspawn_base(int species)
     switch (species)
     {
     case MONS_MONSTROUS_DEMONSPAWN:
-        return "It is more beast now than whatever species it is descended from.";
+        return TR7("It is more beast now than whatever species it is descended from.","어떤 종보다도 더욱 짐승같습니다.");
     case MONS_GELID_DEMONSPAWN:
-        return "It is covered in icy armour.";
+        return TR7("It is covered in icy armour.","얼음 갑옷으로 감싸져 있습니다.");
     case MONS_INFERNAL_DEMONSPAWN:
-        return "It gives off an intense heat.";
+        return TR7("It gives off an intense heat.","엄청난 열을 내뿜고 있습니다.");
     case MONS_TORTUROUS_DEMONSPAWN:
-        return "It menaces with bony spines.";
+        return TR7("It menaces with bony spines.","뼈처럼 튼튼한 가시로 위협합니다.");
     }
     return "";
 }
@@ -3466,27 +3468,27 @@ static const char* _get_resist_name(mon_resist_flags res_type)
     switch (res_type)
     {
     case MR_RES_ELEC:
-        return "electricity";
+        return TR7("electricity","전기적인");
     case MR_RES_POISON:
-        return "poison";
+        return TR7("poison","독의");
     case MR_RES_FIRE:
-        return "fire";
+        return TR7("fire","화염의");
     case MR_RES_STEAM:
-        return "steam";
+        return TR7("steam","증기의");
     case MR_RES_COLD:
-        return "cold";
+        return TR7("cold","냉기의");
     case MR_RES_ACID:
-        return "acid";
+        return TR7("acid","산성의");
     case MR_RES_ROTTING:
-        return "rotting";
+        return TR7("rotting","부패의");
     case MR_RES_NEG:
-        return "negative energy";
+        return TR7("negative energy","음에너지의");
     case MR_RES_DAMNATION:
-        return "damnation";
+        return TR7("damnation","파멸의 저주의");
     case MR_RES_TORNADO:
-        return "tornadoes";
+        return TR7("tornadoes","폭풍의");
     default:
-        return "buggy resistance";
+        return TR7("buggy resistance","버그 저항의");
     }
 }
 
@@ -3494,12 +3496,12 @@ static const char* _get_threat_desc(mon_threat_level_type threat)
 {
     switch (threat)
     {
-    case MTHRT_TRIVIAL: return "harmless";
-    case MTHRT_EASY:    return "easy";
-    case MTHRT_TOUGH:   return "dangerous";
-    case MTHRT_NASTY:   return "extremely dangerous";
+    case MTHRT_TRIVIAL: return TR7("harmless","무해한");
+    case MTHRT_EASY:    return TR7("easy","쉬운");
+    case MTHRT_TOUGH:   return TR7("dangerous","위험한");
+    case MTHRT_NASTY:   return TR7("extremely dangerous","극히 위험한");
     case MTHRT_UNDEF:
-    default:            return "buggily threatening";
+    default:            return TR7("buggily threatening","버그 위협의");
     }
 }
 
@@ -3516,9 +3518,9 @@ static const char* _special_flavour_prefix(attack_flavour flavour)
     switch (flavour)
     {
         case AF_KITE:
-            return "retreat from adjacent foes and ";
+            return TR7("retreat from adjacent foes and ","인접한 적들로부터 물러나고 ");
         case AF_SWOOP:
-            return "swoop behind its foe and ";
+            return TR7("swoop behind its foe and ","적의 뒤에서 기습하고 ");
         default:
             return "";
     }
@@ -3534,54 +3536,54 @@ static const char* _special_flavour_prefix(attack_flavour flavour)
 static const char* _flavour_range_desc(attack_flavour flavour)
 {
     if (flavour == AF_REACH || flavour == AF_REACH_STING)
-        return " from a distance";
+        return TR7(" from a distance"," 원거리에서");
     return "";
 }
 
 static string _flavour_base_desc(attack_flavour flavour)
 {
     static const map<attack_flavour, string> base_descs = {
-        { AF_ACID,              "deal extra acid damage"},
-        { AF_BLINK,             "blink itself" },
-        { AF_COLD,              "deal up to %d extra cold damage" },
-        { AF_CONFUSE,           "cause confusion" },
-        { AF_DRAIN_STR,         "drain strength" },
-        { AF_DRAIN_INT,         "drain intelligence" },
-        { AF_DRAIN_DEX,         "drain dexterity" },
-        { AF_DRAIN_STAT,        "drain strength, intelligence or dexterity" },
-        { AF_DRAIN_XP,          "drain skills" },
-        { AF_ELEC,              "deal up to %d extra electric damage" },
-        { AF_FIRE,              "deal up to %d extra fire damage" },
-        { AF_HUNGER,            "cause hunger" },
-        { AF_MUTATE,            "cause mutations" },
-        { AF_POISON_PARALYSE,   "poison and cause paralysis or slowing" },
-        { AF_POISON,            "cause poisoning" },
-        { AF_POISON_STRONG,     "cause strong poisoning" },
-        { AF_ROT,               "cause rotting" },
-        { AF_VAMPIRIC,          "drain health from the living" },
-        { AF_KLOWN,             "cause random powerful effects" },
-        { AF_DISTORT,           "cause wild translocation effects" },
-        { AF_RAGE,              "cause berserking" },
-        { AF_STICKY_FLAME,      "apply sticky flame" },
-        { AF_CHAOTIC,           "cause unpredictable effects" },
-        { AF_STEAL,             "steal items" },
-        { AF_CRUSH,             "begin ongoing constriction" },
+        { AF_ACID,              TR7("deal extra acid damage","추가적인 산성 데미지를")},
+        { AF_BLINK,             TR7("blink itself","스스로 블링크") },
+        { AF_COLD,              TR7("deal up to %d extra cold damage","_") },
+        { AF_CONFUSE,           TR7("cause confusion","_") },
+        { AF_DRAIN_STR,         TR7("drain strength","_") },
+        { AF_DRAIN_INT,         TR7("drain intelligence","_") },
+        { AF_DRAIN_DEX,         TR7("drain dexterity","_") },
+        { AF_DRAIN_STAT,        TR7("drain strength, intelligence or dexterity","_") },
+        { AF_DRAIN_XP,          TR7("drain skills","_") },
+        { AF_ELEC,              TR7("deal up to %d extra electric damage","_") },
+        { AF_FIRE,              TR7("deal up to %d extra fire damage","_") },
+        { AF_HUNGER,            TR7("cause hunger","_") },
+        { AF_MUTATE,            TR7("cause mutations","_") },
+        { AF_POISON_PARALYSE,   TR7("poison and cause paralysis or slowing","_") },
+        { AF_POISON,            TR7("cause poisoning","_") },
+        { AF_POISON_STRONG,     TR7("cause strong poisoning","_") },
+        { AF_ROT,               TR7("cause rotting","_") },
+        { AF_VAMPIRIC,          TR7("drain health from the living","_") },
+        { AF_KLOWN,             TR7("cause random powerful effects","_") },
+        { AF_DISTORT,           TR7("cause wild translocation effects","_") },
+        { AF_RAGE,              TR7("cause berserking","_") },
+        { AF_STICKY_FLAME,      TR7("apply sticky flame","_") },
+        { AF_CHAOTIC,           TR7("cause unpredictable effects","_") },
+        { AF_STEAL,             TR7("steal items","_") },
+        { AF_CRUSH,             TR7("begin ongoing constriction","_") },
         { AF_REACH,             "" },
-        { AF_HOLY,              "deal extra damage to undead and demons" },
-        { AF_ANTIMAGIC,         "drain magic" },
-        { AF_PAIN,              "cause pain to the living" },
-        { AF_ENSNARE,           "ensnare with webbing" },
-        { AF_ENGULF,            "engulf with water" },
+        { AF_HOLY,              TR7("deal extra damage to undead and demons","_") },
+        { AF_ANTIMAGIC,         TR7("drain magic","_") },
+        { AF_PAIN,              TR7("cause pain to the living","_") },
+        { AF_ENSNARE,           TR7("ensnare with webbing","_") },
+        { AF_ENGULF,            TR7("engulf with water","_") },
         { AF_PURE_FIRE,         "" },
-        { AF_DRAIN_SPEED,       "drain speed" },
-        { AF_VULN,              "reduce resistance to hostile enchantments" },
-        { AF_SHADOWSTAB,        "deal increased damage when unseen" },
-        { AF_DROWN,             "deal drowning damage" },
-        { AF_CORRODE,           "cause corrosion" },
-        { AF_SCARAB,            "drain speed and drain health" },
-        { AF_TRAMPLE,           "knock back the defender" },
-        { AF_REACH_STING,       "cause poisoning" },
-        { AF_WEAKNESS,          "cause weakness" },
+        { AF_DRAIN_SPEED,       TR7("drain speed","_") },
+        { AF_VULN,              TR7("reduce resistance to hostile enchantments","_") },
+        { AF_SHADOWSTAB,        TR7("deal increased damage when unseen","_") },
+        { AF_DROWN,             TR7("deal drowning damage","_") },
+        { AF_CORRODE,           TR7("cause corrosion","_") },
+        { AF_SCARAB,            TR7("drain speed and drain health","_") },
+        { AF_TRAMPLE,           TR7("knock back the defender","_") },
+        { AF_REACH_STING,       TR7("cause poisoning","_") },
+        { AF_WEAKNESS,          TR7("cause weakness","_") },
         { AF_KITE,              "" },
         { AF_SWOOP,             "" },
         { AF_PLAIN,             "" },
@@ -3693,7 +3695,7 @@ static string _monster_attacks_description(const monster_info& mi)
         if (attack.flavour == AF_PURE_FIRE)
         {
             attack_descs.push_back(
-                make_stringf("%s for up to %d fire damage",
+                make_stringf(TR7("%s for up to %d fire damage",""),
                              mon_attack_name(attack.type, false).c_str(),
                              flavour_damage(attack.flavour, mi.hd, false)));
             continue;
@@ -3736,7 +3738,7 @@ static string _monster_attacks_description(const monster_info& mi)
 static string _monster_spells_description(const monster_info& mi)
 {
     static const string panlord_desc =
-        "It may possess any of a vast number of diabolical powers.\n";
+        TR7("It may possess any of a vast number of diabolical powers.\n","그것은 엄청난 수의 악마적인 힘을 소유하고있을 수 있습니다.\n");
 
     // Show a generic message for pan lords, since they're secret.
     if (mi.type == MONS_PANDEMONIUM_LORD && !mi.props.exists(SEEN_SPELLS_KEY))
@@ -3750,7 +3752,7 @@ static string _monster_spells_description(const monster_info& mi)
     if (mi.type == MONS_PANDEMONIUM_LORD)
         description.cprintf("%s", panlord_desc.c_str());
     describe_spellset(monster_spellset(mi), nullptr, description, &mi);
-    description.cprintf("To read a description, press the key listed above.\n");
+    description.cprintf(TR7("To read a description, press the key listed above.\n","설명을 읽으려면 위에 나열된 키를 누릅니다.\n"));
     return description.tostring();
 }
 
@@ -3759,17 +3761,17 @@ static const char *_speed_description(int speed)
     // These thresholds correspond to the player mutations for fast and slow.
     ASSERT(speed != 10);
     if (speed < 7)
-        return "extremely slowly";
+        return TR7("extremely slowly","달팽이처럼 느리게");
     else if (speed < 8)
-        return "very slowly";
+        return TR7("very slowly","매우 느리게");
     else if (speed < 10)
-        return "slowly";
+        return TR7("slowly","느리게");
     else if (speed > 15)
-        return "extremely quickly";
+        return TR7("extremely quickly", "극히 빠르게");
     else if (speed > 13)
-        return "very quickly";
+        return TR7("very quickly", "매우 빠르게");
     else if (speed > 10)
-        return "quickly";
+        return TR7("quickly", "빠르게");
 
     return "buggily";
 }
@@ -3896,13 +3898,13 @@ static void _describe_monster_mr(const monster_info& mi, ostringstream &result)
 // Size adjectives
 const char* const size_adj[] =
 {
-    "tiny",
-    "very small",
-    "small",
-    "medium",
-    "large",
-    "very large",
-    "giant",
+    TR7("tiny","조그마한"),
+    TR7("very small","매우 작은"),
+    TR7("small","작은"),
+    TR7("medium","중간 크기의"),
+    TR7("large","큰"),
+    TR7("very large","매우 큰"),
+    TR7("giant","거대한"),
 };
 COMPILE_CHECK(ARRAYSZ(size_adj) == NUM_SIZE_LEVELS);
 
@@ -3980,20 +3982,20 @@ static string _monster_stat_description(const monster_info& mi)
     vector<string> resist_descriptions;
     if (!extreme_resists.empty())
     {
-        const string tmp = "immune to "
+        const string tmp = TR7("immune to ","면역이다")
             + comma_separated_line(extreme_resists.begin(),
                                    extreme_resists.end());
         resist_descriptions.push_back(tmp);
     }
     if (!high_resists.empty())
     {
-        const string tmp = "very resistant to "
+        const string tmp = TR7("very resistant to ","매우 저항이 있다")
             + comma_separated_line(high_resists.begin(), high_resists.end());
         resist_descriptions.push_back(tmp);
     }
     if (!base_resists.empty())
     {
-        const string tmp = "resistant to "
+        const string tmp = TR7("resistant to ","저항이 있다")
             + comma_separated_line(base_resists.begin(), base_resists.end());
         resist_descriptions.push_back(tmp);
     }
@@ -4008,7 +4010,7 @@ static string _monster_stat_description(const monster_info& mi)
 
     if (!resist_descriptions.empty())
     {
-        result << uppercase_first(pronoun) << " is "
+        result << uppercase_first(pronoun) << TR7(" is ","은(는) ")
                << comma_separated_line(resist_descriptions.begin(),
                                        resist_descriptions.end(),
                                        "; and ", "; ")
@@ -4018,37 +4020,37 @@ static string _monster_stat_description(const monster_info& mi)
     // Is monster susceptible to anything? (On a new line.)
     if (!suscept.empty())
     {
-        result << uppercase_first(pronoun) << " is susceptible to "
+        result << uppercase_first(pronoun) << TR7(" is susceptible to "," 취약하다 ")
                << comma_separated_line(suscept.begin(), suscept.end())
                << ".\n";
     }
 
     if (mi.is(MB_CHAOTIC))
     {
-        result << uppercase_first(pronoun) << " is vulnerable to silver and"
-                                              " hated by Zin.\n";
+        result << uppercase_first(pronoun) << TR7(" is vulnerable to silver and","은 은제 무기에 약하며, 특히 진이 싫어한다.\n")
+                                              TR7(" hated by Zin.\n","");
     }
 
     if (mons_class_flag(mi.type, M_STATIONARY)
         && !mons_is_tentacle_or_tentacle_segment(mi.type))
     {
-        result << uppercase_first(pronoun) << " cannot move.\n";
+        result << uppercase_first(pronoun) << TR7(" cannot move.\n","은(는) 이 자리에 고정되어 있다.");
     }
 
     if (mons_class_flag(mi.type, M_COLD_BLOOD)
         && get_resist(resist, MR_RES_COLD) <= 0)
     {
-        result << uppercase_first(pronoun) << " is cold-blooded and may be "
-                                              "slowed by cold attacks.\n";
+        result << uppercase_first(pronoun) << TR7(" is cold-blooded and may be ","은(는) 냉혈동물이다. 그리고 냉기공격으로 느려질 수 있습니다.\n")
+                                              TR7("slowed by cold attacks.\n","");
     }
 
     // Seeing invisible.
     if (mi.can_see_invisible())
-        result << uppercase_first(pronoun) << " can see invisible.\n";
+        result << uppercase_first(pronoun) << TR7(" can see invisible.\n","은(는) 보이지 않는 물체를 감지할 수 있다.");
 
     // Echolocation, wolf noses, jellies, etc
     if (!mons_can_be_blinded(mi.type))
-        result << uppercase_first(pronoun) << " is immune to blinding.\n";
+        result << uppercase_first(pronoun) << TR7(" is immune to blinding.\n","은(는) 눈멀기에 면역이다.");
     // XXX: could mention "immune to dazzling" here, but that's spammy, since
     // it's true of such a huge number of monsters. (undead, statues, plants).
     // Might be better to have some place where players can see holiness &
@@ -4057,12 +4059,12 @@ static string _monster_stat_description(const monster_info& mi)
     if (mi.intel() <= I_BRAINLESS)
     {
         // Matters for Ely.
-        result << uppercase_first(pronoun) << " is mindless.\n";
+        result << uppercase_first(pronoun) << TR7(" is mindless.\n","은(는) 감정이 없다.");
     }
     else if (mi.intel() >= I_HUMAN)
     {
         // Matters for Yred, Gozag, Zin, TSO, Alistair....
-        result << uppercase_first(pronoun) << " is intelligent.\n";
+        result << uppercase_first(pronoun) << TR7(" is intelligent.\n","은(는) 지성을 가졌다.");
     }
 
     // Unusual monster speed.
@@ -4071,7 +4073,7 @@ static string _monster_stat_description(const monster_info& mi)
     if (speed != 10 && speed != 0)
     {
         did_speed = true;
-        result << uppercase_first(pronoun) << " is " << mi.speed_description();
+        result << uppercase_first(pronoun) << TR7(" is ","은(는) ") << mi.speed_description();
     }
     const mon_energy_usage def = DEFAULT_ENERGY;
     if (!(mi.menergy == def))
@@ -4089,9 +4091,9 @@ static string _monster_stat_description(const monster_info& mi)
             _add_energy_to_string(speed, me.missile, "shoots", fast, slow);
         _add_energy_to_string(
             speed, me.spell,
-            mi.is_actual_spellcaster() ? "casts spells" :
-            mi.is_priest()             ? "uses invocations"
-                                       : "uses natural abilities", fast, slow);
+            mi.is_actual_spellcaster() ? TR7("casts spells","은(는) 주문을 외웠다.") :
+            mi.is_priest()             ? TR7("uses invocations","은(는) 기도했다.")
+                                       : TR7("uses natural abilities","은(는) 타고난 특수능력을 사용했다."), fast, slow);
         _add_energy_to_string(speed, me.special, "uses special abilities",
                               fast, slow);
         if (mons_class_itemuse(mi.type) >= MONUSE_STARTING_EQUIPMENT)
@@ -4100,7 +4102,7 @@ static string _monster_stat_description(const monster_info& mi)
         if (speed >= 10)
         {
             if (did_speed && fast.size() == 1)
-                result << " and " << fast[0];
+                result << TR7(" and "," 그리고 ") << fast[0];
             else if (!fast.empty())
             {
                 if (did_speed)
@@ -4117,7 +4119,7 @@ static string _monster_stat_description(const monster_info& mi)
         else if (speed < 10)
         {
             if (did_speed && slow.size() == 1)
-                result << " and " << slow[0];
+                result << TR7(" and "," 그리고 ") << slow[0];
             else if (!slow.empty())
             {
                 if (did_speed)
@@ -4340,10 +4342,10 @@ void get_monster_db_desc(const monster_info& mi, describe_info &inf,
         break;
 
     case MONS_PROGRAM_BUG:
-        inf.body << "If this monster is a \"program bug\", then it's "
-                "recommended that you save your game and reload. Please report "
-                "monsters who masquerade as program bugs or run around the "
-                "dungeon without a proper description to the authorities.\n";
+        inf.body << TR7("If this monster is a \"program bug\", then it's ","만일 이 몬스터가 \"프로그램 버그\" 라면, 일단 게임을 저장하고 다시 불러오는 것을 추천한다. 프로그램 버그 몬스터를 보고하든지 아니면 그냥 놔두고 던젼을 돌아다니게 하든지, 좋을대로 하라.\n")
+                TR7("recommended that you save your game and reload. Please report ","")
+                TR7("monsters who masquerade as program bugs or run around the ","")
+                TR7("dungeon without a proper description to the authorities.\n","");
         break;
 
     default:

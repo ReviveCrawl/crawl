@@ -27,6 +27,7 @@
 #include "tiles-build-specific.h"
 #include "travel.h"
 #include "view.h"
+#include "i18n-format.h"
 
 // defined in dgn-overview.cc
 extern set<pair<string, level_id> > auto_unique_annotations;
@@ -102,7 +103,7 @@ void set_auto_exclude(const monster* mon)
         //        (as is possible for some vaults), this could be really
         //        annoying. (jpeg)
         mprf(MSGCH_WARN,
-             "Marking area around %s as unsafe for travelling.",
+             TR7("Marking area around %s as unsafe for travelling.","%s 주위로 탐험 예외 지역을 설정했다."),
              mon->name(DESC_THE).c_str());
 
 #ifdef USE_TILE

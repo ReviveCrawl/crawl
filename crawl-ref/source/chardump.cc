@@ -55,6 +55,7 @@
 #include "viewchar.h"
 #include "view.h"
 #include "xom.h"
+#include "i18n-format.h"
 
 struct dump_params;
 
@@ -123,8 +124,8 @@ static dump_section_handler dump_handlers[] =
     { "hunger",         _sdump_hunger        },
     { "transform",      _sdump_transform     },
     { "visits",         _sdump_visits        },
-    { "gold",           _sdump_gold          },
-    { "misc",           _sdump_misc          },
+    { TR7("gold","금"),           _sdump_gold          },
+    { TR7("misc","잡화"),           _sdump_misc          },
     { "turns_by_place", _sdump_turns_by_place},
     { "notes",          _sdump_notes         },
     { "inventory",      _sdump_inventory     },
@@ -222,7 +223,7 @@ static void _sdump_hunger(dump_params &par)
     if (par.se)
         par.text += "You were ";
     else
-        par.text += "You are ";
+        par.text += TR7("You are ","당신은 ");
 
     par.text += hunger_level();
     par.text += ".\n\n";
@@ -318,12 +319,12 @@ static void _sdump_visits(dump_params &par)
         if (num_zigs > 1)
             text += "s";
         if (num_zigs != you.zigs_completed && you.zigs_completed)
-            text += make_stringf(" (completing %d)", you.zigs_completed);
+            text += make_stringf(TR7(" (completing %d)","(%d 완료)"), you.zigs_completed);
         text += make_stringf(", and %s %d of %s levels",
                              seen.c_str(), place_info.levels_seen,
                              num_zigs > 1 ? "their" : "its");
         if (num_zigs != 1 && !you.zigs_completed)
-            text += make_stringf(" (deepest: %d)", you.zig_max);
+            text += make_stringf(TR7(" (deepest: %d)","(최고 도달 층수: %d)"), you.zig_max);
         text += ".\n";
     }
 
@@ -335,7 +336,7 @@ static void _sdump_visits(dump_params &par)
             continue;
         string name = branches[br].shortname;
         if (place_info.num_visits > 1)
-            name += make_stringf(" (%d times)", place_info.num_visits);
+            name += make_stringf(TR7(" (%d times)","(%d회)"), place_info.num_visits);
         misc_portals.push_back(name);
     }
     if (!misc_portals.empty())
@@ -631,11 +632,11 @@ static void _sdump_notes(dump_params &par)
 static void _sdump_location(dump_params &par)
 {
     if (you.depth == 0 && player_in_branch(BRANCH_DUNGEON))
-        par.text += "You escaped";
+        par.text += TR7("You escaped","당신은 던전을 탈출했다");
     else if (par.se)
         par.text += "You were " + prep_branch_level_name();
     else
-        par.text += "You are " + prep_branch_level_name();
+        par.text += TR7("You are ","당신은 ") + prep_branch_level_name();
 
     par.text += ".";
     par.text += "\n";
@@ -673,7 +674,7 @@ static void _sdump_religion(dump_params &par)
             if (par.se)
                 text += "You were ";
             else
-                text += "You are ";
+                text += TR7("You are ","당신은 ");
             text += describe_xom_favour();
             text += "\n";
         }
@@ -745,7 +746,7 @@ static void _sdump_inventory(dump_params &par)
 
     if (!inv_count)
     {
-        text += "You aren't carrying anything.";
+        text += TR7("You aren't carrying anything.","당신은 아무것도 들고있지 않다.");
         text += "\n";
     }
     else
@@ -1149,7 +1150,7 @@ static string _describe_action(caction_type type)
     switch (type)
     {
     case CACT_MELEE:
-        return "Melee";
+        return TR7("Melee","근접 공격");
     case CACT_FIRE:
         return " Fire";
     case CACT_THROW:
@@ -1207,7 +1208,7 @@ static const char* _aux_attack_names[1 + UNAT_LAST_ATTACK] =
     "Punch",
     "Bite",
     "Pseudopods",
-    "Tentacles",
+    TR7("Tentacles","촉수"),
 };
 
 static string _describe_action_subtype(caction_type type, int compound_subtype)
@@ -1306,7 +1307,7 @@ static string _describe_action_subtype(caction_type type, int compound_subtype)
             return "Deck";
 #if TAG_MAJOR_VERSION == 34
         case EVOC_MISC:
-            return "Miscellaneous";
+            return TR7("Miscellaneous","기타");
         case EVOC_BUGGY_TOME:
             return "tome";
 #endif
@@ -1469,29 +1470,29 @@ static void _sdump_mutations(dump_params &par)
 static const char* hunger_names[] =
 {
     "fainting",
-    "starving",
-    "near starving",
-    "very hungry",
-    "hungry",
-    "not hungry",
-    "full",
-    "very full",
-    "completely stuffed",
+    TR7("starving","매우 굶주림"),
+    TR7("near starving","굶주림"),
+    TR7("very hungry","매우 배고픔"),
+    TR7("hungry","배고픔"),
+    TR7("not hungry","배고프지 않음"),
+    TR7("full","배부름"),
+    TR7("very full","매우 배부름"),
+    TR7("completely stuffed","과식"),
 };
 COMPILE_CHECK(ARRAYSZ(hunger_names) == HS_ENGORGED + 1);
 
 // Must match the order of hunger_state_t enums
 static const char* thirst_names[] =
 {
-    "bloodless",
-    "bloodless",
-    "near bloodless",
-    "very thirsty",
-    "thirsty",
-    "not thirsty",
-    "full",
-    "very full",
-    "almost alive",
+    TR7("bloodless","심한 빈혈"),
+    TR7("bloodless","심한 빈혈"),
+    TR7("near bloodless","빈혈"),
+    TR7("very thirsty","심한 갈증"),
+    TR7("thirsty","갈증"),
+    TR7("not thirsty","목마르지 않음"),
+    TR7("full","배부름"),
+    TR7("very full","매우 배부름"),
+    TR7("almost alive","과식"),
 };
 COMPILE_CHECK(ARRAYSZ(thirst_names) == HS_ENGORGED + 1);
 
@@ -1657,13 +1658,13 @@ static bool _write_dump(const string &fname, const dump_params &par, bool quiet)
         succeeded = true;
         if (!quiet)
 #ifdef DGAMELAUNCH
-            mpr("Char dumped successfully.");
+            mpr(TR7("Char dumped successfully.","캐릭터 덤프에 성공했다."));
 #else
-            mprf("Char dumped to '%s'.", file_name.c_str());
+            mprf(TR7("Char dumped to '%s'.","'%s'(으)로 캐릭터 덤프를 완료했다."), file_name.c_str());
 #endif
     }
     else
-        mprf(MSGCH_ERROR, "Error opening file '%s'", file_name.c_str());
+        mprf(MSGCH_ERROR, TR7("Error opening file '%s'","'%s'파일 열기 실패"), file_name.c_str());
 
     return succeeded;
 }

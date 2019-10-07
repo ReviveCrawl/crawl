@@ -11,6 +11,7 @@
 #include "state.h"
 #include "terrain.h"
 #include "traps.h"
+#include "i18n-format.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // monster_pathfind
@@ -107,7 +108,7 @@ bool monster_pathfind::init_pathfind(const monster* mon, coord_def dest,
     if (start == target)
     {
         if (msg)
-            mpr("The monster is already there!");
+            mpr(TR7("The monster is already there!","그 몬스터는 이미 그 곳에 있다!"));
 
         return true;
     }

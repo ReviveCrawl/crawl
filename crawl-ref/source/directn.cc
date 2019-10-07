@@ -60,6 +60,7 @@
 #include "viewmap.h"
 #include "wiz-dgn.h"
 #include "wiz-mon.h"
+#include "i18n-format.h"
 
 enum LOSSelect
 {
@@ -356,15 +357,15 @@ void direction_chooser::print_top_prompt() const
 
 void direction_chooser::print_key_hints() const
 {
-    string prompt = "Press: ? - help";
+    string prompt = TR7("Press: ? - help","? - 도움말");
 
     if (just_looking)
     {
         if (you.see_cell(target()))
-            prompt += ", v - describe";
-        prompt += ", . - travel";
+            prompt += TR7(", v - describe",", v - 정보");
+        prompt += TR7(", . - travel",", . - 자동 이동");
         if (in_bounds(target()) && env.map_knowledge(target()).item())
-            prompt += ", g - get item";
+            prompt += TR7(", g - get item",", g - 아이템 줍기");
     }
     else
     {
@@ -372,13 +373,13 @@ void direction_chooser::print_key_hints() const
         switch (restricts)
         {
         case DIR_NONE:
-            prompt += ", Shift-Dir - straight line";
+            prompt += TR7(", Shift-Dir - straight line",", Shift-Dir - 커서 연속 이동");
             prompt += hint_string;
             break;
         case DIR_TARGET:
         case DIR_SHADOW_STEP:
         case DIR_LEAP:
-            prompt += ", Dir - move target cursor";
+            prompt += TR7(", Dir - move target cursor",", Dir - 커서 이동");
             prompt += hint_string;
             break;
         case DIR_DIR:
@@ -594,7 +595,7 @@ void full_describe_view()
 
     if (list_mons.empty() && list_items.empty() && list_features.empty())
     {
-        mpr("No monsters, items or features are visible.");
+        mpr(TR7("No monsters, items or features are visible.","몬스터나 아이템, 오브젝트를 찾지 못했다."));
         return;
     }
 
@@ -651,7 +652,7 @@ void full_describe_view()
 
             string str = get_monster_equipment_desc(mi, DESC_FULL, DESC_A, true);
             if (mi.is(MB_MESMERIZING))
-                str += ", keeping you mesmerised";
+                str += TR7(", keeping you mesmerised",", 당신을 매혹시키고 있음");
 
             if (mi.dam != MDAM_OKAY)
                 str += ", " + mi.damage_desc();
@@ -886,9 +887,9 @@ bool direction_chooser::move_is_ok() const
             if (hitfunc && hitfunc->can_affect_unseen())
                 return true; // is this too broad?
             if (you.see_cell(target()))
-                mprf(MSGCH_EXAMINE_FILTER, "There's something in the way.");
+                mprf(MSGCH_EXAMINE_FILTER, TR7("There's something in the way.","무언가가 길을 막고 있다."));
             else
-                mprf(MSGCH_EXAMINE_FILTER, "You can't see that place.");
+                mprf(MSGCH_EXAMINE_FILTER, TR7("You can't see that place.","당신은 그 장소가 보이지 않는다."));
             return false;
         }
 
@@ -900,19 +901,19 @@ bool direction_chooser::move_is_ok() const
                     || self == CONFIRM_PROMPT
                        && Options.allow_self_target == CONFIRM_CANCEL)
                 {
-                    mprf(MSGCH_EXAMINE_FILTER, "That would be overly suicidal.");
+                    mprf(MSGCH_EXAMINE_FILTER, TR7("That would be overly suicidal.","그건 자살행위나 다름없다."));
                     return false;
                 }
                 else if (self != CONFIRM_NONE
                          && Options.allow_self_target != CONFIRM_NONE)
                 {
-                    return yesno("Really target yourself?", false, 'n');
+                    return yesno(TR7("Really target yourself?","정말로 자기 자신을 목표로 하는가?"), false, 'n');
                 }
             }
 
             if (self == CONFIRM_CANCEL)
             {
-                mprf(MSGCH_EXAMINE_FILTER, "Sorry, you can't target yourself.");
+                mprf(MSGCH_EXAMINE_FILTER, TR7("Sorry, you can't target yourself.","유감이지만, 자기 자신를 목표로 지정할 수는 없다."));
                 return false;
             }
         }
@@ -920,7 +921,7 @@ bool direction_chooser::move_is_ok() const
 
     // Some odd cases
     if (!moves.isValid && !moves.isCancel)
-        return yesno("Are you sure you want to fizzle?", false, 'n');
+        return yesno(TR7("Are you sure you want to fizzle?","정말로 그런 행동을 할 것인가?"), false, 'n');
 
     return true;
 }
@@ -1042,7 +1043,7 @@ bool direction_chooser::find_default_monster_target(coord_def& result) const
 
         if (need_hint)
         {
-            mprf(MSGCH_TUTORIAL, "To return to the main mode, press <w>Escape</w>.");
+            mprf(MSGCH_TUTORIAL, TR7("To return to the main mode, press <w>Escape</w>.","<w>Esc</w>키를 눌러, 메인 게임 화면으로 돌아갈 수 있다."));
             Hints.hints_events[HINT_TARGET_NO_FOE] = false;
         }
     }
@@ -1290,7 +1291,7 @@ bool direction_chooser::select(bool allow_out_of_range, bool endpoint)
         && !in_range(target()))
     {
         mprf(MSGCH_EXAMINE_FILTER, "%s",
-             hitfunc? hitfunc->why_not.c_str() : "That is beyond the maximum range.");
+             hitfunc? hitfunc->why_not.c_str() : TR7("That is beyond the maximum range.","그건 최대 사정거리 밖에 있다."));
         return false;
     }
     moves.isEndpoint = endpoint || (mons && _mon_exposed(mons));
@@ -1307,7 +1308,7 @@ bool direction_chooser::pickup_item()
         ii = env.map_knowledge(target()).item();
     if (!ii || !ii->is_valid(true))
     {
-        mprf(MSGCH_EXAMINE_FILTER, "You can't see any item there.");
+        mprf(MSGCH_EXAMINE_FILTER, TR7("You can't see any item there.","아무 아이템도 없다."));
         return false;
     }
     ii->flags |= ISFLAG_THROWN; // make autoexplore greedy
@@ -1336,7 +1337,7 @@ bool direction_chooser::pickup_item()
 
     if (!just_looking) // firing/casting prompt
     {
-        mprf(MSGCH_EXAMINE_FILTER, "Marked for pickup.");
+        mprf(MSGCH_EXAMINE_FILTER, TR7("Marked for pickup.","픽업을 위해 마크함."));
         return false;
     }
 
@@ -1355,7 +1356,7 @@ bool direction_chooser::handle_signals()
         moves.isValid  = false;
         moves.isCancel = true;
 
-        mprf(MSGCH_ERROR, "Targeting interrupted by HUP signal.");
+        mprf(MSGCH_ERROR, TR7("Targeting interrupted by HUP signal.","HUP 신호에 의해, 타겟팅이 인터럽트되었음."));
         return true;
     }
     return false;
@@ -1380,7 +1381,7 @@ void direction_chooser::print_target_description(bool &did_cloud) const
     if (!in_range(target()))
     {
         mprf(MSGCH_EXAMINE_FILTER, "%s",
-             hitfunc ? hitfunc->why_not.c_str() : "Out of range.");
+             hitfunc ? hitfunc->why_not.c_str() : TR7("Out of range.","사정거리 밖이다."));
     }
 }
 
@@ -1529,7 +1530,7 @@ void direction_chooser::print_items_description() const
          menu_colour_item_name(*item, DESC_A).c_str());
 
     if (multiple_items_at(target()))
-        mprf(MSGCH_FLOOR_ITEMS, "There is something else lying underneath.");
+        mprf(MSGCH_FLOOR_ITEMS, TR7("There is something else lying underneath.","무엇인가가 아래에 깔려있다."));
 }
 
 void direction_chooser::print_floor_description(bool boring_too) const
@@ -1586,7 +1587,7 @@ void direction_chooser::toggle_beam()
 {
     if (!needs_path)
     {
-        mprf(MSGCH_EXAMINE_FILTER, "This spell doesn't need a beam path.");
+        mprf(MSGCH_EXAMINE_FILTER, TR7("This spell doesn't need a beam path.","이 주문은 발사 경로를 필요로 하지 않는다."));
         return;
     }
 
@@ -1615,7 +1616,7 @@ bool direction_chooser::select_previous_target()
     }
     else
     {
-        mprf(MSGCH_EXAMINE_FILTER, "Your target is gone.");
+        mprf(MSGCH_EXAMINE_FILTER, TR7("Your target is gone.","목표물이 사라졌다."));
         flush_prev_message();
         return false;
     }
@@ -1747,7 +1748,7 @@ void direction_chooser::handle_wizard_command(command_type key_command,
 
     case CMD_TARGET_WIZARD_HURT_MONSTER:
         m->hit_points = 1;
-        mpr("Brought monster down to 1 HP.");
+        mpr(TR7("Brought monster down to 1 HP.","몬스터의 HP를 1로 줄였다."));
         flush_prev_message();
         break;
 
@@ -1881,7 +1882,7 @@ bool direction_chooser::do_main_loop()
             break;
 
         if (!is_map_persistent())
-            mpr("You cannot set exclusions on this level.");
+            mpr(TR7("You cannot set exclusions on this level.","해당 층에서는 예외 지역을 설정할 수 없다."));
         else
         {
             const bool was_excluded = is_exclude_root(target());
@@ -1890,11 +1891,11 @@ bool direction_chooser::do_main_loop()
             need_beam_redraw   = true;
             const bool is_excluded = is_exclude_root(target());
             if (!was_excluded && is_excluded)
-                mpr("Placed new exclusion.");
+                mpr(TR7("Placed new exclusion.","새로운 예외 지역을 설정했다."));
             else if (was_excluded && !is_excluded)
-                mpr("Removed exclusion.");
+                mpr(TR7("Removed exclusion.","예외 지역을 해제헸다."));
             else
-                mpr("Reduced exclusion size to a single square.");
+                mpr(TR7("Reduced exclusion size to a single square.","예외 지역의 크기를 1칸으로 줄였다."));
         }
 
         need_cursor_redraw = true;
@@ -2200,7 +2201,7 @@ static void _extend_move_to_edge(dist &moves)
 // cache and noted in the Dungeon (O)verview, names the stair.
 static void _describe_oos_square(const coord_def& where)
 {
-    mprf(MSGCH_EXAMINE_FILTER, "You can't see that place.");
+    mprf(MSGCH_EXAMINE_FILTER, TR7("You can't see that place.","당신은 그 장소가 보이지 않는다."));
 
     if (!in_bounds(where) || !env.map_knowledge(where).seen())
     {
@@ -2779,7 +2780,7 @@ static string _base_feature_desc(dungeon_feature_type grid, trap_type trap)
         return full_trap_name(trap);
 
     if (grid == DNGN_ROCK_WALL && player_in_branch(BRANCH_PANDEMONIUM))
-        return "wall of the weird stuff which makes up Pandemonium";
+        return TR7("wall of the weird stuff which makes up Pandemonium","판데모니움을 구성하는 기이한 벽");
     else if (!is_valid_feature_type(grid))
         return "";
     else
@@ -2839,7 +2840,7 @@ string feature_description_at(const coord_def& where, bool covering,
     if (covering && you.see_cell(where))
     {
         if (is_bloodcovered(where))
-            covering_description = ", spattered with blood";
+            covering_description = TR7(", spattered with blood","혈흔이 남은 ");
         else if (glowing_mold(where))
             covering_description = ", covered with glowing mould";
         else if (is_moldy(where))
@@ -2889,7 +2890,7 @@ string feature_description_at(const coord_def& where, bool covering,
             if (grid == DNGN_OPEN_DOOR)
                 desc += "open ";
             else if (grid == DNGN_RUNED_DOOR)
-                desc += "runed ";
+                desc += TR7("runed ","룬이 새겨진 ");
             else if (grid == DNGN_SEALED_DOOR)
                 desc += "sealed ";
             else
@@ -3023,7 +3024,7 @@ static string _mon_enchantments_string(const monster_info& mi)
     if (!enchant_descriptors.empty())
     {
         return uppercase_first(mi.pronoun(PRONOUN_SUBJECTIVE))
-            + " is "
+            + TR7(" is ","은(는) ")
             + comma_separated_line(enchant_descriptors.begin(),
                                    enchant_descriptors.end())
             + ".";
@@ -3041,7 +3042,7 @@ static vector<string> _get_monster_behaviour_vector(const monster_info& mi)
     else if (mi.is(MB_FLEEING))
         descs.emplace_back("fleeing");
     else if (mi.attitude == ATT_HOSTILE && (mi.is(MB_UNAWARE) || mi.is(MB_WANDERING)))
-        descs.emplace_back("hasn't noticed you");
+        descs.emplace_back(TR7("hasn't noticed you","당신을 알아차리지 못함"));
 
     return descs;
 }
@@ -3154,11 +3155,11 @@ static string _get_monster_desc(const monster_info& mi)
 
     if (mi.is(MB_SUMMONED) || mi.is(MB_PERM_SUMMON))
     {
-        text += pronoun + " has been summoned";
+        text += pronoun + TR7(" has been summoned","은 소환되었다");
         if (mi.is(MB_SUMMONED_CAPPED))
-            text += ", and is expiring";
+            text += TR7(", and is expiring",". 그리고 시간이 지나면 이 세계에서 사라질 것이다");
         else if (mi.is(MB_PERM_SUMMON))
-            text += " but will not time out";
+            text += TR7(" but will not time out",". 그리고 죽을 때까지 이 세계에 머무른다.");
         text += ".\n";
     }
 
@@ -3190,7 +3191,7 @@ static string _get_monster_desc(const monster_info& mi)
 
     if (mi.fire_blocker)
     {
-        text += string("Your line of fire to ") + mi.pronoun(PRONOUN_OBJECTIVE)
+        text += string(TR7("Your line of fire to ","당신이 조준한 ")) + mi.pronoun(PRONOUN_OBJECTIVE)
               + " is blocked by " // FIXME: renamed features
               + feature_description(mi.fire_blocker, NUM_TRAPS, "",
                                     DESC_A)
@@ -3414,13 +3415,13 @@ static bool _print_cloud_desc(const coord_def where)
         areas.emplace_back("is bathed in translocational energy");
     if (!areas.empty())
     {
-        mprf("This square %s.",
+        mprf(TR7("This square %s.","여기는 %s다."),
              comma_separated_line(areas.begin(), areas.end()).c_str());
     }
 
     if (cloud_struct* cloud = cloud_at(where))
     {
-        mprf(MSGCH_EXAMINE, "There is a cloud of %s here.",
+        mprf(MSGCH_EXAMINE, TR7("There is a cloud of %s here.","여기에는 %s이(가) 떠다닌다."),
              cloud->cloud_name(true).c_str());
         return true;
     }
@@ -3436,10 +3437,10 @@ static bool _print_item_desc(const coord_def where)
         return false;
 
     string name = menu_colour_item_name(mitm[targ_item], DESC_A);
-    mprf(MSGCH_FLOOR_ITEMS, "You see %s here.", name.c_str());
+    mprf(MSGCH_FLOOR_ITEMS, TR7("You see %s here.","여기에는 %s이(가) 있다."), name.c_str());
 
     if (mitm[ targ_item ].link != NON_ITEM)
-        mprf(MSGCH_FLOOR_ITEMS, "There is something else lying underneath.");
+        mprf(MSGCH_FLOOR_ITEMS, TR7("There is something else lying underneath.","무엇인가가 아래에 깔려있다."));
 
     return true;
 }
@@ -3498,7 +3499,7 @@ static void _describe_cell(const coord_def& where, bool in_range)
 #endif
 
     if (where == you.pos() && !crawl_state.arena_suspended)
-        mprf(MSGCH_EXAMINE_FILTER, "You.");
+        mprf(MSGCH_EXAMINE_FILTER, TR7("You.","당신."));
 
     if (const monster* mon = monster_at(where))
     {
@@ -3513,9 +3514,9 @@ static void _describe_cell(const coord_def& where, bool in_range)
         if (!mon->visible_to(&you))
         {
             if (_mon_exposed_in_water(mon))
-                mprf(MSGCH_EXAMINE_FILTER, "There is a strange disturbance in the water here.");
+                mprf(MSGCH_EXAMINE_FILTER, TR7("There is a strange disturbance in the water here.","여기 물 속에는, 무언가 알 수 없는 방해물이 있다."));
             else if (_mon_exposed_in_cloud(mon))
-                mprf(MSGCH_EXAMINE_FILTER, "There is a strange disturbance in the cloud here.");
+                mprf(MSGCH_EXAMINE_FILTER, TR7("There is a strange disturbance in the cloud here.","여기의 구름 속에는, 무언가 알 수 없는 방해물이 있다."));
 
             goto look_clouds;
         }
@@ -3526,7 +3527,7 @@ static void _describe_cell(const coord_def& where, bool in_range)
 
         if (!in_range)
         {
-            mprf(MSGCH_EXAMINE_FILTER, "%s is out of range.",
+            mprf(MSGCH_EXAMINE_FILTER, TR7("%s is out of range.","%s은(는) 사거리 밖에 있다."),
                  mon->pronoun(PRONOUN_SUBJECTIVE).c_str());
         }
 #ifndef DEBUG_DIAGNOSTICS
@@ -3540,9 +3541,9 @@ static void _describe_cell(const coord_def& where, bool in_range)
         {
             const char *msg;
 #ifdef USE_TILE_LOCAL
-            msg = "(<w>Right-click</w> for more information.)";
+            msg = TR7("(<w>Right-click</w> for more information.)","(<w>마우스 우클릭</w>을 통해, 더 많은 정보를 열람할 수 있다.)");
 #else
-            msg = "(Press <w>v</w> for more information.)";
+            msg = TR7("(Press <w>v</w> for more information.)","(<w>v</w>키를 입력하여, 더 많은 정보를 열람할 수 있다.)");
 #endif
             mpr(msg);
         }
@@ -3564,9 +3565,9 @@ static void _describe_cell(const coord_def& where, bool in_range)
     if (crawl_state.game_is_hints() && hints_pos_interesting(where.x, where.y))
     {
 #ifdef USE_TILE_LOCAL
-        feature_desc += " (<w>Right-click</w> for more information.)";
+        feature_desc += TR7(" (<w>Right-click</w> for more information.)","(<w>마우스 우클릭</w>을 통해, 더 많은 정보를 열람할 수 있다.)");
 #else
-        feature_desc += " (Press <w>v</w> for more information.)";
+        feature_desc += TR7(" (Press <w>v</w> for more information.)","<w>/v</w>키를 입력하여, 더 많은 정보를 열람할 수 있다.)");
 #endif
         mpr(feature_desc);
     }
@@ -3577,9 +3578,9 @@ static void _describe_cell(const coord_def& where, bool in_range)
         if (_interesting_feature(feat))
         {
 #ifdef USE_TILE_LOCAL
-            feature_desc += " (Right-click for more information.)";
+            feature_desc += TR7(" (Right-click for more information.)","마우스 우클릭을 통해, 더 많은 정보를 열람할 수 있다.)");
 #else
-            feature_desc += " (Press 'v' for more information.)";
+            feature_desc += TR7(" (Press 'v' for more information.)","('v'키를 입력하여, 더 많은 정보를 열람할 수 있다.)");
 #endif
         }
 

@@ -52,6 +52,7 @@
 #endif
 #include "view.h"
 #include "viewchar.h"
+#include "i18n-format.h"
 
 
 typedef vector<string> (*keys_by_glyph)(char32_t showchar);
@@ -253,14 +254,14 @@ public:
 
     void set_prompt()
     {
-        string prompt = "Describe which? ";
+        string prompt = TR7("Describe which? ","어느 것의 정보를 볼 것인가? ");
 
         if (toggleable_sort)
         {
             if (sort_alpha)
-                prompt += "(CTRL-S to sort by monster toughness)";
+                prompt += TR7("(CTRL-S to sort by monster toughness)","(CTRL-S키 : 강한 몬스터 순으로 정렬)");
             else
-                prompt += "(CTRL-S to sort by name)";
+                prompt += TR7("(CTRL-S to sort by name)","(CTRL-S키 : 이름 순으로 정렬)");
         }
         set_title(new MenuEntry(prompt, MEL_TITLE));
     }
@@ -1317,14 +1318,14 @@ static string _prompt_for_regex(const LookupType &lookup_type, string &err)
                      " symbol.", pluralise(type).c_str()) :
         "";
     mprf(MSGCH_PROMPT,
-         "Describe a %s; partial names and regexps are fine.%s",
+         TR7("Describe a %s; partial names and regexps are fine.%s","%s의 정보 열람; 정보 확인 완료.%s"),
          type.c_str(), extra.c_str());
 
-    mprf(MSGCH_PROMPT, "Describe what? ");
+    mprf(MSGCH_PROMPT, TR7("Describe what? ","무엇의 정보를 보는가?"));
     char buf[80];
     if (cancellable_get_line(buf, sizeof(buf)) || buf[0] == '\0')
     {
-        err = "Okay, then.";
+        err = TR7("Okay, then.","좋아, 그럼.");
         return "";
     }
 
@@ -1416,7 +1417,7 @@ static bool _find_description(string &response)
     // not actually sure how to trigger this branch...
     if (want_regex && regex.empty())
     {
-        response = "Description must contain at least one non-space.";
+        response = TR7("Description must contain at least one non-space.","열람할 정보에는, 최소한 한 글자 이상의 공백이 아닌 문자가 있어야 한다.");
         return true;
     }
 
@@ -1471,5 +1472,5 @@ void keyhelp_query_descriptions()
     }
 
     viewwindow();
-    mpr("Okay, then.");
+    mpr(TR7("Okay, then.","좋아, 그럼."));
 }

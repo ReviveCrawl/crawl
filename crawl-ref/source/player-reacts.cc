@@ -136,6 +136,7 @@
 #include "view.h"
 #include "viewmap.h"
 #include "xom.h"
+#include "i18n-format.h"
 
 /**
  * Decrement a duration by the given delay.
@@ -188,7 +189,7 @@ static bool _decrement_a_duration(duration_type dur, int delay,
             if (you.duration[dur] <= 0)
                 you.duration[dur] = 1;
             if (need_expiration_warning(dur))
-                mprf(MSGCH_DANGER, "Careful! %s", midmsg);
+                mprf(MSGCH_DANGER, TR7("Careful! %s","주의! %s"), midmsg);
             else
                 mprf(chan, "%s", midmsg);
         }
@@ -217,7 +218,7 @@ static void _decrement_petrification(int delay)
                                             "flesh" :
                                             get_form()->flesh_equivalent;
 
-        mprf(MSGCH_DURATION, "You turn to %s and can move again.",
+        mprf(MSGCH_DURATION, TR7("You turn to %s and can move again.","당신은 %s 돌아갔고, 다시 움직일 수 있게 되었다."),
              flesh_equiv.c_str());
     }
 
@@ -236,7 +237,7 @@ static void _decrement_petrification(int delay)
             you.fully_petrify(nullptr);
         }
         else if (dur < 15 && old_dur >= 15)
-            mpr("Your limbs are stiffening.");
+            mpr(TR7("Your limbs are stiffening.","온 몸이 빳빳해지는걸 느꼈다."));
     }
 }
 
@@ -250,7 +251,7 @@ static void _decrement_paralysis(int delay)
 
         if (!you.duration[DUR_PARALYSIS] && !you.petrified())
         {
-            mprf(MSGCH_DURATION, "You can move again.");
+            mprf(MSGCH_DURATION, TR7("You can move again.","다시 움직일 수 있게 되었다."));
             you.redraw_evasion = true;
             you.duration[DUR_PARALYSIS_IMMUNITY] = roll_dice(1, 3)
             * BASELINE_DELAY;
@@ -490,7 +491,7 @@ static bool _check_recite()
         || you.petrified()
         || you.berserk())
     {
-        mprf(MSGCH_DURATION, "Your recitation is interrupted.");
+        mprf(MSGCH_DURATION, TR7("Your recitation is interrupted.","설교 중 방해를 받았다."));
         you.duration[DUR_RECITE] = 0;
         return false;
     }
@@ -526,7 +527,7 @@ static void _handle_recitation(int step)
             if (!closure.empty())
                 speech << ' ' << closure;
         }
-        mprf(MSGCH_DURATION, "You finish reciting %s", speech.str().c_str());
+        mprf(MSGCH_DURATION, TR7("You finish reciting %s","%s의 설교를 마쳤다."), speech.str().c_str());
     }
 }
 
@@ -590,10 +591,10 @@ static void _decrement_durations()
 
     const bool melted = you.props.exists(MELT_ARMOUR_KEY);
     if (_decrement_a_duration(DUR_ICY_ARMOUR, delay,
-                              "Your icy armour evaporates.",
+                              TR7("Your icy armour evaporates.","당신의 얼음 갑옷이 증발했다."),
                               melted ? 0 : coinflip(),
                               melted ? nullptr
-                              : "Your icy armour starts to melt."))
+                              : TR7("Your icy armour starts to melt.","당신의 얼음 갑옷이 녹기 시작했다.")))
     {
         if (you.props.exists(ICY_ARMOUR_KEY))
             you.props.erase(ICY_ARMOUR_KEY);
@@ -628,7 +629,7 @@ static void _decrement_durations()
         }
 
         if (_decrement_a_duration(DUR_TRANSFORMATION, delay, nullptr, random2(3),
-                                  "Your transformation is almost over."))
+                                  TR7("Your transformation is almost over.","변신 시간이 얼마 남지 않았다.")))
         {
             untransform();
         }
@@ -637,8 +638,8 @@ static void _decrement_durations()
     if (you.attribute[ATTR_SWIFTNESS] >= 0)
     {
         if (_decrement_a_duration(DUR_SWIFTNESS, delay,
-                                  "You feel sluggish.", coinflip(),
-                                  "You start to feel a little slower."))
+                                  TR7("You feel sluggish.","움직임이 느려진 것을 느꼈다."), coinflip(),
+                                  TR7("You start to feel a little slower.","몸이 점점 느려짐을 느낀다.")))
         {
             // Start anti-swiftness.
             you.duration[DUR_SWIFTNESS] = you.attribute[ATTR_SWIFTNESS];
@@ -678,7 +679,7 @@ static void _decrement_durations()
         if (you.stat(s) > 0
             && _decrement_a_duration(stat_zero_duration(s), delay))
         {
-            mprf(MSGCH_RECOVERY, "Your %s has recovered.", stat_desc(s, SD_NAME));
+            mprf(MSGCH_RECOVERY, TR7("Your %s has recovered.","당신의 %s이(가) 회복되었다."), stat_desc(s, SD_NAME));
             you.redraw_stats[s] = true;
         }
     }
@@ -710,7 +711,7 @@ static void _decrement_durations()
     {
         tornado_damage(&you, min(delay, you.duration[DUR_TORNADO]));
         if (_decrement_a_duration(DUR_TORNADO, delay,
-                                  "The winds around you start to calm down."))
+                                  TR7("The winds around you start to calm down.","당신을 휘감은 회오리가 가라앉고 있다.")))
         {
             you.duration[DUR_TORNADO_COOLDOWN] = random_range(35, 45);
         }
@@ -721,7 +722,7 @@ static void _decrement_durations()
         if (!you.permanent_flight())
         {
             if (_decrement_a_duration(DUR_FLIGHT, delay, nullptr, random2(6),
-                                      "You are starting to lose your buoyancy."))
+                                      TR7("You are starting to lose your buoyancy.","공중 부양 효과가 사라져가고 있다.")))
             {
                 land_player();
             }
@@ -755,7 +756,7 @@ static void _decrement_durations()
     if (you.duration[DUR_DARKNESS] && you.haloed())
     {
         you.duration[DUR_DARKNESS] = 0;
-        mpr("The divine light dispels your darkness!");
+        mpr(TR7("The divine light dispels your darkness!","신성한 빛이 당신의 어둠을 걷어냈다!"));
         update_vision_range();
     }
 
@@ -867,7 +868,7 @@ static void _rot_ghoul_players()
     if (one_chance_in(resilience))
     {
         dprf("rot rate: 1/%d", resilience);
-        mprf(MSGCH_WARN, "You feel your flesh rotting away.");
+        mprf(MSGCH_WARN, TR7("You feel your flesh rotting away.","몸이 점점 썩어감을 느낀다."));
         rot_hp(1);
     }
 }
@@ -878,7 +879,7 @@ static void _handle_emergency_flight()
 
     if (!is_feat_dangerous(orig_terrain(you.pos()), true, false))
     {
-        mpr("You float gracefully downwards.");
+        mpr(TR7("You float gracefully downwards.","부드럽게 아래에 착지했다."));
         land_player();
         you.props.erase(EMERGENCY_FLIGHT_KEY);
     }
@@ -970,7 +971,7 @@ void player_reacts()
     {
         if (you.duration[DUR_SONG_OF_SLAYING])
         {
-            mpr("The silence causes your song to end.");
+            mpr(TR7("The silence causes your song to end.","정적이 당신의 노래를 끝냈다."));
             _decrement_a_duration(DUR_SONG_OF_SLAYING, you.duration[DUR_SONG_OF_SLAYING]);
         }
     }

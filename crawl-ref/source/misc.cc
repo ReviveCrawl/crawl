@@ -31,6 +31,7 @@
 #include "traps.h"
 #include "view.h"
 #include "xom.h"
+#include "i18n-format.h"
 
 string weird_glowing_colour()
 {
@@ -53,7 +54,7 @@ void swap_with_monster(monster* mon_to_swap)
     // Be nice: no swapping into uninhabitable environments.
     if (!you.is_habitable(newpos) || !mon.is_habitable(you.pos()))
     {
-        mpr("You spin around.");
+        mpr(TR7("You spin around.","눈 앞이 빙글빙글 돌았다."));
         return;
     }
 
@@ -63,7 +64,7 @@ void swap_with_monster(monster* mon_to_swap)
     // If it was submerged, it surfaces first.
     mon.del_ench(ENCH_SUBMERGED);
 
-    mprf("You swap places with %s.", mon.name(DESC_THE).c_str());
+    mprf(TR7("You swap places with %s.","당신은 %s와 자리를 바꾸었다."), mon.name(DESC_THE).c_str());
 
     mon.move_to_pos(you.pos(), true, true);
 
@@ -90,7 +91,7 @@ void swap_with_monster(monster* mon_to_swap)
             if (net != NON_ITEM)
             {
                 destroy_item(net);
-                mpr("The net rips apart!");
+                mpr(TR7("The net rips apart!","그물이 찢겨져 나갔다!"));
             }
 
             if (you_caught)
@@ -100,9 +101,9 @@ void swap_with_monster(monster* mon_to_swap)
         {
             you.attribute[ATTR_HELD] = 1;
             if (get_trapping_net(you.pos()) != NON_ITEM)
-                mpr("You become entangled in the net!");
+                mpr(TR7("You become entangled in the net!","당신은 그물에 사로잡혔다!"));
             else
-                mpr("You get stuck in the web!");
+                mpr(TR7("You get stuck in the web!","당신은 거미줄에 갇혔다!"));
             you.redraw_quiver = true; // Account for being in a net.
             you.redraw_evasion = true;
         }

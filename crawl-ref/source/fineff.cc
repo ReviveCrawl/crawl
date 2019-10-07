@@ -31,6 +31,7 @@
 #include "transform.h"
 #include "view.h"
 #include "viewchar.h"
+#include "i18n-format.h"
 
 /*static*/ void final_effect::schedule(final_effect *eff)
 {
@@ -192,12 +193,12 @@ void mirror_damage_fineff::fire()
                  reflector->name(DESC_THE).c_str());
         }
         else
-            mpr("Your damage is reflected back at you!");
+            mpr(TR7("Your damage is reflected back at you!","당신이 준 대미지가 당신에게 반사되어 돌아왔다!"));
         ouch(damage, KILLED_BY_MIRROR_DAMAGE);
     }
     else if (def == MID_PLAYER)
     {
-        simple_god_message(" mirrors your injury!");
+        simple_god_message(TR7(" mirrors your injury!","은(는) 당신의 피해를 반사했다!"));
 #ifndef USE_TILE_LOCAL
         flash_monster_colour(monster_by_mid(att), RED, 200);
 #endif
@@ -211,7 +212,7 @@ void mirror_damage_fineff::fire()
     }
     else
     {
-        simple_monster_message(*monster_by_mid(att), " suffers a backlash!");
+        simple_monster_message(*monster_by_mid(att), TR7(" suffers a backlash!","은(는) 반사 피해를 받았다!"));
         attack->hurt(defender(), damage);
     }
 }
@@ -305,25 +306,25 @@ void trj_spawn_fineff::fire()
     if (trj)
     {
         const string monnam = trj->name(DESC_THE);
-        mprf("%s shudders%s.", monnam.c_str(),
+        mprf(TR7("%s shudders%s.","%s은(는) %s몸을 떨었다."), monnam.c_str(),
              spawned >= 5 ? " alarmingly" :
              spawned >= 3 ? " violently" :
              spawned > 1 ? " vigorously" : "");
 
         if (spawned == 1)
-            mprf("%s spits out another jelly.", monnam.c_str());
+            mprf(TR7("%s spits out another jelly.","%s은(는) 또 한마리의 젤리를 분열해냈다."), monnam.c_str());
         else
         {
-            mprf("%s spits out %s more jellies.",
+            mprf(TR7("%s spits out %s more jellies.","%s은(는) %s 마리의 젤리를 분열해냈다."),
                  monnam.c_str(),
                  number_in_words(spawned).c_str());
         }
     }
     else if (spawned == 1)
-        mpr("One of the Royal Jelly's fragments survives.");
+        mpr(TR7("One of the Royal Jelly's fragments survives.","로얄 젤리의 조각 하나가 살아 움직였다."));
     else
     {
-        mprf("The dying Royal Jelly spits out %s more jellies.",
+        mprf(TR7("The dying Royal Jelly spits out %s more jellies.","로얄 젤리는 죽어가면서, %s마리의 젤리를 몸 속에서 쏟아내었다."),
              number_in_words(spawned).c_str());
     }
 }
@@ -393,7 +394,7 @@ void starcursed_merge_fineff::fire()
         if (mergee && mergee->alive() && mergee->type == MONS_STARCURSED_MASS)
         {
             simple_monster_message(*mon,
-                    " shudders and is absorbed by its neighbour.");
+                    TR7(" shudders and is absorbed by its neighbour.","은(는) 근처의 동족에게 흡수당했다."));
             _do_merge_masses(mon, mergee);
             return;
         }
@@ -436,7 +437,7 @@ void starcursed_merge_fineff::fire()
 
             if (moved)
             {
-                simple_monster_message(*mon, " shudders and withdraws towards its neighbour.");
+                simple_monster_message(*mon, TR7(" shudders and withdraws towards its neighbour.","은(는) 근처의 동족을 흡수했다."));
                 mon->speed_increment -= 10;
             }
         }

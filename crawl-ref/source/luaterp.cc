@@ -20,6 +20,7 @@
 #include "dlua.h"
 #include "message.h"
 #include "options.h"
+#include "i18n-format.h"
 
 static int _incomplete(lua_State *ls, int status)
 {
@@ -111,7 +112,7 @@ static void _run_dlua_interpreter(lua_State *ls)
     _luaterp_running = true;
 
     int status;
-    mpr("[Hit ESC to exit interpreter.]");
+    mpr(TR7("[Hit ESC to exit interpreter.]","[ESC키를 눌러 인터프리터를 종료합니다.]"));
     while ((status = _loadline(ls)) != -1)
     {
         if (status == 0)
@@ -149,7 +150,7 @@ void debug_terp_dlua(CLua &vm)
         {
             vm.execfile(file.c_str(), false, false);
             if (!vm.error.empty())
-                mprf(MSGCH_ERROR, "Lua error: %s", vm.error.c_str());
+                mprf(MSGCH_ERROR, TR7("Lua error: %s","Lua 스크립트 에러 : %s"), vm.error.c_str());
         }
         _loaded_terp_files = true;
     }

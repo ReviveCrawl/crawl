@@ -18,6 +18,7 @@
 #include "tiles-build-specific.h"
 #include "travel.h"
 #include "view.h"
+#include "i18n-format.h"
 
 void set_terrain_mapped(const coord_def gc)
 {
@@ -78,12 +79,12 @@ void clear_map_or_travel_trail()
 {
     if (Options.show_travel_trail && env.travel_trail.size())
     {
-        mpr("Clearing travel trail.");
+        mpr(TR7("Clearing travel trail.","탐색 기록을 초기화합니다."));
         clear_travel_trail();
     }
     else
     {
-        mpr("Clearing level map.");
+        mpr(TR7("Clearing level map.","레벨 지도를 클리어했다."));
         clear_map();
         crawl_view.set_player_at(you.pos());
     }

@@ -34,6 +34,7 @@
 #include "terrain.h"
 #include "unwind.h"
 #include "view.h"
+#include "i18n-format.h"
 
 string god_prayer_reaction()
 {
@@ -44,13 +45,13 @@ string god_prayer_reaction()
     else
         result += " is ";
     result +=
-        (rank == 7) ? "exalted by your worship" :
-        (rank == 6) ? "extremely pleased with you" :
-        (rank == 5) ? "greatly pleased with you" :
-        (rank == 4) ? "most pleased with you" :
-        (rank == 3) ? "pleased with you" :
-        (rank == 2) ? "aware of your devotion"
-                    : "noncommittal";
+        (rank == 7) ? TR7("exalted by your worship","당신의 숭배를 자랑스러워하고 있") :
+        (rank == 6) ? TR7("extremely pleased with you","당신에게 지극히 만족하고 있") :
+        (rank == 5) ? TR7("greatly pleased with you","당신에게 크게 만족하고 있") :
+        (rank == 4) ? TR7("most pleased with you","당신에게 만족하고 있") :
+        (rank == 3) ? TR7("pleased with you","당신에게 약간 만족하고 있") :
+        (rank == 2) ? TR7("aware of your devotion","당신에게 관심을 가졌")
+                    : TR7("noncommittal","당신에게 별로 관심이 없");
     result += ".";
 
     return result;
@@ -121,7 +122,7 @@ void try_god_conversion(god_type god)
 
     if (you.species == SP_DEMIGOD)
     {
-        mpr("A being of your status worships no god.");
+        mpr(TR7("A being of your status worships no god.","유감이지만, 당신과 같은 종족은 신을 숭배하지 않는다."));
         return;
     }
 
@@ -172,7 +173,7 @@ int zin_tithe(const item_def& item, int quant, bool quiet, bool converting)
         }
         taken = tithe;
         you.attribute[ATTR_DONATIONS] += tithe;
-        mprf("You pay a tithe of %d gold.", tithe);
+        mprf(TR7("You pay a tithe of %d gold.","당신은 금화 %d을(를) 헌금했다."), tithe);
 
         if (item.tithe_state == TS_NO_PIETY) // seen before worshipping Zin
         {
@@ -298,9 +299,9 @@ void jiyva_slurp_item_stack(const item_def& item, int quantity)
     }
 
     if (gain.piety_gain > PIETY_NONE)
-        simple_god_message(" appreciates your sacrifice.");
+        simple_god_message(TR7(" appreciates your sacrifice.","은(는) 당신의 희생을 기뻐했다."));
     if (gain.jiyva_bonus & jiyva_slurp_result::food)
-        mpr("You feel a little less hungry.");
+        mpr(TR7("You feel a little less hungry.","약간 배가 덜 고파진 느낌이 들었다."));
     if (gain.jiyva_bonus & jiyva_slurp_result::mp)
         canned_msg(MSG_GAIN_MAGIC);
     if (gain.jiyva_bonus & jiyva_slurp_result::hp)

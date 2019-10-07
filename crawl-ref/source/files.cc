@@ -85,6 +85,7 @@
 #include "version.h"
 #include "view.h"
 #include "xom.h"
+#include "i18n-format.h"
 
 #ifdef __ANDROID__
 #include <android/log.h>
@@ -984,13 +985,13 @@ static void _grab_followers()
         // Summons won't follow and will time out.
         if (non_stair_using_summons > 0)
         {
-            mprf("Your summoned %s left behind.",
+            mprf(TR7("Your summoned %s left behind.","당신의 소환된 %s이(가) 떠나갔다."),
                  non_stair_using_allies > 1 ? "allies are" : "ally is");
         }
         else
         {
             // Permanent undead are left behind but stay.
-            mprf("Your mindless thrall%s behind.",
+            mprf(TR7("Your mindless thrall%s behind.","당신의 %s은(는) 남아 당신을 기다린다."),
                  non_stair_using_allies > 1 ? "s stay" : " stays");
         }
     }
@@ -1459,7 +1460,7 @@ bool load_level(dungeon_feature_type stair_taken, load_mode_type load_mode,
         && !get_level_annotation().empty()
         && !crawl_state.level_annotation_shown)
     {
-        mprf(MSGCH_PLAIN, YELLOW, "Level annotation: %s",
+        mprf(MSGCH_PLAIN, YELLOW, TR7("Level annotation: %s","층 주석: %s"),
              get_level_annotation().c_str());
     }
 
@@ -1531,7 +1532,7 @@ bool load_level(dungeon_feature_type stair_taken, load_mode_type load_mode,
                 if (coinflip())
                 {
                     // Stairs stop fleeing from you now you actually caught one.
-                    mprf("%s settles down.", stair_str.c_str());
+                    mprf(TR7("%s settles down.","%s은(는) 도망을 멈추었다."), stair_str.c_str());
                     you.duration[DUR_REPEL_STAIRS_MOVE]  = 0;
                     you.duration[DUR_REPEL_STAIRS_CLIMB] = 0;
                 }
@@ -1645,7 +1646,7 @@ static void _save_game_exit()
     // Prompt for saving macros.
     if (crawl_state.unsaved_macros
         && !crawl_state.seen_hups
-        && yesno("Save macros?", true, 'n'))
+        && yesno(TR7("Save macros?","매크로를 저장합니까?"), true, 'n'))
     {
         macro_save();
     }
@@ -1676,7 +1677,7 @@ void save_game(bool leave_game, const char *farewellmsg)
     {
         if (!dump_char(you.your_name, true))
         {
-            mpr("Char dump unsuccessful! Sorry about that.");
+            mpr(TR7("Char dump unsuccessful! Sorry about that.","캐릭터 파일 덤프에 실패했다! 유감이다."));
             if (!crawl_state.seen_hups)
                 more();
         }
@@ -1912,10 +1913,10 @@ bool define_ghost_from_bones(monster& mons)
     mons.ghost_init(false);
 
     if (!mons.alive())
-        mprf(MSGCH_ERROR, "Placed ghost is not alive.");
+        mprf(MSGCH_ERROR, TR7("Placed ghost is not alive.","배치된 망령은 살아있지 않다."));
     else if (mons.type != MONS_PLAYER_GHOST)
     {
-        mprf(MSGCH_ERROR, "Placed ghost is not MONS_PLAYER_GHOST, but %s",
+        mprf(MSGCH_ERROR, TR7("Placed ghost is not MONS_PLAYER_GHOST, but %s","배치된 망령은 MONS_PLAYER_GHOST는 아니지만, %s(이)다"),
              mons.name(DESC_PLAIN, true).c_str());
     }
 
@@ -2030,7 +2031,7 @@ static bool _restore_game(const string& filename)
     {
         // Note: if we are here, the save info was properly read, it would
         // raise an exception otherwise.
-        if (yesno(("This game comes from an incompatible version of Crawl ("
+        if (yesno((TR7("This game comes from an incompatible version of Crawl (","이 세이브 파일의 버전 (")
                    + you.prev_save_version + ").\n"
                    "Unless you reinstall that version, you can't load it.\n"
                    "Do you want to DELETE that game and start a new one?"
@@ -2349,7 +2350,7 @@ static bool _tagged_chunk_version_compatible(reader &inf, string* reason)
 
     if (!get_save_version(inf, major, minor))
     {
-        *reason = "File is corrupt.";
+        *reason = TR7("File is corrupt.","파일이 손상되었다.");
         return false;
     }
 
@@ -2368,7 +2369,7 @@ static bool _tagged_chunk_version_compatible(reader &inf, string* reason)
         }
         else
         {
-            *reason = make_stringf("Major version mismatch: %d (want %d).",
+            *reason = make_stringf(TR7("Major version mismatch: %d (want %d).","메이저 버전이 맞지 않는다: %d (%d 필요)."),
                                    major, TAG_MAJOR_VERSION);
         }
         return false;
@@ -2376,7 +2377,7 @@ static bool _tagged_chunk_version_compatible(reader &inf, string* reason)
 
     if (minor < 0)
     {
-        *reason = make_stringf("Minor version %d is negative!",
+        *reason = make_stringf(TR7("Minor version %d is negative!","마이너 버전 (%d)이 음수라니!"),
                                minor);
         return false;
     }
@@ -2641,7 +2642,7 @@ FILE *lk_open(const char *mode, const string &file)
     const bool write_lock = mode[0] != 'r' || strchr(mode, '+');
     if (!lock_file_handle(handle, write_lock))
     {
-        mprf(MSGCH_ERROR, "ERROR: Could not lock file %s", file.c_str());
+        mprf(MSGCH_ERROR, TR7("ERROR: Could not lock file %s","ERROR: 파일 %s을(를) 잠글 수 없음"), file.c_str());
         fclose(handle);
         handle = nullptr;
     }
@@ -2665,7 +2666,7 @@ FILE *lk_open_exclusive(const string &file)
 
     if (!lock_file(fd, true))
     {
-        mprf(MSGCH_ERROR, "ERROR: Could not lock file %s", file.c_str());
+        mprf(MSGCH_ERROR, TR7("ERROR: Could not lock file %s","ERROR: 파일 %s을(를) 잠글 수 없음"), file.c_str());
         close(fd);
         return nullptr;
     }

@@ -46,6 +46,7 @@
 #include "throw.h"
 #include "unwind.h"
 #include "view.h"
+#include "i18n-format.h"
 
 // TODO: template out the differences between this and god_power.
 // TODO: use the display method rather than dummy powers in god_powers.
@@ -527,7 +528,7 @@ void jiyva_eat_offlevel_items()
 
                 // Needs a message now to explain possible hp or mp
                 // gain from jiyva_slurp_bonus()
-                mpr("You hear a distant slurping noise.");
+                mpr(TR7("You hear a distant slurping noise.","멀리서 무언가 후루룩 마시는 소리가 들렸다."));
                 jiyva_slurp_item_stack(*si);
                 item_was_destroyed(*si);
                 destroy_item(si.index());

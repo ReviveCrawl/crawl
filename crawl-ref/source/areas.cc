@@ -27,6 +27,8 @@
 #include "traps.h"
 #include "travel.h"
 
+#include "i18n-format.h"
+
 enum class areaprop
 {
     sanctuary_1   = (1 << 0),
@@ -304,7 +306,7 @@ bool remove_sanctuary(bool did_attack)
     if (did_attack)
     {
         if (seen_change)
-            simple_god_message(" revokes the gift of sanctuary.", GOD_ZIN);
+            simple_god_message(TR7(" revokes the gift of sanctuary.","은(는) 성지의 선물을 해지하였다."), GOD_ZIN);
         did_god_conduct(DID_ATTACK_IN_SANCTUARY, 3);
     }
 
@@ -334,7 +336,7 @@ void decrease_sanctuary_radius()
 
     if (you.running && is_sanctuary(you.pos()))
     {
-        mprf(MSGCH_DURATION, "The sanctuary starts shrinking.");
+        mprf(MSGCH_DURATION, TR7("The sanctuary starts shrinking.","성지가 점점 작아지기 시작한다."));
         stop_running();
     }
 
@@ -352,7 +354,7 @@ void decrease_sanctuary_radius()
     {
         _remove_sanctuary_property(env.sanctuary_pos);
         if (you.see_cell(env.sanctuary_pos))
-            mprf(MSGCH_DURATION, "The sanctuary disappears.");
+            mprf(MSGCH_DURATION, TR7("The sanctuary disappears.","성지가 사라졌다."));
     }
 }
 
@@ -450,7 +452,7 @@ void create_sanctuary(const coord_def& center, int time)
 
     // Messaging.
     if (trap_count > 0)
-        mprf(MSGCH_GOD, "By Zin's power, hidden traps are revealed to you.");
+        mprf(MSGCH_GOD, TR7("By Zin's power, hidden traps are revealed to you.","진의 힘에 의해, 숨겨져 있던 함정들이 나타났다."));
 
     if (cloud_count == 1)
     {
@@ -464,12 +466,12 @@ void create_sanctuary(const coord_def& center, int time)
     }
 
     if (blood_count > 0)
-        mprf(MSGCH_GOD, "By Zin's power, all blood is cleared from the sanctuary.");
+        mprf(MSGCH_GOD, TR7("By Zin's power, all blood is cleared from the sanctuary.","진의 힘으로 인해, 성지 내에 있던 핏자국들이 깨끗이 지워졌다."));
 
     if (scare_count == 1 && seen_mon != nullptr)
-        simple_monster_message(*seen_mon, " turns to flee the light!");
+        simple_monster_message(*seen_mon, TR7(" turns to flee the light!"," 은(는) 빛을 피해 달아나기 시작했다!"));
     else if (scare_count > 0)
-        mpr("The monsters scatter in all directions!");
+        mpr(TR7("The monsters scatter in all directions!","몬스터들이 사방팔방으로 흩어졌다!"));
 }
 
 /////////////

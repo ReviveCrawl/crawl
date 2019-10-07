@@ -58,6 +58,7 @@
 #include "unwind.h"
 #include "viewchar.h"
 #include "view.h"
+#include "i18n-format.h"
 
 band_type active_monster_band = BAND_NO_BAND;
 
@@ -2846,26 +2847,26 @@ bool player_angers_monster(monster* mon)
             switch (why)
             {
             case DID_EVIL:
-                mprf("%s is enraged by your holy aura!", mname.c_str());
+                mprf(TR7("%s is enraged by your holy aura!","당신의 신성한 기운이 %s을(를) 분노케 했다!"), mname.c_str());
                 break;
             case DID_CORPSE_VIOLATION:
-                mprf("%s is revulsed by your support of nature!", mname.c_str());
+                mprf(TR7("%s is revulsed by your support of nature!","%s은(는) 당신의 자연 수호에 강한 반감을 드러냈다! "), mname.c_str());
                 break;
             case DID_HOLY:
-                mprf("%s is enraged by your evilness!", mname.c_str());
+                mprf(TR7("%s is enraged by your evilness!","%s은(는) 당신의 사악함을 용서하지 않을 모양이다!"), mname.c_str());
                 break;
             case DID_UNCLEAN:
             case DID_CHAOS:
-                mprf("%s is enraged by your lawfulness!", mname.c_str());
+                mprf(TR7("%s is enraged by your lawfulness!","%s은(는) 당신의 신성한 기운을 가만 두지 않을 모양이다!"), mname.c_str());
                 break;
             case DID_SPELL_CASTING:
-                mprf("%s is enraged by your magic-hating god!", mname.c_str());
+                mprf(TR7("%s is enraged by your magic-hating god!","%s은(는) 마법을 싫어하는 당신의 신에 대한 분노를 드러냈다!"), mname.c_str());
                 break;
             case DID_SACRIFICE_LOVE:
                 mprf("%s can only feel hate for you!", mname.c_str());
                 break;
             default:
-                mprf("%s is enraged by a buggy thing about you!", mname.c_str());
+                mprf(TR7("%s is enraged by a buggy thing about you!","%s은(는) 아무 이유 없이 화를 냈다! 완전 또라이다. 사실 버그다. 제보해주세요."), mname.c_str());
                 break;
             }
         }
@@ -2923,7 +2924,7 @@ monster* create_monster(mgen_data mg, bool fail_msg)
             fail_msg = false;
 
         if (!summd && fail_msg && you.see_cell(mg.pos))
-            mpr("You see a puff of smoke.");
+            mpr(TR7("You see a puff of smoke.","연기가 피어오르는 것을 보았다."));
     }
 
     return summd;

@@ -16,6 +16,7 @@
 #include "mon-util.h"
 #include "religion.h"
 #include "spl-other.h"
+#include "i18n-format.h"
 
 map<mid_t, companion> companion_list;
 
@@ -143,7 +144,7 @@ bool recall_offlevel_ally(mid_t mid)
     // The monster is now on this level
     remove_monster_from_transit(comp->level, mid);
     comp->level = level_id::current();
-    simple_monster_message(*mons, " is recalled.");
+    simple_monster_message(*mons, TR7(" is recalled.","이(가) 당신 주위로 소환되었다."));
 
     // Now that the monster is onlevel, we can safely apply traps to it.
     // old location isn't very meaningful, so use current loc
@@ -196,7 +197,7 @@ void wizard_list_companions()
 {
     if (companion_list.size() == 0)
     {
-        mpr("You have no companions.");
+        mpr(TR7("You have no companions.","당신은 동료가 없다."));
         return;
     }
 

@@ -50,6 +50,7 @@
 #include "unwind.h"
 #include "view.h"
 #include "xom.h"
+#include "i18n-format.h"
 
 #ifdef NOTE_DEBUG_CHAOS_BRAND
     #define NOTE_DEBUG_CHAOS_EFFECTS
@@ -229,7 +230,7 @@ bool melee_attack::handle_phase_attempted()
     {
         if (you.see_cell(attack_position))
         {
-            mprf("%s strikes at %s from the darkness!",
+            mprf(TR7("%s strikes at %s from the darkness!","%s은(는) 어둠으로부터 %s을(를) 타격했다!"),
                  attacker->name(DESC_THE, true).c_str(),
                  defender->name(DESC_THE).c_str());
         }
@@ -808,7 +809,7 @@ bool melee_attack::attack()
             && ev_margin >= 0
             && one_chance_in(20))
         {
-            simple_god_message(" blocks your attack.", GOD_ELYVILON);
+            simple_god_message(TR7(" blocks your attack.","은(는) 당신의 공격으로부터 몬스터를 보호했다."), GOD_ELYVILON);
             handle_phase_end();
             return false;
         }
@@ -1245,7 +1246,7 @@ bool melee_attack::player_aux_test_hit()
         && to_hit >= evasion
         && one_chance_in(20))
     {
-        simple_god_message(" blocks your attack.", GOD_ELYVILON);
+        simple_god_message(TR7(" blocks your attack.","은(는) 당신의 공격으로부터 몬스터를 보호했다."), GOD_ELYVILON);
         return false;
     }
 
@@ -1598,7 +1599,7 @@ void melee_attack::set_attack_verb(int damage)
         else if (defender_genus == MONS_OGRE)
         {
             attack_verb = "dice";
-            verb_degree = "like an onion";
+            verb_degree = TR7("like an onion","[_onion] 이 문장을 보면 버그이므로 제보를 해 주세요");
         }
         else if (defender_genus == MONS_SKELETON)
         {
@@ -1865,7 +1866,7 @@ void melee_attack::rot_defender(int amount)
             if (defender->is_player())
                 mpr("You feel your flesh rotting away!");
             else if (defender->is_monster() && defender_visible)
-                mprf("%s looks less resilient!", defender_name(false).c_str());
+                mprf(TR7("%s looks less resilient!","%s은(는) 회복력을 약간 상실했다!"), defender_name(false).c_str());
         }
     }
 }
@@ -1920,7 +1921,7 @@ bool melee_attack::consider_decapitation(int dam, int damage_type)
     if (wpn_brand == SPWPN_FLAMING)
     {
         if (defender_visible)
-            mpr("The flame cauterises the wound!");
+            mpr(TR7("The flame cauterises the wound!","불꽃이 상처를 지졌다!"));
         return false;
     }
 
@@ -1928,7 +1929,7 @@ bool melee_attack::consider_decapitation(int dam, int damage_type)
     if (heads >= limit - 1)
         return false; // don't overshoot the head limit!
 
-    simple_monster_message(*defender->as_monster(), " grows two more!");
+    simple_monster_message(*defender->as_monster(), TR7(" grows two more!","의 머리가 두개 더 늘어났다!"));
     defender->as_monster()->num_heads += 2;
     defender->heal(8 + random2(8));
 
@@ -2099,7 +2100,7 @@ void melee_attack::attacker_sustain_passive_damage()
     else
     {
         simple_monster_message(*attacker->as_monster(),
-                               " is burned by acid!");
+                               TR7(" is burned by acid!","은(는) 강한 산으로 화상을 입었다!"));
     }
     attacker->hurt(defender, roll_dice(1, acid_strength), BEAM_ACID,
                    KILLED_BY_ACID, "", "", false);
@@ -2398,7 +2399,7 @@ bool melee_attack::mons_do_poison()
 
     if (needs_message)
     {
-        mprf("%s poisons %s!",
+        mprf(TR7("%s poisons %s!","%s은(는) %s를 중독시켰다!"),
                 atk_name(DESC_THE).c_str(),
                 defender_name(true).c_str());
     }
@@ -2765,7 +2766,7 @@ void melee_attack::mons_apply_attack_flavour()
         // Doesn't affect the poison-immune.
         if (defender->is_player() && you.duration[DUR_DIVINE_STAMINA] > 0)
         {
-            mpr("Your divine stamina protects you from poison!");
+            mpr(TR7("Your divine stamina protects you from poison!","신성한 원기가 당신을 중독으로부터 보호했다!"));
             break;
         }
         else if (defender->res_poison() >= 3)
@@ -2877,7 +2878,7 @@ void melee_attack::mons_apply_attack_flavour()
                 simple_monster_message(*attacker->as_monster(),
                                        spell_user
                                        ? " looks very invigorated."
-                                       : " looks invigorated.");
+                                       : TR7(" looks invigorated.","은(는) 활력을 되찾은 것 처럼 보인다."));
             }
         }
         break;
@@ -2983,7 +2984,7 @@ void melee_attack::mons_apply_attack_flavour()
 
             if (needs_message && visible_effect)
             {
-                mprf("%s magical defenses are stripped away!",
+                mprf(TR7("%s magical defenses are stripped away!","%s의 마법적인 방어가 벗겨져나갔다!"),
                      def_name(DESC_ITS).c_str());
             }
         }
@@ -3040,7 +3041,7 @@ void melee_attack::do_passive_freeze()
         if (!hurted)
             return;
 
-        simple_monster_message(*mon, " is very cold.");
+        simple_monster_message(*mon, TR7(" is very cold.","은(는) 추위에 떨었다."));
 
 #ifndef USE_TILE_LOCAL
         flash_monster_colour(mon, LIGHTBLUE, 200);
@@ -3068,7 +3069,7 @@ void melee_attack::mons_do_eyeball_confusion()
 
         if (mon->check_res_magic(ench_pow) <= 0)
         {
-            mprf("The eyeballs on your body gaze at %s.",
+            mprf(TR7("The eyeballs on your body gaze at %s.","당신의 몸에 돋은 눈알들이 %s을(를) 응시하였다."),
                  mon->name(DESC_THE).c_str());
 
             if (!mon->check_clarity(false))
@@ -3095,7 +3096,7 @@ void melee_attack::mons_do_tendril_disarm()
         item_def* mons_wpn = mon->disarm();
         if (mons_wpn)
         {
-            mprf("Your tendrils lash around %s %s and pull it to the ground!",
+            mprf(TR7("Your tendrils lash around %s %s and pull it to the ground!","당신의 덩굴손이 %s %s을(를) 쳐내 땅으로 떨어트렸다!"),
                  apostrophise(mon->name(DESC_THE)).c_str(),
                  mons_wpn->name(DESC_PLAIN).c_str());
         }
@@ -3123,7 +3124,7 @@ void melee_attack::do_spines()
                 return;
 
             simple_monster_message(*attacker->as_monster(),
-                                   " is struck by your spines.");
+                                   TR7(" is struck by your spines.","은(는) 당신의 가시에 명중당했다."));
 
             attacker->hurt(&you, hurt);
         }
@@ -3177,7 +3178,7 @@ void melee_attack::emit_foul_stench()
             && !cell_is_solid(mon->pos())
             && !cloud_at(mon->pos()))
         {
-            mpr("You emit a cloud of foul miasma!");
+            mpr(TR7("You emit a cloud of foul miasma!","당신에게서 오염된 증기 구름이 방출되어져 나왔다!"));
             place_cloud(CLOUD_MIASMA, mon->pos(), 5 + random2(6), &you);
         }
     }
@@ -3194,15 +3195,15 @@ void melee_attack::do_minotaur_retaliation()
             if (you.see_cell(defender->pos()))
             {
                 const string defname = defender->name(DESC_THE);
-                mprf("%s furiously retaliates!", defname.c_str());
+                mprf(TR7("%s furiously retaliates!","%s은(는) 격렬하게 반격을 가했다!"), defname.c_str());
                 if (hurt <= 0)
                 {
-                    mprf("%s headbutts %s, but does no damage.", defname.c_str(),
+                    mprf(TR7("%s headbutts %s, but does no damage.","%s은(는) %s에게 박치기를 시도했지만, 아무런 손상도 입히지 못했다."), defname.c_str(),
                          attacker->name(DESC_THE).c_str());
                 }
                 else
                 {
-                    mprf("%s headbutts %s%s", defname.c_str(),
+                    mprf(TR7("%s headbutts %s%s","%s은(는) %s에게 박치기를 했다%s"), defname.c_str(),
                          attacker->name(DESC_THE).c_str(),
                          attack_strength_punctuation(hurt).c_str());
                 }
@@ -3236,17 +3237,17 @@ void melee_attack::do_minotaur_retaliation()
         dmg = player_apply_final_multipliers(dmg);
         int hurt = attacker->apply_ac(dmg);
 
-        mpr("You furiously retaliate!");
+        mpr(TR7("You furiously retaliate!","당신은 격렬하게 반격을 가했다!"));
         dprf(DIAG_COMBAT, "Retaliation: dmg = %d hurt = %d", dmg, hurt);
         if (hurt <= 0)
         {
-            mprf("You headbutt %s, but do no damage.",
+            mprf(TR7("You headbutt %s, but do no damage.","당신은 %s에게 박치기를 시도했지만, 아무런 손상도 입히지 못했다."),
                  attacker->name(DESC_THE).c_str());
             return;
         }
         else
         {
-            mprf("You headbutt %s%s",
+            mprf(TR7("You headbutt %s%s","당신은(는) %s에게 박치기를 했다%s"),
                  attacker->name(DESC_THE).c_str(),
                  attack_strength_punctuation(hurt).c_str());
             attacker->hurt(&you, hurt);
@@ -3581,7 +3582,7 @@ bool melee_attack::_player_vampire_draws_blood(const monster* mon, const int dam
     }
     else
     {
-        mprf("You draw %s blood!",
+        mprf(TR7("You draw %s blood!","당신은 %s 피를 빨아냈다!"),
              apostrophise(mon->name(DESC_THE, true)).c_str());
     }
 

@@ -30,6 +30,7 @@
 #include "terrain.h"
 #include "travel.h"
 #include "unicode.h"
+#include "i18n-format.h"
 
 typedef map<branch_type, set<level_id> > stair_map_type;
 typedef map<level_pos, shop_type> shop_map_type;
@@ -809,11 +810,11 @@ static string unique_name(monster* mons)
         if (strstr(name.c_str(), "Royal Jelly"))
             name = "Royal Jelly";
         if (strstr(name.c_str(), "Lernaean hydra"))
-            name = "Lernaean hydra";
-        if (strstr(name.c_str(), "Serpent of Hell"))
-            name = "Serpent of Hell";
+            name = TR7("Lernaean hydra","고대의 히드라");
+        if (strstr(name.c_str(), TR7("Serpent of Hell","지옥의 고룡")))
+            name = TR7("Serpent of Hell","지옥의 고룡");
         if (strstr(name.c_str(), "Blork"))
-            name = "Blork the orc";
+            name = TR7("Blork the orc","블로크 더 오크");
     }
     return name;
 }
@@ -935,7 +936,7 @@ void annotate_level()
 
     if (li2 != level_id::current())
     {
-        if (yesno("Annotate level on other end of current stairs?", true, 'n'))
+        if (yesno(TR7("Annotate level on other end of current stairs?","현재 계단의 마지막에 주석을 추가하겠는가?"), true, 'n'))
             li = li2;
     }
 
@@ -951,8 +952,8 @@ void do_annotate(level_id& li)
              old.c_str());
     }
 
-    const string prompt = "New annotation for " + li.describe()
-                          + " (include '!' for warning): ";
+    const string prompt = TR7("New annotation for ","새 주석 만들기 : ") + li.describe()
+                          + TR7(" (include '!' for warning): "," ('!'을 포함하여 경고 표시): ");
 
     char buf[77];
     if (msgwin_get_line_autohist(prompt, buf, sizeof(buf), old))
@@ -963,7 +964,7 @@ void do_annotate(level_id& li)
         level_annotations[li] = buf;
     else
     {
-        mpr("Cleared annotation.");
+        mpr(TR7("Cleared annotation.","주석을 초기화했다."));
         level_annotations.erase(li);
     }
 }

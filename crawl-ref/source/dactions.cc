@@ -24,6 +24,7 @@
 #include "religion.h"
 #include "state.h"
 #include "view.h"
+#include "i18n-format.h"
 
 static void _daction_hog_to_human(monster *mon, bool in_transit);
 
@@ -462,7 +463,7 @@ static void _daction_hog_to_human(monster *mon, bool in_transit)
     behaviour_event(mon, ME_EVAL);
 
     if (could_see && !can_see)
-        mpr("The hog vanishes!");
+        mpr(TR7("The hog vanishes!","돼지가 사라졌다!"));
     else if (!could_see && can_see)
-        mprf("%s appears from out of thin air!", mon->name(DESC_A).c_str());
+        mprf(TR7("%s appears from out of thin air!","%s이(가) 갑자기 나타났다!"), mon->name(DESC_A).c_str());
 }

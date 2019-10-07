@@ -18,6 +18,7 @@
 #include "syscalls.h"
 #include "unicode.h"
 #include "version.h"
+#include "i18n-format.h"
 
 #define BUGGY_PCALL_ERROR  "667: Malformed response to guarded pcall."
 #define BUGGY_SCRIPT_ERROR "666: Killing badly-behaved Lua script."
@@ -156,7 +157,7 @@ void CLua::save_persist()
     f = fopen_u(persistfile.c_str(), "w");
     if (!f)
     {
-        mprf(MSGCH_ERROR, "Couldn't open %s for writing!", persistfile.c_str());
+        mprf(MSGCH_ERROR, TR7("Couldn't open %s for writing!","%s 파일을 열 수 없다!"), persistfile.c_str());
         return;
     }
 

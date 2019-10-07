@@ -47,6 +47,7 @@
  #include "tiledef-dngn.h"
  #include "tilepick.h"
 #endif
+#include "i18n-format.h"
 
 ///////////////////////////////////////////////////////////////////////////////
 // Inventory menu shenanigans
@@ -342,7 +343,7 @@ string slot_description()
 
 void InvMenu::set_title(const string &s)
 {
-    set_title(new InvTitle(this, s.empty() ? "Inventory: " + slot_description()
+    set_title(new InvTitle(this, s.empty() ? TR7("Inventory: ", "소지품창: ") + slot_description()
                                            : s,
                            title_annotate));
 }
@@ -388,66 +389,66 @@ static bool _has_hand_evokable()
  * the given selector and don't find any?
  *
  * @param selector      The given type of object_selector.
- * @return              A message such as "You aren't carrying any weapons."
- *                      "Your armour is currently melded into you.", etc.
+ * @return              A message such as TR7("You aren't carrying any weapons.","당신은 무기를 가지고 있지 않다.")
+ *                      TR7("Your armour is currently melded into you.","당신의 갑옷은 현재 당신과 일체화되어있다."), etc.
  */
 string no_selectables_message(int item_selector)
 {
     switch (item_selector)
     {
     case OSEL_ANY:
-        return "You aren't carrying anything.";
+        return TR7("You aren't carrying anything.","당신은 아무것도 들고있지 않다.");
     case OSEL_WIELD:
     case OBJ_WEAPONS:
-        return "You aren't carrying any weapons.";
+        return TR7("You aren't carrying any weapons.","당신은 무기를 가지고 있지 않다.");
     case OSEL_BLESSABLE_WEAPON:
         return "You aren't carrying any weapons that can be blessed.";
     case OBJ_ARMOUR:
     {
         if (_has_melded_armour())
-            return "Your armour is currently melded into you.";
+            return TR7("Your armour is currently melded into you.","당신의 갑옷은 현재 당신과 일체화되어있다.");
         else if (_has_temp_unwearable_armour())
             return "You aren't carrying any currently wearable armour.";
         else
             return "You aren't carrying any wearable armour.";
     }
     case OSEL_UNIDENT:
-        return "You don't have any unidentified items.";
+        return TR7("You don't have any unidentified items.","당신은 미감정된 아이템을 가지고 있지 않다.");
     case OSEL_ENCHANTABLE_ARMOUR:
-        return "You aren't carrying any armour which can be enchanted further.";
+        return TR7("You aren't carrying any armour which can be enchanted further.","당신은 강화가 가능한 방어구를 가지고 있지 않다.");
     case OBJ_CORPSES:
         return "You don't have any corpses.";
     case OSEL_DRAW_DECK:
-        return "You aren't carrying any decks from which to draw.";
+        return TR7("You aren't carrying any decks from which to draw.","당신은 카드를 뽑을 카드 덱이 없다.");
     case OBJ_FOOD:
-        return "You aren't carrying any food.";
+        return TR7("You aren't carrying any food.","당신은 음식을 가지고 있지 않다.");
     case OBJ_POTIONS:
-        return "You aren't carrying any potions.";
+        return TR7("You aren't carrying any potions.","당신은 물약을 가지고 있지 않다.");
     case OBJ_SCROLLS:
         return "You aren't carrying any scrolls.";
     case OBJ_BOOKS:
         return "You don't have any books.";
     case OBJ_WANDS:
-        return "You aren't carrying any wands.";
+        return TR7("You aren't carrying any wands.","당신은 마법봉을 가지고 있지 않다.");
     case OBJ_JEWELLERY:
-        return "You aren't carrying any pieces of jewellery.";
+        return TR7("You aren't carrying any pieces of jewellery.","당신은 장신구를 가지고 있지 않다.");
     case OSEL_THROWABLE:
-        return "You aren't carrying any items that might be thrown or fired.";
+        return TR7("You aren't carrying any items that might be thrown or fired.","당신은 던지거나 발사할 수 있는 아이템을 가지고 있지 않다.");
     case OSEL_EVOKABLE:
         if (_has_hand_evokable())
             return "You aren't carrying any items that you can evoke without wielding.";
         else
             return "You aren't carrying any items that you can evoke.";
     case OSEL_CURSED_WORN:
-        return "None of your equipped items are cursed.";
+        return TR7("None of your equipped items are cursed.","저주받은 장비중인 아이템이 없다.");
 #if TAG_MAJOR_VERSION == 34
     case OSEL_UNCURSED_WORN_ARMOUR:
-        return "You aren't wearing any piece of uncursed armour.";
+        return TR7("You aren't wearing any piece of uncursed armour.","당신은 저주받은 방어구를 착용하고 있지 않다.");
     case OSEL_UNCURSED_WORN_JEWELLERY:
-        return "You aren't wearing any piece of uncursed jewellery.";
+        return TR7("You aren't wearing any piece of uncursed jewellery.","당신은 저주받은 장신구를 착용하고 있지 않다.");
 #endif
     case OSEL_BRANDABLE_WEAPON:
-        return "You aren't carrying any weapons that can be branded.";
+        return TR7("You aren't carrying any weapons that can be branded.","당신은 속성을 부여할 만한 무기를 가지고 있지 않다.");
     case OSEL_ENCHANTABLE_WEAPON:
         return "You aren't carrying any weapons that can be enchanted.";
     case OSEL_BEOGH_GIFT:
@@ -458,7 +459,7 @@ string no_selectables_message(int item_selector)
         return "You aren't wearing any uncursed rings.";
     }
 
-    return "You aren't carrying any such object.";
+    return TR7("You aren't carrying any such object.","당신은 그런 물건이 없다.");
 }
 
 void InvMenu::load_inv_items(int item_selector, int excluded_slot,
@@ -803,7 +804,7 @@ menu_letter InvMenu::load_items(const vector<const item_def*> &mitems,
                 const string str = "Magical Staves ";
                 subtitle += string(strwidth(str) - strwidth(subtitle),
                                    ' ');
-                subtitle += "(select all with <w>";
+                subtitle += TR7("(select all with <w>","(모두 선택 : <w>");
                 for (char gly : glyphs)
                     subtitle += gly;
                 subtitle += "</w><blue>)";
@@ -925,23 +926,23 @@ const char *item_class_name(int type, bool terse)
     {
         switch (type)
         {
-        case OBJ_GOLD:       return "Gold";
-        case OBJ_WEAPONS:    return "Hand Weapons";
-        case OBJ_MISSILES:   return "Missiles";
+        case OBJ_GOLD:       return TR7("Gold","금화");
+        case OBJ_WEAPONS:    return TR7("Hand Weapons","무기");
+        case OBJ_MISSILES:   return TR7("Missiles","발사체");
         case OBJ_ARMOUR:     return "Armour";
         case OBJ_WANDS:      return "Wands";
         case OBJ_FOOD:       return "Comestibles";
-        case OBJ_SCROLLS:    return "Scrolls";
-        case OBJ_JEWELLERY:  return "Jewellery";
-        case OBJ_POTIONS:    return "Potions";
-        case OBJ_BOOKS:      return "Books";
+        case OBJ_SCROLLS:    return TR7("Scrolls","두루마리");
+        case OBJ_JEWELLERY:  return TR7("Jewellery","장신구");
+        case OBJ_POTIONS:    return TR7("Potions","물약");
+        case OBJ_BOOKS:      return TR7("Books","책");
         case OBJ_STAVES:     return "Magical Staves";
 #if TAG_MAJOR_VERSION == 34
         case OBJ_RODS:       return "Rods";
 #endif
-        case OBJ_ORBS:       return "Orbs of Power";
-        case OBJ_MISCELLANY: return "Miscellaneous";
-        case OBJ_CORPSES:    return "Carrion";
+        case OBJ_ORBS:       return TR7("Orbs of Power","오브");
+        case OBJ_MISCELLANY: return TR7("Miscellaneous","기타");
+        case OBJ_CORPSES:    return TR7("Carrion","시체");
         case OBJ_RUNES:      return "Runes of Zot";
         }
     }
@@ -1281,7 +1282,7 @@ vector<SelItem> prompt_drop_items(const vector<SelItem> &preselected_items)
 
         if (need_prompt)
         {
-            mprf(MSGCH_PROMPT, "%s (<w>?</w> for menu, <w>Esc</w> to quit)",
+            mprf(MSGCH_PROMPT, TR7("%s (<w>?</w> for menu, <w>Esc</w> to quit)","%s (<w>?</w> : 메뉴 , <w>Esc</w> : 종료)"),
                  prompt.c_str());
         }
 
@@ -1355,7 +1356,7 @@ vector<SelItem> prompt_drop_items(const vector<SelItem> &preselected_items)
             ret = letter_to_index(keyin);
 
             if (!you.inv[ret].defined())
-                mpr("You don't have any such object.");
+                mpr(TR7("You don't have any such object.","장비할 수 있는 아이템이 없다."));
             else
                 break;
         }
@@ -1452,7 +1453,7 @@ bool check_old_item_warning(const item_def& item,
         if (!needs_handle_warning(old_item, OPER_WIELD, penance))
             return true;
 
-        prompt += "Really unwield ";
+        prompt += TR7("Really unwield ","정말로 ");
     }
     else if (oper == OPER_WEAR) // can we safely take off old item?
     {
@@ -1469,7 +1470,7 @@ bool check_old_item_warning(const item_def& item,
         if (!needs_handle_warning(old_item, OPER_TAKEOFF, penance))
             return true;
 
-        prompt += "Really take off ";
+        prompt += TR7("Really take off ","을(를) 해제하는가");
     }
     else if (oper == OPER_PUTON) // can we safely remove old item?
     {
@@ -1486,7 +1487,7 @@ bool check_old_item_warning(const item_def& item,
             if (!needs_handle_warning(old_item, OPER_TAKEOFF, penance))
                 return true;
 
-            prompt += "Really remove ";
+            prompt += TR7("Really remove ","을(를) 제거하는가");
         }
         else // rings handled in prompt_ring_to_remove
             return true;
@@ -1850,7 +1851,7 @@ int prompt_invent_item(const char *prompt,
 
         if (need_prompt)
         {
-            mprf(MSGCH_PROMPT, "%s (<w>?</w> for menu, <w>Esc</w> to quit)",
+            mprf(MSGCH_PROMPT, TR7("%s (<w>?</w> for menu, <w>Esc</w> to quit)","%s (<w>?</w> : 메뉴 , <w>Esc</w> : 종료)"),
                  prompt);
         }
         else
@@ -1934,7 +1935,7 @@ int prompt_invent_item(const char *prompt,
             ret = letter_to_index(keyin);
 
             if (must_exist && !you.inv[ret].defined())
-                mpr("You don't have any such object.");
+                mpr(TR7("You don't have any such object.","장비할 수 있는 아이템이 없다."));
             else if (must_exist && !item_is_selected(you.inv[ret],
                                                      current_type_expected))
             {
@@ -1993,7 +1994,7 @@ bool item_is_evokable(const item_def &item, bool reach, bool known,
 {
     const string error = item_is_melded(item)
             ? "Your " + item.name(DESC_QUALNAME) + " is melded into your body."
-            : "That item can only be evoked when wielded.";
+            : TR7("That item can only be evoked when wielded.","그 아이템을 발동시키기 전에, 먼저 손에 들고 있어야 한다.");
 
     const bool no_evocables = you.get_mutation_level(MUT_NO_ARTIFICE);
     const char* const no_evocable_error = "You cannot evoke magical items.";
@@ -2058,7 +2059,7 @@ bool item_is_evokable(const item_def &item, bool reach, bool known,
         }
 
         if (msg)
-            mpr("That item cannot be evoked!");
+            mpr(TR7("That item cannot be evoked!","그 아이템은 발동할 수 없다!"));
         return false;
 
     case OBJ_STAVES:
@@ -2075,7 +2076,7 @@ bool item_is_evokable(const item_def &item, bool reach, bool known,
             return true;
         }
         if (msg)
-            mpr("That item cannot be evoked!");
+            mpr(TR7("That item cannot be evoked!","그 아이템은 발동할 수 없다!"));
         return false;
 
 #if TAG_MAJOR_VERSION == 34
@@ -2091,7 +2092,7 @@ bool item_is_evokable(const item_def &item, bool reach, bool known,
 
     default:
         if (msg)
-            mpr("That item cannot be evoked!");
+            mpr(TR7("That item cannot be evoked!","그 아이템은 발동할 수 없다!"));
         return false;
     }
 }

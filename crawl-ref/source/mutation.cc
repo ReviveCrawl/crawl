@@ -46,6 +46,7 @@
 #include "unicode.h"
 #include "viewchar.h"
 #include "xom.h"
+#include "i18n-format.h"
 
 using namespace ui;
 
@@ -1558,7 +1559,7 @@ bool mutate(mutation_type which_mutation, const string &reason, bool failMsg,
                     you.attribute[ATTR_TEMP_MUT_XP] = 0;
             }
             you.mutation[mutat]--;
-            mprf(MSGCH_MUTATION, "Your mutations feel more permanent.");
+            mprf(MSGCH_MUTATION, TR7("Your mutations feel more permanent.","당신의 변이들이 좀 더 안정된 느낌이다."));
             take_note(Note(NOTE_PERM_MUTATION, mutat,
                     you.get_base_mutation_level(mutat), reason.c_str()));
             gain_msg = false;
@@ -1608,7 +1609,7 @@ bool mutate(mutation_type which_mutation, const string &reason, bool failMsg,
         {
         case MUT_STRONG: case MUT_AGILE:  case MUT_CLEVER:
         case MUT_WEAK:   case MUT_CLUMSY: case MUT_DOPEY:
-            mprf(MSGCH_MUTATION, "You feel %s.", _stat_mut_desc(mutat, true));
+            mprf(MSGCH_MUTATION, TR7("You feel %s.","%s을(를) 느꼈다."), _stat_mut_desc(mutat, true));
             gain_msg = false;
             break;
 
@@ -1819,7 +1820,7 @@ static bool _delete_single_mutation_level(mutation_type mutat,
     {
     case MUT_STRONG: case MUT_AGILE:  case MUT_CLEVER:
     case MUT_WEAK:   case MUT_CLUMSY: case MUT_DOPEY:
-        mprf(MSGCH_MUTATION, "You feel %s.", _stat_mut_desc(mutat, false));
+        mprf(MSGCH_MUTATION, TR7("You feel %s.","%s을(를) 느꼈다."), _stat_mut_desc(mutat, false));
         lose_msg = false;
         break;
 

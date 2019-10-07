@@ -93,6 +93,7 @@
 #include "traps.h"
 #include "viewchar.h"
 #include "view.h"
+#include "i18n-format.h"
 
 static bool _player_sacrificed_arcana();
 
@@ -112,13 +113,13 @@ static const char *_god_blessing_description(god_type god)
     switch (god)
     {
     case GOD_SHINING_ONE:
-        return "blessed by the Shining One";
+        return TR7("blessed by the Shining One","에 '샤이닝 원'의 축복이 부여되었다");
     case GOD_LUGONU:
-        return "corrupted by Lugonu";
+        return TR7("corrupted by Lugonu","에 '루고누'의 타락과 왜곡의 힘이 부여되졌다");
     case GOD_KIKUBAAQUDGHA:
-        return "bloodied by Kikubaaqudgha";
+        return TR7("bloodied by Kikubaaqudgha","에 '키쿠바쿠드하'의 피의 고통의 힘이 부여되었다");
     default:
-        return "touched by the gods";
+        return TR7("touched by the gods","에 신의 손길이 가해졌다");
     }
 }
 
@@ -135,7 +136,7 @@ bool bless_weapon(god_type god, brand_type brand, colour_t colour)
 {
     ASSERT(can_do_capstone_ability(god));
 
-    int item_slot = prompt_invent_item("Brand which weapon?", MT_INVLIST,
+    int item_slot = prompt_invent_item(TR7("Brand which weapon?","어느 무기에 속성을 부여하는가?"), MT_INVLIST,
                                        OSEL_BLESSABLE_WEAPON, OPER_ANY,
                                        invprompt_flag::escape_only);
 
@@ -150,7 +151,7 @@ bool bless_weapon(god_type god, brand_type brand, colour_t colour)
     if (!is_brandable_weapon(wpn, brand == SPWPN_HOLY_WRATH, true))
         return false;
 
-    string prompt = "Do you wish to have " + wpn.name(DESC_YOUR)
+    string prompt = TR7("Do you wish to have ","정말로 ") + wpn.name(DESC_YOUR)
                        + " ";
     if (brand == SPWPN_PAIN)
         prompt += "bloodied with pain";
@@ -201,7 +202,7 @@ bool bless_weapon(god_type god, brand_type brand, colour_t colour)
 
     mprf(MSGCH_GOD, "Your %s shines brightly!", wpn.name(DESC_QUALNAME).c_str());
     flash_view(UA_PLAYER, colour);
-    simple_god_message(" booms: Use this gift wisely!");
+    simple_god_message(TR7(" booms: Use this gift wisely!","은(는) 외쳤다: 이것을 현명하게 사용하게!"));
     you.one_time_ability_used.set(you.religion);
     take_note(Note(NOTE_GOD_GIFT, you.religion));
 
@@ -241,11 +242,11 @@ bool zin_donate_gold()
 {
     if (you.gold == 0)
     {
-        mpr("You don't have anything to sacrifice.");
+        mpr(TR7("You don't have anything to sacrifice.","당신은 더 이상 바칠만한 것이 없다."));
         return false;
     }
 
-    if (!yesno("Do you wish to donate half of your money?", true, 'n'))
+    if (!yesno(TR7("Do you wish to donate half of your money?","정말로 가지고 있는 금화의 절반을 기부하겠는가?"), true, 'n'))
     {
         canned_msg(MSG_OK);
         return false;
@@ -267,7 +268,7 @@ bool zin_donate_gold()
 
     if (donation < 1)
     {
-        simple_god_message(" finds your generosity lacking.");
+        simple_god_message(TR7(" finds your generosity lacking.","은(는) 당신은 믿음이 부족하다고 판단했다."));
         return false;
     }
 
@@ -281,21 +282,21 @@ bool zin_donate_gold()
     if (player_under_penance())
     {
         if (estimated_piety >= you.penance[GOD_ZIN])
-            mpr("You feel that you will soon be absolved of all your sins.");
+            mpr(TR7("You feel that you will soon be absolved of all your sins.","짊어진 모든 죄가 곧 사해질 것임을 느꼈다."));
         else
-            mpr("You feel that your burden of sins will soon be lighter.");
+            mpr(TR7("You feel that your burden of sins will soon be lighter.","짊어진 죄가 다소 가벼워졌음을 느꼈다."));
     }
     else
     {
         string result = "You feel that " + god_name(GOD_ZIN) + " will soon be ";
         result +=
-            (estimated_piety >= piety_breakpoint(5)) ? "exalted by your worship" :
-            (estimated_piety >= piety_breakpoint(4)) ? "extremely pleased with you" :
-            (estimated_piety >= piety_breakpoint(3)) ? "greatly pleased with you" :
-            (estimated_piety >= piety_breakpoint(2)) ? "most pleased with you" :
-            (estimated_piety >= piety_breakpoint(1)) ? "pleased with you" :
-            (estimated_piety >= piety_breakpoint(0)) ? "aware of your devotion"
-                                                     : "noncommittal";
+            (estimated_piety >= piety_breakpoint(5)) ? TR7("exalted by your worship","당신의 숭배를 자랑스러워하고 있") :
+            (estimated_piety >= piety_breakpoint(4)) ? TR7("extremely pleased with you","당신에게 지극히 만족하고 있") :
+            (estimated_piety >= piety_breakpoint(3)) ? TR7("greatly pleased with you","당신에게 크게 만족하고 있") :
+            (estimated_piety >= piety_breakpoint(2)) ? TR7("most pleased with you","당신에게 만족하고 있") :
+            (estimated_piety >= piety_breakpoint(1)) ? TR7("pleased with you","당신에게 약간 만족하고 있") :
+            (estimated_piety >= piety_breakpoint(0)) ? TR7("aware of your devotion","당신에게 관심을 가졌")
+                                                     : TR7("noncommittal","당신에게 별로 관심이 없");
         result += (donation >= 30 && you.piety < piety_breakpoint(5)) ? "!" : ".";
 
         mpr(result);
@@ -328,26 +329,26 @@ static const char * const book_of_zin[][3] =
 
     {
         "And so Zin bade the @sinners@ to come before...",
-        "...the altar, that judgement might be passed...",
+        TR7("...the altar, that judgement might be passed...","...그것들의 제단에, 진의 심판이 지나갈 것이고..."),
         "...upon those who were not @virtuous@.",
     },
 
     {
-        "To the devout, Zin provideth. From the rest...",
+        TR7("To the devout, Zin provideth. From the rest...","경건함과 진의 은총, 그리고 평온한 휴양 가운데에서도..."),
         "...ye @sinners@, ye guilty...",
         "...of @sin_noun@, Zin taketh.",
     },
 
     {
         "Zin saw the @sin_noun@ of the @sinners@, and...",
-        "...was displeased, for did the law not say that...",
+        TR7("...was displeased, for did the law not say that...","...보시기에 악하시니, 질서의 이름으로 그 말씀을 삼가셨으니..."),
         "...those who did not become @virtuous@ would be @smitten@?",
     },
 
     {
         "Zin said that @virtue@ shall be the law of the land, and...",
         "...those who turn to @sin_noun@ will be @smitten@. This was fair...",
-        "...and just, and not a voice dissented.",
+        TR7("...and just, and not a voice dissented.","...그 말씀에 반대하는 목소리 하나 없었도다."),
     },
 
     {
@@ -358,61 +359,61 @@ static const char * const book_of_zin[][3] =
 
     {
 
-        "And Zin said to all in attendance, 'Which of ye...",
+        TR7("And Zin said to all in attendance, 'Which of ye...","그리하야 진께서 모든 이들에게 이르시되, ..."),
         "...number among the @sinners@? Come before me, that...",
         "...I may @smite@ you now for your @sin_noun@!'",
     },
 
     {
-        "Yea, I say unto thee, bring forth...",
+        TR7("Yea, I say unto thee, bring forth...","그리하야 내가 말할 때가 되었노니..."),
         "...the @sinners@ that they may know...",
         "...the wrath of Zin, and thus be @smitten@!",
     },
 
     {
-        "In a great set of silver scales are weighed the...",
+        TR7("In a great set of silver scales are weighed the...","은으로 만들어진 거대한 저울에..."),
         "...souls of the @sinners@, and with their @sin_adj@...",
-        "...ways, the balance hath tipped against them!",
+        TR7("...ways, the balance hath tipped against them!","...저울의 화살이, 그들이 있는 곳을 향해 기울었노라!"),
     },
 
     {
         "It is just that the @sinners@ shall be @smitten@...",
         "...in due time, for @virtue@ is what Zin has declared...",
-        "...the law of the land, and Zin's word is law!",
+        TR7("...the law of the land, and Zin's word is law!","...진의 말씀이 진리이며, 이 진리를 온 세상에 명하노라!"),
     },
 
     {
         "Thus the people made the covenant of @virtue@ with...",
-        "...Zin, and all was good, for they knew that the...",
+        TR7("...Zin, and all was good, for they knew that the...","...진과 함께 전파하도록 하거늘, 그 어느 것이 이보다 좋을 것이요..."),
         "...@sinners@ would trouble them no longer.",
     },
 
     {
         "What of the @sinners@? @Smitten@ for their...",
         "...@sin_noun@ they shall be! Zin will @smite@ them again...",
-        "...and again, and again!",
+        TR7("...and again, and again!","...멸하시고, 또다시 멸하셨노라!"),
     },
 
     {
-        "And lo, the wrath of Zin did find...",
+        TR7("And lo, the wrath of Zin did find...","진의 진노가 온 사방에 미치어..."),
         "...them wherever they hid, and the @sinners@...",
         "...were @smitten@ for their @sin_noun@!",
     },
 
     {
         "Zin looked out upon the remains of the @sinners@...",
-        "...and declared it good that they had been...",
+        TR7("...and declared it good that they had been...","...이르러 공표하시기를, 그들이..."),
         "...@smitten@. And thus justice was done.",
     },
 
     {
-        "The law of Zin demands thee...",
+        TR7("The law of Zin demands thee...","진께서 당신에게 바라는 사항이라 하면..."),
         "...be @virtuous@, and that the punishment for @sin_noun@...",
-        "...shall be swift and harsh!",
+        TR7("...shall be swift and harsh!","...전념하여 깨우치는 것이라고 하셨도다!"),
     },
 
     {
-        "It was then that Zin bade them...",
+        TR7("It was then that Zin bade them...","언제금 진께서 그들을 불러 세우셨을 때..."),
         "...not to stray from @virtue@, lest...",
         "...they become as damned as the @sinners@.",
     },
@@ -420,7 +421,7 @@ static const char * const book_of_zin[][3] =
     {
         "Only the @virtuous@ shall be judged worthy, and...",
         "...all the @sinners@ will be found wanting. Such is...",
-        "...the word of Zin, and such is the law!",
+        TR7("...the word of Zin, and such is the law!","진의 말씀이고, 그것이 진리이니라!"),
     },
 
     {
@@ -430,15 +431,15 @@ static const char * const book_of_zin[][3] =
     },
 
     {
-        "And Zin decreed that the people would be...",
+        TR7("And Zin decreed that the people would be...","진께서 모두들에게 칙령을 내리고저..."),
         "...protected from @sin_noun@ in all its forms, and...",
         "...preserved in their @virtue@ for all the days to come.",
     },
 
     {
-        "For those who would enter Zin's holy bosom...",
+        TR7("For those who would enter Zin's holy bosom...","진의 성스러운 품 안에 오는 모든 이들이여..."),
         "...and live in @virtue@, Zin provideth. Such is...",
-        "...the covenant, and such is the way of things.",
+        TR7("...the covenant, and such is the way of things.","...모든 것들의 진리를 약속하셨느니라."),
     },
 
     {
@@ -454,13 +455,13 @@ static const char * const book_of_zin[][3] =
     },
 
     {
-        "When the law of the land faltered, Zin rose...",
+        TR7("When the law of the land faltered, Zin rose...","이 땅의 질서가 흔들리기 시작할 때, 진께서는..."),
         "...from the silver throne, and the @sinners@ were...",
         "...@smitten@. And it was thus that the law was made good.",
     },
 
     {
-        "Zin descended from on high in a silver chariot...",
+        TR7("Zin descended from on high in a silver chariot...","진께서 은빛의 전차를 타고 이 땅에 내려오셨느니라..."),
         "...to @smite@ the @sinners@ for their...",
         "...@sin_noun@, and thus judgement was rendered.",
     },
@@ -468,24 +469,24 @@ static const char * const book_of_zin[][3] =
     {
         "The @sinners@ stood before Zin, and in that instant...",
         "...they knew they would be found guilty of @sin_noun@...",
-        "...for that is the word of Zin, and Zin's word is law.",
+        TR7("...for that is the word of Zin, and Zin's word is law.","...이는 진의 말씀과, 진의 말씀의 진리에 의한 것이었도다."),
     },
 };
 
 static const char * const sinner_text[] =
 {
-    "hordes of the Abyss",
-    "bastard children of Xom",
-    "amorphous wretches",
-    "fetid masses",
-    "agents of filth",
-    "squalid dregs",
-    "unbelievers",
-    "heretics",
-    "guilty",
-    "legions of the damned",
-    "servants of Hell",
-    "forces of darkness",
+    TR7("hordes of the Abyss","심연의 무리"),
+    TR7("bastard children of Xom","혼돈신의 사생아"),
+    TR7("amorphous wretches","무형의 악마"),
+    TR7("fetid masses","악취를 풍기는 존재"),
+    TR7("agents of filth","부패의 대리인"),
+    TR7("squalid dregs","불결한 존재"),
+    TR7("unbelievers","믿지 않는 자"),
+    TR7("heretics","이단자"),
+    TR7("guilty","죄악"),
+    TR7("legions of the damned","저주받은 군단"),
+    TR7("servants of Hell","지옥의 추종자"),
+    TR7("forces of darkness","어둠의 세력"),
 };
 
 // First column is adjective, then noun.
@@ -738,7 +739,7 @@ bool zin_check_able_to_recite(bool quiet)
     if (you.duration[DUR_RECITE])
     {
         if (!quiet)
-            mpr("Finish your current sermon first, please.");
+            mpr(TR7("Finish your current sermon first, please.","일단 지금 하고 있는 설교부터 끝내고 하죠."));
         return false;
     }
 
@@ -868,9 +869,9 @@ bool zin_recite_to_single_monster(const coord_def& where)
     if (mon->can_speak() && one_chance_in(5))
     {
         if (check < -10)
-            simple_monster_message(*mon, " guffaws at your puny god.");
+            simple_monster_message(*mon, TR7(" guffaws at your puny god.","은(는) 시끄럽게 웃으며 당신의 신을 비웃었다."));
         else if (check < -5)
-            simple_monster_message(*mon, " sneers at your recitation.");
+            simple_monster_message(*mon, TR7(" sneers at your recitation.","은(는) 당신의 설교를 비웃었다."));
     }
 
     if (check <= 0)
@@ -1053,7 +1054,7 @@ bool zin_recite_to_single_monster(const coord_def& where)
         if (mon->add_ench(mon_enchant(ENCH_DAZED, degree, &you,
                           (degree + random2(spellpower)) * BASELINE_DELAY)))
         {
-            simple_monster_message(*mon, " is dazed by your recitation.");
+            simple_monster_message(*mon, TR7(" is dazed by your recitation.","은(는) 당신의 설교에 현혹되었다."));
             affected = true;
         }
         break;
@@ -1064,9 +1065,9 @@ bool zin_recite_to_single_monster(const coord_def& where)
                              (degree + random2(spellpower)) * BASELINE_DELAY)))
         {
             if (prayertype == RECITE_HERETIC)
-                simple_monster_message(*mon, " is confused by your recitation.");
+                simple_monster_message(*mon, TR7(" is confused by your recitation.","은(는) 당신의 설교로 혼란해졌다."));
             else
-                simple_monster_message(*mon, " stumbles about in disarray.");
+                simple_monster_message(*mon, TR7(" stumbles about in disarray.","은(는) 혼란해져 비틀거렸다."));
             affected = true;
         }
         break;
@@ -1076,17 +1077,17 @@ bool zin_recite_to_single_monster(const coord_def& where)
                           (degree + random2(spellpower)) * BASELINE_DELAY)))
         {
             simple_monster_message(*mon,
-                minor ? " is awed by your recitation."
-                      : " is aghast at the heresy of your recitation.");
+                minor ? TR7(" is awed by your recitation.","은(는) 당신의 설교에 경외감에 휩싸였다.")
+                      : TR7(" is aghast at the heresy of your recitation.","은(는) 당신의 설교를 듣고 아연실색하여 그 자리에 굳었다."));
             affected = true;
         }
         break;
 
     case zin_eff::smite:
         if (minor)
-            simple_monster_message(*mon, " is smitten by the wrath of Zin.");
+            simple_monster_message(*mon, TR7(" is smitten by the wrath of Zin.","은(는) '진'의 분노의 천벌을 받았다."));
         else
-            simple_monster_message(*mon, " is blasted by the fury of Zin!");
+            simple_monster_message(*mon, TR7(" is blasted by the fury of Zin!","에게 '진'의 분노의 일격이 가해졌다!"));
         // XXX: This duplicates code in cast_smiting().
         mon->hurt(&you, 7 + (random2(spellpower) * 33 / 191));
         if (mon->alive())
@@ -1097,7 +1098,7 @@ bool zin_recite_to_single_monster(const coord_def& where)
     case zin_eff::blind:
         if (mon->add_ench(mon_enchant(ENCH_BLIND, degree, &you, INFINITE_DURATION)))
         {
-            simple_monster_message(*mon, " is struck blind by the wrath of Zin!");
+            simple_monster_message(*mon, TR7(" is struck blind by the wrath of Zin!","은(는) '진'의 분노로 눈이 멀었다!"));
             affected = true;
         }
         break;
@@ -1106,7 +1107,7 @@ bool zin_recite_to_single_monster(const coord_def& where)
         if (mon->add_ench(mon_enchant(ENCH_SILVER_CORONA, degree, &you,
                           (degree + random2(spellpower)) * BASELINE_DELAY)))
         {
-            simple_monster_message(*mon, " is limned with silver light.");
+            simple_monster_message(*mon, TR7(" is limned with silver light.","의 윤곽선을 따라 은색의 빛이 나타났다."));
             affected = true;
         }
         break;
@@ -1117,8 +1118,8 @@ bool zin_recite_to_single_monster(const coord_def& where)
                           (degree + random2(spellpower)) * BASELINE_DELAY)))
         {
             simple_monster_message(*mon,
-                minor ? " quails at your recitation."
-                      : " looks feeble and powerless before your recitation.");
+                minor ? TR7(" quails at your recitation.","은(는) 당신의 설교에 겁을 먹었다.")
+                      : TR7(" looks feeble and powerless before your recitation.","은(는) 당신의 설교가 끝나자 쇠약하고 무기력해진 듯 보인다."));
             affected = true;
         }
         break;
@@ -1126,7 +1127,7 @@ bool zin_recite_to_single_monster(const coord_def& where)
     case zin_eff::mute:
         if (mon->add_ench(mon_enchant(ENCH_MUTE, degree, &you, INFINITE_DURATION)))
         {
-            simple_monster_message(*mon, " is struck mute by the wrath of Zin!");
+            simple_monster_message(*mon, TR7(" is struck mute by the wrath of Zin!","은(는) '진'의 분노로 입을 열 수 없게 되었다!"));
             affected = true;
         }
         break;
@@ -1134,7 +1135,7 @@ bool zin_recite_to_single_monster(const coord_def& where)
     case zin_eff::mad:
         if (mon->add_ench(mon_enchant(ENCH_MAD, degree, &you, INFINITE_DURATION)))
         {
-            simple_monster_message(*mon, " is driven mad by the wrath of Zin!");
+            simple_monster_message(*mon, TR7(" is driven mad by the wrath of Zin!","은(는) '진'의 분노로 이성을 잃었다!"));
             affected = true;
         }
         break;
@@ -1142,7 +1143,7 @@ bool zin_recite_to_single_monster(const coord_def& where)
     case zin_eff::dumb:
         if (mon->add_ench(mon_enchant(ENCH_DUMB, degree, &you, INFINITE_DURATION)))
         {
-            simple_monster_message(*mon, " is left stupefied by the wrath of Zin!");
+            simple_monster_message(*mon, TR7(" is left stupefied by the wrath of Zin!","은(는) '진'의 분노로 망연자실해졌다!"));
             affected = true;
         }
         break;
@@ -1163,9 +1164,9 @@ bool zin_recite_to_single_monster(const coord_def& where)
                 if (mon->alive())
                 {
                     simple_monster_message(*mon,
-                      (damage < 25) ? "'s chaotic flesh sizzles and spatters!" :
-                      (damage < 50) ? "'s chaotic flesh bubbles and boils."
-                                    : "'s chaotic flesh runs like molten wax.");
+                      (damage < 25) ? TR7("'s chaotic flesh sizzles and spatters!","의 육체 곳곳의 살점이 지글거리며 떨어져나갔다!") :
+                      (damage < 50) ? TR7("'s chaotic flesh bubbles and boils.","의 육체 곳곳의 살점이 거품을 내며 끓어올랐다.")
+                                    : TR7("'s chaotic flesh runs like molten wax.","의 육체 곳곳이 밀납처럼 녹아내리기 시작했다."));
 
                     print_wounds(*mon);
                     behaviour_event(mon, ME_WHACK, &you);
@@ -1174,7 +1175,7 @@ bool zin_recite_to_single_monster(const coord_def& where)
                 else
                 {
                     simple_monster_message(*mon,
-                        " melts away into a sizzling puddle of chaotic flesh.");
+                        TR7(" melts away into a sizzling puddle of chaotic flesh.","은(는) 무질서한 육체의 지글거리는 웅덩이로 녹아내렸다."));
                     monster_die(*mon, KILL_YOU, NON_MONSTER);
                 }
             }
@@ -1197,13 +1198,13 @@ bool zin_recite_to_single_monster(const coord_def& where)
             {
             case RECITE_CHAOTIC:
                 simple_monster_message(*mon,
-                    minor ? "'s chaotic flesh is covered in bleeding sores."
-                          : "'s chaotic flesh erupts into weeping sores!");
+                    minor ? TR7("'s chaotic flesh is covered in bleeding sores.","의 무질서한 육체 곳곳에 피투성이의 상처가 생겨났다.")
+                          : TR7("'s chaotic flesh erupts into weeping sores!","의 무질서한 육체 곳곳에 크게 짓물린 상처들이 분출하듯 생겨났다!"));
                 break;
             case RECITE_IMPURE:
                 simple_monster_message(*mon,
                     minor ? "'s impure flesh rots away."
-                          : "'s impure flesh sloughs off!");
+                          : TR7("'s impure flesh sloughs off!","의 불경한 육체 곳곳이 문드러져 벗겨져나가기 시작했다!"));
                 break;
 
             default:
@@ -1244,7 +1245,7 @@ static void _zin_saltify(monster* mon)
                                 : mons_species(mon->type);
     const int hd = mon->get_hit_dice();
 
-    simple_monster_message(*mon, " is turned into a pillar of salt by the wrath of Zin!");
+    simple_monster_message(*mon, TR7(" is turned into a pillar of salt by the wrath of Zin!","은(는) '진'의 분노로 인해, 소금 기둥으로 변했다!"));
 
     // If the monster leaves a corpse when it dies, destroy the corpse.
     item_def* corpse = monster_die(*mon, KILL_YOU, NON_MONSTER);
@@ -1268,7 +1269,7 @@ static void _zin_saltify(monster* mon)
 
 bool zin_vitalisation()
 {
-    simple_god_message(" grants you divine stamina.");
+    simple_god_message(TR7(" grants you divine stamina.","은(는) 당신에게 신성한 원기를 불어넣어주었다."));
 
     // Add divine stamina.
     const int stamina_amt =
@@ -1285,7 +1286,7 @@ bool zin_vitalisation()
 
 void zin_remove_divine_stamina()
 {
-    mprf(MSGCH_DURATION, "Your divine stamina fades away.");
+    mprf(MSGCH_DURATION, TR7("Your divine stamina fades away.","신성한 원기가 사라졌다."));
     notify_stat_change(STAT_STR, -you.attribute[ATTR_DIVINE_STAMINA], true);
     notify_stat_change(STAT_INT, -you.attribute[ATTR_DIVINE_STAMINA], true);
     notify_stat_change(STAT_DEX, -you.attribute[ATTR_DIVINE_STAMINA], true);
@@ -1311,7 +1312,7 @@ bool zin_remove_all_mutations()
 
     you.one_time_ability_used.set(GOD_ZIN);
     take_note(Note(NOTE_GOD_GIFT, you.religion));
-    simple_god_message(" draws all chaos from your body!");
+    simple_god_message(TR7(" draws all chaos from your body!","은(는) 당신 몸의 모든 혼돈을 제거해주었다!"));
     delete_all_mutations("Zin's power");
     return true;
 }
@@ -1322,9 +1323,9 @@ void zin_sanctuary()
 
     // Yes, shamelessly stolen from NetHack...
     if (!silenced(you.pos())) // How did you manage that?
-        mprf(MSGCH_SOUND, "You hear a choir sing!");
+        mprf(MSGCH_SOUND, TR7("You hear a choir sing!","성가가 들려왔다!"));
     else
-        mpr("You are suddenly bathed in radiance!");
+        mpr(TR7("You are suddenly bathed in radiance!","갑자기 부드러운 빛이 주변을 휩쌌다!"));
 
     flash_view(UA_PLAYER, WHITE);
     holy_word(100, HOLY_WORD_ZIN, you.pos(), true, &you);
@@ -1349,14 +1350,14 @@ void tso_divine_shield()
     {
         if (you.shield())
         {
-            mprf("Your shield is strengthened by %s divine power.",
+            mprf(TR7("Your shield is strengthened by %s divine power.","당신의 방패는 %s 가호로 인해 더욱 강해졌다."),
                  apostrophise(god_name(GOD_SHINING_ONE)).c_str());
         }
         else
-            mpr("A divine shield forms around you!");
+            mpr(TR7("A divine shield forms around you!","성스러운 방패가 나타났다!"));
     }
     else
-        mpr("Your divine shield is renewed.");
+        mpr(TR7("Your divine shield is renewed.","당신의 신성한 방패에 빛이 더해졌다."));
 
     // Duration from 35-80 turns.
     you.set_duration(DUR_DIVINE_SHIELD,
@@ -1371,7 +1372,7 @@ void tso_divine_shield()
 
 void tso_remove_divine_shield()
 {
-    mprf(MSGCH_DURATION, "Your divine shield fades away.");
+    mprf(MSGCH_DURATION, TR7("Your divine shield fades away.","당신의 신성한 방패가 사라졌다."));
     you.duration[DUR_DIVINE_SHIELD] = 0;
     you.attribute[ATTR_DIVINE_SHIELD] = 0;
     you.redraw_armour_class = true;
@@ -1379,7 +1380,7 @@ void tso_remove_divine_shield()
 
 void elyvilon_purification()
 {
-    mpr("You feel purified!");
+    mpr(TR7("You feel purified!","당신의 육체는 정화되었다!"));
 
     you.disease = 0;
     you.duration[DUR_POISONING] = 0;
@@ -1398,7 +1399,7 @@ bool elyvilon_divine_vigour()
 
     if (!you.duration[DUR_DIVINE_VIGOUR])
     {
-        mprf("%s grants you divine vigour.",
+        mprf(TR7("%s grants you divine vigour.","%s은(는) 당신에게 신성한 활력을 불어넣어주었다."),
              god_name(GOD_ELYVILON).c_str());
 
         const int vigour_amt = 1 + you.skill_rdiv(SK_INVOCATIONS, 1, 3);
@@ -1428,7 +1429,7 @@ bool elyvilon_divine_vigour()
 
 void elyvilon_remove_divine_vigour()
 {
-    mprf(MSGCH_DURATION, "Your divine vigour fades away.");
+    mprf(MSGCH_DURATION, TR7("Your divine vigour fades away.","신성한 활력이 사라졌다."));
     you.duration[DUR_DIVINE_VIGOUR] = 0;
     you.attribute[ATTR_DIVINE_VIGOUR] = 0;
     calc_hp();
@@ -1468,14 +1469,14 @@ void trog_do_trogs_hand(int pow)
     you.increase_duration(DUR_TROGS_HAND,
                           5 + roll_dice(2, pow / 3 + 1), 100,
                           "Your skin crawls.");
-    mprf(MSGCH_DURATION, "You feel resistant to hostile enchantments.");
+    mprf(MSGCH_DURATION, TR7("You feel resistant to hostile enchantments.","상태 이상에 저항력이 생긴것을 느꼈다."));
 }
 
 void trog_remove_trogs_hand()
 {
     if (you.duration[DUR_REGENERATION] == 0)
         mprf(MSGCH_DURATION, "Your skin stops crawling.");
-    mprf(MSGCH_DURATION, "You feel less resistant to hostile enchantments.");
+    mprf(MSGCH_DURATION, TR7("You feel less resistant to hostile enchantments.","상태 이상에 대해 저항력이 약해진 것을 느꼈다."));
     you.duration[DUR_TROGS_HAND] = 0;
 }
 
@@ -1715,7 +1716,7 @@ bool jiyva_remove_bad_mutation()
 {
     if (!you.how_mutated())
     {
-        mpr("You have no bad mutations to be cured!");
+        mpr(TR7("You have no bad mutations to be cured!","당신은 치료받을 나쁜 변이가 없다!"));
         return false;
     }
 
@@ -1726,7 +1727,7 @@ bool jiyva_remove_bad_mutation()
         return false;
     }
 
-    mpr("You feel cleansed.");
+    mpr(TR7("You feel cleansed.","당신의 변이가 치료되었다."));
     return true;
 }
 
@@ -1910,8 +1911,8 @@ bool kiku_receive_corpses(int pow)
     {
         if (you_worship(GOD_KIKUBAAQUDGHA))
         {
-            simple_god_message(corpses_created > 1 ? " delivers you corpses!"
-                                                   : " delivers you a corpse!");
+            simple_god_message(corpses_created > 1 ? TR7(" delivers you corpses!","은(는) 당신에게 시체들을 하사했다!")
+                                                   : TR7(" delivers you a corpse!","은(는) 당신에게 시체를 하사했다!"));
         }
         maybe_update_stashes();
         return true;
@@ -1919,7 +1920,7 @@ bool kiku_receive_corpses(int pow)
     else
     {
         if (you_worship(GOD_KIKUBAAQUDGHA))
-            simple_god_message(" can find no cadavers for you!");
+            simple_god_message(TR7(" can find no cadavers for you!","은(는) 당신에게 하사할 시체를 찾지 못했다!"));
         return false;
     }
 }
@@ -1962,7 +1963,7 @@ bool kiku_gift_necronomicon()
         return false;
     }
     set_ident_type(mitm[thing_created], true);
-    simple_god_message(" grants you a gift!");
+    simple_god_message(TR7(" grants you a gift!","은(는) 당신에게 선물을 하사했다!"));
     flash_view(UA_PLAYER, RED);
 #ifndef USE_TILE_LOCAL
     // Allow extra time for the flash to linger.
@@ -2172,11 +2173,11 @@ static bool _mushroom_spawn_message(int seen_targets, int seen_corpses)
     if (seen_targets <= 0)
         return false;
 
-    string what  = seen_targets  > 1 ? "Some toadstools"
-                                     : "A toadstool";
-    string where = seen_corpses  > 1 ? "nearby corpses" :
-                   seen_corpses == 1 ? "a nearby corpse"
-                                     : "the ground";
+    string what  = seen_targets  > 1 ? TR7("Some toadstools","버섯들")
+                                     : TR7("A toadstool","버섯");
+    string where = seen_corpses  > 1 ? TR7("nearby corpses","근처의 시체들") :
+                   seen_corpses == 1 ? TR7("a nearby corpse","근처의 시체")
+                                     : TR7("the ground","바닥");
     mprf("%s grow%s from %s.",
          what.c_str(), seen_targets > 1 ? "" : "s", where.c_str());
 
@@ -2268,11 +2269,11 @@ static int _spawn_corpse_mushrooms(item_def& corpse,
             corpse.freshness = 0;
 
             if (you.see_cell(corpse.pos))
-                mpr("A ring of toadstools grows before your very eyes.");
+                mpr(TR7("A ring of toadstools grows before your very eyes.","버섯들이 당신의 눈 앞에 고리 모양으로 자라났다."));
             else if (ring_seen > 1)
-                mpr("Some toadstools grow in a peculiar arc.");
+                mpr(TR7("Some toadstools grow in a peculiar arc.","버섯 몇 개가 기이한 호를 그리며 자라났다."));
             else if (ring_seen > 0)
-                mpr("A toadstool grows.");
+                mpr(TR7("A toadstool grows.","버섯이 자라났다."));
 
             seen_targets = -1;
 
@@ -2331,7 +2332,7 @@ static int _spawn_corpse_mushrooms(item_def& corpse,
                 placed_targets++;
                 if (current == you.pos())
                 {
-                    mprf("A toadstool grows %s.",
+                    mprf(TR7("A toadstool grows %s.","%s에서 버섯이 자라났다."),
                          player_has_feet() ? "at your feet" : "before you");
                     current = mushroom->pos();
                 }
@@ -2385,7 +2386,7 @@ int fedhas_fungal_bloom()
                 // Maybe turn a zombie into a skeleton.
                 if (mons_skeleton(mons_zombie_base(*target)))
                 {
-                    simple_monster_message(*target, "'s flesh rots away.");
+                    simple_monster_message(*target, TR7("'s flesh rots away.","의 살점이 부패했다."));
 
                     downgrade_zombie_to_skeleton(target);
 
@@ -2400,7 +2401,7 @@ int fedhas_fungal_bloom()
                 // Ghoul-type monsters are always destroyed.
             case MONS_GHOUL:
             {
-                simple_monster_message(*target, " rots away and dies.");
+                simple_monster_message(*target, TR7(" rots away and dies.","은(는) 썩어 죽었다."));
 
                 kills = true;
 
@@ -2480,7 +2481,7 @@ int fedhas_fungal_bloom()
         _mushroom_spawn_message(seen_mushrooms, seen_corpses);
 
     if (kills)
-        mpr("That felt like a moral victory.");
+        mpr(TR7("That felt like a moral victory.","정신적인 승리감이 느껴졌다."));
 
     if (processed_count)
     {
@@ -2526,11 +2527,11 @@ static bool _create_plant(coord_def& target, int hp_adjust = 0)
         {
             if (hp_adjust)
             {
-                mprf("A plant, strengthened by %s, grows up from the ground.",
+                mprf(TR7("A plant, strengthened by %s, grows up from the ground.","%s은(는) 식물 하나를 급격하게 성장시켰다."),
                      god_name(GOD_FEDHAS).c_str());
             }
             else
-                mpr("A plant grows up from the ground.");
+                mpr(TR7("A plant grows up from the ground.","지면에서 식물이 자라났다."));
         }
         return true;
     }
@@ -2553,7 +2554,7 @@ spret_type fedhas_sunlight(bool fail)
     args.mode = TARG_HOSTILE_SUBMERGED;
     args.range = LOS_RADIUS;
     args.needs_path = false;
-    args.top_prompt = "Select sunlight destination.";
+    args.top_prompt = TR7("Select sunlight destination.","햇빛을 비출 장소를 선택하시오.");
     args.hitfunc = &tgt;
     direction(spelld, args);
 
@@ -2608,7 +2609,7 @@ spret_type fedhas_sunlight(bool fail)
 
     if (revealed_count)
     {
-        mprf("In the bright light, you notice %s.", revealed_count == 1 ?
+        mprf(TR7("In the bright light, you notice %s.","밝은 빛 속으로, 당신은 %s을(를) 발견했다."), revealed_count == 1 ?
              "an invisible shape" : "some invisible shapes");
     }
 
@@ -2689,7 +2690,7 @@ void process_sunlights(bool future)
     }
 
     if (evap_count)
-        mpr("Some water evaporates in the bright sunlight.");
+        mpr(TR7("Some water evaporates in the bright sunlight.","강한 햇살로, 물이 증발했다."));
 
     invalidate_agrid(true);
 }
@@ -2928,7 +2929,7 @@ bool fedhas_plant_ring_from_rations()
     if (max_use == 0)
     {
         if (adjacent.empty())
-            mpr("No empty adjacent squares.");
+            mpr(TR7("No empty adjacent squares.","인접한 빈 공간이 없다."));
         else
             mpr("Not enough rations available.");
 
@@ -2956,7 +2957,7 @@ bool fedhas_plant_ring_from_rations()
     // And how many plants does the user want to create?
     int target_count;
     if (!_prompt_amount(max_use, target_count,
-                        "How many plants will you create?"))
+                        TR7("How many plants will you create?","몇 개의 식물들을 만드는가?")))
     {
         // User cancelled at the prompt.
         return false;
@@ -3154,7 +3155,7 @@ int fedhas_check_corpse_spores(bool quiet)
 #endif
     }
 
-    if (yesnoquit("Will you create these spores?", true, 'y') <= 0)
+    if (yesnoquit(TR7("Will you create these spores?","이 포자들을 만들 것인가?"), true, 'y') <= 0)
     {
         viewwindow(false);
         return -1;
@@ -3245,7 +3246,7 @@ bool fedhas_check_evolve_flora(bool quiet)
             return true;
 
     if (!quiet)
-        mpr("No evolvable flora in sight.");
+        mpr(TR7("No evolvable flora in sight.","진화시킬 수 있는 식물이 보이지 않는다."));
     return false;
 }
 
@@ -3269,7 +3270,7 @@ spret_type fedhas_evolve_flora(bool fail)
     args.needs_path = false;
     args.self = CONFIRM_CANCEL;
     args.show_floor_desc = true;
-    args.top_prompt = "Select plant or fungus to evolve.";
+    args.top_prompt = TR7("Select plant or fungus to evolve.","진화시킬 식물이나 버섯류를 선택하시오.");
     args.get_desc_func = _evolution_name;
 
     direction(spelld, args);
@@ -3286,18 +3287,18 @@ spret_type fedhas_evolve_flora(bool fail)
     if (!plant)
     {
         if (feat_is_tree(env.grid(spelld.target)))
-            mpr("The tree has already reached the pinnacle of evolution.");
+            mpr(TR7("The tree has already reached the pinnacle of evolution.","이 나무는 이미 진화의 정점에 도달했다."));
         else
-            mpr("You must target a plant or fungus.");
+            mpr(TR7("You must target a plant or fungus.","식물이나 버섯류만 선택이 가능하다."));
         return SPRET_ABORT;
     }
 
     if (!mons_is_evolvable(plant))
     {
         if (plant->type == MONS_BALLISTOMYCETE_SPORE)
-            mpr("You can evolve only complete plants, not seeds.");
+            mpr(TR7("You can evolve only complete plants, not seeds.","당신은 씨앗이 아닌, 완전히 자란 식물만 진화시킬 수 있다."));
         else if (!mons_is_plant(*plant))
-            mpr("Only plants or fungi may be evolved.");
+            mpr(TR7("Only plants or fungi may be evolved.","식물이나 버섯류만 진화가 가능하다."));
         else if (plant->has_ench(ENCH_PETRIFIED))
             mpr("Stone cannot grow or evolve.");
         else
@@ -3326,7 +3327,7 @@ spret_type fedhas_evolve_flora(bool fail)
 
     if (upgrade.piety_cost && upgrade.piety_cost > you.piety)
     {
-        mpr("Not enough piety available.");
+        mpr(TR7("Not enough piety available.","신앙심이 부족하다."));
         return SPRET_ABORT;
     }
 
@@ -3337,10 +3338,10 @@ spret_type fedhas_evolve_flora(bool fail)
     case MONS_OKLOB_PLANT:
     {
         if (plant->type == MONS_OKLOB_SAPLING)
-            simple_monster_message(*plant, " appears stronger.");
+            simple_monster_message(*plant, TR7(" appears stronger.","은(는) 더욱 강해진 것 같다."));
         else
         {
-            string evolve_desc = " can now spit acid";
+            string evolve_desc = TR7(" can now spit acid","은(는) 이제 ");
             const int skill = you.skill(SK_INVOCATIONS);
             if (skill >= 20)
                 evolve_desc += " continuously";
@@ -3358,11 +3359,11 @@ spret_type fedhas_evolve_flora(bool fail)
     }
 
     case MONS_WANDERING_MUSHROOM:
-        simple_monster_message(*plant, " can now pick up its mycelia and move.");
+        simple_monster_message(*plant, TR7(" can now pick up its mycelia and move.","은(는) 이제 균사를 집어내어 움직일 수 있다."));
         break;
 
     case MONS_HYPERACTIVE_BALLISTOMYCETE:
-        simple_monster_message(*plant, " appears agitated.");
+        simple_monster_message(*plant, TR7(" appears agitated.","이(가) 더욱 활발하게 흔들리여 움직인다."));
         env.level_state |= LSTATE_GLOW_MOLD;
         break;
 
@@ -3405,7 +3406,7 @@ spret_type fedhas_evolve_flora(bool fail)
     if (upgrade.piety_cost)
     {
         lose_piety(upgrade.piety_cost);
-        mpr("Your piety has decreased.");
+        mpr(TR7("Your piety has decreased.","당신의 신앙도가 하락했다."));
     }
 
     return SPRET_SUCCESS;
@@ -3449,7 +3450,7 @@ void lugonu_bend_space()
 
 void cheibriados_time_bend(int pow)
 {
-    mpr("The flow of time bends around you.");
+    mpr(TR7("The flow of time bends around you.","주변의 시간의 흐름이 꼬이기 시작했다."));
 
     for (adjacent_iterator ai(you.pos()); ai; ++ai)
     {
@@ -3467,7 +3468,7 @@ void cheibriados_time_bend(int pow)
             }
 
             simple_god_message(
-                make_stringf(" rebukes %s.",
+                make_stringf(TR7(" rebukes %s.","은(는) %s을(를) 꾸짖었다."),
                              mon->name(DESC_THE).c_str()).c_str(),
                              GOD_CHEIBRIADOS);
             do_slow_monster(*mon, &you);
@@ -3532,7 +3533,7 @@ bool cheibriados_slouch()
 {
     int count = apply_area_visible(_slouchable, you.pos());
     if (!count)
-        if (!yesno("There's no one hasty visible. Invoke Slouch anyway?",
+        if (!yesno(TR7("There's no one hasty visible. Invoke Slouch anyway?","당신보다 빠른 존재가 없다. 그래도 느림의 징벌을 가하는가?"),
                    true, 'n'))
         {
             canned_msg(MSG_OK);
@@ -3543,7 +3544,7 @@ bool cheibriados_slouch()
     if (stop_attack_prompt(hitfunc, "harm", _act_slouchable))
         return false;
 
-    mpr("You can feel time thicken for a moment.");
+    mpr(TR7("You can feel time thicken for a moment.","잠시 시간의 흐름이 짙어진 것을 느꼈다."));
     dprf("your speed is %d", player_movement_speed());
 
     apply_area_visible(_slouch_monsters, you.pos());
@@ -3588,14 +3589,14 @@ void cheibriados_temporal_distortion()
     you.moveto(old_pos);
     you.duration[DUR_TIME_STEP] = 0;
 
-    mpr("You warp the flow of time around you!");
+    mpr(TR7("You warp the flow of time around you!","주변의 시간 흐름이 왜곡되었다!"));
 }
 
 void cheibriados_time_step(int pow) // pow is the number of turns to skip
 {
     const coord_def old_pos = you.pos();
 
-    mpr("You step out of the flow of time.");
+    mpr(TR7("You step out of the flow of time.","당신은 시간의 흐름에서 벗어났다."));
     flash_view(UA_PLAYER, LIGHTBLUE);
     you.moveto(coord_def(0, 0));
     you.duration[DUR_TIME_STEP] = pow;
@@ -3623,7 +3624,7 @@ void cheibriados_time_step(int pow) // pow is the number of turns to skip
     you.duration[DUR_TIME_STEP] = 0;
 
     flash_view(UA_PLAYER, 0);
-    mpr("You return to the normal time flow.");
+    mpr(TR7("You return to the normal time flow.","원래의 시간 흐름으로 되돌아갔다."));
 }
 
 bool ashenzari_transfer_knowledge()
@@ -3657,7 +3658,7 @@ bool ashenzari_transfer_knowledge()
     // We reset the view to force view transfer next time.
     you.skill_menu_view = SKM_NONE;
 
-    mprf("As you forget about %s, you feel ready to understand %s.",
+    mprf(TR7("As you forget about %s, you feel ready to understand %s.","%s(으)로부터 %s(으)로의 지식의 전송을 시작했다."),
          skill_name(you.transfer_from_skill),
          skill_name(you.transfer_to_skill));
 
@@ -3671,10 +3672,10 @@ bool ashenzari_end_transfer(bool finished, bool force)
 {
     if (!force && !finished)
     {
-        mprf("You are currently transferring knowledge from %s to %s.",
+        mprf(TR7("You are currently transferring knowledge from %s to %s.","당신은 현재 %s(으)로터 %s(으)로 지식을 전송하고 있다."),
              skill_name(you.transfer_from_skill),
              skill_name(you.transfer_to_skill));
-        if (!yesno("Are you sure you want to cancel the transfer?", false, 'n'))
+        if (!yesno(TR7("Are you sure you want to cancel the transfer?","정말로 지식의 전송을 취소하겠는가?"), false, 'n'))
             return false;
     }
 
@@ -3795,7 +3796,7 @@ void spare_beogh_convert()
     you.one_time_ability_used.set(GOD_BEOGH);
 
     if (witc == 1)
-        mpr("The priest welcomes you and lets you live.");
+        mpr(TR7("The priest welcomes you and lets you live.","사제는 당신을 환영했고, 적대감을 가라앉혔다."));
     else
     {
         mpr("With a roar of approval, the orcs welcome you as one of their own,"
@@ -4235,7 +4236,7 @@ static string _gozag_special_shop_name(shop_type type)
         if (you.species == SP_VAMPIRE)
             return "Blood";
         else if (you.species == SP_GHOUL)
-            return "Carrion"; // yum!
+            return TR7("Carrion","시체"); // yum!
     }
 
     return "";
@@ -4646,7 +4647,7 @@ spret_type qazlal_upheaval(coord_def target, bool quiet, bool fail)
 
         if (cell_is_solid(beam.target))
         {
-            mprf("There is %s there.",
+            mprf(TR7("There is %s there.","여기에는 %s이(가) 있다."),
                  article_a(feat_type_name(grd(beam.target))).c_str());
             return SPRET_ABORT;
         }
@@ -4785,7 +4786,7 @@ spret_type qazlal_upheaval(coord_def target, bool quiet, bool fail)
     }
 
     if (wall_count && !quiet)
-        mpr("Ka-crash!");
+        mpr(TR7("Ka-crash!","콰앙!"));
 
     return SPRET_SUCCESS;
 }
@@ -6534,7 +6535,7 @@ bool uskayaw_line_pass()
         if (beholder)
         {
             clear_messages();
-            mprf("You cannot move away from %s!",
+            mprf(TR7("You cannot move away from %s!","당신은 %s에게 매료되어 있어, 떨어질 수 없다!"),
                  beholder->name(DESC_THE, true).c_str());
             continue;
         }
@@ -6543,7 +6544,7 @@ bool uskayaw_line_pass()
         if (fearmonger)
         {
             clear_messages();
-            mprf("You cannot move closer to %s!",
+            mprf(TR7("You cannot move closer to %s!","당신은 %s에 가까이 접근할 수 없다!"),
                  fearmonger->name(DESC_THE, true).c_str());
             continue;
         }
@@ -6799,7 +6800,7 @@ spret_type hepliaklqana_idealise(bool fail)
         if (ancestor->hit_points == ancestor->max_hit_points)
             simple_monster_message(*ancestor, " is fully restored!");
         else
-            simple_monster_message(*ancestor, " is healed somewhat.");
+            simple_monster_message(*ancestor, TR7(" is healed somewhat.","의 상처가 약간 회복되었다."));
     }
 
     const int dur = random_range(50, 80)

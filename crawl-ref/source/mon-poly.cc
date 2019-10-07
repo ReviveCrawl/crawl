@@ -34,6 +34,7 @@
 #include "traps.h"
 #include "view.h"
 #include "xom.h"
+#include "i18n-format.h"
 
 bool feature_mimic_at(const coord_def &c)
 {
@@ -447,7 +448,7 @@ bool monster_polymorph(monster* mons, monster_type targetc,
     if (source_tier == -1)
     {
         return simple_monster_message(*mons,
-            "'s appearance momentarily alters.");
+            TR7("'s appearance momentarily alters.","의 모습이 잠시 변하였다."));
     }
     relax = 1;
 
@@ -467,7 +468,7 @@ bool monster_polymorph(monster* mons, monster_type targetc,
                 relax++;
 
             if (relax > 50)
-                return simple_monster_message(*mons, " shudders.");
+                return simple_monster_message(*mons, TR7(" shudders.","은(는) 몸을 떨었다."));
         }
         while (tries-- && (!_valid_morph(mons, targetc)
                            || source_tier != target_tier && !x_chance_in_y(relax, 200)
@@ -501,7 +502,7 @@ bool monster_polymorph(monster* mons, monster_type targetc,
     }
 
     if (!_valid_morph(mons, targetc))
-        return simple_monster_message(*mons, " looks momentarily different.");
+        return simple_monster_message(*mons, TR7(" looks momentarily different.","의 모습이 갑자기 변하였다."));
 
     change_monster_type(mons, targetc);
 
@@ -531,7 +532,7 @@ bool monster_polymorph(monster* mons, monster_type targetc,
     }
     else if (can_see)
     {
-        mprf("%s appears out of thin air!", mons->name(DESC_A).c_str());
+        mprf(TR7("%s appears out of thin air!","%s이(가) 갑자기 나타났다!"), mons->name(DESC_A).c_str());
         autotoggle_autopickup(false);
     }
     else
@@ -601,7 +602,7 @@ void slimify_monster(monster* mon, bool hostile)
     // Bail out if jellies can't live here.
     if (!monster_habitable_grid(target, grd(mon->pos())))
     {
-        simple_monster_message(*mon, " quivers momentarily.");
+        simple_monster_message(*mon, TR7(" quivers momentarily.","은(는) 잠시 몸을 떨었다."));
         return;
     }
 

@@ -35,6 +35,7 @@
 #include "terrain.h"
 #include "traps.h"
 #include "view.h"
+#include "i18n-format.h"
 
 static void _guess_invis_foe_pos(monster* mon)
 {
@@ -1263,7 +1264,7 @@ void behaviour_event(monster* mon, mon_event_type event, const actor *src,
             if (mon->friendly() && !crawl_state.game_is_arena())
             {
                 mon->foe = MHITYOU;
-                msg = "PLAIN:@The_monster@ returns to your side!";
+                msg = TR7("PLAIN:@The_monster@ returns to your side!","PLAIN:@The_monster@은(는) 당신 곁으로 돌아왔다!");
             }
             else if (!mon->is_child_tentacle())
             {
@@ -1437,24 +1438,24 @@ static void _mons_indicate_level_exit(const monster* mon)
     const bool is_shaft = (get_trap_type(mon->pos()) == TRAP_SHAFT);
 
     if (feat_is_gate(feat))
-        simple_monster_message(*mon, " passes through the gate.");
+        simple_monster_message(*mon, TR7(" passes through the gate.","이(가) 관문을 통과해 나왔다."));
     else if (feat_is_travelable_stair(feat))
     {
         command_type dir = feat_stair_direction(feat);
         simple_monster_message(*mon,
             make_stringf(" %s the %s.",
-                dir == CMD_GO_UPSTAIRS     ? "goes up" :
-                dir == CMD_GO_DOWNSTAIRS   ? "goes down"
-                                           : "takes",
-                feat_is_escape_hatch(feat) ? "escape hatch"
+                dir == CMD_GO_UPSTAIRS     ? TR7("goes up","올라왔다") :
+                dir == CMD_GO_DOWNSTAIRS   ? TR7("goes down","내려왔다")
+                                           : TR7("takes","통해 나왔다"),
+                feat_is_escape_hatch(feat) ? TR7("escape hatch","탈출구")
                                            : "stairs").c_str());
     }
     else if (is_shaft)
     {
         simple_monster_message(*mon,
-            make_stringf(" %s the shaft.",
-                mon->airborne() ? "goes down"
-                                : "jumps into").c_str());
+            make_stringf(TR7(" %s the shaft.","이(가) 구덩이에 %s!"),
+                mon->airborne() ? TR7("goes down","내려왔다")
+                                : TR7("jumps into","뛰어들었다")).c_str());
     }
 }
 

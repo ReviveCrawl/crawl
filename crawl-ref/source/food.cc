@@ -42,6 +42,7 @@
 #include "travel.h"
 #include "transform.h"
 #include "xom.h"
+#include "i18n-format.h"
 
 static void _describe_food_change(int hunger_increment);
 static bool _vampire_consume_corpse(item_def& corpse);
@@ -156,7 +157,7 @@ static bool _eat_check(bool check_hunger = true, bool silent = false,
     {
         if (!silent)
         {
-            mpr("You can't eat.");
+            mpr(TR7("You can't eat.","당신은 먹을 수 없다."));
             crawl_state.zero_turns_taken();
         }
         return false;
@@ -169,7 +170,7 @@ static bool _eat_check(bool check_hunger = true, bool silent = false,
     {
         if (!silent)
         {
-            mprf("You're too full to %s anything.",
+            mprf(TR7("You're too full to %s anything.","배가 불러 더 이상 %s수 없다."),
                  you.species == SP_VAMPIRE ? "drain" : "eat");
             crawl_state.zero_turns_taken();
         }
@@ -245,7 +246,7 @@ bool food_change(bool initial)
                 if (newstate == HS_ENGORGED && is_vampire_feeding()) // Alive
                 {
                     print_stats();
-                    mpr("You can't stomach any more blood right now.");
+                    mpr(TR7("You can't stomach any more blood right now.","당신은 더 이상 피를 흡혈할 수 없다."));
                 }
             }
             else if (you.duration[DUR_TRANSFORMATION])
@@ -271,9 +272,9 @@ bool food_change(bool initial)
 
             case HS_STARVING:
                 if (you.species == SP_VAMPIRE)
-                    msg += "feel devoid of blood!";
+                    msg += TR7("feel devoid of blood!"," 극도로 피에 굶주렸다!");
                 else
-                    msg += "are starving!";
+                    msg += TR7("are starving!"," 극도로 굶주리고 있다!");
 
                 mprf(MSGCH_FOOD, less_hungry, "%s", msg.c_str());
 
@@ -283,9 +284,9 @@ bool food_change(bool initial)
 
             case HS_NEAR_STARVING:
                 if (you.species == SP_VAMPIRE)
-                    msg += "feel almost devoid of blood!";
+                    msg += TR7("feel almost devoid of blood!"," 피에 굶주리고 있다!");
                 else
-                    msg += "are near starving!";
+                    msg += TR7("are near starving!"," 지극히 배고픈 상태이다!");
 
                 mprf(MSGCH_FOOD, less_hungry, "%s", msg.c_str());
 
@@ -296,7 +297,7 @@ bool food_change(bool initial)
             case HS_HUNGRY:
                 msg += "are feeling ";
                 if (you.hunger_state == HS_VERY_HUNGRY)
-                    msg += "very ";
+                    msg += TR7("very ","강한 ");
                 msg += _how_hungry();
                 msg += ".";
 
@@ -357,7 +358,7 @@ static void _finished_eating_message(food_type type)
     }
     else if (herbivorous && food_is_meaty(type))
     {
-        mpr("Blech - you need greens!");
+        mpr(TR7("Blech - you need greens!","으으.. 당신에겐 야채가 필요하다!"));
         return;
     }
 }
@@ -529,26 +530,26 @@ int prompt_eat_chunks(bool only_auto)
 
 static const char *_chunk_flavour_phrase(bool likes_chunks)
 {
-    const char *phrase = "tastes terrible.";
+    const char *phrase = TR7("tastes terrible.","그다지 식욕을 돋우지 못한다.");
 
     if (you.species == SP_GHOUL)
         phrase = "tastes great!";
     else if (likes_chunks)
-        phrase = "tastes great.";
+        phrase = TR7("tastes great.","꽤 좋은 맛이다.");
     else
     {
         const int gourmand = you.duration[DUR_GOURMAND];
         if (gourmand >= GOURMAND_MAX)
         {
-            phrase = one_chance_in(1000) ? "tastes like chicken!"
-                                         : "tastes great.";
+            phrase = one_chance_in(1000) ? TR7("tastes like chicken!","꼭 닭고기 맛이다!")
+                                         : TR7("tastes great.","꽤 좋은 맛이다.");
         }
         else if (gourmand > GOURMAND_MAX * 75 / 100)
-            phrase = "tastes very good.";
+            phrase = TR7("tastes very good.","꽤 좋은 맛이다.");
         else if (gourmand > GOURMAND_MAX * 50 / 100)
-            phrase = "tastes good.";
+            phrase = TR7("tastes good.","좋은 맛이다.");
         else if (gourmand > GOURMAND_MAX * 25 / 100)
-            phrase = "is not very appetising.";
+            phrase = TR7("is not very appetising.","그다지 식욕을 돋우지 못한다");
     }
 
     return phrase;
@@ -558,9 +559,9 @@ static void _chunk_nutrition_message(int nutrition)
 {
     int perc_nutrition = nutrition * 100 / CHUNK_BASE_NUTRITION;
     if (perc_nutrition < 15)
-        mpr("That was extremely unsatisfying.");
+        mpr(TR7("That was extremely unsatisfying.","너무나 소화가 안 된다!"));
     else if (perc_nutrition < 35)
-        mpr("That was not very filling.");
+        mpr(TR7("That was not very filling.","소화가 잘 되지 않는다."));
 }
 
 static int _apply_herbivore_nutrition_effects(int nutrition)
@@ -643,7 +644,7 @@ static void _eat_chunk(item_def& food)
             _heal_from_food(hp_amt);
         }
 
-        mprf("This raw flesh %s", _chunk_flavour_phrase(likes_chunks));
+        mprf(TR7("This raw flesh %s","이 고기는 %s"), _chunk_flavour_phrase(likes_chunks));
         do_eat = true;
         break;
     }
@@ -835,7 +836,7 @@ bool can_eat(const item_def &food, bool suppress_msg, bool check_hunger,
         if (food.is_type(OBJ_CORPSES, CORPSE_BODY))
             return true;
 
-        FAIL("Blech - you need blood!")
+        FAIL(TR7("Blech - you need blood!","으윽! 당신에겐 피가 필요하다!"))
     }
     else if (food.base_type == OBJ_CORPSES)
         return false;
@@ -843,7 +844,7 @@ bool can_eat(const item_def &food, bool suppress_msg, bool check_hunger,
     if (food_is_meaty(food))
     {
         if (you.get_mutation_level(MUT_HERBIVOROUS) > 0)
-            FAIL("Sorry, you're a herbivore.")
+            FAIL(TR7("Sorry, you're a herbivore.","당신은 채소밖에 먹을 수 없다."))
         else if (food.sub_type == FOOD_CHUNK)
         {
             if (!check_hunger
@@ -853,7 +854,7 @@ bool can_eat(const item_def &food, bool suppress_msg, bool check_hunger,
                 return true;
             }
 
-            FAIL("You aren't quite hungry enough to eat that!")
+            FAIL(TR7("You aren't quite hungry enough to eat that!","배고프지 않을 때엔 억지로 먹을 수 없다!"))
         }
     }
 
@@ -910,11 +911,11 @@ static bool _vampire_consume_corpse(item_def& corpse)
 
     if (!mons_has_blood(mons_type))
     {
-        mpr("There is no blood in this body!");
+        mpr(TR7("There is no blood in this body!","이 시체에는 더 이상 피가 남아있지 않다!"));
         return false;
     }
 
-    mprf("This %sblood tastes delicious!",
+    mprf(TR7("This %sblood tastes delicious!","이 %s피는 정말로 맛이 좋다!"),
          mons_class_flag(mons_type, M_WARM_BLOOD) ? "warm " : "");
 
     const int food_value = CHUNK_BASE_NUTRITION
@@ -945,7 +946,7 @@ static void _heal_from_food(int hp_amt)
 
     if (player_rotted())
     {
-        mpr("You feel more resilient.");
+        mpr(TR7("You feel more resilient.","당신은 원기가 회복되는 것을 느꼈다."));
         unrot_hp(1);
     }
 
@@ -995,7 +996,7 @@ void handle_starvation()
     {
         if (!you.cannot_act() && one_chance_in(40))
         {
-            mprf(MSGCH_FOOD, "You lose consciousness!");
+            mprf(MSGCH_FOOD, TR7("You lose consciousness!","배고파 의식을 잃었다!"));
             stop_running();
 
             int turns = 5 + random2(8);
@@ -1019,7 +1020,7 @@ void handle_starvation()
                 return;
             }
 
-            mprf(MSGCH_FOOD, "You have starved to death.");
+            mprf(MSGCH_FOOD, TR7("You have starved to death.","굶주림을 이기지 못하고, 결국 의식을 잃고 쓰러졌다."));
             ouch(INSTANT_DEATH, KILLED_BY_STARVATION);
             if (!you.pending_revival) // if we're still here...
                 set_hunger(HUNGER_DEFAULT, true);

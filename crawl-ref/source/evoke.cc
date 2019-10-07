@@ -75,6 +75,7 @@
 #include "viewchar.h"
 #include "view.h"
 #include "xom.h"
+#include "i18n-format.h"
 
 static bool _reaching_weapon_attack(const item_def& wpn)
 {
@@ -86,7 +87,7 @@ static bool _reaching_weapon_attack(const item_def& wpn)
 
     if (you.caught())
     {
-        mprf("You cannot attack while %s.", held_status());
+        mprf(TR7("You cannot attack while %s.","%s 상태에서는 공격할 수 없다."), held_status());
         return false;
     }
 
@@ -97,7 +98,7 @@ static bool _reaching_weapon_attack(const item_def& wpn)
     args.restricts = DIR_TARGET;
     args.mode = TARG_HOSTILE;
     args.range = 2;
-    args.top_prompt = "Attack whom?";
+    args.top_prompt = TR7("Attack whom?","어느 것을 공격하는가?");
     args.self = CONFIRM_CANCEL;
     targeter_reach hitfunc(&you, REACH_TWO);
     args.hitfunc = &hitfunc;
@@ -134,7 +135,7 @@ static bool _reaching_weapon_attack(const item_def& wpn)
 
     if (x_distance > 2 || y_distance > 2)
     {
-        mpr("Your weapon cannot reach that far!");
+        mpr(TR7("Your weapon cannot reach that far!","너무 멀어서 공격할 수 없다!"));
         return false;
     }
 
@@ -182,7 +183,7 @@ static bool _reaching_weapon_attack(const item_def& wpn)
                 if (mons->wont_attack())
                 {
                     // Let's assume friendlies cooperate.
-                    mpr("You could not reach far enough!");
+                    mpr(TR7("You could not reach far enough!","당신의 공격은 그곳까지 미치지 못했다!"));
                     you.time_taken = attack_delay;
                     make_hungry(3, true);
                     return true;
@@ -190,12 +191,12 @@ static bool _reaching_weapon_attack(const item_def& wpn)
             }
         }
         if (success)
-            mpr("You reach to attack!");
+            mpr(TR7("You reach to attack!","공격 성공!"));
         else
         {
-            mprf("%s is in the way.",
+            mprf(TR7("%s is in the way.","%s(이)가 가로막고 있다."),
                  mons->observable() ? mons->name(DESC_THE).c_str()
-                                    : "Something you can't see");
+                                    : TR7("Something you can't see","당신이 볼 수 없는 무언가"));
         }
     }
 
@@ -203,7 +204,7 @@ static bool _reaching_weapon_attack(const item_def& wpn)
     {
         // Must return true, otherwise you get a free discovery
         // of invisible monsters.
-        mpr("You attack empty space.");
+        mpr(TR7("You attack empty space.","빈 허공을 공격했다."));
         you.time_taken = attack_delay;
         make_hungry(3, true);
         return true;
@@ -232,13 +233,13 @@ static bool _evoke_horn_of_geryon()
 
     if (silenced(you.pos()))
     {
-        mpr("You can't produce a sound!");
+        mpr(TR7("You can't produce a sound!","당신은 소리를 낼 수 없다!"));
         return false;
     }
 
     const int surge = pakellas_surge_devices();
     surge_power(you.spec_evoke() + surge);
-    mprf(MSGCH_SOUND, "You produce a hideous howling noise!");
+    mprf(MSGCH_SOUND, TR7("You produce a hideous howling noise!","당신은 끔찍한 울부짖는 소음을 냈다!"));
     did_god_conduct(DID_EVIL, 3);
     int num = 1;
     const int adjusted_power =
@@ -265,7 +266,7 @@ static bool _evoke_horn_of_geryon()
             created = true;
         if (mon && will_anger)
         {
-            mprf("%s is enraged by your holy aura!",
+            mprf(TR7("%s is enraged by your holy aura!","당신의 신성한 기운이 %s을(를) 분노케 했다!"),
                  mon->name(DESC_THE).c_str());
         }
     }
@@ -297,7 +298,7 @@ static bool _check_crystal_ball()
 
     if (you.skill(SK_EVOCATIONS) < 2)
     {
-        mpr("You lack the skill to use this item.");
+        mpr(TR7("You lack the skill to use this item.","당신은 이 도구를 사용할 기술이 부족하다."));
         return false;
     }
 
@@ -416,7 +417,7 @@ void zap_wand(int slot)
         item_slot = slot;
     else
     {
-        item_slot = prompt_invent_item("Zap which item?",
+        item_slot = prompt_invent_item(TR7("Zap which item?","어떤 아이템의 마법을 발동시킬건가?"),
                                        MT_INVLIST,
                                        OBJ_WANDS,
                                        OPER_ZAP);
@@ -442,7 +443,7 @@ void zap_wand(int slot)
 
     if (wand.charges <= 0)
     {
-        mpr("This wand has no charges.");
+        mpr(TR7("This wand has no charges.","이 마법봉에는 마력이 남아있지 않다."));
         return;
     }
 
@@ -525,7 +526,7 @@ void finish_manual(int slot)
     item_def& manual(you.inv[slot]);
     const skill_type skill = static_cast<skill_type>(manual.plus);
 
-    mprf("You have finished your manual of %s and toss it away.",
+    mprf(TR7("You have finished your manual of %s and toss it away.","당신은 %s의 설명서를 완전히 독파했고, 설명서를 파기했다."),
          skill_name(skill));
     dec_inv_item_quantity(slot, 1);
 }
@@ -579,7 +580,7 @@ string manual_skill_names(bool short_text)
     if (short_text && skills.size() > 1)
     {
         char buf[40];
-        sprintf(buf, "%lu skills", (unsigned long) skills.size());
+        sprintf(buf, TR7("%lu skills","%lu 스킬"), (unsigned long) skills.size());
         return string(buf);
     }
     else
@@ -604,7 +605,7 @@ static bool _box_of_beasts(item_def &box)
 {
     const int surge = pakellas_surge_devices() + you.spec_evoke();
     surge_power(surge);
-    mpr("You open the lid...");
+    mpr(TR7("You open the lid...","당신은 뚜껑을 열었다..."));
 
     // two rolls to reduce std deviation - +-6 so can get < max even at 27 sk
     const int hd_min = min(27,
@@ -625,7 +626,7 @@ static bool _box_of_beasts(item_def &box)
     if (!mons)
     {
         // Failed to create monster for some reason
-        mpr("...but nothing happens.");
+        mpr(TR7("...but nothing happens.","...그러나 아무일도 일어나지 않았다."));
         return false;
     }
 
@@ -655,7 +656,7 @@ static bool _sack_of_spiders(item_def &sack)
 {
     const int surge = pakellas_surge_devices() + you.spec_evoke();
     surge_power(surge);
-    mpr("You reach into the bag...");
+    mpr(TR7("You reach into the bag...","당신은 가방에 손을 뻗었다..."));
 
     const int evo_skill = you.skill(SK_EVOCATIONS);
     int count = player_adjust_evoc_power(
@@ -664,7 +665,7 @@ static bool _sack_of_spiders(item_def &sack)
 
     if (x_chance_in_y(5, 10 + power))
     {
-        mpr("...but nothing happens.");
+        mpr(TR7("...but nothing happens.","...그러나 아무일도 일어나지 않았다."));
         return false;
     }
 
@@ -687,7 +688,7 @@ static bool _sack_of_spiders(item_def &sack)
 
     if (success)
     {
-        mpr("...and things crawl out!");
+        mpr(TR7("...and things crawl out!","...그리고 무언가들이 기어나왔다!"));
         // Also generate webs on hostile monsters and trap them.
         const int rad = LOS_DEFAULT_RANGE / 2 + 2;
         for (monster_near_iterator mi(you.pos(), LOS_SOLID); mi; ++mi)
@@ -734,7 +735,7 @@ static bool _sack_of_spiders(item_def &sack)
     }
     else
         // Failed to create monster for some reason
-        mpr("...but nothing happens.");
+        mpr(TR7("...but nothing happens.","...그러나 아무일도 일어나지 않았다."));
 
     return success;
 }
@@ -767,7 +768,7 @@ static bool _ball_of_energy()
 {
     bool ret = false;
 
-    mpr("You gaze into the crystal ball.");
+    mpr(TR7("You gaze into the crystal ball.","당신은 수정구의 안쪽을 노려보았다."));
     const int surge = pakellas_surge_devices();
     surge_power(you.spec_evoke() + surge);
 
@@ -778,7 +779,7 @@ static bool _ball_of_energy()
         lose_stat(STAT_INT, 1 + random2avg(5, 2));
     else if (use < 5 && enough_mp(1, true))
     {
-        mpr("You feel your power drain away!");
+        mpr(TR7("You feel your power drain away!","당신은 당신의 마력이 수정구 안으로 빨려나가는 것을 느꼈다!"));
         dec_mp(you.magic_points);
     }
     else if (use < 10)
@@ -793,12 +794,12 @@ static bool _ball_of_energy()
             > proportional
             || one_chance_in(25))
         {
-            mpr("You feel your power drain away!");
+            mpr(TR7("You feel your power drain away!","당신은 당신의 마력이 수정구 안으로 빨려나가는 것을 느꼈다!"));
             dec_mp(you.magic_points);
         }
         else
         {
-            mpr("You are suffused with power!");
+            mpr(TR7("You are suffused with power!","마나가 채워졌다!"));
             inc_mp(
                 player_adjust_evoc_power(
                     5 + random2avg(you.skill(SK_EVOCATIONS), 2), surge));
@@ -999,7 +1000,7 @@ static bool _lamp_of_fire()
     direction_chooser_args args;
     args.restricts = DIR_TARGET;
     args.mode = TARG_HOSTILE;
-    args.top_prompt = "Aim the lamp in which direction?";
+    args.top_prompt = TR7("Aim the lamp in which direction?","어느 방향으로 등잔을 조준하는가?");
     args.self = CONFIRM_CANCEL;
     if (spell_direction(target, base_beam, &args))
     {
@@ -1009,7 +1010,7 @@ static bool _lamp_of_fire()
         const int surge = pakellas_surge_devices();
         surge_power(you.spec_evoke() + surge);
 
-        mpr("The flames dance!");
+        mpr(TR7("The flames dance!","불꽃들이 춤을 추었다!"));
 
         vector<bolt> beams;
         int num_trails = _num_evoker_elementals(surge);
@@ -1029,7 +1030,7 @@ static bool _lamp_of_fire()
             beam.source_id  = MID_PLAYER;
             beam.thrower    = KILL_YOU;
             beam.pierce     = true;
-            beam.name       = "trail of fire";
+            beam.name       = TR7("trail of fire","화염의 자취");
             beam.hit        = 10 + (pow/8);
             beam.damage     = dice_def(2, 5 + pow/4);
             beam.ench_power = 3 + (pow/5);
@@ -1268,7 +1269,7 @@ void wind_blast(actor* agent, int pow, coord_def target, bool card)
     noisy(8, agent->pos());
 
     if (player_affected)
-        mpr("You are blown backwards!");
+        mpr(TR7("You are blown backwards!","당신은 바람에 날려 뒤로 날아갔다!"));
 
     if (!affected_monsters.empty())
     {
@@ -1279,7 +1280,7 @@ void wind_blast(actor* agent, int pow, coord_def target, bool card)
         if (strwidth(message) < get_number_of_cols() - 2)
             mpr(message);
         else
-            mpr("The monsters around you are blown away!");
+            mpr(TR7("The monsters around you are blown away!","당신 주변의 몬스터들이 바람에 날아가버렸다!"));
     }
 
     for (auto it : collisions)
@@ -1299,7 +1300,7 @@ static bool _phial_of_floods()
 
     direction_chooser_args args;
     args.mode = TARG_HOSTILE;
-    args.top_prompt = "Aim the phial where?";
+    args.top_prompt = TR7("Aim the phial where?","어디로 유리병을 겨누겠는가?");
     if (spell_direction(target, beam, &args)
         && player_tracer(ZAP_PRIMAL_WAVE, base_pow, beam))
     {
@@ -1359,7 +1360,7 @@ static bool _phial_of_floods()
                 created = true;
         }
         if (created)
-            mpr("The water rises up and takes form.");
+            mpr(TR7("The water rises up and takes form.","물들이 쏟아져 나와 형태를 갖추었다."));
 
         return true;
     }
@@ -1468,7 +1469,7 @@ bool evoke_item(int slot, bool check_range)
 
     if (slot == -1)
     {
-        slot = prompt_invent_item("Evoke which item? (* to show all)",
+        slot = prompt_invent_item(TR7("Evoke which item? (* to show all)","어느 아이템을 발동시킬 것인가? (* 모든 아이템 일람)"),
                                    MT_INVLIST,
                                    OSEL_EVOKABLE, OPER_EVOKE);
 
@@ -1563,7 +1564,7 @@ bool evoke_item(int slot, bool check_range)
                                    you.spec_evoke()),
                                4000))
         {
-            mpr("You channel some magical energy.");
+            mpr(TR7("You channel some magical energy.","약간의 마나를 수집했다."));
             inc_mp(1 + random2(3));
             make_hungry(50, false, true);
             did_work = true;
@@ -1612,7 +1613,7 @@ bool evoke_item(int slot, bool check_range)
         {
             if (!evoker_charges(item.sub_type))
             {
-                mpr("That is presently inert.");
+                mpr(TR7("That is presently inert.","그건 현재 비활성화되어있다."));
                 return false;
             }
 
@@ -1630,7 +1631,7 @@ bool evoke_item(int slot, bool check_range)
         case MISC_LAMP_OF_FIRE:
             if (!evoker_charges(item.sub_type))
             {
-                mpr("That is presently inert.");
+                mpr(TR7("That is presently inert.","그건 현재 비활성화되어있다."));
                 return false;
             }
             if (_lamp_of_fire())
@@ -1652,7 +1653,7 @@ bool evoke_item(int slot, bool check_range)
         case MISC_PHIAL_OF_FLOODS:
             if (!evoker_charges(item.sub_type))
             {
-                mpr("That is presently inert.");
+                mpr(TR7("That is presently inert.","그건 현재 비활성화되어있다."));
                 return false;
             }
             if (_phial_of_floods())
@@ -1667,7 +1668,7 @@ bool evoke_item(int slot, bool check_range)
         case MISC_HORN_OF_GERYON:
             if (!evoker_charges(item.sub_type))
             {
-                mpr("That is presently inert.");
+                mpr(TR7("That is presently inert.","그건 현재 비활성화되어있다."));
                 return false;
             }
             if (_evoke_horn_of_geryon())
@@ -1699,7 +1700,7 @@ bool evoke_item(int slot, bool check_range)
         case MISC_LIGHTNING_ROD:
             if (!evoker_charges(item.sub_type))
             {
-                mpr("That is presently inert.");
+                mpr(TR7("That is presently inert.","그건 현재 비활성화되어있다."));
                 return false;
             }
             if (_lightning_rod())
@@ -1714,7 +1715,7 @@ bool evoke_item(int slot, bool check_range)
             break;
 
         case MISC_QUAD_DAMAGE:
-            mpr("QUAD DAMAGE!");
+            mpr(TR7("QUAD DAMAGE!","* * * 쿼드 데미지! * * *"));
             you.duration[DUR_QUAD_DAMAGE] = 30 * BASELINE_DELAY;
             ASSERT(in_inventory(item));
             dec_inv_item_quantity(item.link, 1);

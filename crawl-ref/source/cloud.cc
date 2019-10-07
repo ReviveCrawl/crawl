@@ -38,6 +38,7 @@
 #include "terrain.h"
 #include "tiledef-main.h"
 #include "unwind.h"
+#include "i18n-format.h"
 
 cloud_struct* cloud_at(coord_def pos)
 {
@@ -444,7 +445,7 @@ static void _spread_fire(const cloud_struct &cloud)
             continue;
 
         if (you.see_cell(*ai))
-            mpr("The forest fire spreads!");
+            mpr(TR7("The forest fire spreads!","나무에 불이 옮겨 붙었다!"));
         destroy_wall(*ai);
         env.cloud[*ai] = cloud;
         env.cloud[*ai].pos = *ai;
@@ -589,7 +590,7 @@ void manage_clouds()
                 mpr("Lightning arcs down from a storm cloud!");
             noisy(spell_effect_noise(SPELL_LIGHTNING_BOLT), cloud.pos,
                   you_see || you_worship(GOD_QAZLAL) ? nullptr
-                  : "You hear a mighty clap of thunder!");
+                  : TR7("You hear a mighty clap of thunder!","커다란 천둥번개 소리가 들린다!"));
         }
         else if (cloud.type == CLOUD_SPECTRAL)
             _handle_spectral_cloud(cloud);
@@ -630,7 +631,7 @@ static void _maybe_leave_water(const coord_def pos)
     if (grd(pos) != feat)
     {
         if (you.pos() == pos && you.ground_level())
-            mpr("The rain has left you waist-deep in water!");
+            mpr(TR7("The rain has left you waist-deep in water!","세찬 비로 인해 허리까지 빗물이 차올랐다!"));
         temp_change_terrain(pos, feat, random_range(500, 1000),
                             TERRAIN_CHANGE_FLOOD);
     }
@@ -997,7 +998,7 @@ static bool _actor_apply_cloud_side_effects(actor *act,
         {
             if (1 + random2(27) >= you.experience_level)
             {
-                mpr("You choke on the stench!");
+                mpr(TR7("You choke on the stench!","심한 악취에 숨이 막힌다!"));
                 // effectively one or two turns, since it will be
                 // decremented right away
                 confuse_player(random_range(2, 3));
@@ -1236,7 +1237,7 @@ static int _actor_cloud_damage(const actor *act,
               act->is_player() || you.see_cell(act->pos())
               || you_worship(GOD_QAZLAL)
                 ? nullptr
-                : "You hear a clap of thunder!");
+                : TR7("You hear a clap of thunder!","천둥소리가 들렸다!"));
 
         return lightning_dam;
 

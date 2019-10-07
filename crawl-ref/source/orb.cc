@@ -14,6 +14,7 @@
 #include "religion.h"
 #include "message.h"
 #include "xom.h"
+#include "i18n-format.h"
 
 
 /**
@@ -88,9 +89,9 @@ void start_orb_run(game_chapter chapter, const char* message)
 {
     if (you.chapter != CHAPTER_ANGERED_PANDEMONIUM)
     {
-        mprf(MSGCH_WARN, "The lords of Pandemonium are not amused. Beware!");
+        mprf(MSGCH_WARN, TR7("The lords of Pandemonium are not amused. Beware!","판데모니움의 군주들은 그다지 즐겁지 않은 것 같다. 조심하는 것이 좋다!"));
         if (have_passive(passive_t::slow_orb_run))
-            simple_god_message(" tells them not to hurry.");
+            simple_god_message(TR7(" tells them not to hurry.","은(는) 그들에게 서두르지 말라고 지시했다."));
     }
 
     mprf(MSGCH_ORB, "%s", message);

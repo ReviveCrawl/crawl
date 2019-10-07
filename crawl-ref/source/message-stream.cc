@@ -2,6 +2,7 @@
 
 #include "libutil.h" // deleteAll
 #include "message.h"
+#include "i18n-format.h"
 
 #include <iostream>
 #include <streambuf>
@@ -96,7 +97,7 @@ namespace msg
 
         if (internal_count + 3 > INTERNAL_LENGTH)
         {
-            mprf(MSGCH_ERROR, "oops, hit overflow");
+            mprf(MSGCH_ERROR, TR7("oops, hit overflow","이런, hit overflow."));
             internal_count = 0;
             return streambuf::traits_type::eof();
         }

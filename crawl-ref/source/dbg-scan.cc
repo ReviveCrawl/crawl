@@ -190,7 +190,7 @@ void debug_item_scan()
             debug_dump_item(name, i, mitm[i], "Summoned item on floor:");
     }
 
-    // Quickly scan monsters for "program bug"s.
+    // Quickly scan monsters for TR7("program bug","프로그램 버그")s.
     for (i = 0; i < MAX_MONSTERS; ++i)
     {
         const monster& mons = menv[i];

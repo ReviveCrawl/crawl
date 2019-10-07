@@ -72,6 +72,7 @@
 #include "travel.h"
 #include "view.h"
 #include "xom.h"
+#include "i18n-format.h"
 
 class interrupt_block
 {
@@ -158,7 +159,7 @@ bool MemoriseDelay::try_interrupt()
 {
     // Losing work here is okay... having to start from
     // scratch is a reasonable behaviour. -- bwr
-    mpr("Your memorisation is interrupted.");
+    mpr(TR7("Your memorisation is interrupted.","주문을 암기하던 중 방해를 받았다."));
     return true;
 }
 
@@ -166,7 +167,7 @@ bool MultidropDelay::try_interrupt()
 {
     // No work lost
     if (!items.empty())
-        mpr("You stop dropping stuff.");
+        mpr(TR7("You stop dropping stuff.","물건을 내려놓는 일을 멈추었다."));
     return true;
 }
 
@@ -251,7 +252,7 @@ bool DescendingStairsDelay::try_interrupt()
 
 bool PasswallDelay::try_interrupt()
 {
-    mpr("Your meditation is interrupted.");
+    mpr(TR7("Your meditation is interrupted.","명상에 집중하던 중 방해를 받았다."));
     return true;
 }
 
@@ -380,7 +381,7 @@ static command_type _get_running_command()
         if (!is_resting() && you.running.hp == you.hp
             && you.running.mp == you.magic_points)
         {
-            mpr("Done waiting.");
+            mpr(TR7("Done waiting.","대기 완료."));
         }
 
         if (Options.rest_delay > 0)
@@ -445,28 +446,28 @@ void clear_macro_process_key_delay()
 
 void ArmourOnDelay::start()
 {
-    mprf(MSGCH_MULTITURN_ACTION, "You start putting on your armour.");
+    mprf(MSGCH_MULTITURN_ACTION, TR7("You start putting on your armour.","방어구를 장비하기 시작했다."));
 }
 
 void ArmourOffDelay::start()
 {
-    mprf(MSGCH_MULTITURN_ACTION, "You start removing your armour.");
+    mprf(MSGCH_MULTITURN_ACTION, TR7("You start removing your armour.","방어구를 해제하기 시작했다."));
 }
 
 void MemoriseDelay::start()
 {
     if (vehumet_is_offering(spell))
     {
-        string message = make_stringf(" grants you knowledge of %s.",
+        string message = make_stringf(TR7(" grants you knowledge of %s.","은(는) 당신에게 '%s'의 지식을 전수했다."),
             spell_title(spell));
         simple_god_message(message.c_str());
     }
-    mprf(MSGCH_MULTITURN_ACTION, "You start memorising the spell.");
+    mprf(MSGCH_MULTITURN_ACTION, TR7("You start memorising the spell.","주문의 암기를 시작했다."));
 }
 
 void PasswallDelay::start()
 {
-    mprf(MSGCH_MULTITURN_ACTION, "You begin to meditate on the wall.");
+    mprf(MSGCH_MULTITURN_ACTION, TR7("You begin to meditate on the wall.","벽을 바라보고, 명상에 잠겼다."));
 }
 
 void ShaftSelfDelay::start()
@@ -745,7 +746,7 @@ void ArmourOnDelay::finish()
 #ifdef USE_SOUND
     parse_sound(EQUIP_ARMOUR_SOUND);
 #endif
-    mprf("You finish putting on %s.", armour.name(DESC_YOUR).c_str());
+    mprf(TR7("You finish putting on %s.","%s을(를) 장비했다."), armour.name(DESC_YOUR).c_str());
 
     if (eq_slot == EQ_BODY_ARMOUR)
     {
@@ -774,7 +775,7 @@ void ArmourOffDelay::finish()
 #ifdef USE_SOUND
     parse_sound(DEQUIP_ARMOUR_SOUND);
 #endif
-    mprf("You finish taking off %s.", armour.name(DESC_YOUR).c_str());
+    mprf(TR7("You finish taking off %s.","%s을(를) 해제했다."), armour.name(DESC_YOUR).c_str());
     unequip_item(slot);
 }
 
@@ -783,14 +784,14 @@ void MemoriseDelay::finish()
 #ifdef USE_SOUND
     parse_sound(MEMORISE_SPELL_SOUND);
 #endif
-    mpr("You finish memorising.");
+    mpr(TR7("You finish memorising.","주문의 암기를 마쳤다."));
     add_spell_to_memory(spell);
     vehumet_accept_gift(spell);
 }
 
 void PasswallDelay::finish()
 {
-    mpr("You finish merging with the rock.");
+    mpr(TR7("You finish merging with the rock.","벽과의 동화를 마쳤다."));
     // included in default force_more_message
 
     if (dest.x == 0 || dest.y == 0)
@@ -825,7 +826,7 @@ void PasswallDelay::finish()
         // Might still fail.
         if (monster_at(dest))
         {
-            mpr("...and sense your way blocked. You quickly turn back.");
+            mpr(TR7("...and sense your way blocked. You quickly turn back.","...무언가가 벽 건너편을 막고있다어, 벽의 통과를 멈췄다."));
             redraw_screen();
             return;
         }
@@ -922,7 +923,7 @@ void run_macro(const char *macroname)
 #ifdef CLUA_BINDINGS
     if (!clua)
     {
-        mprf(MSGCH_DIAGNOSTICS, "Lua not initialised");
+        mprf(MSGCH_DIAGNOSTICS, TR7("Lua not initialised","Lua 스크립트가 초기화되지 않음"));
         stop_delay();
         return;
     }
@@ -943,7 +944,7 @@ void run_macro(const char *macroname)
     {
         if (!clua.error.empty())
         {
-            mprf(MSGCH_ERROR, "Lua error: %s", clua.error.c_str());
+            mprf(MSGCH_ERROR, TR7("Lua error: %s","Lua 스크립트 에러 : %s"), clua.error.c_str());
             stop_delay();
         }
         else if (delay->duration > 0)
@@ -1052,8 +1053,8 @@ static string _abyss_monster_creation_message(const monster* mon)
 {
     if (mon->type == MONS_DEATH_COB)
     {
-        return coinflip() ? " appears in a burst of microwaves!"
-                          : " pops from nullspace!";
+        return coinflip() ? TR7(" appears in a burst of microwaves!","이(가) 고주파를 일으키며 나타났다!")
+                          : TR7(" pops from nullspace!","이(가) 허공에서 튀어나왔다!");
     }
 
     // You may ask: "Why these weights?" So would I!
@@ -1089,7 +1090,7 @@ static inline bool _monster_warning(activity_interrupt_type ai,
 {
     if (ai == AI_SENSE_MONSTER)
     {
-        mprf(MSGCH_WARN, "You sense a monster nearby.");
+        mprf(MSGCH_WARN, TR7("You sense a monster nearby.","주변의 몬스터들을 감지했다."));
         return true;
     }
     if (ai != AI_SEE_MONSTER)
@@ -1115,7 +1116,7 @@ static inline bool _monster_warning(activity_interrupt_type ai,
         // during the previous turn.
         if (testbits(mon->flags, MF_WAS_IN_VIEW) && delay)
         {
-            mprf(MSGCH_WARN, "%s is too close now for your liking.",
+            mprf(MSGCH_WARN, TR7("%s is too close now for your liking.","탐색 중, %s이(가) 시야 내에 들어왔다."),
                  mon->name(DESC_THE).c_str());
         }
     }
@@ -1137,13 +1138,13 @@ static inline bool _monster_warning(activity_interrupt_type ai,
         set_auto_exclude(mon);
 
         if (at.context == SC_DOOR)
-            text += " opens the door.";
+            text += TR7(" opens the door.","이(가) 문을 열었다.");
         else if (at.context == SC_GATE)
-            text += " opens the gate.";
+            text += TR7(" opens the gate.","이(가) 관문을 열었다.");
         else if (at.context == SC_TELEPORT_IN)
-            text += " appears from thin air!";
+            text += TR7(" appears from thin air!","(이)가 갑자기 나타났다!");
         else if (at.context == SC_LEAP_IN)
-            text += " leaps into view!";
+            text += TR7(" leaps into view!","이(가) 시야 내로 뛰어들었다!");
         else if (at.context == SC_FISH_SURFACES)
         {
             text += " bursts forth from the ";
@@ -1156,19 +1157,19 @@ static inline bool _monster_warning(activity_interrupt_type ai,
             text += ".";
         }
         else if (at.context == SC_NONSWIMMER_SURFACES_FROM_DEEP)
-            text += " emerges from the water.";
+            text += TR7(" emerges from the water.","이(가) 물 속에서 모습을 드러냈다.");
         else if (at.context == SC_UPSTAIRS)
-            text += " comes up the stairs.";
+            text += TR7(" comes up the stairs.","이(가) 계단을 올라왔다.");
         else if (at.context == SC_DOWNSTAIRS)
-            text += " comes down the stairs.";
+            text += TR7(" comes down the stairs.","이(가) 계단을 내려왔다.");
         else if (at.context == SC_ARCH)
-            text += " comes through the gate.";
+            text += TR7(" comes through the gate.","이(가) 관문을 지나왔다.");
         else if (at.context == SC_ABYSS)
             text += _abyss_monster_creation_message(mon);
         else if (at.context == SC_THROWN_IN)
             text += " is thrown into view!";
         else
-            text += " comes into view.";
+            text += TR7(" comes into view.","이(가) 시야 내로 들어왔다.");
 
         bool ash_id = mon->props.exists("ash_id") && mon->props["ash_id"];
         bool zin_id = false;
@@ -1187,7 +1188,7 @@ static inline bool _monster_warning(activity_interrupt_type ai,
                           + uppercase_first(mon->pronoun(PRONOUN_SUBJECTIVE))
                           + " is a foul ";
             if (mon->has_ench(ENCH_GLOWING_SHAPESHIFTER))
-                god_warning += "glowing ";
+                god_warning += TR7("glowing ","반짝이는 ");
             god_warning += "shapeshifter.";
         }
 
@@ -1265,7 +1266,7 @@ void autotoggle_autopickup(bool off)
         {
             Options.autopickup_on = -1;
             mprf(MSGCH_WARN,
-                 "Deactivating autopickup; reactivate with <w>%s</w>.",
+                 TR7("Deactivating autopickup; reactivate with <w>%s</w>.","자동 줍기 해제; (<w>%s</w>키로 다시 활성화)"),
                  command_to_string(CMD_TOGGLE_AUTOPICKUP).c_str());
         }
         if (crawl_state.game_is_hints())
@@ -1277,7 +1278,7 @@ void autotoggle_autopickup(bool off)
     else if (Options.autopickup_on < 0) // was turned off automatically
     {
         Options.autopickup_on = 1;
-        mprf(MSGCH_WARN, "Reactivating autopickup.");
+        mprf(MSGCH_WARN, TR7("Reactivating autopickup.","자동 줍기 재시작."));
     }
 }
 
@@ -1325,12 +1326,12 @@ bool interrupt_activity(activity_interrupt_type ai,
     if (ai == AI_FULL_HP && !you.running.notified_hp_full)
     {
         you.running.notified_hp_full = true;
-        mpr("HP restored.");
+        mpr(TR7("HP restored.","체력이 모두 회복되었다."));
     }
     else if (ai == AI_FULL_MP && !you.running.notified_mp_full)
     {
         you.running.notified_mp_full = true;
-        mpr("Magic restored.");
+        mpr(TR7("Magic restored.","마력이 모두 회복되었다."));
     }
 
     if (_should_stop_activity(delay.get(), ai, at))

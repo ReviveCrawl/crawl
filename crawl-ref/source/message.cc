@@ -32,6 +32,25 @@
 #include "tiles-build-specific.h"
 #include "unwind.h"
 #include "view.h"
+#include "i18n-format.h"
+#include "json/json.h"
+
+#include <ios>
+#include <fstream>
+
+#define JSON_FILE "crawl.json"
+
+
+void cLog(const char* str){
+
+  
+  /*
+  std::ofstream log(JSON_FILE, std::ios_base::app | std::ios_base::out);
+
+  log << str;
+  log << "\n";
+  */
+}
 
 static void _mpr(string text, msg_channel_type channel=MSGCH_PLAIN, int param=0,
                  bool nojoin=false, bool cap=true);
@@ -706,7 +725,7 @@ public:
                 cprintf(more_str.c_str());
             }
             else
-                cprintf("--more--");
+                cprintf(TR7("--more--","--다음장--"));
 
             readkey_more(user);
         }
@@ -1126,6 +1145,7 @@ void do_message_print(msg_channel_type channel, int param, bool cap,
 void mprf_nocap(msg_channel_type channel, int param, const char *format, ...)
 {
     va_list argp;
+	cLog(format);
     va_start(argp, format);
     do_message_print(channel, param, false, false, format, argp);
     va_end(argp);
@@ -1134,6 +1154,7 @@ void mprf_nocap(msg_channel_type channel, int param, const char *format, ...)
 void mprf_nocap(msg_channel_type channel, const char *format, ...)
 {
     va_list argp;
+	cLog(format);
     va_start(argp, format);
     do_message_print(channel, channel == MSGCH_GOD ? you.religion : 0,
                      false, false, format, argp);
@@ -1143,6 +1164,7 @@ void mprf_nocap(msg_channel_type channel, const char *format, ...)
 void mprf_nocap(const char *format, ...)
 {
     va_list argp;
+	cLog(format);
     va_start(argp, format);
     do_message_print(MSGCH_PLAIN, 0, false, false, format, argp);
     va_end(argp);
@@ -1151,6 +1173,7 @@ void mprf_nocap(const char *format, ...)
 void mprf(msg_channel_type channel, int param, const char *format, ...)
 {
     va_list argp;
+	cLog(format);
     va_start(argp, format);
     do_message_print(channel, param, true, false, format, argp);
     va_end(argp);
@@ -1159,6 +1182,7 @@ void mprf(msg_channel_type channel, int param, const char *format, ...)
 void mprf(msg_channel_type channel, const char *format, ...)
 {
     va_list argp;
+	cLog(format);
     va_start(argp, format);
     do_message_print(channel, channel == MSGCH_GOD ? you.religion : 0,
                      true, false, format, argp);
@@ -1168,6 +1192,7 @@ void mprf(msg_channel_type channel, const char *format, ...)
 void mprf(const char *format, ...)
 {
     va_list argp;
+	cLog(format);
     va_start(argp, format);
     do_message_print(MSGCH_PLAIN, 0, true, false, format, argp);
     va_end(argp);
@@ -1176,6 +1201,7 @@ void mprf(const char *format, ...)
 void mprf_nojoin(msg_channel_type channel, const char *format, ...)
 {
     va_list argp;
+	cLog(format);
     va_start(argp, format);
     do_message_print(channel, channel == MSGCH_GOD ? you.religion : 0,
                      true, true, format, argp);
@@ -1185,6 +1211,7 @@ void mprf_nojoin(msg_channel_type channel, const char *format, ...)
 void mprf_nojoin(const char *format, ...)
 {
     va_list argp;
+	cLog(format);
     va_start(argp, format);
     do_message_print(MSGCH_PLAIN, 0, true, true, format, argp);
     va_end(argp);
@@ -1752,63 +1779,63 @@ void canned_msg(canned_message_type which_message)
                  player_has_feet() ? "at your feet" : "before you");
             break;
         case MSG_NOTHING_HAPPENS:
-            mpr("Nothing appears to happen.");
+            mpr(TR7("Nothing appears to happen.","아무 일도 일어나지 않은 것 같다."));
             break;
         case MSG_YOU_UNAFFECTED:
-            mpr("You are unaffected.");
+            mpr(TR7("You are unaffected.","당신은 아무 영향도 받지 않았다."));
             break;
         case MSG_YOU_RESIST:
-            mpr("You resist.");
+            mpr(TR7("You resist.","당신은 저항에 성공했다."));
             learned_something_new(HINT_YOU_RESIST);
             break;
         case MSG_YOU_PARTIALLY_RESIST:
-            mpr("You partially resist.");
+            mpr(TR7("You partially resist.","당신은 부분적으로 저항에 성공했다."));
             break;
         case MSG_TOO_BERSERK:
-            mpr("You are too berserk!");
+            mpr(TR7("You are too berserk!","당신은 너무 광폭해져있다!"));
             crawl_state.cancel_cmd_repeat();
             break;
         case MSG_TOO_CONFUSED:
-            mpr("You're too confused!");
+            mpr(TR7("You're too confused!","당신은 너무 혼란한 상태이다!"));
             break;
         case MSG_PRESENT_FORM:
-            mpr("You can't do that in your present form.");
+            mpr(TR7("You can't do that in your present form.","당신의 현재 모습으로는 그렇게 할 수 없다."));
             crawl_state.cancel_cmd_repeat();
             break;
         case MSG_NOTHING_CARRIED:
-            mpr("You aren't carrying anything.");
+            mpr(TR7("You aren't carrying anything.","당신은 아무것도 들고있지 않다."));
             crawl_state.cancel_cmd_repeat();
             break;
         case MSG_CANNOT_DO_YET:
-            mpr("You can't do that yet.");
+            mpr(TR7("You can't do that yet.","당신은 아직 할 수 없다."));
             crawl_state.cancel_cmd_repeat();
             break;
         case MSG_OK:
-            mprf(MSGCH_PROMPT, "Okay, then.");
+            mprf(MSGCH_PROMPT, TR7("Okay, then.","좋아, 그럼."));
             crawl_state.cancel_cmd_repeat();
             break;
         case MSG_UNTHINKING_ACT:
-            mpr("Why would you want to do that?");
+            mpr(TR7("Why would you want to do that?","어째서 그런 짓을 하려는 것인가?"));
             crawl_state.cancel_cmd_repeat();
             break;
         case MSG_NOTHING_THERE:
-            mpr("There's nothing there!");
+            mpr(TR7("There's nothing there!","그곳에는 아무 것도 없다!"));
             crawl_state.cancel_cmd_repeat();
             break;
         case MSG_NOTHING_CLOSE_ENOUGH:
-            mpr("There's nothing close enough!");
+            mpr(TR7("There's nothing close enough!","가까이에는 아무 것도 없다!"));
             crawl_state.cancel_cmd_repeat();
             break;
         case MSG_NO_ENERGY:
-            mpr("You don't have the energy to cast that spell.");
+            mpr(TR7("You don't have the energy to cast that spell.","당신에게는 주문을 시전하기 위한 에너지가 부족하다."));
             // included in default force_more_message
             crawl_state.cancel_cmd_repeat();
             break;
         case MSG_SPELL_FIZZLES:
-            mpr("The spell fizzles.");
+            mpr(TR7("The spell fizzles.","주문은 실패했다."));
             break;
         case MSG_HUH:
-            mprf(MSGCH_EXAMINE_FILTER, "Huh?");
+            mprf(MSGCH_EXAMINE_FILTER, TR7("Huh?","뭐라고?"));
             crawl_state.cancel_cmd_repeat();
             break;
         case MSG_EMPTY_HANDED_ALREADY:
@@ -1817,74 +1844,74 @@ void canned_msg(canned_message_type which_message)
             const char* when =
             (which_message == MSG_EMPTY_HANDED_ALREADY ? "already" : "now");
             if (you.species == SP_FELID)
-                mprf("Your mouth is %s empty.", when);
+                mprf(TR7("Your mouth is %s empty.","당신은 %s 맨입이다."), when);
             else if (you.has_usable_claws(true))
-                mprf("You are %s empty-clawed.", when);
+                mprf(TR7("You are %s empty-clawed.","당신은 %s 맨손이다."), when);
             else if (you.has_usable_tentacles(true))
-                mprf("You are %s empty-tentacled.", when);
+                mprf(TR7("You are %s empty-tentacled.","당신의 촉수에는 %s 아무 것도 없다."), when);
             else
-                mprf("You are %s empty-handed.", when);
+                mprf(TR7("You are %s empty-handed.","당신은 %s 맨손이다."), when);
             break;
         }
         case MSG_YOU_BLINK:
-            mpr("You blink.");
+            mpr(TR7("You blink.","당신은 순간이동했다."));
             break;
         case MSG_STRANGE_STASIS:
-            mpr("You feel a strange sense of stasis.");
+            mpr(TR7("You feel a strange sense of stasis.","당신은 강한 정체감을 느꼈다."));
             break;
         case MSG_NO_SPELLS:
-            mpr("You don't know any spells.");
+            mpr(TR7("You don't know any spells.","당신은 아무 주문도 모른다."));
             break;
         case MSG_MANA_INCREASE:
-            mpr("You feel your magic capacity increase.");
+            mpr(TR7("You feel your magic capacity increase.","마력이 늘어난 느낌이 들었다."));
             break;
         case MSG_MANA_DECREASE:
-            mpr("You feel your magic capacity decrease.");
+            mpr(TR7("You feel your magic capacity decrease.","마력이 줄어들은 느낌이 들었다."));
             break;
         case MSG_DISORIENTED:
-            mpr("You feel momentarily disoriented.");
+            mpr(TR7("You feel momentarily disoriented.","당신은 잠시 방향감각을 상실했다."));
             break;
         case MSG_TOO_HUNGRY:
-            mpr("You're too hungry.");
+            mpr(TR7("You're too hungry.","당신은 너무 배고프다."));
             break;
         case MSG_DETECT_NOTHING:
-            mpr("You detect nothing.");
+            mpr(TR7("You detect nothing.","당신은 아무것도 발견하지 못했다."));
             break;
         case MSG_CALL_DEAD:
-            mpr("You call on the dead to rise...");
+            mpr(TR7("You call on the dead to rise...","당신은 망자를 불러 일으켰다..."));
             break;
         case MSG_ANIMATE_REMAINS:
-            mpr("You attempt to give life to the dead...");
+            mpr(TR7("You attempt to give life to the dead...","당신은 죽은 자에게, 생명력을 불어넣으려 시도했다..."));
             break;
         case MSG_CANNOT_MOVE:
-            mpr("You cannot move.");
+            mpr(TR7("You cannot move.","당신은 움직일 수 없다."));
             break;
         case MSG_YOU_DIE:
-            mpr_nojoin(MSGCH_PLAIN, "You die...");
+            mpr_nojoin(MSGCH_PLAIN, TR7("You die...","죽었다..."));
             break;
         case MSG_GHOSTLY_OUTLINE:
-            mpr("You see a ghostly outline there, and the spell fizzles.");
+            mpr(TR7("You see a ghostly outline there, and the spell fizzles.","무언가 보이지 않는 물체가 이곳에 위치하고 있었고, 주문은 실패했다."));
             break;
         case MSG_FULL_HEALTH:
             mpr("Your health is already full.");
             break;
         case MSG_FULL_MAGIC:
-            mpr("Your reserves of magic are already full.");
+            mpr(TR7("Your reserves of magic are already full.","당신의 마력은 이미 가득찼다."));
             break;
         case MSG_GAIN_HEALTH:
-            mpr("You feel better.");
+            mpr(TR7("You feel better.","당신은 기분이 나아졌다."));
             break;
         case MSG_GAIN_MAGIC:
-            mpr("You feel your power returning.");
+            mpr(TR7("You feel your power returning.","마력이 돌아 오는것을 느꼈다."));
             break;
         case MSG_MAGIC_DRAIN:
-            mprf(MSGCH_WARN, "You suddenly feel drained of magical energy!");
+            mprf(MSGCH_WARN, TR7("You suddenly feel drained of magical energy!","마력이 어딘가로 빨려 들어간 것을 느꼈다!"));
             break;
         case MSG_SOMETHING_IN_WAY:
-            mpr("There's something in the way.");
+            mpr(TR7("There's something in the way.","무언가가 길을 막고 있다."));
             break;
         case MSG_CANNOT_SEE:
-            mpr("You can't see that place.");
+            mpr(TR7("You can't see that place.","당신은 그 장소가 보이지 않는다."));
             break;
         case MSG_GOD_DECLINES:
             mpr("Your god isn't willing to do this for you now.");
